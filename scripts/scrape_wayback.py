@@ -46,7 +46,7 @@ async def query_wayback_cdx(
     if filters:
         params.update(filters)
 
-    async with httpx.AsyncClient() as client:
+    async with httpx.AsyncClient(timeout=60.0) as client:
         logger.info(f"Querying CDX API for {url_pattern}")
         response = await client.get(CDX_API_URL, params=params)
         response.raise_for_status()
