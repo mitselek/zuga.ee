@@ -332,15 +332,15 @@ Ready to initialize this structure, or do you want to discuss more about the new
 GitHub Copilot: **Not quite strict TDD yet.** We have strong testing infrastructure, but true TDD requires:
 
 **Current Setup (Test-Friendly):**
-✅ pytest for test execution  
-✅ pytest-cov for coverage tracking  
-✅ Type safety (mypy + Pydantic) catches many bugs  
+✅ pytest for test execution
+✅ pytest-cov for coverage tracking
+✅ Type safety (mypy + Pydantic) catches many bugs
 ✅ Pre-commit hooks enforce quality
 
 **Missing for Strict TDD:**
-❌ **pytest-watch** - Auto-run tests on file changes (red-green-refactor loop)  
-❌ **pytest-testmon** - Run only affected tests (fast feedback)  
-❌ **Coverage enforcement** - Fail CI if coverage drops below threshold  
+❌ **pytest-watch** - Auto-run tests on file changes (red-green-refactor loop)
+❌ **pytest-testmon** - Run only affected tests (fast feedback)
+❌ **Coverage enforcement** - Fail CI if coverage drops below threshold
 ❌ **Mutation testing** - pytest-mutpy to verify test quality
 
 **For True TDD Workflow:**

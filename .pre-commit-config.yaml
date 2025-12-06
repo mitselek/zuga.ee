@@ -14,7 +14,7 @@ repos:
     rev: 23.12.1
     hooks:
       - id: black
-        language_version: python3.11
+        language_version: python3.12
         files: ^apps/api/
 
   - repo: https://github.com/pycqa/flake8
@@ -44,7 +44,7 @@ repos:
         language: system
         pass_filenames: false
         always_run: true
-        stages: [commit]
+        stages: [pre-commit]
 
       - id: prettier
         name: prettier
@@ -73,4 +73,4 @@ repos:
         language: system
         pass_filenames: false
         always_run: true
-        stages: [commit]
+        stages: [pre-commit]

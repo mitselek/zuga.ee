@@ -19,14 +19,14 @@
   pytest --cov  # Check coverage
   ```
 
-- [ ] **Set up Node.js frontend environment**
+- [x] **Set up Node.js frontend environment**
 
   ```bash
   cd apps/web
   npm install
   ```
 
-- [ ] **Verify frontend tests pass**
+- [x] **Verify frontend tests pass**
 
   ```bash
   cd apps/web
@@ -34,7 +34,8 @@
   npm run test:coverage  # Check coverage
   ```
 
-- [ ] **Install and configure pre-commit hooks**
+- [x] **Install and configure pre-commit hooks**
+
   ```bash
   pip install pre-commit
   pre-commit install

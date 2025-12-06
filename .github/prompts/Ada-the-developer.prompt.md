@@ -87,13 +87,13 @@ import re
 class SourceRecord(BaseModel):
     """
     Source data schema with validation.
-    
+
     Enforces:
     - ID is present and non-empty
     - Name has minimum length
     - Date is valid ISO format
     - Dimensions match expected pattern
-    
+
     Example:
         >>> record = SourceRecord(
         ...     id="001",
@@ -112,7 +112,7 @@ class SourceRecord(BaseModel):
         description="Dimensions in format: WxHxD or ø{diameter}",
         pattern=r"^(\d+x\d+(x\d+)?|ø\d+)$"
     )
-    
+
     @field_validator('created_at', mode='before')
     @classmethod
     def parse_date(cls, v: str | date) -> date:
@@ -124,11 +124,11 @@ class SourceRecord(BaseModel):
 class TargetRecord(BaseModel):
     """
     Target data schema with business logic.
-    
+
     Enforces:
     - Date is in DD.MM.YYYY format
     - Dimensions are positive integers or None
-    
+
     Example:
         >>> record = TargetRecord(
         ...     system_id="001",
@@ -147,7 +147,7 @@ class TargetRecord(BaseModel):
     width: Optional[int] = Field(None, ge=0, description="Width in mm")
     height: Optional[int] = Field(None, ge=0, description="Height in mm")
     depth: Optional[int] = Field(None, ge=0, description="Depth in mm")
-    
+
     @field_validator('date_formatted')
     @classmethod
     def validate_date_format(cls, v: str) -> str:
@@ -184,14 +184,14 @@ from transformer import transform_record  # doesn't exist yet - that's the point
 class TestRecordTransformation:
     """
     Test suite for source→target transformation.
-    
+
     Tests cover:
     - Happy path (valid input → valid output)
     - Missing optional fields (dimensions=None)
     - Malformed input (invalid dimensions)
     - Date format conversion
     """
-    
+
     def test_basic_transformation_happy_path(self):
         """
         GIVEN: Valid source record with all fields populated
@@ -205,10 +205,10 @@ class TestRecordTransformation:
             created_at="2024-01-15",
             dimensions="100x200x50"
         )
-        
+
         # Act
         target = transform_record(source)
-        
+
         # Assert
         assert target.system_id == "001"
         assert target.title == "Test Object"
@@ -216,7 +216,7 @@ class TestRecordTransformation:
         assert target.width == 100
         assert target.height == 200
         assert target.depth == 50
-    
+
     def test_missing_dimensions_returns_none(self):
         """
         GIVEN: Source record with dimensions=None
@@ -229,13 +229,13 @@ class TestRecordTransformation:
             created_at="2024-01-15",
             dimensions=None
         )
-        
+
         target = transform_record(source)
-        
+
         assert target.width is None
         assert target.height is None
         assert target.depth is None
-    
+
     def test_malformed_dimensions_raises_clear_error(self):
         """
         GIVEN: Source record with malformed dimensions string
@@ -248,13 +248,13 @@ class TestRecordTransformation:
             created_at="2024-01-15",
             dimensions="100x200"  # missing depth
         )
-        
+
         with pytest.raises(ValueError) as exc_info:
             transform_record(source)
-        
+
         assert "Cannot parse dimensions" in str(exc_info.value)
         assert "100x200" in str(exc_info.value)
-    
+
     @pytest.mark.parametrize("date_str,expected", [
         ("2024-01-15", "15.01.2024"),
         ("2024-12-31", "31.12.2024"),
@@ -273,9 +273,9 @@ class TestRecordTransformation:
             created_at=date_str,
             dimensions=None
         )
-        
+
         target = transform_record(source)
-        
+
         assert target.date_formatted == expected
 ```
 
@@ -323,14 +323,14 @@ This module provides:
 Example:
     from models import SourceRecord
     from transformer import transform_record
-    
+
     source = SourceRecord(
         id="001",
         name="Example",
         created_at="2024-01-15",
         dimensions="100x200x50"
     )
-    
+
     target = transform_record(source)
     print(target.width)  # 100
 """
@@ -343,21 +343,21 @@ from typing import Optional
 def transform_record(source: SourceRecord) -> TargetRecord:
     """
     Transform source record to target format.
-    
+
     This function:
     1. Parses dimensions into width/height/depth
     2. Converts date from ISO to DD.MM.YYYY format
     3. Maps fields to target schema
-    
+
     Args:
         source: Validated source record (Pydantic model)
-        
+
     Returns:
         Validated target record (Pydantic model)
-        
+
     Raises:
         ValueError: If transformation fails due to malformed data
-        
+
     Example:
         >>> source = SourceRecord(
         ...     id="001",
@@ -371,10 +371,10 @@ def transform_record(source: SourceRecord) -> TargetRecord:
     """
     # Parse dimensions
     width, height, depth = _parse_dimensions(source.dimensions)
-    
+
     # Convert date format
     date_formatted = _format_date(source.created_at)
-    
+
     # Map to target schema (Pydantic validates on construction)
     return TargetRecord(
         system_id=source.id,
@@ -388,31 +388,31 @@ def transform_record(source: SourceRecord) -> TargetRecord:
 def _parse_dimensions(dim_str: Optional[str]) -> tuple[Optional[int], Optional[int], Optional[int]]:
     """
     Parse dimension string into width, height, depth.
-    
+
     Supported formats:
     - "100x200x50" → (100, 200, 50)
     - "100x200" → raises ValueError (ambiguous)
     - None → (None, None, None)
-    
+
     Args:
         dim_str: Dimension string in format WxHxD
-        
+
     Returns:
         Tuple of (width, height, depth) or (None, None, None)
-        
+
     Raises:
         ValueError: If format doesn't match WxHxD pattern
     """
     if not dim_str:
         return None, None, None
-    
+
     match = re.match(r'^(\d+)x(\d+)x(\d+)$', dim_str)
     if not match:
         raise ValueError(
             f"Cannot parse dimensions: {dim_str}. "
             f"Expected format: WxHxD (e.g., '100x200x50')"
         )
-    
+
     return (
         int(match.group(1)),
         int(match.group(2)),
@@ -422,13 +422,13 @@ def _parse_dimensions(dim_str: Optional[str]) -> tuple[Optional[int], Optional[i
 def _format_date(d: date) -> str:
     """
     Convert date object to DD.MM.YYYY format.
-    
+
     Args:
         d: Python date object
-        
+
     Returns:
         Date string in DD.MM.YYYY format
-        
+
     Example:
         >>> from datetime import date
         >>> _format_date(date(2024, 1, 15))
@@ -629,7 +629,7 @@ def test_empty_name_raises_validation_error():
     """
     with pytest.raises(ValueError) as exc_info:
         SourceRecord(id="001", name="", created_at="2024-01-15")
-    
+
     assert "name" in str(exc_info.value).lower()
 
 def test_future_date_allowed():
@@ -640,9 +640,9 @@ def test_future_date_allowed():
     """
     future_date = "2030-01-01"
     source = SourceRecord(id="001", name="Future", created_at=future_date)
-    
+
     target = transform_record(source)
-    
+
     assert target.date_formatted == "01.01.2030"
 
 def test_very_large_dimensions():
@@ -657,9 +657,9 @@ def test_very_large_dimensions():
         created_at="2024-01-15",
         dimensions="999999x999999x999999"
     )
-    
+
     target = transform_record(source)
-    
+
     assert target.width == 999999
     assert target.height == 999999
     assert target.depth == 999999
@@ -676,9 +676,9 @@ def test_unicode_in_name():
         created_at="2024-01-15",
         dimensions=None
     )
-    
+
     target = transform_record(source)
-    
+
     assert target.title == "Õpik süsteemile"
 ```
 
@@ -714,7 +714,7 @@ Converts source records to target format with validation.
 USAGE EXAMPLE:
     from models import SourceRecord
     from transformer import transform_record
-    
+
     # Create and validate source record
     source = SourceRecord(
         id="001",
@@ -722,10 +722,10 @@ USAGE EXAMPLE:
         created_at="2024-01-15",
         dimensions="100x200x50"
     )
-    
+
     # Transform to target format
     target = transform_record(source)
-    
+
     # Access transformed fields
     print(target.system_id)      # "001"
     print(target.title)           # "Example Object"
@@ -736,33 +736,33 @@ REQUIREMENTS:
     - Python 3.9+
     - pydantic >= 2.0
     - pandas (for batch processing patterns)
-    
+
 TESTING:
     # Run all tests
     pytest tests/ -v
-    
+
     # Run with coverage
     pytest tests/ --cov=transformer --cov-report=term-missing
-    
+
     # Check coverage threshold (80% minimum)
     pytest tests/ --cov=transformer --cov-fail-under=80
 
 QUALITY CHECKS:
     # Format code
     black transformer.py tests/ --line-length=100
-    
+
     # Check style
     flake8 transformer.py tests/ --max-line-length=100
-    
+
     # Type checking
     mypy transformer.py tests/ --strict
 
 ERROR HANDLING:
     The module uses fail-fast error handling:
-    
+
     - ValueError: Raised for malformed input data
     - Pydantic ValidationError: Raised for schema violations
-    
+
     All errors include descriptive messages with context.
 
 PERFORMANCE:
@@ -809,21 +809,21 @@ def process_csv_in_batches(
 ) -> dict[str, int]:
     """
     Process large CSV in batches with progress tracking.
-    
+
     This function:
     1. Reads CSV in chunks to manage memory
     2. Transforms each batch independently
     3. Appends results to output file
     4. Shows progress bar with tqdm
-    
+
     Args:
         input_path: Path to input CSV file
         output_path: Path to output CSV file
         batch_size: Rows per batch (default: 1000)
-        
+
     Returns:
         Statistics dict with keys: total_rows, success_count, error_count
-        
+
     Example:
         >>> stats = process_csv_in_batches(
         ...     Path("input.csv"),
@@ -833,19 +833,19 @@ def process_csv_in_batches(
         >>> print(f"Processed {stats['success_count']} rows")
     """
     chunks = pd.read_csv(input_path, chunksize=batch_size)
-    
+
     # Process first chunk (initialize output file with headers)
     first_chunk = next(chunks)
     transformed = _transform_batch(first_chunk)
     transformed.to_csv(output_path, index=False, mode='w', header=True)
-    
+
     # Count total rows for progress bar
     total_rows = sum(1 for _ in open(input_path)) - 1  # exclude header
     remaining_rows = total_rows - len(first_chunk)
-    
+
     success_count = len(first_chunk)
     error_count = 0
-    
+
     # Process remaining chunks with progress bar
     with tqdm(total=remaining_rows, desc="Processing", unit=" rows") as pbar:
         for chunk in chunks:
@@ -858,7 +858,7 @@ def process_csv_in_batches(
                 error_count += len(chunk)
             finally:
                 pbar.update(len(chunk))
-    
+
     return {
         "total_rows": total_rows,
         "success_count": success_count,
@@ -868,17 +868,17 @@ def process_csv_in_batches(
 def _transform_batch(df: pd.DataFrame) -> pd.DataFrame:
     """
     Transform a batch of records using vectorized pandas operations.
-    
+
     Prefer vectorized operations over row-by-row for performance:
     - 100x faster for large batches
     - Leverages pandas C extensions
     """
     # Vectorized date conversion
     df['date_formatted'] = pd.to_datetime(df['date']).dt.strftime('%d.%m.%Y')
-    
+
     # Vectorized dimension parsing (width only, as example)
     df['width'] = df['dimensions'].str.extract(r'^(\d+)x', expand=False).astype('Int64')
-    
+
     return df
 ```
 
@@ -894,17 +894,17 @@ def test_batch_processing_produces_correct_output(tmp_path):
     # Arrange
     input_csv = tmp_path / "input.csv"
     output_csv = tmp_path / "output.csv"
-    
+
     test_data = pd.DataFrame({
         'id': [f'{i:06d}' for i in range(2500)],
         'date': ['2024-01-15'] * 2500,
         'dimensions': ['100x200x50'] * 2500
     })
     test_data.to_csv(input_csv, index=False)
-    
+
     # Act
     stats = process_csv_in_batches(input_csv, output_csv, batch_size=1000)
-    
+
     # Assert
     result = pd.read_csv(output_csv)
     assert len(result) == 2500
@@ -938,19 +938,19 @@ def transform_with_error_handling(
 ) -> Tuple[List[TargetRecord], List[Tuple[str, Exception]]]:
     """
     Transform records with error tracking and logging.
-    
+
     This function:
     1. Attempts to transform each source record
     2. Logs errors but continues processing
     3. Returns both successes and errors
-    
+
     Args:
         sources: List of source records to transform
-        
+
     Returns:
         Tuple of (successful_records, errors)
         where errors is list of (record_id, exception) tuples
-        
+
     Example:
         >>> sources = [record1, record2, record3]
         >>> successes, errors = transform_with_error_handling(sources)
@@ -958,7 +958,7 @@ def transform_with_error_handling(
     """
     successes: List[TargetRecord] = []
     errors: List[Tuple[str, Exception]] = []
-    
+
     for source in sources:
         try:
             target = transform_record(source)
@@ -969,23 +969,23 @@ def transform_with_error_handling(
                 f"Failed to transform {source.id}: {type(e).__name__}: {e}"
             )
             errors.append((source.id, e))
-    
+
     # Summary logging
     total = len(sources)
     success_rate = (len(successes) / total * 100) if total > 0 else 0
-    
+
     logger.info(
         f"Transformation complete: "
         f"{len(successes)}/{total} succeeded ({success_rate:.1f}%), "
         f"{len(errors)} failed"
     )
-    
+
     if errors:
         logger.warning(
             f"Error breakdown: "
             f"{_count_error_types(errors)}"
         )
-    
+
     return successes, errors
 
 def _count_error_types(errors: List[Tuple[str, Exception]]) -> str:
@@ -1009,13 +1009,13 @@ def test_transform_with_error_handling_isolates_failures():
         SourceRecord(id="002", name="Bad", created_at="2024-01-15", dimensions="invalid"),
         SourceRecord(id="003", name="Good", created_at="2024-01-15", dimensions=None),
     ]
-    
+
     successes, errors = transform_with_error_handling(sources)
-    
+
     assert len(successes) == 2
     assert successes[0].system_id == "001"
     assert successes[1].system_id == "003"
-    
+
     assert len(errors) == 1
     assert errors[0][0] == "002"
     assert "Cannot parse dimensions" in str(errors[0][1])
@@ -1035,22 +1035,22 @@ import pandas as pd
 def build_person_id_map(csv_path: Path) -> Dict[str, str]:
     """
     Build lookup table: ENTU person ID → MUIS person ID.
-    
+
     CSV format expected:
         entu_id,muis_id,full_name
         entu_001,muis_A123,John Doe
         entu_002,muis_B456,Jane Smith
-    
+
     Args:
         csv_path: Path to coordination CSV file
-        
+
     Returns:
         Dict mapping ENTU IDs to MUIS IDs
-        
+
     Raises:
         FileNotFoundError: If CSV doesn't exist
         ValueError: If CSV missing required columns
-        
+
     Example:
         >>> id_map = build_person_id_map(Path("person_ids.csv"))
         >>> id_map["entu_001"]
@@ -1058,33 +1058,33 @@ def build_person_id_map(csv_path: Path) -> Dict[str, str]:
     """
     if not csv_path.exists():
         raise FileNotFoundError(f"Coordination file not found: {csv_path}")
-    
+
     df = pd.read_csv(csv_path)
-    
+
     required_cols = {'entu_id', 'muis_id'}
     if not required_cols.issubset(df.columns):
         missing = required_cols - set(df.columns)
         raise ValueError(f"CSV missing required columns: {missing}")
-    
+
     # Remove rows with missing IDs
     df = df.dropna(subset=['entu_id', 'muis_id'])
-    
+
     return dict(zip(df['entu_id'], df['muis_id']))
 
 def resolve_person_id(entu_id: str, id_map: Dict[str, str]) -> str:
     """
     Resolve ENTU person ID to MUIS ID using coordination table.
-    
+
     Args:
         entu_id: ENTU system person ID
         id_map: ID coordination map (from build_person_id_map)
-        
+
     Returns:
         Corresponding MUIS person ID
-        
+
     Raises:
         ValueError: If ID not found in coordination table
-        
+
     Example:
         >>> muis_id = resolve_person_id("entu_001", id_map)
         >>> muis_id
@@ -1111,9 +1111,9 @@ def test_resolve_person_id_success():
         "entu_001": "muis_A123",
         "entu_002": "muis_B456"
     }
-    
+
     result = resolve_person_id("entu_001", id_map)
-    
+
     assert result == "muis_A123"
 
 def test_resolve_person_id_missing_raises_error():
@@ -1123,10 +1123,10 @@ def test_resolve_person_id_missing_raises_error():
     THEN: Raises ValueError with helpful message
     """
     id_map = {"entu_001": "muis_A123"}
-    
+
     with pytest.raises(ValueError) as exc_info:
         resolve_person_id("entu_999", id_map)
-    
+
     assert "entu_999" in str(exc_info.value)
     assert "not found" in str(exc_info.value)
 ```
@@ -1152,22 +1152,22 @@ class Measurement(BaseModel):
 def explode_measurements(dimensions: Optional[str]) -> List[Measurement]:
     """
     Parse dimension string with multiple measurements.
-    
+
     Supported formats:
     - Circular: "ø50" → [Measurement(diameter=50)]
     - Rectangular 2D: "62x70" → [Measurement(width=62, height=70)]
     - Rectangular 3D: "100x200x50" → [Measurement(width=100, height=200, depth=50)]
     - Multiple: "ø50;62x70" → [Measurement(diameter=50), Measurement(width=62, height=70)]
-    
+
     Args:
         dimensions: Semicolon-separated dimension strings
-        
+
     Returns:
         List of Measurement objects (1-3 items typically)
-        
+
     Raises:
         ValueError: If dimension format is invalid
-        
+
     Example:
         >>> measurements = explode_measurements("ø50;62x70")
         >>> len(measurements)
@@ -1179,12 +1179,12 @@ def explode_measurements(dimensions: Optional[str]) -> List[Measurement]:
     """
     if not dimensions:
         return []
-    
+
     measurements = []
-    
+
     for part in dimensions.split(';'):
         part = part.strip()
-        
+
         # Circular measurement (starts with ø)
         if part.startswith('ø'):
             try:
@@ -1192,7 +1192,7 @@ def explode_measurements(dimensions: Optional[str]) -> List[Measurement]:
                 measurements.append(Measurement(diameter=diameter))
             except ValueError as e:
                 raise ValueError(f"Invalid circular dimension: {part}") from e
-        
+
         # Rectangular measurement (contains x)
         elif 'x' in part:
             try:
@@ -1211,7 +1211,7 @@ def explode_measurements(dimensions: Optional[str]) -> List[Measurement]:
                 raise ValueError(f"Invalid rectangular dimension: {part}") from e
         else:
             raise ValueError(f"Unknown dimension format: {part}")
-    
+
     return measurements
 ```
 
@@ -1231,9 +1231,9 @@ def test_explode_measurements(input_str, expected_count, first_attr, first_value
     THEN: Returns correct number of measurements with proper values
     """
     measurements = explode_measurements(input_str)
-    
+
     assert len(measurements) == expected_count
-    
+
     if expected_count > 0:
         assert getattr(measurements[0], first_attr) == first_value
 ```

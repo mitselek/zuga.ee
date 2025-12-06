@@ -6,11 +6,7 @@ export const metadata: Metadata = {
   description: "AI-powered portfolio and content management",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="et">
       <body>{children}</body>
