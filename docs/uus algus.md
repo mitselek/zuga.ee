@@ -114,7 +114,7 @@ GitHub Copilot: Excellent! This is a well-thought-out plan. Let me structure the
 
 **Project Structure Proposal:**
 
-```
+```text
 zuga.ee/
 ├── apps/
 │   ├── web/              # Next.js frontend
@@ -224,7 +224,7 @@ GitHub Copilot: Ah, this changes things significantly! This isn't just a portfol
 
 **Architecture Adjustment:**
 
-```
+```text
 zuga.ee/
 ├── apps/
 │   ├── web/              # Next.js (TypeScript)
@@ -300,7 +300,7 @@ GitHub Copilot: Excellent! You've clearly got strong Python development experien
 
 **Development Setup:**
 
-```
+```text
 zuga.ee/
 ├── apps/
 │   ├── web/                    # Next.js frontend
@@ -428,7 +428,7 @@ disallow_untyped_defs = true
 
 **Dependencies:**
 
-```
+```toml
 pytest>=7.4
 pytest-cov>=4.1
 pytest-watch>=4.2       # ptw command
@@ -535,7 +535,7 @@ Perfect! I've successfully initialized your zuga.ee project with a strict TDD se
 
 **Project Structure:**
 
-```
+```text
 zuga.ee/
 ├── apps/
 │   ├── api/          # FastAPI backend (Python + Pydantic)
