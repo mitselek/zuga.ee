@@ -1,6 +1,6 @@
 """Pydantic models - single source of truth for data structures."""
 
-from datetime import datetime
+from datetime import UTC, datetime
 from enum import Enum
 from typing import Any
 
@@ -41,8 +41,8 @@ class User(BaseModel):
     llm_api_key: str | None = None
     secondary_llm_provider: LLMProvider | None = None
     secondary_llm_api_key: str | None = None
-    created_at: datetime = Field(default_factory=datetime.utcnow)
-    updated_at: datetime = Field(default_factory=datetime.utcnow)
+    created_at: datetime = Field(default_factory=lambda: datetime.now(UTC))
+    updated_at: datetime = Field(default_factory=lambda: datetime.now(UTC))
 
 
 class ContentFrontmatter(BaseModel):
@@ -53,8 +53,8 @@ class ContentFrontmatter(BaseModel):
     status: ContentStatus = ContentStatus.DRAFT
     language: str = "et"  # Estonian default
     translated: list[str] = Field(default_factory=list)
-    created_at: datetime = Field(default_factory=datetime.utcnow)
-    updated_at: datetime = Field(default_factory=datetime.utcnow)
+    created_at: datetime = Field(default_factory=lambda: datetime.now(UTC))
+    updated_at: datetime = Field(default_factory=lambda: datetime.now(UTC))
     tags: list[str] = Field(default_factory=list)
     metadata: dict[str, Any] = Field(default_factory=dict)
 
@@ -91,6 +91,6 @@ class NewsDigest(BaseModel):
     """Curated news digest."""
 
     id: str
-    created_at: datetime = Field(default_factory=datetime.utcnow)
+    created_at: datetime = Field(default_factory=lambda: datetime.now(UTC))
     items: list[NewsDigestItem]
     status: ContentStatus = ContentStatus.DRAFT
