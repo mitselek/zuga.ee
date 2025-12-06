@@ -85,7 +85,7 @@ Given a prompt request from the user, do this:
 
    **If constitution applies**, the generated prompt MUST:
    - Reference the constitution file explicitly
-   - Embed relevant constitutional principles in the prompt's guidelines
+   - Embed relevant constitutional principles in the prompt's guidelines (using section symbols: §1, §2, etc.)
    - Add a validation step to check constitutional compliance
    - Include the recursive constitution requirement (see step 7, point 6)
 
@@ -386,28 +386,26 @@ Given a prompt request from the user, do this:
    6. **PROPAGATE CONSTITUTION AWARENESS** (Critical for project alignment):
       - **When creating prompts for code-related tasks** (code review, implementation, refactoring, bug fixing, etc.), ensure constitutional compliance:
         - Include reference to project constitution if available (`.specify/memory/constitution.md`)
-        - Embed key constitutional principles in the prompt (Type Safety, Composable-First, Test-First, Observable Development, Pragmatic Simplicity)
+        - Embed key constitutional principles in the prompt using section symbols (§1: Type Safety First, §2: Test-First Development, §3: Composable-First Architecture, §4: Observable Development, §5: Pragmatic Simplicity)
         - Add validation step: "Verify output complies with project constitution"
       - **Recursive propagation clause**: If the prompt you're creating might generate OTHER prompts that affect code or architecture, include this instruction:
         - "If you generate a prompt that itself generates code-related output (implementations, reviews, refactorings), that prompt MUST also reference and comply with the project's constitutional principles as defined in `.specify/memory/constitution.md`, ensuring governance standards propagate through all levels."
-      - **For this esmuseum-map-app project specifically**, always check if `.specify/memory/constitution.md` exists and include these principles:
-        - Type Safety First (avoid `any`, document TypeScript patterns)
-        - Composable-First Development (Vue 3 composables, single responsibility)
-        - Test-First Development (TDD, write tests before implementation)
-        - Observable Development (structured logging, error boundaries)
-        - Pragmatic Simplicity (YAGNI, optimize after measuring)
-        - Strategic Integration Testing (focus on critical paths)
-        - API-First Server Design (clean routes, proper error codes)
+      - **For the zuga.ee project specifically**, always check if `.specify/memory/constitution.md` exists and include these five core principles:
+        - **§1: Type Safety First** - Strict typing with mypy/TypeScript, Pydantic v2 models for boundaries
+        - **§2: Test-First Development** - TDD workflow, 90% coverage minimum, write tests before implementation
+        - **§3: Composable-First Architecture** - Small single-purpose components, pure functions preferred, dependency injection
+        - **§4: Observable Development** - Structured logging, contextual errors, no silent failures
+        - **§5: Pragmatic Simplicity** - YAGNI enforcement, boring technology, no premature optimization
       - **Example constitution-aware clause** to include in generated prompts:
         ```markdown
         **Constitutional Compliance** (if applicable):
 
         If this project has a constitution file (`.specify/memory/constitution.md`), ensure all generated output complies with:
 
-        - Core development principles (Type Safety, Test-First, etc.)
+        - Core development principles (§1: Type Safety First, §2: Test-First Development, §3: Composable-First Architecture, §4: Observable Development, §5: Pragmatic Simplicity)
         - Tech stack governance (approved dependencies, upgrade policies)
-        - Code quality standards (testing coverage, type safety requirements)
-        - Workflow processes (feature specs, code review requirements)
+        - Code quality standards (90% testing coverage, strict type checking)
+        - Workflow processes (code review requirements, pre-commit checks)
 
         Before finalizing output:
 
@@ -485,27 +483,29 @@ Given a prompt request from the user, do this:
 ### Scenario 2: Code Review Assistant (with Constitution)
 
 **User request**:
-"/prompt Create a prompt for reviewing Vue 3 components for best practices"
+"/prompt Create a prompt for reviewing Next.js/React components for best practices"
 
 **Response approach**:
 1. **Check for constitution**: Read `.specify/memory/constitution.md` - found! Principles apply to code review.
-2. **Research**: Vue 3 best practices (as of October 2025), Composition API patterns, common pitfalls
-3. **Present research findings** (Vue 3 maturity status, Composition API patterns, TypeScript integration, note constitutional requirements)
+2. **Research**: Next.js 14+ and React best practices (as of December 2025), Composition patterns, TypeScript integration
+3. **Present research findings** (Next.js App Router patterns, React hooks, TypeScript integration, constitutional requirements)
 4. **Generate prompt** covering:
-   - **Constitutional principles first**:
-     - Type Safety First (check for `any` usage, TypeScript patterns)
-     - Composable-First (single responsibility, testability)
-     - Test-First Development (test coverage requirements)
-     - Observable Development (error boundaries, logging)
-   - **Vue 3 specific patterns**:
-     - Reactivity patterns (ref vs reactive)
-     - Component composition (props, emits, slots)
-     - Performance (computed, watch, unnecessary re-renders)
-     - Accessibility (ARIA labels, keyboard nav)
-   - **Validation step**: "Verify component complies with `.specify/memory/constitution.md` principles"
+   - **Constitutional principles first** (reference by section):
+     - **§1: Type Safety First** - Check for `any` usage, proper TypeScript patterns, Pydantic models at API boundaries
+     - **§2: Test-First Development** - Verify 90% test coverage, tests written before implementation
+     - **§3: Composable-First Architecture** - Single responsibility, components <150 lines, extracted hooks for complex logic
+     - **§4: Observable Development** - Error boundaries, structured logging, contextual error messages
+     - **§5: Pragmatic Simplicity** - No premature optimization, YAGNI compliance, boring technology preference
+   - **Framework-specific patterns**:
+     - Next.js App Router conventions (server vs client components)
+     - React hooks best practices (useEffect, useMemo, useCallback)
+     - Component composition (props, children, render props)
+     - Performance (unnecessary re-renders, proper memoization)
+     - Accessibility (ARIA labels, keyboard navigation, semantic HTML)
+   - **Validation step**: "Verify component complies with `.specify/memory/constitution.md` principles - cite specific sections (§1, §2, etc.)"
    - **Recursive requirement**: Include constitutional compliance clause for any derivative prompts
-5. **Include checklist format** for reviews with constitutional gates
-6. **Add examples** of good/bad patterns that align with/violate constitution
+5. **Include checklist format** for reviews with constitutional gates at each section
+6. **Add examples** of good/bad patterns that align with/violate constitution (with section references)
 
 ### Scenario 3: Documentation Writer
 

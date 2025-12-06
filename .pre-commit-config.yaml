@@ -43,7 +43,7 @@ repos:
         entry: bash -c 'cd apps/api && pytest'
         language: system
         pass_filenames: false
-        always_run: true
+        files: ^apps/api/
         stages: [pre-commit]
 
       - id: prettier
@@ -72,5 +72,5 @@ repos:
         entry: bash -c 'cd apps/web && npm test -- --run'
         language: system
         pass_filenames: false
-        always_run: true
+        files: ^apps/web/
         stages: [pre-commit]
