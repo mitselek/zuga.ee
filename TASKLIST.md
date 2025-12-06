@@ -44,14 +44,14 @@
 
 ## GitHub Integration
 
-- [ ] **Create GitHub repository**
+- [x] **Create GitHub repository**
 
-  - Go to https://github.com/new
+  - Go to <https://github.com/new>
   - Name: `zuga.ee`
   - Keep it public or private as preferred
   - Do NOT initialize with README (we already have one)
 
-- [ ] **Connect local repo to GitHub**
+- [x] **Connect local repo to GitHub**
 
   ```bash
   git remote add origin git@github.com:mitselek/zuga.ee.git
@@ -59,7 +59,7 @@
   git push -u origin main
   ```
 
-- [ ] **Set up GitHub Actions CI/CD** (optional but recommended)
+- [x] **Set up GitHub Actions CI/CD** (optional but recommended)
   - Create `.github/workflows/ci.yml`
   - Run tests on every push
   - Enforce coverage thresholds
