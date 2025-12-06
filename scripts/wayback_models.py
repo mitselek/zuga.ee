@@ -26,7 +26,7 @@ class ScraperConfig(BaseModel):
     output_dir: Path = Path("data/raw_html")
     max_retries: int = 3
     timeout_seconds: int = 30
-    delay_seconds: float = 1.0  # Rate limiting delay
+    delay_seconds: float = 3.0  # Rate limiting delay (be respectful to Archive.org)
 
 
 class ScrapeResult(BaseModel):

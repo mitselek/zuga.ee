@@ -46,9 +46,12 @@ async def query_wayback_cdx(
     if filters:
         params.update(filters)
 
+    headers = {
+        "User-Agent": "zuga.ee-scraper/0.1.0 (https://github.com/mitselek/zuga.ee; content-recovery)"
+    }
     async with httpx.AsyncClient(timeout=60.0) as client:
         logger.info(f"Querying CDX API for {url_pattern}")
-        response = await client.get(CDX_API_URL, params=params)
+        response = await client.get(CDX_API_URL, params=params, headers=headers)
         response.raise_for_status()
 
         data = response.json()
@@ -118,9 +121,12 @@ async def download_snapshot(
     output_dir.mkdir(parents=True, exist_ok=True)
 
     # Download HTML content
+    headers = {
+        "User-Agent": "zuga.ee-scraper/0.1.0 (https://github.com/mitselek/zuga.ee; content-recovery)"
+    }
     async with httpx.AsyncClient(timeout=30.0) as client:
         logger.info(f"Downloading {snapshot.archive_url}")
-        response = await client.get(snapshot.archive_url)
+        response = await client.get(snapshot.archive_url, headers=headers)
         response.raise_for_status()
 
         html_content = response.text
@@ -232,8 +238,8 @@ def main() -> None:
     parser.add_argument(
         "--delay",
         type=float,
-        default=1.0,
-        help="Delay in seconds between requests (rate limiting)",
+        default=3.0,
+        help="Delay in seconds between requests (rate limiting, default 3s)",
     )
     parser.add_argument(
         "--verbose",
