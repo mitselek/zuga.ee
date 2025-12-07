@@ -240,6 +240,7 @@ class TestFileOrganization:
             language="en",
             original_url="https://example.com",
             type="page",
+            description="Test description",
         )
         markdown_body = "# Test\n\nContent here."
         output_path = tmp_path / "packages/content/pages/en/test.md"

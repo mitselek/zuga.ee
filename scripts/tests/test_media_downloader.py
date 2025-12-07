@@ -19,7 +19,6 @@ Phase 3 scope (per Morgan's approved decisions):
 
 import json
 from pathlib import Path
-from typing import Any
 
 
 class TestURLExtraction:

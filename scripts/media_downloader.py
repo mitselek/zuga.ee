@@ -206,7 +206,7 @@ def optimize_image(image_data: bytes, filename: str) -> bytes:
             # Preserve aspect ratio
             ratio = min(max_dimension / img.width, max_dimension / img.height)
             new_size = (int(img.width * ratio), int(img.height * ratio))
-            img = img.resize(new_size, Image.Resampling.LANCZOS)
+            img = img.resize(new_size, Image.Resampling.LANCZOS)  # type: ignore[assignment]
 
         # Save optimized
         output = BytesIO()
