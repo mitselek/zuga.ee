@@ -1,0 +1,10 @@
+{
+  "include": ["scripts"],
+  "reportUnknownParameterType": "none",
+  "reportUnknownVariableType": "none",
+  "reportUnknownMemberType": "none",
+  "reportUnknownArgumentType": "none",
+  "reportMissingTypeStubs": "none",
+  "pythonVersion": "3.12",
+  "typeCheckingMode": "basic"
+}

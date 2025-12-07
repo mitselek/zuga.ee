@@ -5,7 +5,9 @@ from Wayback Machine archives. Models are designed for clean separation between
 raw HTML extraction and markdown conversion.
 """
 
-from typing import Literal, Optional, List
+from __future__ import annotations
+
+from typing import Literal, Optional
 from pydantic import BaseModel, Field
 
 
@@ -45,12 +47,12 @@ class ParsedPage(BaseModel):
     description: Optional[str] = Field(
         None, description="Meta description if available"
     )
-    sections: List[ContentSection] = Field(
+    sections: list["ContentSection"] = Field(
         default_factory=list, description="Structured content sections"
     )
-    images: List[ImageReference] = Field(
+    images: list["ImageReference"] = Field(
         default_factory=list, description="All images found in content"
     )
-    links: List[str] = Field(
+    links: list[str] = Field(
         default_factory=list, description="All links found in content (unwrapped)"
     )

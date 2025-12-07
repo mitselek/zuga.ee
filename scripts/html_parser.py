@@ -5,7 +5,7 @@ archive wrappers and parsing Google Sites structure into clean data models.
 """
 
 import re
-from typing import TypedDict, Any
+from typing import TypedDict, Any, cast
 
 from bs4 import BeautifulSoup
 from bs4.element import Tag
@@ -116,9 +116,9 @@ def extract_main_content(html: str) -> Tag:
         class_list = div.get("class")
         if class_list is not None and isinstance(class_list, list):
             # Check if footer class appears in any class name
-            for class_item in class_list:
-                # Convert to string to handle any type from BeautifulSoup
-                class_name: str = class_item if isinstance(class_item, str) else str(class_item)
+            # Cast to list[str] since BeautifulSoup returns classes as strings
+            for class_item in cast(list[str], class_list):
+                class_name: str = class_item
                 if FOOTER_CLASS in class_name:
                     div.decompose()
                     break
@@ -167,9 +167,9 @@ def extract_metadata(html: str) -> MetadataDict:
     # Extract description from og:description
     desc_tag = soup.find("meta", property="og:description")
     description = None
-    if desc_tag and hasattr(desc_tag, "attrs") and "content" in desc_tag.attrs:
+    if isinstance(desc_tag, Tag) and "content" in desc_tag.attrs:
         # Clean whitespace from description
-        description = " ".join(str(desc_tag["content"]).split())  # type: ignore[index]
+        description = " ".join(str(desc_tag["content"]).split())
 
     return MetadataDict(
         title=title,
