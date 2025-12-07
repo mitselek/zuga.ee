@@ -11,7 +11,9 @@ assets/
 
 ## Images
 
-Total: 23 files (36MB)
+Total: 24 files (36MB + placeholder)
+
+### Available Images
 
 **Source archives**:
 
@@ -23,6 +25,7 @@ Total: 23 files (36MB)
 - PNG: 7 files
 - JPG: 6 files
 - GIF: 2 files
+- SVG: 1 file (placeholder.svg)
 - Other: 8 files (legacy hash-named files with extensions added)
 
 **Naming convention**:
@@ -30,6 +33,20 @@ Total: 23 files (36MB)
 - Files from Google Sites use googleusercontent hash IDs
 - Some files have hash suffix (e.g., `_664028c2.jpg`)
 - Legacy files named by MD5 hash
+
+### Lost Images
+
+**Status**: 134 production images permanently lost
+
+All googleusercontent URLs from the original site are **no longer accessible**:
+
+- Direct download: 403 Forbidden
+- Wayback Machine: Not archived or blocked by CDN
+- Recovery attempts documented in `docs/IMAGE_MAPPING.md`
+
+**Solution**: Using `placeholder.svg` for all missing images
+
+Pages with lost images are marked with `images_unavailable: true` in frontmatter.
 
 ## Usage
 

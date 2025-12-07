@@ -1,0 +1,12 @@
+<svg width="800" height="400" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="400" fill="#f0f0f0"/>
+  <text x="400" y="180" font-family="Arial, sans-serif" font-size="24" fill="#666" text-anchor="middle">
+    Image Unavailable
+  </text>
+  <text x="400" y="220" font-family="Arial, sans-serif" font-size="16" fill="#999" text-anchor="middle">
+    Original content from zuga.ee
+  </text>
+  <text x="400" y="250" font-family="Arial, sans-serif" font-size="14" fill="#bbb" text-anchor="middle">
+    Lost when Google Sites was deleted
+  </text>
+</svg>

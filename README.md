@@ -19,6 +19,20 @@ zuga.ee is a two-sided web application that combines:
 - 🔐 **Email Authentication** - Magic link/code based JWT sessions
 - 🎯 **User Permissions** - Granular control over content, users, and AI capabilities
 
+### Content Recovery Status
+
+✅ **Text Content**: 100% recovered (35 pages)
+- All pages extracted, converted, and organized
+- Full content structure preserved
+- YAML frontmatter with metadata
+
+❌ **Images**: 0% recovered (134 images permanently lost)
+- googleusercontent URLs return 403 Forbidden
+- Not accessible via Internet Archive
+- Placeholder system implemented
+
+See [`docs/IMAGE_RECOVERY_STATUS.md`](docs/IMAGE_RECOVERY_STATUS.md) for full details.
+
 ## Architecture
 
 ### Monorepo Structure

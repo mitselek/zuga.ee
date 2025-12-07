@@ -36,7 +36,7 @@ def hash_url_to_short(url: str) -> str:
 
 def find_local_images() -> dict[str, Path]:
     """Find all local image files with their hashes."""
-    images = {}
+    images: dict[str, Path] = {}
 
     # Check zuga/assets
     zuga_assets = Path("archive/zuga/assets")
