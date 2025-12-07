@@ -317,14 +317,36 @@ class TestSectionParsing:
 class TestURLUnwrapping:
     """Test extraction of canonical URLs from Archive.org wrappers."""
 
-    def test_unwraps_archive_org_urls(self, about_us_html: str) -> None:
+    def test_unwraps_archive_org_urls(self) -> None:
         """Should extract https://www.zuga.ee/... from archive.org wrapper."""
-        pytest.skip("unwrap_url() not implemented yet")
+        from scripts.html_parser import unwrap_url
 
-    def test_unwraps_image_urls(self, noise_html: str) -> None:
+        wrapped = "https://web.archive.org/web/20250324033640/https://www.zuga.ee/english/about-us-1"
+        unwrapped = unwrap_url(wrapped)
+
+        assert unwrapped == "https://www.zuga.ee/english/about-us-1"
+
+    def test_unwraps_image_urls(self) -> None:
         """Should extract original image URLs from archive wrappers."""
-        pytest.skip("unwrap_url() not implemented yet")
+        from scripts.html_parser import unwrap_url
+
+        wrapped = "https://web.archive.org/web/20250125115216if_/https://www.youtube.com/embed/video123"
+        unwrapped = unwrap_url(wrapped)
+
+        assert unwrapped == "https://www.youtube.com/embed/video123"
 
     def test_handles_already_unwrapped_urls(self) -> None:
         """Should pass through URLs that aren't wrapped."""
-        pytest.skip("unwrap_url() not implemented yet")
+        from scripts.html_parser import unwrap_url
+
+        original = "https://www.zuga.ee/english/about-us-1"
+        unwrapped = unwrap_url(original)
+
+        assert unwrapped == original
+
+    def test_handles_empty_urls(self) -> None:
+        """Should return empty string for empty input."""
+        from scripts.html_parser import unwrap_url
+
+        assert unwrap_url("") == ""
+        assert unwrap_url(" ") == ""

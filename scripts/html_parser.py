@@ -304,3 +304,39 @@ def parse_sections(main_content: Tag) -> list[SectionDict]:
                     )
 
     return sections
+
+
+def unwrap_url(url: str) -> str:
+    """Extract canonical URL from Archive.org wrapper.
+
+    Converts URLs like:
+    - https://web.archive.org/web/20250324033640/https://www.zuga.ee/...
+    - https://web.archive.org/web/20250125115216if_/https://www.youtube.com/...
+
+    To their canonical form:
+    - https://www.zuga.ee/...
+    - https://www.youtube.com/...
+
+    Args:
+        url: URL string (may be wrapped or canonical)
+
+    Returns:
+        Canonical URL without Archive.org wrapper
+
+    Example:
+        >>> unwrap_url("https://web.archive.org/web/20250324/https://example.com")
+        'https://example.com'
+    """
+    if not url or not url.strip():
+        return ""
+
+    # Pattern: https://web.archive.org/web/{timestamp}[if_]/{canonical_url}
+    match = re.search(
+        r"https://web\.archive\.org/web/\d+(?:if_)?/(https?://[^\s]+)", url
+    )
+
+    if match:
+        return match.group(1)
+
+    # If no match, return original (already canonical or malformed)
+    return url
