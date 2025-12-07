@@ -106,3 +106,6 @@ temp/
 
 # Git
 *.orig
+
+# Archive sources (symlinks to local backups)
+archive/
