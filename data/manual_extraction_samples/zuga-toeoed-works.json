@@ -1,0 +1,79 @@
+{
+  "page_metadata": {
+    "source_file": "data/html_processing/2_beautified_all/zuga-toeoed-ja-etendused/index.html",
+    "page_type": "works_listing",
+    "language": "et",
+    "url_path": "/zuga-toeoed-ja-etendused",
+    "extraction_date": "2025-12-07",
+    "extraction_method": "manual",
+    "notes": "Works listing page - contains same gallery as archive page"
+  },
+  "hero_image": {
+    "url": "https://lh5.googleusercontent.com/5s6ZiEssAsch3DKl9HqGW8TyRCjhw0ue5nkfUTKJiNwrm12UwdfwIuol42T1Ebp8oABHIjbHtzBsgF8WpVytl3Q=w16383",
+    "type": "background",
+    "description": "Hero background image for works listing"
+  },
+  "site_logo": {
+    "url": "https://lh6.googleusercontent.com/t39yW6-d1IO_NdNM09rxtMCXr1W6P-iDgattK1dqPDB-9OMVjAvysRhpQ1XYPgJGI4Ek5g=w16383",
+    "description": "Zuga site logo in navigation"
+  },
+  "gallery_images": [
+    {
+      "url": "https://lh3.googleusercontent.com/fCVWU8z0KcfW_TLV3rlCZEqr113MP_38eH70EWJRLuZCHwzUZigDBuQ4y7XSyY7RYZZ4gL-74tENhth0Ka7Nmy1TV4ZJrq3thkzBxzT4UXftMligYrbuhu5qiGRu7-_I3A=w1280",
+      "type": "gallery_item",
+      "width": "1280"
+    },
+    {
+      "url": "https://lh6.googleusercontent.com/z1eTMZzPtYglvbz2IRvVsIOfuTfiIHjoy-Qpw-k7x-8aS2jQHvrJdEalRkpkM4C8iCrkrL-xwvUmVcikfvM8Fd3EhGXz7pRNyQpo_hw35rnczA9-egSEB1wpdMdm9GFRig=w1280",
+      "type": "gallery_item",
+      "width": "1280"
+    },
+    {
+      "url": "https://lh5.googleusercontent.com/ABtD1aAekGppDzXlStIXyYL30vDtvIcN3YXFg8sz2AQn_OnITP_GKk9PwpaFwTYXoj5C18GNlNJGX5y_7HJhHZw=w1280",
+      "type": "gallery_item",
+      "width": "1280"
+    },
+    {
+      "url": "https://lh5.googleusercontent.com/l0b-UExdON4YtNbg5Qk75CL_iDg7bnvYrJNsYhHXcilJqX5y0qycYwS9fBIefcm4kABcGh1G_rQJXCTGpFdt4uoruJFqacYiIOUFigKHyeIrMhbGW6r6-5qAF4ryIDMxZQ=w1280",
+      "type": "gallery_item",
+      "width": "1280"
+    },
+    {
+      "url": "https://lh6.googleusercontent.com/QHPugfdet2cDP4A9SVfXE6tdmik18bYHF4wW_wROJ6oiaEa3uiWg_na51GYe7PbY=w1280",
+      "type": "gallery_item",
+      "width": "1280",
+      "styling": "width: 100%; margin: 0% 0 0% 0%"
+    },
+    {
+      "url": "https://lh3.googleusercontent.com/qz6wT2V7t3w2r9UgUOmQOhRUhDxGPB41JGm601UOLcH3egdUaynGPHXSttBR9CWh41XVR8XAI1-Uo4LyMelBVK1f9tvSV3GSmHyWiQp-pUQAKKdN=w1280",
+      "type": "gallery_item",
+      "width": "1280"
+    },
+    {
+      "url": "https://lh4.googleusercontent.com/wstDaZuXwlFqP4Pp-5p9Nh8LWueksqqaBrYLOEprV5Uq2Dq1hiYS-feHFOow9V0e7ynYjQbI6hm61oM1_C9p_BuylgzUWhyIn2JK2F3B4Dmq1vtjuDX-TIJZiVls2ep3vA=w1280",
+      "type": "gallery_item",
+      "width": "1280"
+    }
+  ],
+  "video_embed": {
+    "url": "https://www.youtube.com/embed/qp22v58UQnw",
+    "platform": "youtube",
+    "video_id": "qp22v58UQnw",
+    "title": "ZUGA video content",
+    "embed_config": "AVPnqKvie4zfMZQLXfriMAKzg1snvbYvjvD5rOTL5peyL1aPSZm0C2i6f3pVi6G50TbFEzJdhdNbsF29zhu_y0OfXUKgfHaV7UWOyHkjJnmOq353wkro2e0Bngmy7zdar7FyucGxTYSZkxmTxW2auezk3DKz0Qo-NzJSUZLTY17jXJQ_"
+  },
+  "content": {
+    "sections": [
+      {
+        "id": "h.351d1f1a5a0ac8df_44",
+        "type": "gallery",
+        "classes": "yaqOZd LB7kq cJgDec nyKByd O13XJf"
+      }
+    ]
+  },
+  "navigation": {
+    "home_link": "/uudised",
+    "logo_links_to": "/uudised"
+  },
+  "extraction_notes": "Works/performances listing page. Note: Contains identical image gallery as the galerii archive page. This suggests Google Sites reused the same gallery across multiple pages, or these pages serve as visual portfolios rather than text-heavy listings. No unique works listing text found in cleaned version."
+}

@@ -1,0 +1,80 @@
+{
+  "page_metadata": {
+    "source_file": "data/html_processing/2_beautified_all/english/noise/index.html",
+    "page_type": "performance",
+    "language": "en",
+    "url_path": "/english/noise",
+    "extraction_date": "2025-12-07",
+    "extraction_method": "manual",
+    "notes": "Adult performance 'Noise' - English version",
+    "bilingual_pair": "etendused-suurtele/müra/index.html"
+  },
+  "hero_image": {
+    "url": "https://lh5.googleusercontent.com/PXSN6CJeVTYvu_x98JfAS3NBScOCkqV2WJW0HXxDJZWAA5pu8fyh7o59Y-BweUELFvpWPqx55G_kz-QCKDI1Y9Y=w16383",
+    "type": "background",
+    "description": "Hero background image for Noise performance"
+  },
+  "site_logo": {
+    "url": "https://lh4.googleusercontent.com/pJkyRCjTttvbdiJgt4ZhJE769auyhBQhT2Ouo4qy0MKikmf-lQgGQ7VWh7pxqiafGRBuhw=w16383",
+    "description": "Zuga site logo in navigation"
+  },
+  "performance_images": [
+    {
+      "url": "https://lh4.googleusercontent.com/zAG_7dQ9ctOWgapMIimu30Tjrugto9ndwjDyxOaacOQKB4vH3EwnXEsJd1k6zS0puQEuYYBLtBvUa8yd01YSh8VTXwlkKAza5qe4OJZTBVo_CMg1t1jFku0MSUk8kBOfkA=w1280",
+      "type": "performance_photo",
+      "width": "1280"
+    },
+    {
+      "url": "https://lh6.googleusercontent.com/0UudcK9OYV1xEpBfZP4vHrKIOA86t0Bx50THPQ1mmPKR9S4Jgj7GSINKPTQXwBC674Kbr3e94sk_zSt0nHpmdf8HmlM0AofYMepNpPW5rx73tD1ZcDO8bwdAs72sw2ay6Q=w1280",
+      "type": "performance_photo",
+      "width": "1280"
+    },
+    {
+      "url": "https://lh3.googleusercontent.com/mOqdQ0QIT2Y0X548qRgBpkBiqmFHYmR9iQ8-jjZLZ38A1bPnvC5juRiqlA4gJbYSURCwXQks7pazjU7mvfPRBHo=w1280",
+      "type": "performance_photo",
+      "width": "1280"
+    },
+    {
+      "url": "https://lh3.googleusercontent.com/yK6U2XX2DE_zvDpEsiMZ8AYVYEQbU2t4L-MY_pmfnXqn5nYfUJmy02ztfmwTyxYiP8Mr8whpcRa500TLUNRfD3xtBP1hsauxViJ1mF7dHGEZE4J8iIhdfBM47KygvR6D4Q=w1280",
+      "type": "performance_photo",
+      "width": "1280"
+    },
+    {
+      "url": "https://lh6.googleusercontent.com/79H1xPJUTQVvs1AtcaC8kuAs-AdWEIDdPIw1ypZWUiVzWxvPXkD36Pbf_bKyT7gZ=w1280",
+      "type": "performance_photo",
+      "width": "1280",
+      "styling": "width: 100%; margin: 0% 0 0% 0%"
+    },
+    {
+      "url": "https://lh3.googleusercontent.com/-oGQJ6Q6rpQKMHIZPmompqZClOEffAdMYuVsIbXtJetJalC_cqbnXXXnDjEkMaWgrjUN2CM5sDU_ljj9cBiGqSh8n5AHcGnvzpOea8RXBDqcZ1Jd=w1280",
+      "type": "performance_photo",
+      "width": "1280"
+    },
+    {
+      "url": "https://lh5.googleusercontent.com/c4a6p8fPw5X5gZSMp9g2EzNsYBxTtJE16_Ye7Wxdg0FzXlK92bKpWdCPcnjWGZsYy1vaw1uMqSBy2q8081O44o7re8iIy25zzSdJu2RGKuzvKIxNFhBWDSipNu3pkaiQyQ=w1280",
+      "type": "performance_photo",
+      "width": "1280"
+    }
+  ],
+  "video_embed": {
+    "url": "https://www.youtube.com/embed/qp22v58UQnw",
+    "platform": "youtube",
+    "video_id": "qp22v58UQnw",
+    "title": "ZUGA video greeting",
+    "embed_config": "AVPnqKui4unCuCEawDDHsC156VImhT9WFhOFXKAU4CTYR41hTnNXLv4rfiXtGt1BMImKpP5OT7E59ypPfh_iLs5Mfg8bIFY2r616nbKbkQADrqmKTzQOrUTbVh3SIsx_l8zm7fCGK-dPRFK9CodIKJalOH94INlc-PGGhSt3XGIZ93Qa"
+  },
+  "content": {
+    "sections": [
+      {
+        "id": "h.351d1f1a5a0ac8df_44",
+        "type": "performance_gallery",
+        "classes": "yaqOZd LB7kq cJgDec nyKByd O13XJf"
+      }
+    ]
+  },
+  "navigation": {
+    "home_link": "/uudised",
+    "logo_links_to": "/uudised"
+  },
+  "extraction_notes": "Performance page for 'Noise' - adult audience. English version of 'Müra'. Contains 7 different performance photos from Estonian version. No text content preserved in cleaned version."
+}

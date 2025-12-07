@@ -1,0 +1,79 @@
+{
+  "page_metadata": {
+    "source_file": "data/html_processing/2_beautified_all/uudised/index.html",
+    "page_type": "news",
+    "language": "et",
+    "url_path": "/uudised",
+    "extraction_date": "2025-12-07",
+    "extraction_method": "manual",
+    "notes": "News page - appears to contain same gallery images as homepage"
+  },
+  "hero_image": {
+    "url": "https://lh6.googleusercontent.com/rKduVSSEEfBQHKeGmVV1ajUVOktnN1_adF_aN2z_SOIvqo6tBd1-1MvE1G6XMyRwTISBmuTQyODQ5jmwLNQBos0=w16383",
+    "type": "background",
+    "description": "Hero background image for news page"
+  },
+  "site_logo": {
+    "url": "https://lh3.googleusercontent.com/2xIFCyCa68-hNcL94-Ka0c5OyJQq9mFHiQxkYjnHMv5V8em6h8hsRvm56ON3Hq91wsjnHQ=w16383",
+    "description": "Zuga site logo in navigation"
+  },
+  "gallery_images": [
+    {
+      "url": "https://lh4.googleusercontent.com/EIuAxCxO4gUquY6l7BPisKD0zW28oqAba-vvUFxFlLN_MrRsEu8gpEQa1b6CV-OudSUBqAUqrtNzX9kO6cCIsJhwQUcKjKbUcqPbb5-bC7p8Zi10qlx7q_WvjgXCJJzHnQ=w1280",
+      "type": "gallery_item",
+      "width": "1280"
+    },
+    {
+      "url": "https://lh3.googleusercontent.com/e7xUSEVKKFmB2OFP24ZMqx9V15iLMFWyAzJLii2mP54pQVH0IM8uCx-ARriivs6wY-S21FnDvQ6EexlKyYRVRz2nK_uypNxMJ7wS4GI2dQ33XJYIBRPi3IBfzT4bO20cPQ=w1280",
+      "type": "gallery_item",
+      "width": "1280"
+    },
+    {
+      "url": "https://lh3.googleusercontent.com/4PsSECShjZ55noemW9hNQ0oUvZjsEZCdz23Ca_08a1u7KFXrgVF9VOUfbekNdQja6CmL3z0Z2UJZGYBsNsSJ-Tg=w1280",
+      "type": "gallery_item",
+      "width": "1280"
+    },
+    {
+      "url": "https://lh4.googleusercontent.com/5Smy4Scr87yEVUfJGfEdcCwAxkdMB4Hd6rwqKx2as5-olsIzkTTBwpcOPyvIr44oR0Ov6pN2orY48l4qfGPwKVyiNZjqXld-R4--WwhXHJ82oa7VD6r-0QXeY59TawOziQ=w1280",
+      "type": "gallery_item",
+      "width": "1280"
+    },
+    {
+      "url": "https://lh3.googleusercontent.com/8c2Vf4TcEIHFP0zuPTs0AStvk9cAOR12wivTP-b6xkxRbvWhz6BJE9o7jOi8Bcf-=w1280",
+      "type": "gallery_item",
+      "width": "1280",
+      "styling": "width: 100%; margin: 0% 0 0% 0%"
+    },
+    {
+      "url": "https://lh4.googleusercontent.com/FGUPEYNKxORoDw-aCfgVv7QfQ01fs1tPnuDWMC77w3mAE1_ORspwymKpk3l8NKcLROVU7K-OiD6_K1sD28GAI6qYGyPOsiig1bt4jKF62h8CHva_=w1280",
+      "type": "gallery_item",
+      "width": "1280"
+    },
+    {
+      "url": "https://lh4.googleusercontent.com/2olcC0FOLJy7Yl5UFZ0_mhnWma1ZR2u1ejSBQjpRa9zyyAK_Fcq--eR6aUZ8tEFYHVsOMSEJ1gLliT1F5DS59ITb05bBrZafIkT4VV2i1RBWe2G9pKfZSqbvjQCuGe_P6w=w1280",
+      "type": "gallery_item",
+      "width": "1280"
+    }
+  ],
+  "video_embed": {
+    "url": "https://www.youtube.com/embed/qp22v58UQnw",
+    "platform": "youtube",
+    "video_id": "qp22v58UQnw",
+    "title": "ZUGA Ühendatud Tantsijate video greeting",
+    "embed_config": "AVPnqKtpy3Xp8G7mry1vTszyGJ9Dd94usrbG-Y6MROgR73gMKrShdJC9DrTS8l0b6cBK4vtEjLgSxYUJZYzbB1vTp7B4_8DyhmyLkI-7xyH31q5v4BMU1TpMwE9lVUEPkcVdVydiBK8v_jZPz--eU2xfL-6VzIQuI4u77IEXLmSAxiGS"
+  },
+  "content": {
+    "sections": [
+      {
+        "id": "h.351d1f1a5a0ac8df_44",
+        "type": "gallery",
+        "classes": "yaqOZd LB7kq cJgDec nyKByd O13XJf"
+      }
+    ]
+  },
+  "navigation": {
+    "home_link": "/uudised",
+    "logo_links_to": "/uudised"
+  },
+  "extraction_notes": "News/uudised page. Note: After cleaning, this page appears to contain the same image gallery as the homepage. This suggests Google Sites reused homepage content for the news section, or the news page IS the homepage. No unique news text content found in cleaned version."
+}
