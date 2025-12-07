@@ -141,19 +141,83 @@ class TestMetadataExtraction:
 
     def test_extracts_page_title(self, about_us_html: str) -> None:
         """Should extract page title from <title> tag."""
-        pytest.skip("extract_metadata() not implemented yet")
+        from scripts.html_parser import extract_metadata
+
+        metadata = extract_metadata(about_us_html)
+
+        assert metadata["title"] == "Zuga - about us"
 
     def test_detects_english_language_from_url(self, about_us_html: str) -> None:
-        """Should detect 'en' language from /english/ in URL path."""
-        pytest.skip("extract_metadata() not implemented yet")
+        """Should detect 'en' from /english/ in URL."""
+        from scripts.html_parser import extract_metadata
+
+        metadata = extract_metadata(about_us_html)
+
+        assert metadata["language"] == "en"
 
     def test_extracts_slug_from_url(self, about_us_html: str) -> None:
-        """Should extract 'about-us-1' slug from canonical URL."""
-        pytest.skip("extract_metadata() not implemented yet")
+        """Should extract 'about-us-1' from URL path."""
+        from scripts.html_parser import extract_metadata
+
+        metadata = extract_metadata(about_us_html)
+
+        assert metadata["slug"] == "about-us-1"
 
     def test_extracts_description_from_meta(self, about_us_html: str) -> None:
-        """Should extract description from og:description meta tag."""
-        pytest.skip("extract_metadata() not implemented yet")
+        """Should extract og:description meta tag."""
+        from scripts.html_parser import extract_metadata
+
+        metadata = extract_metadata(about_us_html)
+
+        # og:description should be cleaned of extra whitespace
+        assert metadata["description"] is not None
+        assert "Collaboration" in metadata["description"]
+
+    def test_handles_missing_title(self) -> None:
+        """Should return empty string when <title> tag is missing."""
+        from scripts.html_parser import extract_metadata
+
+        html = "<html><head></head><body></body></html>"
+        metadata = extract_metadata(html)
+
+        assert metadata["title"] == ""
+
+    def test_handles_missing_metadata_tags(self) -> None:
+        """Should return empty/None values when og: tags are missing."""
+        from scripts.html_parser import extract_metadata
+
+        html = "<html><head><title>Test</title></head><body></body></html>"
+        metadata = extract_metadata(html)
+
+        assert metadata["title"] == "Test"
+        assert metadata["language"] == "en"  # default
+        assert metadata["slug"] == ""
+        assert metadata["description"] is None
+
+    def test_detects_estonian_language_from_url(self) -> None:
+        """Should detect 'et' from /estonian/ in URL."""
+        from scripts.html_parser import extract_metadata
+
+        html = '''<html><head>
+            <title>Zuga</title>
+            <meta property="og:url" content="https://www.zuga.ee/estonian/meist-1">
+        </head><body></body></html>'''
+        metadata = extract_metadata(html)
+
+        assert metadata["language"] == "et"
+
+    def test_cleans_description_whitespace(self) -> None:
+        """Should normalize whitespace in description."""
+        from scripts.html_parser import extract_metadata
+
+        html = '''<html><head>
+            <title>Test</title>
+            <meta property="og:description" content="  Multiple   spaces
+            and   newlines  ">
+        </head><body></body></html>'''
+        metadata = extract_metadata(html)
+
+        assert metadata["description"] == "Multiple spaces and newlines"
 
 
 class TestSectionParsing:
