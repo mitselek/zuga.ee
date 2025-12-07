@@ -5,7 +5,7 @@ archive wrappers and parsing Google Sites structure into clean data models.
 """
 
 import re
-from typing import TypedDict
+from typing import TypedDict, Any
 
 from bs4 import BeautifulSoup
 from bs4.element import Tag
@@ -340,3 +340,157 @@ def unwrap_url(url: str) -> str:
 
     # If no match, return original (already canonical or malformed)
     return url
+
+
+def parse_html_file(html: str, url: str) -> dict[str, Any]:  # type: ignore[misc]
+    """Parse HTML file through complete pipeline.
+
+    Orchestrates the full parsing workflow:
+    1. Strip Wayback Machine wrapper
+    2. Extract main content div
+    3. Extract metadata (title, language, slug, description)
+    4. Parse content sections
+    5. Unwrap Archive.org URLs in sections
+
+    Args:
+        html: Raw HTML string from file
+        url: Original URL for metadata extraction
+
+    Returns:
+        Dictionary with metadata and parsed sections
+
+    Example:
+        >>> html = Path("page.html").read_text()
+        >>> result = parse_html_file(html, "https://www.zuga.ee/english/about-us-1")
+        >>> result["metadata"]["title"]
+        'Zuga - about us'
+    """
+    # Step 1: Strip Wayback wrapper
+    clean_html = strip_wayback_wrapper(html)
+
+    # Step 2: Extract main content
+    main_content = extract_main_content(clean_html)
+
+    # Step 3: Extract metadata
+    metadata = extract_metadata(clean_html)
+
+    # Step 4: Parse sections
+    sections = parse_sections(main_content)
+
+    # Step 5: Unwrap URLs in sections
+    for section in sections:
+        if section["section_type"] in ("image", "video"):
+            section["content"] = unwrap_url(section["content"])
+
+    return {
+        "metadata": metadata,
+        "sections": sections,
+    }
+
+
+def main() -> None:
+    """CLI entry point for HTML parser.
+
+    Usage:
+        python html_parser.py --input page.html --url https://www.zuga.ee/english/about-us-1
+        python html_parser.py -i page.html -u https://example.com --output result.json
+    """
+    import argparse
+    import json
+    import sys
+    from pathlib import Path
+
+    parser = argparse.ArgumentParser(
+        description="Parse archived Google Sites HTML into structured JSON",
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog="""
+Examples:
+  %(prog)s -i page.html -u https://www.zuga.ee/english/about-us-1
+  %(prog)s -i page.html -u https://example.com -o output.json
+  %(prog)s --input page.html --url https://example.com --verbose
+        """,
+    )
+
+    parser.add_argument(
+        "-i",
+        "--input",
+        required=True,
+        type=Path,
+        help="Input HTML file to parse",
+    )
+
+    parser.add_argument(
+        "-u",
+        "--url",
+        required=True,
+        type=str,
+        help="Original URL of the page (for metadata extraction)",
+    )
+
+    parser.add_argument(
+        "-o",
+        "--output",
+        type=Path,
+        help="Output JSON file (default: print to stdout)",
+    )
+
+    parser.add_argument(
+        "-v",
+        "--verbose",
+        action="store_true",
+        help="Print verbose progress messages",
+    )
+
+    args = parser.parse_args()
+
+    # Validate input file exists
+    if not args.input.exists():
+        print(f"Error: Input file not found: {args.input}", file=sys.stderr)
+        sys.exit(1)
+
+    if args.verbose:
+        print(f"Reading HTML from: {args.input}", file=sys.stderr)
+
+    # Read HTML file
+    try:
+        html = args.input.read_text(encoding="utf-8")
+    except Exception as e:
+        print(f"Error reading file: {e}", file=sys.stderr)
+        sys.exit(1)
+
+    if args.verbose:
+        print(f"Parsing HTML for URL: {args.url}", file=sys.stderr)
+        print(f"HTML length: {len(html)} characters", file=sys.stderr)
+
+    # Parse HTML
+    try:
+        result = parse_html_file(html, args.url)
+    except Exception as e:
+        print(f"Error parsing HTML: {e}", file=sys.stderr)
+        sys.exit(1)
+
+    if args.verbose:
+        print(
+            f"Extracted {len(result['sections'])} sections from page",
+            file=sys.stderr,
+        )
+
+    # Output JSON
+    json_output = json.dumps(result, indent=2, ensure_ascii=False)
+
+    if args.output:
+        if args.verbose:
+            print(f"Writing output to: {args.output}", file=sys.stderr)
+        try:
+            args.output.write_text(json_output, encoding="utf-8")
+        except Exception as e:
+            print(f"Error writing output file: {e}", file=sys.stderr)
+            sys.exit(1)
+        if args.verbose:
+            print("Done!", file=sys.stderr)
+    else:
+        print(json_output)
+
+
+if __name__ == "__main__":
+    main()
