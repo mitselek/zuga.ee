@@ -48,6 +48,7 @@ python -m scripts.markdown_converter page.json
 Accepts JSON from `html_parser.py` in either format:
 
 ### Direct Format
+
 ```json
 {
   "title": "Page Title",
@@ -57,6 +58,7 @@ Accepts JSON from `html_parser.py` in either format:
 ```
 
 ### Nested Format (from CLI)
+
 ```json
 {
   "metadata": {
@@ -70,6 +72,7 @@ Accepts JSON from `html_parser.py` in either format:
 ## Section Types
 
 ### Text Sections
+
 ```json
 {
   "heading": "Optional Heading",
@@ -79,6 +82,7 @@ Accepts JSON from `html_parser.py` in either format:
 ```
 
 Converts to:
+
 ```markdown
 ## Optional Heading
 
@@ -86,6 +90,7 @@ Paragraph text...
 ```
 
 ### List Sections
+
 ```json
 {
   "heading": "Features",
@@ -95,6 +100,7 @@ Paragraph text...
 ```
 
 Converts to:
+
 ```markdown
 ## Features
 
@@ -104,6 +110,7 @@ Converts to:
 ```
 
 ### Image Sections
+
 ```json
 {
   "heading": null,
@@ -113,11 +120,13 @@ Converts to:
 ```
 
 Converts to:
+
 ```markdown
 ![Alt text](https://example.com/image.jpg)
 ```
 
 ### Video Sections
+
 ```json
 {
   "heading": null,
@@ -127,6 +136,7 @@ Converts to:
 ```
 
 Converts to:
+
 ```markdown
 [YouTube Video](https://www.youtube.com/embed/abc123)
 ```
