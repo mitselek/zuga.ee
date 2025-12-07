@@ -47,10 +47,11 @@ class ParsedPage(BaseModel):
     description: Optional[str] = Field(
         None, description="Meta description if available"
     )
-    sections: list["ContentSection"] = Field(
+    # Pylance can't infer types through Pydantic's Field descriptor (false positive)
+    sections: list["ContentSection"] = Field(  # pyright: ignore[reportUnknownVariableType]
         default_factory=list, description="Structured content sections"
     )
-    images: list["ImageReference"] = Field(
+    images: list["ImageReference"] = Field(  # pyright: ignore[reportUnknownVariableType]
         default_factory=list, description="All images found in content"
     )
     links: list[str] = Field(
