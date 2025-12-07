@@ -177,3 +177,130 @@ def extract_metadata(html: str) -> MetadataDict:
         slug=slug,
         description=description,
     )
+
+
+class SectionDict(TypedDict):
+    """Type definition for parsed section data."""
+
+    heading: str | None
+    content: str
+    section_type: str  # "text", "image", "video", "list"
+
+
+def parse_sections(main_content: Tag) -> list[SectionDict]:
+    """Parse content sections from main div and classify by type.
+
+    Iterates through <section> elements inside main content div, classifying
+    each by content type (text/image/video/list) and extracting relevant data.
+
+    Args:
+        main_content: BeautifulSoup Tag representing <div role="main">
+
+    Returns:
+        List of SectionDict with heading, content, and section_type
+
+    Example:
+        >>> main = extract_main_content(html)
+        >>> sections = parse_sections(main)
+        >>> sections[0]["section_type"]
+        'text'
+    """
+    sections: list[SectionDict] = []
+
+    # Find all section elements
+    section_tags = main_content.find_all("section", recursive=False)
+
+    for section_tag in section_tags:
+        # Extract heading if present (h1-h6)
+        heading_tag = section_tag.find(["h1", "h2", "h3", "h4", "h5", "h6"])
+        heading = heading_tag.get_text().strip() if heading_tag else None
+
+        # Check for iframe (video) - highest priority
+        iframe = section_tag.find("iframe")
+        if iframe:
+            src = iframe.get("src", "")
+            if src:
+                sections.append(
+                    SectionDict(
+                        heading=heading,
+                        content=str(src),
+                        section_type="video",
+                    )
+                )
+            continue
+
+        # Check for images - second priority
+        img = section_tag.find("img")
+        if img:
+            src = img.get("src", "")
+            alt = img.get("alt", "")
+            if src:
+                sections.append(
+                    SectionDict(
+                        heading=heading,
+                        content=f"{src}|{alt}",
+                        section_type="image",
+                    )
+                )
+            continue
+
+        # Check for lists - create list section
+        list_tag = section_tag.find("ul") or section_tag.find("ol")
+        if list_tag:
+            items = list_tag.find_all("li")
+            list_content = "\n".join(
+                [item.get_text().strip() for item in items if item.get_text().strip()]
+            )
+            if list_content:
+                sections.append(
+                    SectionDict(
+                        heading=heading,
+                        content=list_content,
+                        section_type="list",
+                    )
+                )
+            # Check if there's also text content in this section
+            paragraphs = section_tag.find_all("p")
+            if paragraphs:
+                para_texts = [
+                    p.get_text().strip() for p in paragraphs if p.get_text().strip()
+                ]
+                if para_texts:
+                    text_content = "\n\n".join(para_texts)
+                    # Add as separate text section (with same heading)
+                    sections.append(
+                        SectionDict(
+                            heading=heading,
+                            content=text_content,
+                            section_type="text",
+                        )
+                    )
+            continue
+
+        # Default to text content
+        text_div = section_tag.find("div", class_="IFuOkc")
+        if text_div and text_div.get_text().strip():
+            sections.append(
+                SectionDict(
+                    heading=heading,
+                    content=text_div.get_text().strip(),
+                    section_type="text",
+                )
+            )
+        else:
+            # Fall back to paragraphs
+            paragraphs = section_tag.find_all("p")
+            if paragraphs:
+                para_texts = [
+                    p.get_text().strip() for p in paragraphs if p.get_text().strip()
+                ]
+                if para_texts:
+                    sections.append(
+                        SectionDict(
+                            heading=heading,
+                            content="\n\n".join(para_texts),
+                            section_type="text",
+                        )
+                    )
+
+    return sections

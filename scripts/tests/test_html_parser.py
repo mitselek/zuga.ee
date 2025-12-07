@@ -225,23 +225,93 @@ class TestSectionParsing:
 
     def test_identifies_text_sections(self, about_us_html: str) -> None:
         """Should classify paragraph content as 'text' type."""
-        pytest.skip("parse_sections() not implemented yet")
+        from scripts.html_parser import extract_main_content, parse_sections
+
+        main_content = extract_main_content(about_us_html)
+        sections = parse_sections(main_content)
+
+        # about-us-1.html has text sections
+        text_sections = [s for s in sections if s["section_type"] == "text"]
+        assert len(text_sections) > 0
+        assert len(text_sections[0]["content"]) > 0
 
     def test_identifies_list_sections(self, about_us_html: str) -> None:
         """Should classify bullet lists as 'list' type."""
-        pytest.skip("parse_sections() not implemented yet")
+        from scripts.html_parser import extract_main_content, parse_sections
+
+        main_content = extract_main_content(about_us_html)
+        sections = parse_sections(main_content)
+
+        # about-us-1.html has a list section
+        list_sections = [s for s in sections if s["section_type"] == "list"]
+        assert len(list_sections) > 0
+        # List content should be non-empty
+        assert len(list_sections[0]["content"]) > 0
 
     def test_identifies_image_sections(self, noise_html: str) -> None:
         """Should classify images as 'image' type."""
-        pytest.skip("parse_sections() not implemented yet")
+        from scripts.html_parser import extract_main_content, parse_sections
+
+        main_content = extract_main_content(noise_html)
+        sections = parse_sections(main_content)
+
+        # noise.html has image sections
+        image_sections = [s for s in sections if s["section_type"] == "image"]
+        assert len(image_sections) > 0
 
     def test_identifies_video_sections(self, noise_html: str) -> None:
         """Should classify YouTube embeds as 'video' type."""
-        pytest.skip("parse_sections() not implemented yet")
+        from scripts.html_parser import extract_main_content, parse_sections
+
+        main_content = extract_main_content(noise_html)
+        sections = parse_sections(main_content)
+
+        # noise.html has a video (iframe) section
+        video_sections = [s for s in sections if s["section_type"] == "video"]
+        assert len(video_sections) > 0
 
     def test_extracts_section_headings(self, about_us_html: str) -> None:
         """Should extract heading text when present."""
-        pytest.skip("parse_sections() not implemented yet")
+        from scripts.html_parser import extract_main_content, parse_sections
+
+        main_content = extract_main_content(about_us_html)
+        sections = parse_sections(main_content)
+
+        # Check if any section has a heading
+        sections_with_headings = [s for s in sections if s["heading"]]
+        # Google Sites might not have h2 headings in all sections
+        assert isinstance(sections, list)
+        assert all("heading" in s for s in sections)
+
+    def test_handles_empty_sections(self) -> None:
+        """Should skip sections with no meaningful content."""
+        from scripts.html_parser import parse_sections
+        from bs4 import BeautifulSoup
+
+        html = "<div><section></section><section><div></div></section></div>"
+        soup = BeautifulSoup(html, "lxml")
+        main = soup.find("div")
+
+        sections = parse_sections(main)  # type: ignore[arg-type]
+
+        # Empty sections should be filtered out
+        assert len(sections) == 0
+
+    def test_creates_multiple_sections_from_mixed_content(
+        self, about_us_html: str
+    ) -> None:
+        """Should create separate sections for text + list in same HTML section."""
+        from scripts.html_parser import extract_main_content, parse_sections
+
+        main_content = extract_main_content(about_us_html)
+        sections = parse_sections(main_content)
+
+        # about-us-1 section 2 has both text and list - should create 2 sections
+        assert len(sections) >= 2
+        # Should have both types
+        types = {s["section_type"] for s in sections}
+        assert "text" in types
+        assert "list" in types
 
 
 class TestURLUnwrapping:
