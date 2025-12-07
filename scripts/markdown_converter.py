@@ -14,8 +14,9 @@ def convert_to_markdown(parsed_page: dict[str, Any]) -> str:
 
     Args:
         parsed_page: Dictionary with title, sections, etc. from HTML parser
-                    Can be either direct format (title, description, sections)
-                    or nested format (metadata.title, sections)
+                    Can be either direct format (title, description, sections),
+                    nested format (metadata.title, sections),
+                    or extracted format (metadata.title, content_sections)
 
     Returns:
         Clean Markdown string
@@ -28,16 +29,26 @@ def convert_to_markdown(parsed_page: dict[str, Any]) -> str:
     """
     lines: list[str] = []
 
-    # Handle both direct and nested format
+    # Handle multiple formats
     if "metadata" in parsed_page:
-        # Nested format from html_parser CLI output
+        # Check if it's extracted format or html_parser format
         metadata = parsed_page["metadata"]
         title = metadata.get("title", "Untitled")
         description = metadata.get("description")
+
+        # Use content_sections for extracted format, sections for html_parser
+        sections = parsed_page.get("content_sections") or parsed_page.get("sections", [])
+    elif "page_metadata" in parsed_page:
+        # Extracted format with page_metadata
+        page_meta = parsed_page["page_metadata"]
+        title = page_meta.get("title", "Untitled")
+        description = page_meta.get("description")
+        sections = parsed_page.get("content", {}).get("sections", [])
     else:
         # Direct format from test data
         title = parsed_page.get("title", "Untitled")
         description = parsed_page.get("description")
+        sections = parsed_page.get("sections", [])
 
     # Add title as H1
     lines.append(f"# {title}")
@@ -49,36 +60,58 @@ def convert_to_markdown(parsed_page: dict[str, Any]) -> str:
         lines.append("")
 
     # Process sections
-    for section in parsed_page.get("sections", []):
+    for section in sections:
+        # Handle both old format (heading, section_type, content) and new format (type, heading, content)
+        section_type = section.get("type") or section.get("section_type", "text")
+        heading = section.get("heading")
+        content = section.get("content", "")
+
         # Add section heading if present
-        if section.get("heading"):
-            lines.append(f"## {section['heading']}")
+        if heading:
+            lines.append(f"## {heading}")
             lines.append("")
 
         # Add section content based on type
-        section_type = section.get("section_type", "text")
-        content = section.get("content", "")
-
-        if section_type == "text":
-            lines.append(content)
-            lines.append("")
-        elif section_type == "list":
-            # Convert newline-separated items to bullet list
-            items = content.strip().split("\n")
-            for item in items:
-                if item.strip():
-                    lines.append(f"- {item.strip()}")
-            lines.append("")
-        elif section_type == "image":
-            # Extract src and alt from "src|alt" format
-            parts = content.split("|", 1)
-            src = parts[0]
-            alt = parts[1] if len(parts) > 1 else ""
-            lines.append(f"![{alt}]({src})")
-            lines.append("")
+        if section_type in ("text", "announcement"):
+            if content and content != "Performance-specific hero image":
+                lines.append(content)
+                lines.append("")
+        elif section_type == "list" or section_type == "news":
+            # Handle news items
+            if section_type == "news" and "items" in section:
+                for item in section["items"]:
+                    # Handle both string items and dict items
+                    if isinstance(item, str):
+                        text = item
+                    else:
+                        text = item.get("text", "")
+                    if text:
+                        lines.append(f"- {text}")
+                lines.append("")
+            else:
+                # Convert newline-separated items to bullet list
+                items = content.strip().split("\n") if content else []
+                for item in items:
+                    if item.strip():
+                        lines.append(f"- {item.strip()}")
+                lines.append("")
+        elif section_type == "image" or section_type == "hero":
+            # Skip hero placeholders
+            if content and "hero" not in content.lower() and "|" in content:
+                # Extract src and alt from "src|alt" format
+                parts = content.split("|", 1)
+                src = parts[0]
+                alt = parts[1] if len(parts) > 1 else ""
+                lines.append(f"![{alt}]({src})")
+                lines.append("")
         elif section_type == "video":
             # YouTube embed as markdown link
-            lines.append(f"[YouTube Video]({content})")
+            if content:
+                lines.append(f"[YouTube Video]({content})")
+                lines.append("")
+        elif section_type == "image_gallery":
+            # Note about gallery
+            lines.append("*[Image gallery]*")
             lines.append("")
 
     # Join and clean up excessive blank lines
