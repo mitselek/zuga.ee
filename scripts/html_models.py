@@ -45,10 +45,10 @@ class ParsedPage(BaseModel):
     description: Optional[str] = Field(
         None, description="Meta description if available"
     )
-    sections: List[ContentSection] = Field(  # type: ignore[misc]
+    sections: List[ContentSection] = Field(
         default_factory=list, description="Structured content sections"
     )
-    images: List[ImageReference] = Field(  # type: ignore[misc]
+    images: List[ImageReference] = Field(
         default_factory=list, description="All images found in content"
     )
     links: List[str] = Field(

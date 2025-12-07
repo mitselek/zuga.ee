@@ -116,9 +116,9 @@ def extract_main_content(html: str) -> Tag:
         class_list = div.get("class")
         if class_list is not None and isinstance(class_list, list):
             # Check if footer class appears in any class name
-            for class_item in class_list:  # type: ignore[misc]
+            for class_item in class_list:
                 # Convert to string to handle any type from BeautifulSoup
-                class_name: str = class_item if isinstance(class_item, str) else str(class_item)  # type: ignore[arg-type]
+                class_name: str = class_item if isinstance(class_item, str) else str(class_item)
                 if FOOTER_CLASS in class_name:
                     div.decompose()
                     break
@@ -154,8 +154,8 @@ def extract_metadata(html: str) -> MetadataDict:
 
     # Extract language from og:url
     url_tag = soup.find("meta", property="og:url")
-    url = url_tag["content"] if url_tag and "content" in url_tag.attrs else ""  # type: ignore[index]
-    language = "en" if "/english/" in url else "et" if "/estonian/" in url else "en"  # type: ignore[operator]
+    url = url_tag["content"] if url_tag and hasattr(url_tag, "attrs") and "content" in url_tag.attrs else ""  # type: ignore[index]
+    language = "en" if "/english/" in url else "et" if "/estonian/" in url else "en"
 
     # Extract slug from URL (last path segment)
     slug = ""
@@ -167,9 +167,9 @@ def extract_metadata(html: str) -> MetadataDict:
     # Extract description from og:description
     desc_tag = soup.find("meta", property="og:description")
     description = None
-    if desc_tag and "content" in desc_tag.attrs:  # type: ignore[operator]
+    if desc_tag and hasattr(desc_tag, "attrs") and "content" in desc_tag.attrs:
         # Clean whitespace from description
-        description = " ".join(str(desc_tag["content"]).split())  # type: ignore[index,arg-type]
+        description = " ".join(str(desc_tag["content"]).split())  # type: ignore[index]
 
     return MetadataDict(
         title=title,
@@ -342,7 +342,7 @@ def unwrap_url(url: str) -> str:
     return url
 
 
-def parse_html_file(html: str, url: str) -> dict[str, Any]:  # type: ignore[misc]
+def parse_html_file(html: str, url: str) -> dict[str, Any]:
     """Parse HTML file through complete pipeline.
 
     Orchestrates the full parsing workflow:

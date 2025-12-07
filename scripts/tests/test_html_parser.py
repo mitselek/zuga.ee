@@ -277,9 +277,7 @@ class TestSectionParsing:
         main_content = extract_main_content(about_us_html)
         sections = parse_sections(main_content)
 
-        # Check if any section has a heading
-        sections_with_headings = [s for s in sections if s["heading"]]
-        # Google Sites might not have h2 headings in all sections
+        # All sections should have heading field (may be None)
         assert isinstance(sections, list)
         assert all("heading" in s for s in sections)
 
