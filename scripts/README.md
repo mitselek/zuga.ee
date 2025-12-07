@@ -1,20 +1,24 @@
 # Scripts
 
-Utility scripts for content management and automation.
+Content processing and transformation scripts.
 
-## Available Scripts
+## Available Modules
 
-- `scrape_wayback.py` - Recover original zuga.ee content from Web Archive
-- `news_aggregator.py` - Automated news collection and digest creation
+- `content_organizer.py` - Generate frontmatter and organize content by type/language
+- `markdown_converter.py` - Convert parsed HTML data to Markdown format
+- `media_downloader.py` - Download and optimize images from extracted content
+- `frontmatter_models.py` - Pydantic models for YAML frontmatter validation
 
 ## Usage
 
 ```bash
 # Set up Python environment
 cd /path/to/zuga.ee
-source apps/api/venv/bin/activate
+source .venv/bin/activate
 
-# Run scripts
-python scripts/scrape_wayback.py
-python scripts/news_aggregator.py
+# Run content organization
+python -m scripts.content_organizer input.json
+
+# Run tests
+pytest scripts/tests/ -v
 ```

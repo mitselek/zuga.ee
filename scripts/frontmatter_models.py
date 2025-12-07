@@ -10,7 +10,7 @@ added to markdown files. Models enforce validation and type safety.
 from __future__ import annotations
 
 from typing import Literal, Optional
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field
 
 
 class TranslationReference(BaseModel):
@@ -62,11 +62,8 @@ class ContentFrontmatter(BaseModel):
         default_factory=list, description="Links to translations"
     )
 
-    class Config:
-        """Pydantic configuration."""
-
-        # Ensure JSON serialization works smoothly
-        json_schema_extra = {
+    model_config = ConfigDict(
+        json_schema_extra={
             "example": {
                 "title": "Noise",
                 "slug": "noise",
@@ -78,3 +75,4 @@ class ContentFrontmatter(BaseModel):
                 "translated": [],
             }
         }
+    )

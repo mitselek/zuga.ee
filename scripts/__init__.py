@@ -1,3 +1,3 @@
-"""Wayback Machine scraper for zuga.ee content recovery."""
+"""Content processing scripts for zuga.ee."""
 
 __version__ = "0.1.0"
