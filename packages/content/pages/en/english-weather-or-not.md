@@ -6,7 +6,8 @@ slug: english-weather-or-not
 status: published
 tags: []
 title: Weather or not
-translated: []
+translated:
+- etendused-noorele-publikule-ilma
 type: page
 ---
 

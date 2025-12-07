@@ -6,7 +6,8 @@ slug: häbi
 status: published
 tags: []
 title: Zuga - Häbi
-translated: []
+translated:
+- shame
 type: page
 ---
 

@@ -7,7 +7,8 @@ status: published
 tags:
 - performance
 title: Zuga - Shame
-translated: []
+translated:
+- häbi
 type: performance
 ---
 

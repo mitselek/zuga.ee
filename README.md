@@ -22,11 +22,13 @@ zuga.ee is a two-sided web application that combines:
 ### Content Recovery Status
 
 ✅ **Text Content**: 100% recovered (35 pages)
+
 - All pages extracted, converted, and organized
 - Full content structure preserved
 - YAML frontmatter with metadata
 
 ❌ **Images**: 0% recovered (134 images permanently lost)
+
 - googleusercontent URLs return 403 Forbidden
 - Not accessible via Internet Archive
 - Placeholder system implemented

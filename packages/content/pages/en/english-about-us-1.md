@@ -5,7 +5,8 @@ slug: english-about-us-1
 status: published
 tags: []
 title: Untitled
-translated: []
+translated:
+- tegijad
 type: page
 ---
 

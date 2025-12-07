@@ -5,7 +5,8 @@ slug: etendused-noorele-publikule-kaeik
 status: published
 tags: []
 title: Untitled
-translated: []
+translated:
+- english-thepassage
 type: page
 ---
 

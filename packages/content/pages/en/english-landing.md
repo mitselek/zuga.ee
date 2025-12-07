@@ -5,7 +5,8 @@ slug: english-landing
 status: published
 tags: []
 title: Untitled
-translated: []
+translated:
+- etendused-noorele-publikule-landing
 type: page
 ---
 

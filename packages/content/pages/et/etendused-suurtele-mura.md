@@ -6,7 +6,8 @@ slug: etendused-suurtele-mura
 status: published
 tags: []
 title: Müra
-translated: []
+translated:
+- english-noise
 type: page
 ---
 

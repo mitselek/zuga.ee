@@ -5,7 +5,8 @@ slug: etendused-noorele-publikule-ilma
 status: published
 tags: []
 title: Untitled
-translated: []
+translated:
+- english-weather-or-not
 type: page
 ---
 

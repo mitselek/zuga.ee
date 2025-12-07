@@ -6,7 +6,8 @@ slug: etendused-noorele-publikule-meelekolu
 status: published
 tags: []
 title: meeleKolu
-translated: []
+translated:
+- english-inthemood
 type: page
 ---
 

@@ -6,7 +6,8 @@ slug: tegijad
 status: published
 tags: []
 title: tegijad
-translated: []
+translated:
+- english-about-us-1
 type: page
 ---
 

@@ -5,7 +5,8 @@ slug: etendused-suurtele-suur-teadmatus
 status: published
 tags: []
 title: Untitled
-translated: []
+translated:
+- english-the-great-unknown
 type: page
 ---
 

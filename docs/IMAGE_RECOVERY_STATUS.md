@@ -26,6 +26,7 @@ Located in `packages/content/assets/images/`:
 ### Placeholder System
 
 Created `placeholder.svg` for use in place of missing images:
+
 - Simple gray placeholder with "Image Unavailable" text
 - Can be referenced as `../assets/images/placeholder.svg`
 
@@ -46,6 +47,7 @@ All googleusercontent URLs from the original site, including:
 ## Recovery Attempts
 
 ### ✗ Attempt 1: Direct Download
+
 **Result**: FAILED
 
 ```bash
@@ -56,6 +58,7 @@ curl -I "https://lh5.googleusercontent.com/..."
 All 134 URLs return 403 Forbidden. Access revoked when Google Sites was deleted.
 
 ### ✗ Attempt 2: Internet Archive - Direct URLs
+
 **Result**: FAILED
 
 Checked if googleusercontent URLs were archived:
@@ -68,14 +71,17 @@ curl "http://archive.org/wayback/available?url=https://lh5.googleusercontent.com
 Google's CDN content is not archived by Wayback Machine.
 
 ### ✗ Attempt 3: Internet Archive - Via Archived Pages
+
 **Result**: FAILED
 
 Found zuga.ee is well-archived:
+
 - ✓ 329 snapshots since 2023
 - ✓ 305 HTML pages successfully archived
 - ✓ Image URLs preserved in HTML source
 
 Attempted to download images via Wayback's proxy system:
+
 - Scanned 20 most recent snapshots
 - Found 16 unique image URLs
 - Attempted downloads with multiple strategies
@@ -112,7 +118,7 @@ Images are stored in `media` arrays:
 The `markdown_converter.py` created generic placeholders:
 
 ```markdown
-*[Image gallery]*
+_[Image gallery]_
 ```
 
 These do NOT include the googleusercontent URLs (they're in separate `media` sections of JSONs).
@@ -130,10 +136,12 @@ These do NOT include the googleusercontent URLs (they're in separate `media` sec
 ### Alternative Options (Not Recommended)
 
 - **Contact original owners**: If still reachable, request original image files
+
   - Low probability after site deletion
   - Would require tracking down content creators
 
 - **Use local 23 images**: Assign them to pages arbitrarily
+
   - Misleading (wrong images for wrong content)
   - Unprofessional
   - Not recommended
@@ -145,16 +153,19 @@ These do NOT include the googleusercontent URLs (they're in separate `media` sec
 ## Next Steps
 
 ### Immediate
+
 - ✅ Document status (this file)
 - ✅ Create placeholder.svg
 - ✅ Update assets README
 
 ### Short-term
+
 - ⏭️ Add `images_unavailable: true` to relevant page frontmatter
 - ⏭️ Complete bilingual linking (independent of images)
 - ⏭️ Final QA of text content
 
 ### Long-term
+
 - Consider reaching out to Zuga company/artists if rebuilding site
 - Keep archives and documentation for historical reference
 
@@ -171,6 +182,7 @@ These do NOT include the googleusercontent URLs (they're in separate `media` sec
 **Image recovery is complete in the sense that all options have been exhausted.**
 
 The googleusercontent URLs cannot be accessed through any means:
+
 - Direct access: Forbidden
 - Archive.org: Not accessible
 - Local archives: Wrong image set
