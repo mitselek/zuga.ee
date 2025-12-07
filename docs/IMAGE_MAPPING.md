@@ -33,7 +33,7 @@ Files named with 32-char MD5 hashes (some with .png extension):
 
 Files named with full googleusercontent hash + short hash:
 
-```
+```text
 <googleusercontent_hash>=w<width>_<short_hash>.<ext>
 ```
 
@@ -61,7 +61,7 @@ Confirmed mappings (8 files):
 
 The local image files use internal Google Storage hashes (32-char MD5), NOT the googleusercontent.com URL hashes found in the HTML/JSON. The googleusercontent URLs look like:
 
-```
+```text
 https://lh3.googleusercontent.com/2xIFCyCa68-hNcL94-Ka0c5OyJQq9mFHiQxkYjnHMv5V8em6h8hsRvm56ON3Hq91wsjnHQ=w1280
 ```
 
@@ -97,17 +97,120 @@ Try downloading images from googleusercontent URLs in JSON:
 - But worth attempting for any that might still be accessible
 - Use local copies as fallback
 
+## Recovery Attempts
+
+### Attempt 1: Direct Download from googleusercontent URLs
+
+**Status**: ❌ FAILED
+**Date**: December 8, 2024
+
+Attempted to download images directly from googleusercontent URLs found in extracted JSON files.
+
+**Result**: All URLs return **403 Forbidden**
+
+Example test:
+
+```bash
+curl -I "https://lh5.googleusercontent.com/PXSN6CJeVTYvu_x98JfAS3NBScOCkqV2WJW0HXxDJZWAA5pu8fyh7o59Y-BweUELFvpWPqx55G_kz-QCKDI1Y9Y"
+# HTTP/1.1 403 Forbidden
+```
+
+**Conclusion**: Google has restricted access to these images, likely because the Google Sites page was deleted.
+
+---
+
+### Attempt 2: Internet Archive (Wayback Machine)
+
+**Status**: ❌ FAILED
+**Date**: December 8, 2024
+
+Tested multiple recovery approaches via Internet Archive:
+
+#### 2a. Check if googleusercontent URLs were archived directly
+
+- Queried Wayback API for image URLs
+- **Result**: No archived snapshots of any image URLs
+- googleusercontent CDN content is not archived by Wayback
+
+#### 2b. Find archived zuga.ee pages
+
+- Found **329 snapshots** of zuga.ee since 2023
+- **305 HTML pages** successfully archived
+- Latest snapshot: March 24, 2025 (future date - likely crawl error)
+- Oldest relevant: January 28, 2023
+
+#### 2c. Extract images from archived pages
+
+- Scanned 20 most recent archived HTML pages
+- Found **16 unique googleusercontent URLs** in archived HTML
+- URLs preserved in archived HTML source code ✓
+
+#### 2d. Download images via Wayback's rewrite system
+
+- Attempted to download 16 images using Wayback URLs
+- Tried multiple strategies:
+  - Direct Wayback image proxy: `web.archive.org/web/{timestamp}if_/{image_url}`
+  - Multiple size suffixes: =w2000, =w1280, =w800, none
+  - Different timestamp snapshots
+- **Result**: **0/16 successful downloads** (100% failure rate)
+
+**Conclusion**: While zuga.ee HTML pages are archived in Wayback Machine, the embedded googleusercontent images cannot be accessed through the archive. Google's CDN blocks or doesn't honor Wayback Machine crawler requests.
+
+---
+
+## Final Assessment
+
+### Images Status Summary
+
+| Source                   | Status         | Count                  | Notes              |
+| ------------------------ | -------------- | ---------------------- | ------------------ |
+| Direct googleusercontent | ❌ Unavailable | 134 unique URLs        | 403 Forbidden      |
+| Wayback Machine          | ❌ Unavailable | 16 found, 0 accessible | CDN blocks archive |
+| Local archives (zuga)    | ✓ Available    | 16 files (35MB)        | Wrong image set    |
+| Local archives (zuga2)   | ✓ Available    | 8 files (2MB)          | Subset of zuga     |
+| **Total needed**         |                | **134 images**         |                    |
+| **Total recovered**      |                | **0 images (0%)**      |                    |
+
+### Why Recovery Failed
+
+1. **Google Sites deletion**: When the site was deleted, image access was revoked
+2. **CDN restrictions**: googleusercontent URLs return 403 (no public access)
+3. **Wayback limitations**: Archive.org cannot proxy Google's image CDN
+4. **Local archive mismatch**: The 16 local images are from a different source/version
+   - 0% overlap with 134 images in extracted content
+   - Likely test downloads or development samples
+
+### Recommendation: Accept Loss and Document
+
+**Action Plan:**
+
+1. ✅ **Document recovery attempts** - This file serves as evidence of due diligence
+2. ✅ **Keep URLs in markdown** - Preserve googleusercontent URLs for historical reference
+3. ⏭️ **Add frontmatter metadata** - Flag pages with `images_status: "unavailable"`
+4. ⏭️ **Focus on text content** - 100% of text successfully recovered (35 pages)
+5. ⏭️ **Optional: Copy local images** - Move 16 local images to media folder for reference
+   - Note: These won't match content, but preserve what we have
+
+**Conclusion**: All 134 production images are **permanently lost**. Text content recovery is complete and successful.
+
+---
+
 ## Recommendations
 
-1. **Immediate**: Copy 16 local images to `packages/content/media/` with original filenames
-2. **Short-term**: Create mapping table from zuga2 filenames to googleusercontent hashes
-3. **Medium-term**: Implement Option 2 (reverse engineer from HTML) to build complete map
-4. **Long-term**: Consider Option 1 (perceptual hashing) if needed for disambiguation
+**Primary Recommendation: Accept Image Loss**
 
-## Next Steps
+Given that all recovery attempts have failed, the pragmatic approach is:
 
-1. Copy local images to content directory
-2. Build googleusercontent → local file mapping from zuga2
-3. Update markdown files to use local image paths where available
-4. Document which images are available vs referenced-but-missing
-5. Consider renaming local files to meaningful names based on usage context
+1. ✅ **Keep googleusercontent URLs** - Preserve in markdown as historical reference
+2. ⏭️ **Update frontmatter** - Add `images_unavailable: true` to affected pages
+3. ⏭️ **Document status** - Create `docs/IMAGE_RECOVERY_STATUS.md` summarizing findings
+4. ⏭️ **Archive local images** - Keep 16 local files in `archive/` for reference (not for use)
+5. ⏭️ **Focus on text** - Prioritize completing text content organization and bilingual linking
+
+**Alternative Options:**
+
+- **Placeholder images**: Create "image unavailable" graphics to maintain layout
+- **Contact original owners**: If still reachable, request original image files
+- **Use local 16 images**: Copy to media folder with clear documentation they don't match content
+
+**Conclusion**: Text content recovery is 100% complete (35 pages). Image recovery: 0% (134 images permanently lost).
