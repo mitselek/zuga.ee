@@ -1,0 +1,131 @@
+{
+  "metadata": {
+    "title": "Zuga - Tuleviku liigutajad",
+    "language": "et",
+    "slug": "tuleviku-liigutajad",
+    "description": "Zuga töötuba - Tuleviku liigutajad / Future Movers workshop"
+  },
+  "content_sections": [
+    {
+      "type": "hero",
+      "content": "Workshop hero image",
+      "media_ref": "hero_workshop"
+    },
+    {
+      "type": "announcement",
+      "heading": "Tulekul / Coming:",
+      "content": "Zuga Ühendatud Tantsijate uuslavastus \"Ilma\" / Zuga's new piece \"Weather or not\"\n23.11.2024 @ 15.00 at Sõltumatu Tantsu Lava\n23.11.2024 @ 18.00 at Sõltumatu Tantsu Lava",
+      "links": [
+        {
+          "text": "Ilma",
+          "url": "/etendused-noorele-publikule/ilma"
+        },
+        {
+          "text": "Weather or not",
+          "url": "/english/weather-or-not"
+        },
+        {
+          "text": "STL lavastused",
+          "url": "https://www.stl.ee/lavastused/ilma"
+        }
+      ],
+      "note": "Site-wide announcement"
+    },
+    {
+      "type": "image_gallery",
+      "content": "Workshop photos"
+    },
+    {
+      "type": "text",
+      "content": "aitäh!"
+    },
+    {
+      "type": "news",
+      "heading": "uudised:",
+      "items": [
+        {
+          "text": "Zuga pälvis Hea Teatri Auhinnna 2021 - täname!!!",
+          "importance": "high"
+        },
+        {
+          "text": "Zuga on välja tulnud oma liikumispausidega, mis on kättesaadavad STL-i kodulehel",
+          "link": "https://stl.ee/tootuba/liikumispausid/",
+          "relevance": "Highly relevant to workshop page context"
+        },
+        {
+          "text": "Zuga heliliikumistöötoad",
+          "link": "https://stl.ee/tootuba/zuga-helimuramistootuba/",
+          "relevance": "Highly relevant to workshop page context"
+        }
+      ]
+    },
+    {
+      "type": "video",
+      "content": "ZUGA Ühendatud Tantsijate tervitus eriolukorra ajal",
+      "media_ref": "youtube_greeting"
+    },
+    {
+      "type": "collapsible_gallery",
+      "content": "Expandable image galleries"
+    }
+  ],
+  "media": [
+    {
+      "type": "background_image",
+      "id": "hero_workshop",
+      "url": "https://lh3.googleusercontent.com/K12icI186SriVtl2NJADhrmIcGLJv4cXQ-t_xilgBeclEexIQdUy4YwhvbnkPRvpZnWCYRc_YhIXtu5UvfBzhws=w16383",
+      "context": "Tuleviku liigutajad workshop hero background - unique to this page"
+    },
+    {
+      "type": "image",
+      "url": "https://lh6.googleusercontent.com/mAjkZKLZ-TWLFDBJPHPhVtRcuX1fzLS9Mme3_YbjZeqPsDUFXasWmkF2QwJWYCjlCWItBCxCHldTK7Ymm9zUmYx-o8Xp_CEOHFUrxtJOEmIUzV5JTc9msn_7eQiFHiYO6Q=w1280",
+      "context": "Workshop main image - unique to this page"
+    },
+    {
+      "type": "image",
+      "url": "https://lh3.googleusercontent.com/7TKepRS-fhNEQRICxAR6IEEGIPU2yedBHVL1C5MxD1TZbVPOSWagcmFKbHI07tAuxf0M6eOvx1gg7s8NOfvUeUs5o10HkZ3B_q6Y-yuEBGqcpk84aKIAvOHral9SyV26Qg=w1280",
+      "context": "Workshop photo"
+    },
+    {
+      "type": "image",
+      "url": "https://lh5.googleusercontent.com/crKzLqv6lHNm2pq9YSw4B5v7F8vPJGGaAJbq3JsGFc1dNBSbQOZTIUxaDWDghGoiJJkZAXzMSdOvLj951KfsjVE=w1280",
+      "context": "Workshop photo"
+    },
+    {
+      "type": "image",
+      "url": "https://lh6.googleusercontent.com/mhyxSDRW0Nu-bhOm5WCrOY5cm5kL0XMzNmvdYzaZV07xGaUyprln8BVlxXoWCoh_QDLWicMCei4xmGgr3jeeREDLyVh_z9E27o2DjNkYPC1n1m6S1GS4dryfIT6TLB0kbQ=w1280",
+      "context": "Workshop photo"
+    },
+    {
+      "type": "image",
+      "url": "https://lh6.googleusercontent.com/Cnz2KsaT2hy97Sxkv7XYMtOy_KBScA9lvWLWC0oO0GDGqLr3eFJJbaRulgc6Ob6N=w1280",
+      "context": "Full width image"
+    },
+    {
+      "type": "image",
+      "url": "https://lh6.googleusercontent.com/CMS9Ihh7aKXjYowG1XRFt9A-I9U891i6glXYUgn2mTEs2bbT1s4fUVwgEvCmZ6j3luZVVKfCEO-NtgKlOMq_MVgnUENSQFGLfkkHRaOLCZgz2Jw6=w1280",
+      "context": "Collapsible gallery thumbnail"
+    },
+    {
+      "type": "image",
+      "url": "https://lh3.googleusercontent.com/w0MkjZAMdo5oU7ZFe3CyP5a0kF8LC_DFp6AchZ6N1v-cHR_jsfJB5K_eCzXaAdd3kJuGbJEeDbJQo8-WgbVxBvjuy7CZhOa9i80wGKnhVpdRuVVrtIF_1HqyYchn-TEvww=w1280",
+      "context": "Expanded gallery image"
+    },
+    {
+      "type": "video",
+      "id": "youtube_greeting",
+      "platform": "youtube",
+      "embed_url": "https://www.youtube.com/embed/qp22v58UQnw",
+      "title": "ZUGA Ühendatud Tantsijate tervitus eriolukorra ajal",
+      "context": "Shared site-wide video"
+    }
+  ],
+  "bilingual_link": null,
+  "extraction_notes": {
+    "shared_content": "All text content is site-wide news",
+    "unique_elements": "Hero background and main image specific to Tuleviku liigutajad workshop",
+    "page_purpose": "Workshop page for 'Tuleviku liigutajad' (Future Movers)",
+    "content_reuse": "Workshop links in news section contextually relevant but appear site-wide",
+    "observation": "Expected workshop-specific details (dates, registration, description) not found in lines 200-500; may be beyond that range or page relies on shared content with workshop-specific hero imagery"
+  }
+}

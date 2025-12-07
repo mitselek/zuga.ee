@@ -1,0 +1,131 @@
+{
+  "metadata": {
+    "title": "Zuga - Uudised / News",
+    "language": "et",
+    "slug": "uudised",
+    "description": "Zuga Ühendatud Tantsijate koduleht - uudised ja teated"
+  },
+  "content_sections": [
+    {
+      "type": "hero",
+      "content": "Background image hero section",
+      "media_ref": "hero_bg"
+    },
+    {
+      "type": "announcement",
+      "heading": "Tulekul / Coming:",
+      "content": "Zuga Ühendatud Tantsijate uuslavastus \"Ilma\" / Zuga's new piece \"Weather or not\"\n23.11.2024 @ 15.00 at Sõltumatu Tantsu Lava\n23.11.2024 @ 18.00 at Sõltumatu Tantsu Lava",
+      "links": [
+        {
+          "text": "Ilma",
+          "url": "/etendused-noorele-publikule/ilma"
+        },
+        {
+          "text": "Weather or not",
+          "url": "/english/weather-or-not"
+        },
+        {
+          "text": "STL lavastused",
+          "url": "https://www.stl.ee/lavastused/ilma"
+        }
+      ]
+    },
+    {
+      "type": "image_gallery",
+      "content": "Performance photo"
+    },
+    {
+      "type": "text",
+      "content": "aitäh!"
+    },
+    {
+      "type": "news",
+      "heading": "uudised:",
+      "items": [
+        {
+          "text": "Zuga pälvis Hea Teatri Auhinnna 2021 - täname!!!",
+          "importance": "high"
+        },
+        {
+          "text": "Zuga on välja tulnud oma liikumispausidega, mis on kättesaadavad STL-i kodulehel",
+          "link": "https://stl.ee/tootuba/liikumispausid/"
+        },
+        {
+          "text": "Zuga heliliikumistöötoad",
+          "link": "https://stl.ee/tootuba/zuga-helimuramistootuba/"
+        }
+      ]
+    },
+    {
+      "type": "video",
+      "content": "ZUGA Ühendatud Tantsijate tervitus eriolukorra ajal",
+      "media_ref": "youtube_greeting"
+    },
+    {
+      "type": "collapsible_gallery",
+      "content": "Expandable image galleries with performance photos"
+    }
+  ],
+  "media": [
+    {
+      "type": "background_image",
+      "id": "hero_bg",
+      "url": "https://lh6.googleusercontent.com/rKduVSSEEfBQHKeGmVV1ajUVOktnN1_adF_aN2z_SOIvqo6tBd1-1MvE1G6XMyRwTISBmuTQyODQ5jmwLNQBos0",
+      "context": "Hero section background"
+    },
+    {
+      "type": "image",
+      "url": "https://lh4.googleusercontent.com/EIuAxCxO4gUquY6l7BPisKD0zW28oqAba-vvUFxFlLN_MrRsEu8gpEQa1b6CV-OudSUBqAUqrtNzX9kO6cCIsJhwQUcKjKbUcqPbb5-bC7p8Zi10qlx7q_WvjgXCJJzHnQ",
+      "context": "Main performance image"
+    },
+    {
+      "type": "image",
+      "url": "https://lh4.googleusercontent.com/9VYlWXTJiw-uJ_fo2avWXR0rRbKXlf2VoJ63t0h7uJTXyAa_dhvw19tQCtEq4cHJNip7UP4yVPImSla1JCEvcIgv1e9sX9-ZaWGvZQrNc5D0RUbOdeY-5pNxhafL9EAxag=w1280",
+      "context": "Ilma announcement image"
+    },
+    {
+      "type": "image",
+      "url": "https://lh4.googleusercontent.com/KmbemukJTQo9yo0WbK_YYz7GlqvqFfG8XLN4ItyWzbS4xRPM70UbxSaQR4SfZ6sUTKe8jAZHeduESwh3T_dFw6Q=w1280",
+      "context": "Performance photo"
+    },
+    {
+      "type": "image",
+      "url": "https://lh6.googleusercontent.com/ZSQVEXkNQvVK5ND6uIlC3QYTLlWeYgjJ02ce_1DyzAtEqrO9C0TzOQr5yzrxs14byS9JNBoHJhQirbJZD49RfnTtYgq0vcAWVCbNwxX96ePle2dhbqpuO2HCt23kTbK07g=w1280",
+      "context": "Award announcement photo"
+    },
+    {
+      "type": "image",
+      "url": "https://lh4.googleusercontent.com/cEg2Tkn90RBLgt5Hln4B7cVttaWq63QsOvO6w7FzNK1mBHVqu6LtontM8VTbcWYP=w1280",
+      "context": "Full width image"
+    },
+    {
+      "type": "image",
+      "url": "https://lh5.googleusercontent.com/6YSCrXvN8ZsalV2KjOQqa4cVr5NfOroFLm9sG0NnJIP-tzupaWwKmDIjykbVfzXEKG5tsTTOn9PDWJ8XyocgqrmmSyXOHd461OwGQxZYaPXg4OVh=w1280",
+      "context": "Collapsible gallery thumbnail"
+    },
+    {
+      "type": "image",
+      "url": "https://lh3.googleusercontent.com/gwanlqpY2gdC3RJYsbod3J3We0dgskInBKN1LkjVlNLukToMVbvsn8QYceAGxx8koSKZwt5vmN8MhMKE6yD9wEnkceXYwjvP2qKdS_wv4cfWQn6u0orPTmWx8-4wvsYSRA=w1280",
+      "context": "Expanded gallery image"
+    },
+    {
+      "type": "video",
+      "id": "youtube_greeting",
+      "platform": "youtube",
+      "embed_url": "https://www.youtube.com/embed/qp22v58UQnw",
+      "title": "ZUGA Ühendatud Tantsijate tervitus eriolukorra ajal",
+      "context": "Zuga United Dancers greeting during special situation"
+    }
+  ],
+  "bilingual_link": {
+    "language": "en",
+    "url": "/english",
+    "note": "Main English section available but no direct page translation"
+  },
+  "extraction_notes": {
+    "shared_content": "News section appears site-wide across multiple pages",
+    "unique_elements": "Hero background image specific to homepage",
+    "page_purpose": "News/announcements landing page",
+    "content_reuse": "Award announcement and workshop links repeated across site"
+  }
+}

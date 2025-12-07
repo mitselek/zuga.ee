@@ -1,0 +1,62 @@
+{
+  "metadata": {
+    "source_file": "archive/zuga/zuga.ee/etendused-noorele-publikule/ilma/index.html",
+    "extraction_date": "2025-01-17",
+    "extractor": "kaia_manual_batch_3",
+    "language": "et",
+    "page_type": "Performance - Young Audience"
+  },
+  "content_sections": [
+    {
+      "type": "hero",
+      "background_image": "https://lh5.googleusercontent.com/YmL-ZKflrTu0uUJnzvcMQ9812g16lIXAfb2u1wmCWwluKk_RwjfjV3T_td4mMmiTLHIhYBvy3l7we3cFw39C0c0=w16383"
+    },
+    {
+      "type": "upcoming_events",
+      "title": "Tulekul / Coming:",
+      "content": [
+        "Zuga Ühendatud Tantsijate uuslavastus \"Ilma\" / Zuga's new piece \"Weather or not\"",
+        "23.11.2024 @ 15.00 at Sõltumatu Tantsu Lava",
+        "23.11.2024 @ 18.00 at Sõltumatu Tantsu Lava"
+      ],
+      "external_link": "https://www.stl.ee/lavastused/ilma"
+    },
+    {
+      "type": "text_content",
+      "content": "aitäh!"
+    },
+    {
+      "type": "award_announcement",
+      "content": "Zuga pälvis Hea Teatri Auhinnna 2021 - täname!!!"
+    },
+    {
+      "type": "news",
+      "title": "uudised:",
+      "items": [
+        "Zuga on välja tulnud oma liikumispausidega, mis on kättesaadavad STL-i kodulehel https://stl.ee/tootuba/liikumispausid/",
+        "Zuga heliliikumistöötoad - https://stl.ee/tootuba/zuga-helimuramistootuba/"
+      ]
+    }
+  ],
+  "media": {
+    "hero_image": "https://lh5.googleusercontent.com/YmL-ZKflrTu0uUJnzvcMQ9812g16lIXAfb2u1wmCWwluKk_RwjfjV3T_td4mMmiTLHIhYBvy3l7we3cFw39C0c0=w16383",
+    "images": [
+      "https://lh4.googleusercontent.com/mJFViQ47bnoEp8oV3TFrBl7V7DYZee-5KS09iH8jptT1JiHODyd2h5Dy8m6Py4fKqlAnt2ZQ7m-r-mhIajFDH0-z1IeM6id4GCij8ruAOB3BdKQzSI8l96FjTDXjGpeBWw=w1280",
+      "https://lh4.googleusercontent.com/By6WfGlGhJIgOXQXxmV4me3GJXVyDcLsQV4gvoXPtrUjZgWp8vyYpbhNf9AJz_9uM373nSw8K7aQhr4JzipnhzsX5ZCbBHyElAj12zebnkZi_Djj5kWzdLtnEM1Qw7ZZrA=w1280"
+    ],
+    "youtube_embed": "qp22v58UQnw",
+    "thumbnail": "https://lh5.googleusercontent.com/ew3cRZ8g46x9toLHfl8OZBzbo5EiLmzSvrFbW7ldJaRHx9wgJ0H7-I7OVEEx0J-wVLSS0w=w16383"
+  },
+  "navigation": {
+    "current_section": "lavastused noorele publikule",
+    "bilingual_link": "/english/weather-or-not",
+    "siblings": [
+      "2-2-22",
+      "meeleKolu",
+      "KÄIK",
+      "VÕLUVÄRK",
+      "Zuga zuug zuh-zuh-zuh"
+    ]
+  },
+  "extraction_notes": "Young audience performance page with bilingual pair confirmed (ilma ↔ weather-or-not). Contains identical site-wide news, announcements, and YouTube video as all other pages. Performance-specific images present, but content sections are 100% reused across site. Hero background is primary differentiator. External link to STL venue included."
+}

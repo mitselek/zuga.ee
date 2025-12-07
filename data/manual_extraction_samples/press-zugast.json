@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "source_file": "archive/zuga/zuga.ee/press-zugast/index.html",
+    "extraction_date": "2025-01-17",
+    "extractor": "kaia_manual_batch_3",
+    "language": "et",
+    "page_type": "Press/Info"
+  },
+  "content_sections": [
+    {
+      "type": "hero",
+      "background_image": "https://lh4.googleusercontent.com/AQSjuo_PSjIanHJZViP-uPGfqNAp9fWeBSZdAAu4LhkMvOqMNWJJFw7TE0ozSSrp7L_QB7iTwKRdsIDqNRnx73Q=w16383"
+    },
+    {
+      "type": "upcoming_events",
+      "title": "Tulekul / Coming:",
+      "content": [
+        "Zuga Ühendatud Tantsijate uuslavastus \"Ilma\" / Zuga's new piece \"Weather or not\"",
+        "23.11.2024 @ 15.00 at Sõltumatu Tantsu Lava",
+        "23.11.2024 @ 18.00 at Sõltumatu Tantsu Lava"
+      ],
+      "external_link": "https://www.stl.ee/lavastused/ilma"
+    },
+    {
+      "type": "embedded_content",
+      "image": "https://lh4.googleusercontent.com/PEZqH1kiiXulfC4l_0gUPr8mCySOzaTLCoPEdP-nP7eh4e34Uqa8pe_4LtUCcz4_VgDxyV-GQUcpDY7DmhVLtAcXdfrShKUAcT_FX2_Ktv5i5AJg93Kxcxfd0KqHwgEbUQ=w1280"
+    },
+    {
+      "type": "text_content",
+      "content": "aitäh!"
+    },
+    {
+      "type": "award_announcement",
+      "content": "Zuga pälvis Hea Teatri Auhinnna 2021"
+    },
+    {
+      "type": "news",
+      "title": "uudised:",
+      "items": [
+        "Zuga pälvis Hea Teatri Auhinnna 2021 - täname!!!",
+        "Zuga on välja tulnud oma liikumispausidega, mis on kättesaadavad STL-i kodulehel https://stl.ee/tootuba/liikumispausid/",
+        "Zuga heliliikumistöötoad - https://stl.ee/tootuba/zuga-helimuramistootuba/"
+      ]
+    }
+  ],
+  "media": {
+    "hero_image": "https://lh4.googleusercontent.com/AQSjuo_PSjIanHJZViP-uPGfqNAp9fWeBSZdAAu4LhkMvOqMNWJJFw7TE0ozSSrp7L_QB7iTwKRdsIDqNRnx73Q=w16383",
+    "images": [
+      "https://lh4.googleusercontent.com/PEZqH1kiiXulfC4l_0gUPr8mCySOzaTLCoPEdP-nP7eh4e34Uqa8pe_4LtUCcz4_VgDxyV-GQUcpDY7DmhVLtAcXdfrShKUAcT_FX2_Ktv5i5AJg93Kxcxfd0KqHwgEbUQ=w1280",
+      "https://lh4.googleusercontent.com/N37GJD0MWrNHvV_ufwHdJAEOoy7ipUmh3v7xEM3jibDbQmD93wAQ7aY8sFge3XSoSWo-Txxzt4XGTx0DjPk9buVTquTGMHduq3E-soOJNIMb_ihpMbsf_l5XjLh1TFCx2Q=w1280",
+      "https://lh6.googleusercontent.com/x_BzrJhPDI77fHzjc7ydZPKrjQDQWdYCgR0I8-gVv3sHkvz4MDMRwbeXjRnGxipsQzYiRHXQ7K6MVe24qLZbP0w=w1280",
+      "https://lh6.googleusercontent.com/PhJpx84cMoYXPmcK0TvLPjlq390IyBYFTpNtyfYLbSCkpni7iHHJ1Ou9Bbflj78KY1lvwgdCz407_saDcYRzX079LsWK1BtmNYyqVPhs_yE6ZwK15aafnRCvOqzZK0UZSw=w1280",
+      "https://lh6.googleusercontent.com/ClEBmoq3serzHY-4IUjbgFkAaXsaURWvnDpSJLXG5nuClZlUGm_UNGsyGR7Ll586if8NNjH2e-fzCzw2dIQYB1lcDT_vhFo1tyFuEIRQSo6-ysw-=w1280",
+      "https://lh4.googleusercontent.com/eTTOocW7LcSd4JJRCv5upLDLRe0Suh0zYcuWVgqDrNJiKvpiqDrHiAy8U_gbVVLVkJBLhsUS3jJ75GXHohhg3ADYPGOdtWAvVBlQNziYR6GVKydw7QinVBCwlk-4DyR8Rg=w1280",
+      "https://lh6.googleusercontent.com/lDZMneDpYrufyKKsb4Tja6kJy9qZhZZv-_J3V_9EEvjpYmfPW72M20jvgSMO_SbF=w1280"
+    ],
+    "youtube_embed": "qp22v58UQnw",
+    "thumbnail": "https://lh5.googleusercontent.com/ew3cRZ8g46x9toLHfl8OZBzbo5EiLmzSvrFbW7ldJaRHx9wgJ0H7-I7OVEEx0J-wVLSS0w=w16383"
+  },
+  "navigation": {
+    "current_section": "press zugast",
+    "menu_label": "press zugast"
+  },
+  "extraction_notes": "Press/info page follows exact same pattern as contact page - NO unique press content in sampled range. Contains identical site-wide news, performance announcements, awards, and workshops. Multiple embedded images suggest gallery-style layout. Hero image and additional photos are only differentiators. Press materials may be outside sampled range or require different access method."
+}

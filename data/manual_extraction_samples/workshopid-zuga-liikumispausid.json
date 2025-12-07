@@ -1,0 +1,65 @@
+{
+  "metadata": {
+    "source_file": "archive/zuga/zuga.ee/workshopid/zuga-liikumispausid/index.html",
+    "extraction_date": "2025-01-17",
+    "extractor": "kaia_manual_batch_3",
+    "language": "et",
+    "page_type": "Workshop"
+  },
+  "content_sections": [
+    {
+      "type": "hero",
+      "background_image": "https://lh3.googleusercontent.com/f_Y8bEmDx0aEa3A7mbSHdK3l684x6MTTnG1QfIBka_ahRHbSr-3VXpfiSaN1lnSFo9uS6y65cBs-zen22eqxYFY=w16383"
+    },
+    {
+      "type": "upcoming_events",
+      "title": "Tulekul / Coming:",
+      "content": [
+        "Zuga Ühendatud Tantsijate uuslavastus \"Ilma\" / Zuga's new piece \"Weather or not\"",
+        "23.11.2024 @ 15.00 at Sõltumatu Tantsu Lava",
+        "23.11.2024 @ 18.00 at Sõltumatu Tantsu Lava"
+      ],
+      "external_link": "https://www.stl.ee/lavastused/ilma"
+    },
+    {
+      "type": "text_content",
+      "content": "aitäh!"
+    },
+    {
+      "type": "award_announcement",
+      "content": "Zuga pälvis Hea Teatri Auhinnna 2021"
+    },
+    {
+      "type": "news",
+      "title": "uudised:",
+      "items": [
+        "Zuga pälvis Hea Teatri Auhinnna 2021 - täname!!!",
+        "Zuga on välja tulnud oma liikumispausidega, mis on kättesaadavad STL-i kodulehel https://stl.ee/tootuba/liikumispausid/",
+        "Zuga heliliikumistöötoad - https://stl.ee/tootuba/zuga-helimuramistootuba/"
+      ]
+    }
+  ],
+  "media": {
+    "hero_image": "https://lh3.googleusercontent.com/f_Y8bEmDx0aEa3A7mbSHdK3l684x6MTTnG1QfIBka_ahRHbSr-3VXpfiSaN1lnSFo9uS6y65cBs-zen22eqxYFY=w16383",
+    "images": [
+      "https://lh4.googleusercontent.com/Ek0yUufUhK8uy5VkxE8L0v9WmKxuUX9EAJY83N_RTsJMHRIIKzMA-AHcwLZwV8LvdKo6EqBqeybkm9_5SPdMiFOT-VROvmDrB5lUP-M6LGPpLrxFaRLySjjRxAH_0Bt1og=w1280"
+    ],
+    "youtube_embed": "qp22v58UQnw",
+    "thumbnail": "https://lh4.googleusercontent.com/wnWHR8-lx8zu9JD0byeizg843-EuqPzwDzd4OFQQ97_dTGk2p5sxPGTdPbtKYJTdvIBX2w=w16383"
+  },
+  "navigation": {
+    "current_section": "töötoad / workshops",
+    "workshop_type": "zuga liikumispausid",
+    "siblings": [
+      "tuleviku-liigutajad",
+      "families workshop",
+      "mindstuff games",
+      "heliliikumistöötoad"
+    ]
+  },
+  "external_links": [
+    "https://stl.ee/tootuba/liikumispausid/",
+    "https://stl.ee/tootuba/zuga-helimuramistootuba/"
+  ],
+  "extraction_notes": "Second workshop page validates pattern. Contains identical site-wide content as ALL other pages (performances, workshops, contact). Workshop-specific details may be outside sampled range. Hero image and embedded workshop image are only unique elements. External STL links present for workshop bookings."
+}

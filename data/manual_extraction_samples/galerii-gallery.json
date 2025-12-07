@@ -1,0 +1,74 @@
+{
+  "metadata": {
+    "title": "galerii / gallery",
+    "language": "et",
+    "slug": "galerii-gallery",
+    "description": "Zuga Ühendatud Tantsijate fotogalerii / Photo gallery"
+  },
+  "content_sections": [
+    {
+      "type": "hero",
+      "content": "Gallery landing page"
+    },
+    {
+      "type": "announcement",
+      "heading": "Tulekul / Coming:",
+      "content": "Zuga Ühendatud Tantsijate uuslavastus \"Ilma\" / Zuga's new piece \"Weather or not\"\n23.11.2024 @ 15.00 at Sõltumatu Tantsu Lava\n23.11.2024 @ 18.00 at Sõltumatu Tantsu Lava\nhttps://www.stl.ee/lavastused/ilma"
+    },
+    {
+      "type": "image_section",
+      "content": "aitäh!"
+    },
+    {
+      "type": "award",
+      "content": "Zuga pälvis Hea Teatri Auhinnna 2021"
+    },
+    {
+      "type": "video",
+      "content": "ZUGA Ühendatud Tantsijate tervitus eriolukorra ajal",
+      "youtube_id": "qp22v58UQnw"
+    },
+    {
+      "type": "news",
+      "heading": "uudised:",
+      "items": [
+        "Zuga pälvis Hea Teatri Auhinnna 2021 - täname!!!",
+        "Zuga on välja tulnud oma liikumispausidega, mis on kättesaadavad STL-i kodulehel https://stl.ee/tootuba/liikumispausid/",
+        "Zuga heliliikumistöötoad - https://stl.ee/tootuba/zuga-helimuramistootuba/"
+      ]
+    }
+  ],
+  "media": [
+    {
+      "type": "background_image",
+      "url": "https://lh5.googleusercontent.com/5OA_l_jHmBadKXKOU5GY4...",
+      "context": "Hero background"
+    },
+    {
+      "type": "image",
+      "url": "https://lh6.googleusercontent.com/XYFt3guk7-04c4vTE2eB...",
+      "context": "Main gallery image"
+    },
+    {
+      "type": "image",
+      "url": "https://lh4.googleusercontent.com/L5GjbMdxlDflvcGjZY-Y2Ot-8l55AKClipoAmzxKhcTXOA_3BH7jFby8A5-cdRzuW2c9O9wTlrQEWj7NjT3zGzO8hP0OWFnjfSSSyvfrziH33vTSP0g8jrXiM9vBSIgTGw=w1280",
+      "context": "aitäh image"
+    },
+    {
+      "type": "image",
+      "url": "https://lh4.googleusercontent.com/zSmMlvS_EOVr0RJgHZR1g1q795oiVHibhMl2SojqdvoQ0M6jFsFQMFinjWY5kcCAR7tDBnSdb8jsAwkSki3cFo8=w1280",
+      "context": "Section image"
+    },
+    {
+      "type": "youtube_video",
+      "url": "https://www.youtube.com/embed/qp22v58UQnw",
+      "video_id": "qp22v58UQnw"
+    }
+  ],
+  "bilingual_link": {
+    "language": "et",
+    "url": "/galerii-gallery",
+    "title": "galerii / gallery"
+  },
+  "extraction_notes": "Lines 200-500 contain identical site-wide news content as all other pages. This is a structural/navigation page for the gallery section. Bilingual slug (galerii-gallery) suggests this page serves both Estonian and English audiences. Differentiation through hero background and gallery-specific images. Listed in main navigation as 'galerii / gallery'."
+}

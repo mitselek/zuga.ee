@@ -1,0 +1,74 @@
+{
+  "metadata": {
+    "title": "Müra",
+    "language": "et",
+    "slug": "etendused-suurtele-mura",
+    "description": "Zuga Ühendatud Tantsijate lavastus täiskasvanutele - Müra (Noise)"
+  },
+  "content_sections": [
+    {
+      "type": "hero",
+      "content": "Müra (Noise) performance page"
+    },
+    {
+      "type": "announcement",
+      "heading": "Tulekul / Coming:",
+      "content": "Zuga Ühendatud Tantsijate uuslavastus \"Ilma\" / Zuga's new piece \"Weather or not\"\n23.11.2024 @ 15.00 at Sõltumatu Tantsu Lava\n23.11.2024 @ 18.00 at Sõltumatu Tantsu Lava\nhttps://www.stl.ee/lavastused/ilma"
+    },
+    {
+      "type": "image_section",
+      "content": "aitäh!"
+    },
+    {
+      "type": "award",
+      "content": "Zuga pälvis Hea Teatri Auhinnna 2021"
+    },
+    {
+      "type": "video",
+      "content": "ZUGA Ühendatud Tantsijate tervitus eriolukorra ajal",
+      "youtube_id": "qp22v58UQnw"
+    },
+    {
+      "type": "news",
+      "heading": "uudised:",
+      "items": [
+        "Zuga pälvis Hea Teatri Auhinnna 2021 - täname!!!",
+        "Zuga on välja tulnud oma liikumispausidega, mis on kättesaadavad STL-i kodulehel https://stl.ee/tootuba/liikumispausid/",
+        "Zuga heliliikumistöötoad - https://stl.ee/tootuba/zuga-helimuramistootuba/"
+      ]
+    }
+  ],
+  "media": [
+    {
+      "type": "background_image",
+      "url": "https://lh5.googleusercontent.com/59xxbVjoQYLbBMwlqolR...",
+      "context": "Hero background"
+    },
+    {
+      "type": "image",
+      "url": "https://lh6.googleusercontent.com/eYtRjbVrbUHsbpG_S7LW...",
+      "context": "Main performance image"
+    },
+    {
+      "type": "image",
+      "url": "https://lh4.googleusercontent.com/L5GjbMdxlDflvcGjZY-Y2Ot-8l55AKClipoAmzxKhcTXOA_3BH7jFby8A5-cdRzuW2c9O9wTlrQEWj7NjT3zGzO8hP0OWFnjfSSSyvfrziH33vTSP0g8jrXiM9vBSIgTGw=w1280",
+      "context": "aitäh image"
+    },
+    {
+      "type": "image",
+      "url": "https://lh4.googleusercontent.com/zSmMlvS_EOVr0RJgHZR1g1q795oiVHibhMl2SojqdvoQ0M6jFsFQMFinjWY5kcCAR7tDBnSdb8jsAwkSki3cFo8=w1280",
+      "context": "Section image"
+    },
+    {
+      "type": "youtube_video",
+      "url": "https://www.youtube.com/embed/qp22v58UQnw",
+      "video_id": "qp22v58UQnw"
+    }
+  ],
+  "bilingual_link": {
+    "language": "en",
+    "url": "/english/noise",
+    "title": "Noise"
+  },
+  "extraction_notes": "Lines 200-500 contain identical site-wide news content as all other pages examined. Part of adult performances section (lavastused suurtele). English version titled 'Noise' available at /english/noise. Differentiation through hero background and performance-specific images. Listed in navigation under 'lavastused suurtele' submenu as 'Müra'."
+}
