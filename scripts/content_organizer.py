@@ -34,11 +34,13 @@ import frontmatter  # type: ignore[import-untyped]
 from scripts.frontmatter_models import ContentFrontmatter
 
 
-def generate_frontmatter(metadata: dict[str, Any]) -> ContentFrontmatter:
+def generate_frontmatter(metadata: dict[str, Any], fallback_slug: str | None = None) -> ContentFrontmatter:
     """Generate ContentFrontmatter from Phase 2a JSON metadata.
 
     Args:
         metadata: Dictionary with title, slug, language, original_url
+                  Can be from html_parser or extracted format
+        fallback_slug: Slug to use if not in metadata (e.g., from filename)
 
     Returns:
         ContentFrontmatter model with all required fields
@@ -54,14 +56,27 @@ def generate_frontmatter(metadata: dict[str, Any]) -> ContentFrontmatter:
         >>> fm.status
         'published'
     """
-    content_type = classify_content_type(metadata["original_url"])
-    tags = generate_tags(metadata["original_url"], content_type)
+    # Extract fields - handle both formats
+    title = metadata.get("title", "Untitled")
+    slug = metadata.get("slug") or fallback_slug or "unknown"
+    language = metadata.get("language", "en")
+
+    # Build original_url if not present
+    if "original_url" in metadata:
+        original_url = metadata["original_url"]
+    else:
+        # Reconstruct from url_path if available
+        url_path = metadata.get("url_path", f"/{slug}")
+        original_url = f"https://www.zuga.ee{url_path}"
+
+    content_type = classify_content_type(original_url)
+    tags = generate_tags(original_url, content_type)
 
     return ContentFrontmatter(
-        title=metadata["title"],
-        slug=metadata["slug"],
-        language=metadata["language"],
-        original_url=metadata["original_url"],
+        title=title,
+        slug=slug,
+        language=language,
+        original_url=original_url,
         status="published",  # Default per Morgan
         type=content_type,
         description=metadata.get("description"),
@@ -252,14 +267,25 @@ def process_content_file(json_file: str, markdown_file: str, output_dir: str) ->
 
     markdown_body = Path(markdown_file).read_text(encoding="utf-8")
 
-    # Extract metadata (handle both direct and nested format)
+    # Extract metadata (handle multiple formats)
     if "metadata" in json_data:
+        # html_parser format with metadata key
         metadata = json_data["metadata"]
+    elif "page_metadata" in json_data:
+        # Extracted format with page_metadata key
+        metadata = json_data["page_metadata"]
+        # Ensure we have title and slug from page_metadata or fallback
+        if "title" not in metadata:
+            metadata["title"] = "Untitled"
     else:
+        # Direct format
         metadata = json_data
 
+    # Generate slug from filename if not in metadata
+    fallback_slug = Path(json_file).stem  # e.g., "english-about-us-1"
+
     # Generate frontmatter
-    fm = generate_frontmatter(metadata)
+    fm = generate_frontmatter(metadata, fallback_slug=fallback_slug)
 
     # Generate output path
     rel_path = generate_output_path(fm.slug, fm.type or "page", fm.language)
