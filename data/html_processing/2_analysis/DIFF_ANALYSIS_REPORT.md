@@ -180,12 +180,12 @@ Key: Process each file INDEPENDENTLY, don't share data between files.
 
 ```html
 <!-- File 1 has: -->
-<script nonce="h7FefL277wEKqtDSkKIbhg">
+<script>
   window['ppConfig'] = {...}
 </script>
 
 <!-- File 2 has: -->
-<script nonce="HwhfF1B4kK7pOm2Oc5wiXQ">
+<script>
   window['ppConfig'] = {...}
 </script>
 ```
