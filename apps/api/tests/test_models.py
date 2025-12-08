@@ -54,7 +54,9 @@ def test_content_document_structure() -> None:
     """Test content document structure."""
     frontmatter = ContentFrontmatter(title="Test Post", slug="test-post", language="en")
     doc = ContentDocument(
-        frontmatter=frontmatter, body="# Test\n\nContent here.", path="/content/test.md"
+        frontmatter=frontmatter,
+        body="# Test\n\nContent here.",
+        path="/content/test.md",
     )
     assert doc.frontmatter.title == "Test Post"
     assert doc.frontmatter.language == "en"

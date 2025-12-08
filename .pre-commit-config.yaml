@@ -42,7 +42,7 @@ repos:
     hooks:
       - id: pytest
         name: pytest
-        entry: bash -c 'cd apps/api && pytest'
+        entry: bash -c 'cd apps/api && ../../.venv/bin/pytest'
         language: system
         pass_filenames: false
         files: ^apps/api/
