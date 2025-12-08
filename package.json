@@ -1,4 +1,11 @@
 {
+  "name": "zuga-monorepo",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "dependencies": {
     "gray-matter": "^4.0.3",
     "next-mdx-remote": "^5.0.0",
