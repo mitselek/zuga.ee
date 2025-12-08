@@ -34,6 +34,8 @@ videos:
   video_id: qp22v58UQnw
   title: ZUGA video greeting
   url: https://www.youtube.com/embed/qp22v58UQnw
+translated:
+- tegijad
 ---
 
 # About Us
