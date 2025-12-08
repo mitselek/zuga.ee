@@ -1,0 +1,98 @@
+{
+  "metadata": {
+    "title": "Meelekolu Mängud Mindstuff Games",
+    "language": "et",
+    "slug": "workshopid-meelekolu-mangud-mindstuff-games",
+    "description": "Meelekolu mängud workshop",
+    "page_type": "workshop"
+  },
+  "content_sections": [
+    {
+      "type": "hero",
+      "media_ref": "hero_background"
+    },
+    {
+      "type": "image_gallery"
+    },
+    {
+      "type": "video",
+      "media_ref": "video_greeting"
+    }
+  ],
+  "media": [
+    {
+      "id": "hero_background",
+      "type": "image",
+      "url": "https://lh3.googleusercontent.com/f_Y8bEmDx0aEa3A7mbSHdK3l684x6MTTnG1QfIBka_ahRHbSr-3VXpfiSaN1lnSFo9uS6y65cBs-zen22eqxYFY=w16383",
+      "alt": "Meelekolu Mängud hero background",
+      "usage": "hero_background"
+    },
+    {
+      "id": "logo",
+      "type": "image",
+      "url": "https://lh4.googleusercontent.com/wnWHR8-lx8zu9JD0byeizg843-EuqPzwDzd4OFQQ97_dTGk2p5sxPGTdPbtKYJTdvIBX2w=w16383",
+      "alt": "Zuga logo",
+      "usage": "logo"
+    },
+    {
+      "id": "gallery_1",
+      "type": "image",
+      "url": "https://lh6.googleusercontent.com/Ek0yUufUhK8uy5VkxE8L0v9WmKxuUX9EAJY83N_RTsJMHRIIKzMA-AHcwLZwV8LvdKo6EqBqeybkm9_5SPdMiFOT-VROvmDrB5lUP-M6LGPpLrxFaRLySjjRxAH_0Bt1og=w1280",
+      "alt": "Workshop foto 1",
+      "usage": "gallery_item"
+    },
+    {
+      "id": "gallery_2",
+      "type": "image",
+      "url": "https://lh3.googleusercontent.com/K2XhZTtZ5VUuyyKdhOa3XWvOarmlSgNcpgqnb6gxK6PCiNcYVRQQKZuJLoO0u-Lhd5kMx8KXtr7fU-ziuaFNdIXAxEraEXaLL202tLyha78Hvs1pyvXwkdks4PNeW293BQ=w1280",
+      "alt": "Workshop foto 2",
+      "usage": "gallery_item"
+    },
+    {
+      "id": "gallery_3",
+      "type": "image",
+      "url": "https://lh5.googleusercontent.com/8NjC0VpXGI_Rx5ykm8ECWs9rsCoH2Zlha2aGJWHXCy_AdgVJQo6rpljiqGZU4Nxx68UhrSh5umw0b_aG_btvQN4=w1280",
+      "alt": "Workshop foto 3",
+      "usage": "gallery_item"
+    },
+    {
+      "id": "gallery_4",
+      "type": "image",
+      "url": "https://lh3.googleusercontent.com/OuWj6hZ-e4axsPR8WNqlIieRD1p6aspL-BuzR2mzJsDyiKw3B8auSAtQdPtD7gpV70h3N0sRCdfITBMEZ1XYt5Nwp2_-juVfHfS-Y0R5AM-Gyl4JlWIAQK0GwKWUKmRi4w=w1280",
+      "alt": "Workshop foto 4",
+      "usage": "gallery_item"
+    },
+    {
+      "id": "gallery_5",
+      "type": "image",
+      "url": "https://lh3.googleusercontent.com/2AxLZ-3yF9Bl4JIgFZVqQPyhQOShdRZgOLdyopImYKZvtjeDLwqUGKehQ728v9cy=w1280",
+      "alt": "Workshop foto 5",
+      "usage": "gallery_item"
+    },
+    {
+      "id": "gallery_6",
+      "type": "image",
+      "url": "https://lh6.googleusercontent.com/DMt8HXjUOB44Nas1tdTUBn5epC-TYIVEdG-jrDoAfM90AZq-D-9WPKDKKXGM7dZgzVuIzWFwAxKPtpqVrtmEyGBzXw6joWwKGb91Iw80PexrH1v0=w1280",
+      "alt": "Workshop foto 6",
+      "usage": "gallery_item"
+    },
+    {
+      "id": "gallery_7",
+      "type": "image",
+      "url": "https://lh3.googleusercontent.com/jas9VZ3Z9kHqNXS1uk1HHLp5pyZ8rKj91P5spbNrzkanXzz41bHzTkJpP-HKQWPxjVyITvqRjUFTn0SmxBEZWpc92rnxCtj6deXMvwGuh3jHw6ermG_6wTmokgdH80e9KQ=w1280",
+      "alt": "Workshop foto 7",
+      "usage": "gallery_item"
+    },
+    {
+      "id": "video_greeting",
+      "type": "youtube",
+      "url": "https://www.youtube.com/embed/qp22v58UQnw?embed_config=%7B%22enc%22:%22AVPnqKtLvgLuJwPjYJ7SdDl3VAf92IJyEywMtfX2aqxT9Zi3ITva7RKee9psuGGoKfnCwz0kGG7b46FhxJFRAu0A7rqBwuZHo-n-BG_tTn8oJK8AM6ogpa_Oaj6XoZvrDhHtQViaRwOcan74etfXE6cqrt6vKckkYosiPDu8tYW7SOFB%22%7D",
+      "video_id": "qp22v58UQnw",
+      "title": "Zuga video tervitus"
+    }
+  ],
+  "navigation": {
+    "home_link": "/uudised",
+    "logo_links_to": "/uudised"
+  }
+}

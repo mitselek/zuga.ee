@@ -1,0 +1,100 @@
+{
+  "metadata": {
+    "title": "ZUGA Liikumispausid",
+    "language": "et",
+    "slug": "workshopid-zuga-liikumispausid",
+    "description": "ZUGA liikumispausid fotogalerii",
+    "page_type": "workshop"
+  },
+  "content_sections": [
+    {
+      "type": "hero",
+      "content": "Töötoa leht fotogaleriiga",
+      "media_ref": "hero_background"
+    },
+    {
+      "type": "image_gallery",
+      "content": "Fotogalerii ZUGA liikumispausid"
+    },
+    {
+      "type": "video",
+      "content": "ZUGA videotervitus",
+      "media_ref": "video_greeting"
+    }
+  ],
+  "media": [
+    {
+      "type": "hero",
+      "id": "hero_background",
+      "url": "https://lh3.googleusercontent.com/f_Y8bEmDx0aEa3A7mbSHdK3l684x6MTTnG1QfIBka_ahRHbSr-3VXpfiSaN1lnSFo9uS6y65cBs-zen22eqxYFY=w16383",
+      "description": "Taustapilt ZUGA liikumispausid"
+    },
+    {
+      "type": "site_logo",
+      "url": "https://lh4.googleusercontent.com/wnWHR8-lx8zu9JD0byeizg843-EuqPzwDzd4OFQQ97_dTGk2p5sxPGTdPbtKYJTdvIBX2w=w16383",
+      "description": "Zuga logo (töölaua navigatsioon)"
+    },
+    {
+      "type": "site_logo",
+      "url": "https://lh4.googleusercontent.com/wnWHR8-lx8zu9JD0byeizg843-EuqPzwDzd4OFQQ97_dTGk2p5sxPGTdPbtKYJTdvIBX2w=w16383",
+      "description": "Zuga logo (mobiili navigatsioon)"
+    },
+    {
+      "type": "gallery_item",
+      "url": "https://lh6.googleusercontent.com/Ek0yUufUhK8uy5VkxE8L0v9WmKxuUX9EAJY83N_RTsJMHRIIKzMA-AHcwLZwV8LvdKo6EqBqeybkm9_5SPdMiFOT-VROvmDrB5lUP-M6LGPpLrxFaRLySjjRxAH_0Bt1og=w1280",
+      "width": "1280",
+      "context": "Töötoa foto"
+    },
+    {
+      "type": "gallery_item",
+      "url": "https://lh3.googleusercontent.com/K2XhZTtZ5VUuyyKdhOa3XWvOarmlSgNcpgqnb6gxK6PCiNcYVRQQKZuJLoO0u-Lhd5kMx8KXtr7fU-ziuaFNdIXAxEraEXaLL202tLyha78Hvs1pyvXwkdks4PNeW293BQ=w1280",
+      "width": "1280",
+      "context": "Töötoa foto"
+    },
+    {
+      "type": "gallery_item",
+      "url": "https://lh5.googleusercontent.com/8NjC0VpXGI_Rx5ykm8ECWs9rsCoH2Zlha2aGJWHXCy_AdgVJQo6rpljiqGZU4Nxx68UhrSh5umw0b_aG_btvQN4=w1280",
+      "width": "1280",
+      "context": "Töötoa foto"
+    },
+    {
+      "type": "gallery_item",
+      "url": "https://lh3.googleusercontent.com/OuWj6hZ-e4axsPR8WNqlIieRD1p6aspL-BuzR2mzJsDyiKw3B8auSAtQdPtD7gpV70h3N0sRCdfITBMEZ1XYt5Nwp2_-juVfHfS-Y0R5AM-Gyl4JlWIAQK0GwKWUKmRi4w=w1280",
+      "width": "1280",
+      "context": "Töötoa foto"
+    },
+    {
+      "type": "gallery_item",
+      "url": "https://lh3.googleusercontent.com/2AxLZ-3yF9Bl4JIgFZVqQPyhQOShdRZgOLdyopImYKZvtjeDLwqUGKehQ728v9cy=w1280",
+      "width": "1280",
+      "styling": "width: 100%; margin: 0% 0 0% 0%",
+      "context": "Töötoa foto"
+    },
+    {
+      "type": "gallery_item",
+      "url": "https://lh6.googleusercontent.com/DMt8HXjUOB44Nas1tdTUBn5epC-TYIVEdG-jrDoAfM90AZq-D-9WPKDKKXGM7dZgzVuIzWFwAxKPtpqVrtmEyGBzXw6joWwKGb91Iw80PexrH1v0=w1280",
+      "width": "1280",
+      "context": "Töötoa foto"
+    },
+    {
+      "type": "gallery_item",
+      "url": "https://lh3.googleusercontent.com/jas9VZ3Z9kHqNXS1uk1HHLp5pyZ8rKj91P5spbNrzkanXzz41bHzTkJpP-HKQWPxjVyITvqRjUFTn0SmxBEZWpc92rnxCtj6deXMvwGuh3jHw6ermG_6wTmokgdH80e9KQ=w1280",
+      "width": "1280",
+      "context": "Töötoa foto"
+    },
+    {
+      "type": "youtube",
+      "id": "video_greeting",
+      "url": "https://www.youtube.com/embed/qp22v58UQnw",
+      "platform": "youtube",
+      "video_id": "qp22v58UQnw",
+      "title": "ZUGA videotervitus",
+      "embed_config": "AVPnqKsPNoiy2dG8rCr5TAiTPfZgy0X-_zuHii5zoq3w9eTcHpMeM6mute-ye_qGiiWyoUyQWGYMV4dCSOLaOGpcbfrcxySkYjDqWBjW8tq9rgr7M6slhbLuI_dGfdXu5i6LfAc7DR7IQX7OCsDRy7pZRbgJj6fR_QHUodtaR2YGvFBG"
+    }
+  ],
+  "navigation": {
+    "home_link": "/uudised",
+    "logo_links_to": "/uudised"
+  },
+  "extraction_notes": "Manually extracted from beautified HTML. Workshop gallery page."
+}

@@ -1,0 +1,101 @@
+{
+  "metadata": {
+    "title": "2-2-22",
+    "language": "et",
+    "slug": "etendused-noorele-publikule-2-2-22",
+    "description": "Zuga etendus '2-2-22' fotogalerii",
+    "page_type": "performance"
+  },
+  "content_sections": [
+    {
+      "type": "hero",
+      "content": "Etenduse leht fotogaleriiga",
+      "media_ref": "hero_background"
+    },
+    {
+      "type": "performance_gallery",
+      "content": "Fotogalerii etendusest 2-2-22"
+    },
+    {
+      "type": "video",
+      "content": "ZUGA videotervitus",
+      "media_ref": "video_greeting"
+    }
+  ],
+  "media": [
+    {
+      "type": "hero",
+      "id": "hero_background",
+      "url": "https://lh3.googleusercontent.com/E9JYoSPVzSgdMHpLR4QymETWN3X-hwdxc-RtIBeIi1INrt0NvMIhRxaMfroLu-gtHmOHs1PYHjAuoY1cMuF7HYI=w16383",
+      "description": "Taustapilt etendusele 2-2-22"
+    },
+    {
+      "type": "site_logo",
+      "url": "https://lh6.googleusercontent.com/kk-GJyEAU-YABHJZwHiulssdtNEOPv4A41V_GawSQD-xCqUeDCEP_qzA_dwM8bBei_l7MA=w16383",
+      "description": "Zuga logo (töölaua navigatsioon)"
+    },
+    {
+      "type": "site_logo",
+      "url": "https://lh6.googleusercontent.com/kk-GJyEAU-YABHJZwHiulssdtNEOPv4A41V_GawSQD-xCqUeDCEP_qzA_dwM8bBei_l7MA=w16383",
+      "description": "Zuga logo (mobiili navigatsioon)"
+    },
+    {
+      "type": "gallery_item",
+      "url": "https://lh4.googleusercontent.com/vPnKixFBUoWgV0CRF1z_IbfLvS6cd3ku3CCmF5hvE0bTH2Y0G75kOKXZbhSpVYC0tglA7bLTzfYrF8bodWgrXPaTUbHPnp8vu9yDZir5ZYm1W-N7RXsKUBdLXcStmuGwQQ=w1280",
+      "width": "1280",
+      "context": "Etenduse foto"
+    },
+    {
+      "type": "gallery_item",
+      "url": "https://lh3.googleusercontent.com/MKj8SZG9-IAHGWbwUuKwJVymzxwzahKlfDXTTJlcf6VkvM9kczyOc632Fq1nyIUFie8zrosTqXpYZx9B3uhK5rgBKxiaGVTFUmn1nFQlI3x6MAyEfe_H5i0594349djo2g=w1280",
+      "width": "1280",
+      "context": "Etenduse foto"
+    },
+    {
+      "type": "gallery_item",
+      "url": "https://lh4.googleusercontent.com/ocdsQxvE6YzKuJ3jWF6ECXyfBXFeflylXEXOoNfTKC-wK3UdSc00cn3MGvRaeBn1aBwfiKggA8L9wjIcEvLqspA=w1280",
+      "width": "1280",
+      "context": "Etenduse foto"
+    },
+    {
+      "type": "gallery_item",
+      "url": "https://lh6.googleusercontent.com/vmhPq72Ik3L-qoDpiH2zYDn9uld2Av2UagIoWVnKpSOp02Fbn0S43oSARHF4Cv2BUVDng8T8iV2x1lff9CB_emiSoxwBpdabrkd0WqZ-harBM9CYZNkscRztgcop75wyjw=w1280",
+      "width": "1280",
+      "context": "Etenduse foto"
+    },
+    {
+      "type": "gallery_item",
+      "url": "https://lh4.googleusercontent.com/2vo4TIKK02ciKmxmqBNVUXCon06qufQ-yxhZrrrBhJ-T8PRjdWeFZEA0G2BQjwrV=w1280",
+      "width": "1280",
+      "styling": "width: 100%; margin: 0% 0 0% 0%",
+      "context": "Etenduse foto"
+    },
+    {
+      "type": "gallery_item",
+      "url": "https://lh6.googleusercontent.com/_XWrhfKNHL3KQMASqxdaXcuZJXvqSjEmLqML4CfzjnZIPSF4MkTuILpyJqsWBK46jLqpJr1bI4k97fPnsrbHgsCxbFLXTxBUpvE_vCozi8zxZShO=w1280",
+      "width": "1280",
+      "context": "Etenduse foto"
+    },
+    {
+      "type": "gallery_item",
+      "url": "https://lh3.googleusercontent.com/9VEz2JqVbN_-FI8US7JIlPpTOtGdIniGvq7rBoWNxwL0bZDbUDAyOw0wW6ZV51a5riMUAlxAOZhyRSa3OEw10B3q60rRtP3-_hsUuUvhMnxKwaJcAjmXJzskeWDN0HXdvQ=w1280",
+      "width": "1280",
+      "context": "Etenduse foto"
+    },
+    {
+      "type": "youtube",
+      "id": "video_greeting",
+      "url": "https://www.youtube.com/embed/qp22v58UQnw",
+      "platform": "youtube",
+      "video_id": "qp22v58UQnw",
+      "title": "ZUGA videotervitus",
+      "embed_config": "AVPnqKs_KQUGog8qHa9Y3urJoY6qq-2NaV-IJ6i0UL33JO4UTqjtJc0D5J94urEpHb_P_SYyUyjgyFgoLmtsXD8Gweyflht8h2GDbXlH6I3_vjPk3thIRFm1wIq2ekbKN7waXk2DO34OsvxRbokNoI0rI2WZyvm8pLk_NzL23FlbfUwW"
+    }
+  ],
+  "bilingual_link": "english-2-2-22",
+  "navigation": {
+    "home_link": "/uudised",
+    "logo_links_to": "/uudised"
+  },
+  "extraction_notes": "Manually extracted from beautified HTML. Performance gallery page."
+}

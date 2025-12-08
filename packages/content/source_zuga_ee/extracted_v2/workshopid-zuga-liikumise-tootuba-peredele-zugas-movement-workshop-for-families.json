@@ -1,0 +1,98 @@
+{
+  "metadata": {
+    "title": "Zuga Liikumise Töötuba Peredele / Zugas Movement Workshop For Families",
+    "language": "et",
+    "slug": "workshopid-zuga-liikumise-tootuba-peredele-zugas-movement-workshop-for-families",
+    "description": "Zuga liikumise töötuba peredele",
+    "page_type": "workshop"
+  },
+  "content_sections": [
+    {
+      "type": "hero",
+      "media_ref": "hero_background"
+    },
+    {
+      "type": "image_gallery"
+    },
+    {
+      "type": "video",
+      "media_ref": "video_greeting"
+    }
+  ],
+  "media": [
+    {
+      "id": "hero_background",
+      "type": "image",
+      "url": "https://lh4.googleusercontent.com/bJVz38JkEghyJb3s9UEX3tYy2L5eRvwovEEhLHQ8A0lOI4rKJWqjz7aPSUZLf4cg3NpjlAYaUxH53b_8LUJPlmE=w16383",
+      "alt": "Movement workshop for families hero background",
+      "usage": "hero_background"
+    },
+    {
+      "id": "logo",
+      "type": "image",
+      "url": "https://lh4.googleusercontent.com/9WnmOP6OvFJLW6HvNS6FAd0py1El7z0yq9y46wIAf49qYldVUyyH2GGfoWUXxakn_AbfFA=w16383",
+      "alt": "Zuga logo",
+      "usage": "logo"
+    },
+    {
+      "id": "gallery_1",
+      "type": "image",
+      "url": "https://lh6.googleusercontent.com/P7WkkTgTP-S-K2DhvhCuDbTpCVyPmuaNXIJpS3T9DfJgrlTk5J1j_76WZy0ZuUh6KupEevs3rhurnNTj7kyF_IvzFn25vhZbhonGyW65jPSJrQw3GJ0GrkkTWEH9qB2-ig=w1280",
+      "alt": "Workshop foto 1",
+      "usage": "gallery_item"
+    },
+    {
+      "id": "gallery_2",
+      "type": "image",
+      "url": "https://lh4.googleusercontent.com/BcJjNIcJ9PBYgKe_-N5vTg-0vzm1hzyz0zCPMEajNQHZte8v02MPyISb8G4cI5z1Gxkesz6S-OiAZaOEn7GoLNusCyj4Y87W9cg74oHFsfXUot8GhnhO5dLl2GpTRqzdww=w1280",
+      "alt": "Workshop foto 2",
+      "usage": "gallery_item"
+    },
+    {
+      "id": "gallery_3",
+      "type": "image",
+      "url": "https://lh6.googleusercontent.com/i3H1uTueY2qu9NEfB1-yv7ovUr8LS3f7guIEmM4Ptsxnvuid7W548n7hQ1HnbfmtOxv8mYEMdheV3bQH6OktPHQ=w1280",
+      "alt": "Workshop foto 3",
+      "usage": "gallery_item"
+    },
+    {
+      "id": "gallery_4",
+      "type": "image",
+      "url": "https://lh6.googleusercontent.com/6rohRQ16HmwVgMm0zOO3cwsrL15XD5-eWZhrk-a0PRenB1YtEdmomEMrD9Ujv1zPvu_gQK5w2vxcMfcuDZek9VOHc1FNK93LKveHSGAt3H9i3Lb4xFwEImYAKp4rvFZKLg=w1280",
+      "alt": "Workshop foto 4",
+      "usage": "gallery_item"
+    },
+    {
+      "id": "gallery_5",
+      "type": "image",
+      "url": "https://lh5.googleusercontent.com/wHtRZcLBVmOhdcloGFqGZgrRWeemOB-u01SY7Ihjjc1IMH5_Vro9biUYy3mAqWPX=w1280",
+      "alt": "Workshop foto 5",
+      "usage": "gallery_item"
+    },
+    {
+      "id": "gallery_6",
+      "type": "image",
+      "url": "https://lh4.googleusercontent.com/Pkr8oYWxXfCrgOXFOuc91ffCDC65KvN5Ugt6ty7a03OdKcJWGguvLgygEL-TJrFolcABhzw5-dRXfuCOJkYGffPb1MV4l5PZasEqJLgLTT9T-h76=w1280",
+      "alt": "Workshop foto 6",
+      "usage": "gallery_item"
+    },
+    {
+      "id": "gallery_7",
+      "type": "image",
+      "url": "https://lh6.googleusercontent.com/YJwn6h26x11asEzR8IMGsP70RY4smbNv302box4yx6xfVcBxT6ZmUlNcuMNBVcvEtRzrrRD4GhOWy5TrMLqonDOwQavmdqx4XSKXhp9jyD-VgB04e1PeZ50lHoCj8ZL_-g=w1280",
+      "alt": "Workshop foto 7",
+      "usage": "gallery_item"
+    },
+    {
+      "id": "video_greeting",
+      "type": "youtube",
+      "url": "https://www.youtube.com/embed/qp22v58UQnw?embed_config=%7B%22enc%22:%22AVPnqKs85qTz9OakvVe5EuDnbOuGOW60zXiccTD8jIJj9LxFP5qt9ggeq47irhh47QhirSfhs4lJqs3zfZ0JOHe_2stFDl8xBK7mPalCd0m4dxMlZPBwb9v0SNuE7JByKfdpI-pDe0gcnpPcLVMsYfE2ZTt5fF02lTjfgCOWm8geG27Z%22%7D",
+      "video_id": "qp22v58UQnw",
+      "title": "Zuga video tervitus"
+    }
+  ],
+  "navigation": {
+    "home_link": "/uudised",
+    "logo_links_to": "/uudised"
+  }
+}

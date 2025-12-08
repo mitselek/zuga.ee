@@ -1,0 +1,101 @@
+{
+  "metadata": {
+    "title": "Suur Teadmatus",
+    "language": "et",
+    "slug": "etendused-suurtele-suur-teadmatus",
+    "description": "Zuga etendus 'Suur Teadmatus' fotogalerii",
+    "page_type": "performance"
+  },
+  "content_sections": [
+    {
+      "type": "hero",
+      "content": "Etenduse leht fotogaleriiga",
+      "media_ref": "hero_background"
+    },
+    {
+      "type": "performance_gallery",
+      "content": "Fotogalerii etendusest Suur Teadmatus"
+    },
+    {
+      "type": "video",
+      "content": "ZUGA videotervitus",
+      "media_ref": "video_greeting"
+    }
+  ],
+  "media": [
+    {
+      "type": "hero",
+      "id": "hero_background",
+      "url": "https://lh5.googleusercontent.com/59xxbVjoQYLbBMwlqolRPWd-PFa58oVPkN_XaSTVetAGh6-hlKXkTjKQALp29V_5IyR2pNoVBUsZWlV7pXtA4Yw=w16383",
+      "description": "Taustapilt etendusele Suur Teadmatus"
+    },
+    {
+      "type": "site_logo",
+      "url": "https://lh5.googleusercontent.com/Xf24fH3l-vGpP73GVG6MDDdiLXJqCCGVFQm3t4kXjF7x3nfwgZ0xWL_xI2XcIhQQ0-GlXg=w16383",
+      "description": "Zuga logo (töölaua navigatsioon)"
+    },
+    {
+      "type": "site_logo",
+      "url": "https://lh5.googleusercontent.com/Xf24fH3l-vGpP73GVG6MDDdiLXJqCCGVFQm3t4kXjF7x3nfwgZ0xWL_xI2XcIhQQ0-GlXg=w16383",
+      "description": "Zuga logo (mobiili navigatsioon)"
+    },
+    {
+      "type": "gallery_item",
+      "url": "https://lh6.googleusercontent.com/eYtRjbVrbUHsbpG_S7LWlbHD-KzNOaYrixrKuDrkiYHpSMotOa_Eo8q36rARlmjCPSIK4wEvOSJi0jfzHmn-AEAT_z89ZSVw9CJayo_u6sRZWPlIP36T0pSY2Aek3rv_hA=w1280",
+      "width": "1280",
+      "context": "Etenduse foto"
+    },
+    {
+      "type": "gallery_item",
+      "url": "https://lh4.googleusercontent.com/9VYlWXTJiw-uJ_fo2avWXR0rRbKXlf2VoJ63t0h7uJTXyAa_dhvw19tQCtEq4cHJNip7UP4yVPImSla1JCEvcIgv1e9sX9-ZaWGvZQrNc5D0RUbOdeY-5pNxhafL9EAxag=w1280",
+      "width": "1280",
+      "context": "Etenduse foto"
+    },
+    {
+      "type": "gallery_item",
+      "url": "https://lh4.googleusercontent.com/KmbemukJTQo9yo0WbK_YYz7GlqvqFfG8XLN4ItyWzbS4xRPM70UbxSaQR4SfZ6sUTKe8jAZHeduESwh3T_dFw6Q=w1280",
+      "width": "1280",
+      "context": "Etenduse foto"
+    },
+    {
+      "type": "gallery_item",
+      "url": "https://lh6.googleusercontent.com/ZSQVEXkNQvVK5ND6uIlC3QYTLlWeYgjJ02ce_1DyzAtEqrO9C0TzOQr5yzrxs14byS9JNBoHJhQirbJZD49RfnTtYgq0vcAWVCbNwxX96ePle2dhbqpuO2HCt23kTbK07g=w1280",
+      "width": "1280",
+      "context": "Etenduse foto"
+    },
+    {
+      "type": "gallery_item",
+      "url": "https://lh4.googleusercontent.com/cEg2Tkn90RBLgt5Hln4B7cVttaWq63QsOvO6w7FzNK1mBHVqu6LtontM8VTbcWYP=w1280",
+      "width": "1280",
+      "styling": "width: 100%; margin: 0% 0 0% 0%",
+      "context": "Etenduse foto"
+    },
+    {
+      "type": "gallery_item",
+      "url": "https://lh5.googleusercontent.com/6YSCrXvN8ZsalV2KjOQqa4cVr5NfOroFLm9sG0NnJIP-tzupaWwKmDIjykbVfzXEKG5tsTTOn9PDWJ8XyocgqrmmSyXOHd461OwGQxZYaPXg4OVh=w1280",
+      "width": "1280",
+      "context": "Etenduse foto"
+    },
+    {
+      "type": "gallery_item",
+      "url": "https://lh3.googleusercontent.com/gwanlqpY2gdC3RJYsbod3J3We0dgskInBKN1LkjVlNLukToMVbvsn8QYceAGxx8koSKZwt5vmN8MhMKE6yD9wEnkceXYwjvP2qKdS_wv4cfWQn6u0orPTmWx8-4wvsYSRA=w1280",
+      "width": "1280",
+      "context": "Etenduse foto"
+    },
+    {
+      "type": "youtube",
+      "id": "video_greeting",
+      "url": "https://www.youtube.com/embed/qp22v58UQnw",
+      "platform": "youtube",
+      "video_id": "qp22v58UQnw",
+      "title": "ZUGA videotervitus",
+      "embed_config": "AVPnqKv7RhY8UaEIILxFqhL4mqC1RgPl7aC2oHgnCGwgi9H7OSZHiXPxtmBUvMIS2jvoMiHrbATZUDOzz09vhm0-2DKQzDgKvCGwQxHLpGhqOyoymQFZ9cgyhVoxbmHsVMl8kRfmFRLOHySbiNke0OTUrKkbryWPgy3V5QjxKCJpM0sU"
+    }
+  ],
+  "bilingual_link": "english-the-great-unknown",
+  "navigation": {
+    "home_link": "/uudised",
+    "logo_links_to": "/uudised"
+  },
+  "extraction_notes": "Manually extracted from beautified HTML. Performance gallery page. Shares gallery images with Häbi and Müra - this is correct."
+}

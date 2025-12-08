@@ -1,0 +1,98 @@
+{
+  "metadata": {
+    "title": "Workshopid",
+    "language": "et",
+    "slug": "workshopid",
+    "description": "Zuga workshopid ja töötoad",
+    "page_type": "landing"
+  },
+  "content_sections": [
+    {
+      "type": "hero",
+      "media_ref": "hero_background"
+    },
+    {
+      "type": "image_gallery"
+    },
+    {
+      "type": "video",
+      "media_ref": "video_greeting"
+    }
+  ],
+  "media": [
+    {
+      "id": "hero_background",
+      "type": "image",
+      "url": "https://lh3.googleusercontent.com/K12icI186SriVtl2NJADhrmIcGLJv4cXQ-t_xilgBeclEexIQdUy4YwhvbnkPRvpZnWCYRc_YhIXtu5UvfBzhws=w16383",
+      "alt": "Workshopid hero background",
+      "usage": "hero_background"
+    },
+    {
+      "id": "logo",
+      "type": "image",
+      "url": "https://lh6.googleusercontent.com/KGgk-ZPl1-UFJTlRgtpjWWslJet6PzfMC7BdLqHMGo9TULoRIOdyUhROWRI14a4iPuNKWg=w16383",
+      "alt": "Zuga logo",
+      "usage": "logo"
+    },
+    {
+      "id": "gallery_1",
+      "type": "image",
+      "url": "https://lh6.googleusercontent.com/mAjkZKLZ-TWLFDBJPHPhVtRcuX1fzLS9Mme3_YbjZeqPsDUFXasWmkF2QwJWYCjlCWItBCxCHldTK7Ymm9zUmYx-o8Xp_CEOHFUrxtJOEmIUzV5JTc9msn_7eQiFHiYO6Q=w1280",
+      "alt": "Workshopid foto 1",
+      "usage": "gallery_item"
+    },
+    {
+      "id": "gallery_2",
+      "type": "image",
+      "url": "https://lh3.googleusercontent.com/7TKepRS-fhNEQRICxAR6IEEGIPU2yedBHVL1C5MxD1TZbVPOSWagcmFKbHI07tAuxf0M6eOvx1gg7s8NOfvUeUs5o10HkZ3B_q6Y-yuEBGqcpk84aKIAvOHral9SyV26Qg=w1280",
+      "alt": "Workshopid foto 2",
+      "usage": "gallery_item"
+    },
+    {
+      "id": "gallery_3",
+      "type": "image",
+      "url": "https://lh5.googleusercontent.com/crKzLqv6lHNm2pq9YSw4B5v7F8vPJGGaAJbq3JsGFc1dNBSbQOZTIUxaDWDghGoiJJkZAXzMSdOvLj951KfsjVE=w1280",
+      "alt": "Workshopid foto 3",
+      "usage": "gallery_item"
+    },
+    {
+      "id": "gallery_4",
+      "type": "image",
+      "url": "https://lh6.googleusercontent.com/mhyxSDRW0Nu-bhOm5WCrOY5cm5kL0XMzNmvdYzaZV07xGaUyprln8BVlxXoWCoh_QDLWicMCei4xmGgr3jeeREDLyVh_z9E27o2DjNkYPC1n1m6S1GS4dryfIT6TLB0kbQ=w1280",
+      "alt": "Workshopid foto 4",
+      "usage": "gallery_item"
+    },
+    {
+      "id": "gallery_5",
+      "type": "image",
+      "url": "https://lh6.googleusercontent.com/Cnz2KsaT2hy97Sxkv7XYMtOy_KBScA9lvWLWC0oO0GDGqLr3eFJJbaRulgc6Ob6N=w1280",
+      "alt": "Workshopid foto 5",
+      "usage": "gallery_item"
+    },
+    {
+      "id": "gallery_6",
+      "type": "image",
+      "url": "https://lh6.googleusercontent.com/CMS9Ihh7aKXjYowG1XRFt9A-I9U891i6glXYUgn2mTEs2bbT1s4fUVwgEvCmZ6j3luZVVKfCEO-NtgKlOMq_MVgnUENSQFGLfkkHRaOLCZgz2Jw6=w1280",
+      "alt": "Workshopid foto 6",
+      "usage": "gallery_item"
+    },
+    {
+      "id": "gallery_7",
+      "type": "image",
+      "url": "https://lh3.googleusercontent.com/w0MkjZAMdo5oU7ZFe3CyP5a0kF8LC_DFp6AchZ6N1v-cHR_jsfJB5K_eCzXaAdd3kJuGbJEeDbJQo8-WgbVxBvjuy7CZhOa9i80wGKnhVpdRuVVrtIF_1HqyYchn-TEvww=w1280",
+      "alt": "Workshopid foto 7",
+      "usage": "gallery_item"
+    },
+    {
+      "id": "video_greeting",
+      "type": "youtube",
+      "url": "https://www.youtube.com/embed/qp22v58UQnw?embed_config=%7B%22enc%22:%22AVPnqKuxU_EqYmd9QfbyF5Vg9TTGgZ1zMmdmDqDIEHjvt8izRoDOBrgTeBSdSVqXq7s1mFB0ben7ryok8pv_5aUYCVsWtpsvi2Nfbvs_K9gAuBUuDSIvj4AcBaUS1HsMa1SjQoENy6JZE18Eg3rMcycsmkzgYLoPTPC1-hpR_UEKZWRv%22%7D",
+      "video_id": "qp22v58UQnw",
+      "title": "Zuga video tervitus"
+    }
+  ],
+  "navigation": {
+    "home_link": "/uudised",
+    "logo_links_to": "/uudised"
+  }
+}
