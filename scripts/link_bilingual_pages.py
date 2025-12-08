@@ -63,6 +63,8 @@ def find_translation_pairs() -> Dict[str, Dict]:
         # Performances
         'shame': {'et': 'häbi', 'en': 'shame'},
         'häbi': {'et': 'häbi', 'en': 'shame'},
+        'english-shame': {'et': 'etendused-suurtele-habi', 'en': 'english-shame'},
+        'etendused-suurtele-habi': {'et': 'etendused-suurtele-habi', 'en': 'english-shame'},
 
         'noise': {'et': 'mura', 'en': 'noise'},
         'mura': {'et': 'mura', 'en': 'noise'},
@@ -156,12 +158,20 @@ def main():
             other_slug = pair_info.get(other_lang)
 
             if other_slug and other_slug != slug and other_slug in slug_to_file:
-                # Update translated field
+                # Update translated field with proper object format
                 current_translated = frontmatter.get('translated', [])
 
-                # Only update if not already linked
-                if other_slug not in current_translated:
-                    frontmatter['translated'] = [other_slug]
+                # Check if already in correct format
+                needs_update = True
+                if isinstance(current_translated, list) and len(current_translated) > 0:
+                    if isinstance(current_translated[0], dict):
+                        # Already in object format, check if correct
+                        if current_translated[0].get('slug') == other_slug and current_translated[0].get('language') == other_lang:
+                            needs_update = False
+
+                # Update if needed (either missing, wrong format, or wrong value)
+                if needs_update:
+                    frontmatter['translated'] = [{'language': other_lang, 'slug': other_slug}]
                     save_with_frontmatter(file, frontmatter, body)
                     updated_files.append({
                         'file': file.name,

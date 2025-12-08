@@ -8,7 +8,8 @@ status: published
 original_url: https://www.zuga.ee/et/etendused-noorele-publikule-kaeik
 page_type: performance
 translated:
-- english-thepassage
+- language: en
+  slug: english-thepassage
 hero_image: https://lh3.googleusercontent.com/E9JYoSPVzSgdMHpLR4QymETWN3X-hwdxc-RtIBeIi1INrt0NvMIhRxaMfroLu-gtHmOHs1PYHjAuoY1cMuF7HYI=w16383
 gallery:
 - url: https://lh4.googleusercontent.com/vPnKixFBUoWgV0CRF1z_IbfLvS6cd3ku3CCmF5hvE0bTH2Y0G75kOKXZbhSpVYC0tglA7bLTzfYrF8bodWgrXPaTUbHPnp8vu9yDZir5ZYm1W-N7RXsKUBdLXcStmuGwQQ=w1280

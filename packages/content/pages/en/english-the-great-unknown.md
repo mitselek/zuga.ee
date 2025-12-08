@@ -8,7 +8,8 @@ status: published
 original_url: https://www.zuga.ee/en/english-the-great-unknown
 page_type: performance
 translated:
-- etendused-suurtele-suur-teadmatus
+- language: et
+  slug: etendused-suurtele-suur-teadmatus
 hero_image: https://lh4.googleusercontent.com/DBxwueB6fPHRnLW2vhLTuUXqMXwXCvMQW-AliKEHn5c6X1O7ismAvtROvjQkbwGfsZsyzGcdc_-6lU_Ipmo1jg4=w16383
 gallery:
 - url: https://lh5.googleusercontent.com/eVaEZqsze67T__4KoM8TKETawGpmdnZdL4BU5qT9LN4jeqM0rmk5VpM-qThaFMvNZr9f45ofElXOSaS4jsBw9_uhFI0u6mowi13xCU4Mx_hNAlooy8z7Ohod2i8J3SMT9g=w1280

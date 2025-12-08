@@ -8,7 +8,8 @@ status: published
 original_url: https://www.zuga.ee/et/etendused-noorele-publikule-ilma
 page_type: performance
 translated:
-- english-weather-or-not
+- language: en
+  slug: english-weather-or-not
 hero_image: https://lh5.googleusercontent.com/YmL-ZKflrTu0uUJnzvcMQ9812g16lIXAfb2u1wmCWwluKk_RwjfjV3T_td4mMmiTLHIhYBvy3l7we3cFw39C0c0=w16383
 gallery:
 - url: https://lh6.googleusercontent.com/mJFViQ47bnoEp8oV3TFrBl7V7DYZee-5KS09iH8jptT1JiHODyd2h5Dy8m6Py4fKqlAnt2ZQ7m-r-mhIajFDH0-z1IeM6id4GCij8ruAOB3BdKQzSI8l96FjTDXjGpeBWw=w1280

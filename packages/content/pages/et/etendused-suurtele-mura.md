@@ -8,7 +8,8 @@ status: published
 original_url: https://www.zuga.ee/et/etendused-suurtele-mura
 page_type: performance
 translated:
-- english-noise
+- language: en
+  slug: english-noise
 hero_image: https://lh5.googleusercontent.com/59xxbVjoQYLbBMwlqolRPWd-PFa58oVPkN_XaSTVetAGh6-hlKXkTjKQALp29V_5IyR2pNoVBUsZWlV7pXtA4Yw=w16383
 gallery:
 - url: https://lh6.googleusercontent.com/eYtRjbVrbUHsbpG_S7LWlbHD-KzNOaYrixrKuDrkiYHpSMotOa_Eo8q36rARlmjCPSIK4wEvOSJi0jfzHmn-AEAT_z89ZSVw9CJayo_u6sRZWPlIP36T0pSY2Aek3rv_hA=w1280

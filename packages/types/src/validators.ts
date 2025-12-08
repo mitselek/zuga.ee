@@ -137,13 +137,7 @@ export const PageFrontmatterSchema = z.object({
   type: PageTypeSchema.optional(),
   description: z.string().optional(),
   tags: z.array(z.string()).default([]),
-
-  // Note: translated is actually a simple string array in generated markdown,
-  // not TranslationReference objects. Accept both formats for flexibility.
-  translated: z.union([
-    z.array(z.string()), // actual format: ["slug1", "slug2"]
-    z.array(TranslationReferenceSchema), // ideal format: [{language: "et", slug: "..."}]
-  ]).default([]),
+  translated: z.array(TranslationReferenceSchema).default([]),
 
   // Additional fields from generated markdown
   page_type: z.string().optional(),
