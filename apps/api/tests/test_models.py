@@ -52,7 +52,9 @@ def test_content_frontmatter_invalid_language() -> None:
 
 def test_content_document_structure() -> None:
     """Test content document structure."""
-    frontmatter = ContentFrontmatter(title="Test Post", slug="test-post", language="en")
+    frontmatter = ContentFrontmatter(
+        title="Test Post", slug="test-post", language="en"
+    )
     doc = ContentDocument(
         frontmatter=frontmatter,
         body="# Test\n\nContent here.",

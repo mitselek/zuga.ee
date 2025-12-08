@@ -91,7 +91,7 @@ exclude_lines = [
 precision = 2
 
 [tool.black]
-line-length = 88
+line-length = 79
 target-version = ['py311']
 include = '\.pyi?$'
 extend-exclude = '''
@@ -136,7 +136,7 @@ module = [
 ignore_missing_imports = true
 
 [tool.flake8]
-max-line-length = 88
+max-line-length = 79
 extend-ignore = ["E203", "W503"]
 exclude = [
     ".git",
