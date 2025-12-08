@@ -1,183 +1,96 @@
 # zuga.ee
 
-[![CI](https://github.com/mitselek/zuga.ee/actions/workflows/ci.yml/badge.svg)](https://github.com/mitselek/zuga.ee/actions/workflows/ci.yml)
-[![codecov](https://codecov.io/gh/mitselek/zuga.ee/branch/main/graph/badge.svg)](https://codecov.io/gh/mitselek/zuga.ee)
+Zuga Theatre - High-performance bilingual (Estonian/English) portfolio website showcasing theatrical performances.
 
-Zuga Theatre website - a modern, bilingual (Estonian/English) performance showcase platform.
+## Project Status
+
+**Phase 1**: Static Portfolio Website (In Development)
+
+- Framework: Astro SSG
+- Styling: Tailwind CSS
+- Content: 35+ markdown pages (performances, about, workshops)
+- Timeline: MVP in days
+- Focus: Technical excellence (Lighthouse ≥90, Accessibility 100)
 
 ## Project Structure
 
 ```text
 zuga.ee/
-├── apps/
-│   ├── api/          # FastAPI backend with strict TDD
-│   └── web/          # Next.js frontend
-├── packages/
-│   ├── content/      # Markdown content files (35 pages)
-│   └── types/        # Shared TypeScript types & Zod validators
-├── scripts/          # Python extraction and conversion tools
-└── docs/             # Project documentation
+├── source_zuga_ee/         # Source content (DO NOT MODIFY)
+│   └── pages/              # 35 markdown files ready to copy
+│       ├── en/             # 9 English pages
+│       └── et/             # 26 Estonian pages
+├── .specify/
+│   ├── architecture/       # Architecture documentation
+│   │   ├── phase-1-architecture.md
+│   │   ├── phase-1-implementation-plan.md
+│   │   ├── content-schema.md
+│   │   └── README.md
+│   └── memory/
+│       └── constitution.md # Project governance (§1-§5)
+├── .github/prompts/        # AI persona prompts
+├── scripts/                # Python extraction tools (archived)
+└── packages/               # Empty (Phase 2 future use)
 ```
 
-## Monorepo Components
+**Note**: `apps/web/` (Astro site) will be created in implementation Phase 1, Task 1.1
 
-### 🎭 Content (`packages/content/`)
+## Phase 1 Goals
 
-Bilingual markdown content extracted from legacy Google Sites:
+- ✅ **Technical Excellence**: Lighthouse Performance ≥90, Accessibility 100
+- ✅ **Bilingual Support**: Estonian/English with language switching
+- ✅ **Type Safety**: Zod schemas validating all content at build time
+- ✅ **Performance**: Static HTML, <2s page load on 3G
+- ✅ **Regeneratable**: All content from markdown source files
 
-- **35 total pages**: 9 English + 26 Estonian
-- YAML frontmatter with metadata (title, slug, language, status, etc.)
-- Media galleries (images, videos) in frontmatter
-- Bilingual linking between EN/ET versions
-
-### 📦 Types Package (`packages/types/`)
-
-Type-safe TypeScript definitions mirroring Python Pydantic models:
-
-- Runtime validation with Zod schemas
-- 28 tests validating all 35 markdown files
-- Cross-referenced with Python sources
-- [See package README](packages/types/README.md)
-
-### 🔧 Backend API (`apps/api/`)
-
-FastAPI backend with strict TDD:
-
-- Python 3.12+ with Pydantic v2
-- 100% test coverage requirement
-- Black, flake8, mypy enforcement
-- Pre-commit hooks
-
-### 🌐 Frontend (`apps/web/`)
-
-Next.js 14 with TypeScript:
-
-- React 18 with App Router
-- Vitest for testing
-- Type-safe content consumption
-
-### 📝 Scripts (`scripts/`)
-
-Python data extraction and conversion pipeline:
-
-- JSON → Markdown conversion (35 files)
-- Bilingual page linking
-- Pydantic models for validation
-- [See scripts README](scripts/README.md)
-
-## Development
-
-### Prerequisites
-
-- Python 3.12+
-- Node.js 20+
-- Git
-
-### Setup
+## Quick Start
 
 ```bash
-# Clone repository
-git clone https://github.com/mitselek/zuga.ee.git
-cd zuga.ee
+# Install dependencies
+npm install
 
-# Python setup (backend + scripts)
-python -m venv .venv
-source .venv/bin/activate  # or `.venv\Scripts\activate` on Windows
-pip install -e apps/api[dev]
+# Start development server
+npm run dev
 
-# Node.js setup (frontend + types)
-cd apps/web && npm install
-cd ../../packages/types && npm install
+# Build for production
+npm run build
 
-# Install pre-commit hooks
-pre-commit install
+# Preview production build
+npm run preview
 ```
-
-### Running Tests
-
-```bash
-# Backend tests (Python)
-cd apps/api
-pytest --cov
-
-# Frontend tests (Node.js)
-cd apps/web
-npm test
-
-# Types validation (validates all 35 markdown files)
-cd packages/types
-npm test
-```
-
-### Quality Checks
-
-```bash
-# Python: black, flake8, mypy, pytest
-cd apps/api
-black .
-flake8 .
-mypy --strict api/
-pytest
-
-# TypeScript: type-check, lint, test
-cd apps/web
-npm run type-check
-npm run lint
-npm test
-
-# Content validation
-cd packages/types
-npm test  # Validates all 35 markdown files
-```
-
-## CI/CD
-
-GitHub Actions workflow runs on every push/PR:
-
-- ✅ Backend tests (Python)
-  - Black formatting
-  - Flake8 linting
-  - Mypy type checking
-  - Pytest with 100% coverage
-- ✅ Frontend tests (Node.js)
-  - TypeScript type checking
-  - ESLint
-  - Vitest with coverage
-- ✅ Build check
-  - Frontend production build
-  - Backend package build
-
-Coverage reports uploaded to [Codecov](https://codecov.io/gh/mitselek/zuga.ee).
 
 ## Documentation
 
-- [Content Data Model](docs/JSON_DATA_MODEL.md)
-- [Markdown Format Spec](docs/MARKDOWN_FORMAT_SPEC.md)
-- [Image Mapping](docs/IMAGE_MAPPING.md)
-- [Scripts README](scripts/README.md)
-- [Types Package README](packages/types/README.md)
+- [Phase 1 Architecture](./.specify/architecture/phase-1-architecture.md) - Complete technical specification
+- [Implementation Plan](./.specify/architecture/phase-1-implementation-plan.md) - Step-by-step task breakdown
+- [Constitution](./.specify/memory/constitution.md) - Project governance principles (§1-§5)
 
 ## Tech Stack
 
-**Backend**:
+- **Astro 4.x**: Static site generator (Phase 1)
+- **Tailwind CSS**: Utility-first styling
+- **TypeScript**: Strict type checking
+- **Zod**: Runtime content validation
+- **Markdown + YAML**: Content source format
 
-- Python 3.12
-- FastAPI
-- Pydantic v2
-- Pytest
+## Future Phases
 
-**Frontend**:
+- **Phase 2**: AI Assistant frontend for content management
+- **Phase 3**: Dynamic features and user interactions
 
-- Next.js 14
-- React 18
-- TypeScript
-- Vitest
+## Constitutional Principles
 
-**Validation**:
+This project follows 5 core principles defined in [.specify/memory/constitution.md](./.specify/memory/constitution.md):
 
-- Zod (runtime validation)
-- Pydantic (Python models)
-- Gray-matter (markdown parsing)
+- §1 **Type Safety First**: TypeScript strict mode, Zod schemas
+- §2 **Test-First Development**: Lighthouse CI as integration tests
+- §3 **Composable-First Architecture**: Small, reusable Astro components
+- §4 **Observable Development**: Explicit validation errors, build logs
+- §5 **Pragmatic Simplicity**: Boring technology, YAGNI enforcement
+
+---
+
+MIT License
 
 **Tooling**:
 
