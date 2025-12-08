@@ -1,31 +1,50 @@
 ---
-description: Zuga Ühendatud Tantsijate lavastus noorele publikule - meeleKolu (mindStuff)
-language: et
-original_url: https://www.zuga.ee/etendused-noorele-publikule-meelekolu
+title: Meelekolu
 slug: etendused-noorele-publikule-meelekolu
+language: et
+description: Zuga etendus 'Meelekolu' fotogalerii
+type: performance
 status: published
-tags: []
-title: meeleKolu
+page_type: performance
 translated:
 - english-inthemood
-type: page
+hero_image: https://lh3.googleusercontent.com/E9JYoSPVzSgdMHpLR4QymETWN3X-hwdxc-RtIBeIi1INrt0NvMIhRxaMfroLu-gtHmOHs1PYHjAuoY1cMuF7HYI=w16383
+gallery:
+- url: https://lh4.googleusercontent.com/vPnKixFBUoWgV0CRF1z_IbfLvS6cd3ku3CCmF5hvE0bTH2Y0G75kOKXZbhSpVYC0tglA7bLTzfYrF8bodWgrXPaTUbHPnp8vu9yDZir5ZYm1W-N7RXsKUBdLXcStmuGwQQ=w1280
+  width: 1280
+  description: Etenduse foto
+- url: https://lh3.googleusercontent.com/MKj8SZG9-IAHGWbwUuKwJVymzxwzahKlfDXTTJlcf6VkvM9kczyOc632Fq1nyIUFie8zrosTqXpYZx9B3uhK5rgBKxiaGVTFUmn1nFQlI3x6MAyEfe_H5i0594349djo2g=w1280
+  width: 1280
+  description: Etenduse foto
+- url: https://lh4.googleusercontent.com/ocdsQxvE6YzKuJ3jWF6ECXyfBXFeflylXEXOoNfTKC-wK3UdSc00cn3MGvRaeBn1aBwfiKggA8L9wjIcEvLqspA=w1280
+  width: 1280
+  description: Etenduse foto
+- url: https://lh6.googleusercontent.com/vmhPq72Ik3L-qoDpiH2zYDn9uld2Av2UagIoWVnKpSOp02Fbn0S43oSARHF4Cv2BUVDng8T8iV2x1lff9CB_emiSoxwBpdabrkd0WqZ-harBM9CYZNkscRztgcop75wyjw=w1280
+  width: 1280
+  description: Etenduse foto
+- url: https://lh4.googleusercontent.com/2vo4TIKK02ciKmxmqBNVUXCon06qufQ-yxhZrrrBhJ-T8PRjdWeFZEA0G2BQjwrV=w1280
+  width: 1280
+  description: Etenduse foto
+- url: https://lh6.googleusercontent.com/_XWrhfKNHL3KQMASqxdaXcuZJXvqSjEmLqML4CfzjnZIPSF4MkTuILpyJqsWBK46jLqpJr1bI4k97fPnsrbHgsCxbFLXTxBUpvE_vCozi8zxZShO=w1280
+  width: 1280
+  description: Etenduse foto
+- url: https://lh3.googleusercontent.com/9VEz2JqVbN_-FI8US7JIlPpTOtGdIniGvq7rBoWNxwL0bZDbUDAyOw0wW6ZV51a5riMUAlxAOZhyRSa3OEw10B3q60rRtP3-_hsUuUvhMnxKwaJcAjmXJzskeWDN0HXdvQ=w1280
+  width: 1280
+  description: Etenduse foto
+videos:
+- platform: youtube
+  video_id: qp22v58UQnw
+  title: ZUGA videotervitus
+  url: https://www.youtube.com/embed/qp22v58UQnw
 ---
 
-# meeleKolu
+# Meelekolu
 
-Zuga Ühendatud Tantsijate lavastus noorele publikule - meeleKolu (mindStuff)
+## Gallery
 
-## Tulekul / Coming:
+This performance features 7 gallery images.
+Fotogalerii etendusest Meelekolu
 
-Zuga Ühendatud Tantsijate uuslavastus "Ilma" / Zuga's new piece "Weather or not"
-23.11.2024 @ 15.00 at Sõltumatu Tantsu Lava
-23.11.2024 @ 18.00 at Sõltumatu Tantsu Lava
-https://www.stl.ee/lavastused/ilma
+## Video
 
-[YouTube Video](ZUGA Ühendatud Tantsijate tervitus eriolukorra ajal)
-
-## uudised:
-
-- Zuga pälvis Hea Teatri Auhinnna 2021 - täname!!!
-- Zuga on välja tulnud oma liikumispausidega, mis on kättesaadavad STL-i kodulehel https://stl.ee/tootuba/liikumispausid/
-- Zuga heliliikumistöötoad - https://stl.ee/tootuba/zuga-helimuramistootuba/
+ZUGA videotervitus

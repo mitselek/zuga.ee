@@ -1,33 +1,23 @@
 ---
-description: Zuga Ühendatud Tantsijate koduleht - uudised ja teated
-language: et
-original_url: https://www.zuga.ee/uudised
+title: Uudised
 slug: uudised
+language: et
+description: Zuga uudised ja info
+type: landing
 status: published
-tags: []
-title: Zuga - Uudised / News
-translated: []
-type: page
+page_type: landing
+videos:
+- platform: youtube
+  video_id: qp22v58UQnw
+  title: Zuga video tervitus
+  url: https://www.youtube.com/embed/qp22v58UQnw?embed_config=%7B%22enc%22:%22AVPnqKtpy3Xp8G7mry1vTszyGJ9Dd94usrbG-Y6MROgR73gMKrShdJC9DrTS8l0b6cBK4vtEjLgSxYUJZYzbB1vTp7B4_8DyhmyLkI-7xyH31q5v4BMU1TpMwE9lVUEPkcVdVydiBK8v_jZPz--eU2xfL-6VzIQuI4u77IEXLmSAxiGS%22%7D
 ---
 
-# Zuga - Uudised / News
+# Uudised
 
-Zuga Ühendatud Tantsijate koduleht - uudised ja teated
+## Gallery
 
-## Tulekul / Coming:
 
-Zuga Ühendatud Tantsijate uuslavastus "Ilma" / Zuga's new piece "Weather or not"
-23.11.2024 @ 15.00 at Sõltumatu Tantsu Lava
-23.11.2024 @ 18.00 at Sõltumatu Tantsu Lava
+## Video
 
-*[Image gallery]*
-
-aitäh!
-
-## uudised:
-
-- Zuga pälvis Hea Teatri Auhinnna 2021 - täname!!!
-- Zuga on välja tulnud oma liikumispausidega, mis on kättesaadavad STL-i kodulehel
-- Zuga heliliikumistöötoad
-
-[YouTube Video](ZUGA Ühendatud Tantsijate tervitus eriolukorra ajal)
+Performance video available in frontmatter metadata.

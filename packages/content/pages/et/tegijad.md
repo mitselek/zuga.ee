@@ -1,31 +1,23 @@
 ---
-description: Zuga Ühendatud Tantsijate meeskond / Team members and makers
-language: et
-original_url: https://www.zuga.ee/tegijad
+title: Tegijad
 slug: tegijad
+language: et
+description: Zuga meeskond ja tegijad
+type: about
 status: published
-tags: []
-title: tegijad
-translated:
-- english-about-us-1
-type: page
+page_type: about
+videos:
+- platform: youtube
+  video_id: qp22v58UQnw
+  title: Zuga video tervitus
+  url: https://www.youtube.com/embed/qp22v58UQnw?embed_config=%7B%22enc%22:%22AVPnqKu_SL-ZiieyvbXl6zYPJGt72z8q4tmd-ilnWjwa0jhcZbBlVl7LcglFZb66Y5L_GdnjK7oTOGulh4txKYBReVJbwt05Qw3X3s6p41e_dt5S575buAE0lpGf0YcxwI7wiQCJ3OvTpSsR8K7WPb5lenPVEV6q2QBc31SW3V2irJRh%22%7D
 ---
 
-# tegijad
+# Tegijad
 
-Zuga Ühendatud Tantsijate meeskond / Team members and makers
+## Gallery
 
-## Tulekul / Coming:
 
-Zuga Ühendatud Tantsijate uuslavastus "Ilma" / Zuga's new piece "Weather or not"
-23.11.2024 @ 15.00 at Sõltumatu Tantsu Lava
-23.11.2024 @ 18.00 at Sõltumatu Tantsu Lava
-https://www.stl.ee/lavastused/ilma
+## Video
 
-[YouTube Video](ZUGA Ühendatud Tantsijate tervitus eriolukorra ajal)
-
-## uudised:
-
-- Zuga pälvis Hea Teatri Auhinnna 2021 - täname!!!
-- Zuga on välja tulnud oma liikumispausidega, mis on kättesaadavad STL-i kodulehel https://stl.ee/tootuba/liikumispausid/
-- Zuga heliliikumistöötoad - https://stl.ee/tootuba/zuga-helimuramistootuba/
+Performance video available in frontmatter metadata.

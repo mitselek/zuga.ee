@@ -1,13 +1,13 @@
 ---
-title: Käeik
-slug: etendused-noorele-publikule-kaeik
+title: 2-2-22
+slug: etendused-noorele-publikule-2-2-22
 language: et
-description: Zuga etendus 'Käeik' fotogalerii
+description: Zuga etendus '2-2-22' fotogalerii
 type: performance
 status: published
 page_type: performance
 translated:
-- english-thepassage
+- english-2-2-22
 hero_image: https://lh3.googleusercontent.com/E9JYoSPVzSgdMHpLR4QymETWN3X-hwdxc-RtIBeIi1INrt0NvMIhRxaMfroLu-gtHmOHs1PYHjAuoY1cMuF7HYI=w16383
 gallery:
 - url: https://lh4.googleusercontent.com/vPnKixFBUoWgV0CRF1z_IbfLvS6cd3ku3CCmF5hvE0bTH2Y0G75kOKXZbhSpVYC0tglA7bLTzfYrF8bodWgrXPaTUbHPnp8vu9yDZir5ZYm1W-N7RXsKUBdLXcStmuGwQQ=w1280
@@ -38,12 +38,12 @@ videos:
   url: https://www.youtube.com/embed/qp22v58UQnw
 ---
 
-# Käeik
+# 2-2-22
 
 ## Gallery
 
 This performance features 7 gallery images.
-Fotogalerii etendusest Käeik
+Fotogalerii etendusest 2-2-22
 
 ## Video
 

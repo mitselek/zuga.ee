@@ -303,14 +303,148 @@ class ExtractedPage(BaseModel):
 
     def to_markdown(self) -> str:
         """
-        Convert to Obsidian-compatible markdown.
+        Convert to Obsidian-compatible markdown with YAML frontmatter.
+
+        Implements MARKDOWN_FORMAT_SPEC.md Option A:
+        - Media in frontmatter arrays (gallery, videos, hero_image)
+        - Semantic markdown body without URL clutter
+        - Type-safe structure for Next.js parsing
 
         Returns:
             Markdown string with YAML frontmatter
+
+        Raises:
+            ValueError: If required metadata fields are missing
         """
-        # TODO: Implement markdown conversion
-        # This replaces scripts/markdown_converter.py logic
-        raise NotImplementedError("Markdown conversion will be implemented after schema migration")
+        import yaml
+        from typing import Any
+
+        # Build frontmatter dict
+        frontmatter: dict[str, Any] = {
+            # Required fields
+            "title": self.metadata.title,
+            "slug": self.metadata.slug,
+            "language": self.metadata.language.value,
+            "description": self.metadata.description,
+            "type": self.metadata.page_type or "page",
+            "status": "published",
+        }
+
+        # Optional fields
+        if self.metadata.page_type:
+            frontmatter["page_type"] = self.metadata.page_type
+
+        if self.bilingual_link:
+            frontmatter["translated"] = [self.bilingual_link]
+
+        # Media: hero_image
+        hero_items = [m for m in self.media if m.type == MediaType.HERO_IMAGE]
+        if hero_items:
+            frontmatter["hero_image"] = hero_items[0].url
+
+        # Media: gallery array
+        gallery_items = [m for m in self.media if m.type == MediaType.GALLERY_ITEM]
+        if gallery_items:
+            frontmatter["gallery"] = [
+                {
+                    "url": item.url,
+                    "width": int(item.width) if item.width else 1280,
+                    "description": item.description or item.context or "Performance photo",
+                }
+                for item in gallery_items
+            ]
+
+        # Media: videos array
+        video_items = [m for m in self.media if m.type == MediaType.YOUTUBE]
+        if video_items:
+            frontmatter["videos"] = [
+                {
+                    "platform": item.platform or "youtube",
+                    "video_id": item.video_id,
+                    "title": item.title or "Video",
+                    "url": item.url,
+                }
+                for item in video_items
+            ]
+
+        # Generate YAML frontmatter
+        yaml_content = yaml.dump(
+            frontmatter,
+            default_flow_style=False,
+            allow_unicode=True,
+            sort_keys=False,
+        )
+
+        # Build markdown body
+        body_lines = [f"# {self.metadata.title}", ""]
+
+        # Process content sections
+        for section in self.content_sections:
+            # Text sections
+            if section.type in (ContentSectionType.TEXT, ContentSectionType.TEXT_CONTENT):
+                if section.content:
+                    body_lines.append(section.content)
+                    body_lines.append("")
+
+            # Gallery sections
+            elif section.type in (
+                ContentSectionType.PERFORMANCE_GALLERY,
+                ContentSectionType.IMAGE_GALLERY,
+                ContentSectionType.COLLAPSIBLE_GALLERY,
+                ContentSectionType.GALLERY,
+            ):
+                body_lines.append("## Gallery")
+                body_lines.append("")
+                if gallery_items:
+                    body_lines.append(
+                        f"This performance features {len(gallery_items)} gallery images."
+                    )
+                if section.content:
+                    body_lines.append(section.content)
+                body_lines.append("")
+
+            # Video sections
+            elif section.type == ContentSectionType.VIDEO:
+                body_lines.append("## Video")
+                body_lines.append("")
+                if section.content:
+                    body_lines.append(section.content)
+                elif video_items:
+                    body_lines.append("Performance video available in frontmatter metadata.")
+                body_lines.append("")
+
+            # News sections
+            elif section.type == ContentSectionType.NEWS:
+                body_lines.append("## News")
+                body_lines.append("")
+                if section.content:
+                    # Parse newline-separated news items
+                    items = section.content.split("\n")
+                    for item in items:
+                        if item.strip():
+                            body_lines.append(f"- {item.strip()}")
+                body_lines.append("")
+
+            # Announcement sections
+            elif section.type == ContentSectionType.ANNOUNCEMENT:
+                body_lines.append("## Announcements")
+                body_lines.append("")
+                if section.content:
+                    body_lines.append(section.content)
+                body_lines.append("")
+
+            # Upcoming events
+            elif section.type == ContentSectionType.UPCOMING_EVENTS:
+                body_lines.append("## Upcoming Events")
+                body_lines.append("")
+                if section.content:
+                    body_lines.append(section.content)
+                body_lines.append("")
+
+        # Combine frontmatter + body
+        markdown = f"---\n{yaml_content}---\n\n{''.join(line + '\n' if line else '\n' for line in body_lines).rstrip()}\n"
+
+        return markdown
 
     def validate_completeness(self) -> list[str]:
         """

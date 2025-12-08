@@ -1,11 +1,11 @@
 ---
-title: Zugazuugzuh-Zuh-Zuh
-slug: etendused-noorele-publikule-zugazuugzuh-zuh-zuh
+title: Etendused Suurtele
+slug: etendused-suurtele
 language: et
-description: Zuga etendus 'Zugazuugzuh-Zuh-Zuh' fotogalerii
-type: performance
+description: Zuga etenduste indeksleht suurtele
+type: landing
 status: published
-page_type: performance
+page_type: landing
 hero_image: https://lh3.googleusercontent.com/eGraYX6xBLk_CEVp_P2fET0uRNC_PV9lnqLRBLXMHTlvJmlCqHaR4qjUz5KZjX7j6Ok6eKRsxOdrGeNpj9s8fco=w16383
 gallery:
 - url: https://lh4.googleusercontent.com/hytlhv6sEQB5sw7qXqn_nPWdUXl6OQPV3dW_rxq2j10OmDzANiUuYPQ1ZWf2qyN8zNGl_tUoBLfxpDCHYusghPPKPx9LEDq3jjkVeaiF2tLy-62_Sg1dV7udRw5kO5t56w=w1280
@@ -32,17 +32,17 @@ gallery:
 videos:
 - platform: youtube
   video_id: qp22v58UQnw
-  title: ZUGA videotervitus
+  title: ZUGA video tervitus
   url: https://www.youtube.com/embed/qp22v58UQnw
 ---
 
-# Zugazuugzuh-Zuh-Zuh
+# Etendused Suurtele
 
 ## Gallery
 
 This performance features 7 gallery images.
-Fotogalerii etendusest Zugazuugzuh-Zuh-Zuh
+Fotogalerii Zuga etendustest suurtele
 
 ## Video
 
-ZUGA videotervitus
+ZUGA video tervitus

@@ -1,13 +1,13 @@
 ---
-title: The Passage
-slug: english-thepassage
+title: In The Mood
+slug: english-inthemood
 language: en
-description: Zuga performance 'The Passage' photo gallery
+description: Zuga performance 'In The Mood' photo gallery
 type: performance
 status: published
 page_type: performance
 translated:
-- etendused-noorele-publikule-kaeik
+- etendused-noorele-publikule-meelekolu
 hero_image: https://lh5.googleusercontent.com/YmL-ZKflrTu0uUJnzvcMQ9812g16lIXAfb2u1wmCWwluKk_RwjfjV3T_td4mMmiTLHIhYBvy3l7we3cFw39C0c0=w16383
 gallery:
 - url: https://lh6.googleusercontent.com/mJFViQ47bnoEp8oV3TFrBl7V7DYZee-5KS09iH8jptT1JiHODyd2h5Dy8m6Py4fKqlAnt2ZQ7m-r-mhIajFDH0-z1IeM6id4GCij8ruAOB3BdKQzSI8l96FjTDXjGpeBWw=w1280
@@ -38,12 +38,12 @@ videos:
   url: https://www.youtube.com/embed/qp22v58UQnw
 ---
 
-# The Passage
+# In The Mood
 
 ## Gallery
 
 This performance features 7 gallery images.
-Photo gallery from The Passage performance
+Photo gallery from In The Mood performance
 
 ## Video
 
