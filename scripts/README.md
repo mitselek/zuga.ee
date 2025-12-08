@@ -8,9 +8,8 @@ Content transformation pipeline for Zuga.ee migration to Obsidian.
 
 **Workflow**:
 
-1. **JSON → Markdown conversion** (next step)
-2. **Content organization** by language and type
-3. **Bilingual linking** (Estonian ↔ English)
+1. **JSON → Markdown conversion** ✅ Complete (35/35 files)
+2. **Bilingual linking** (Estonian ↔ English) - next step
 
 **Note**: Images from Google Sites are permanently lost and not recoverable.
 
@@ -25,7 +24,6 @@ Content transformation pipeline for Zuga.ee migration to Obsidian.
 
 - `convert_json_to_markdown.py` - Convert JSON → Markdown with frontmatter
 - `markdown_converter.py` - Markdown formatting utilities
-- `content_organizer.py` - Organize content by type/language
 - `link_bilingual_pages.py` - Link bilingual page pairs
 
 ## Usage
@@ -38,10 +36,7 @@ source .venv/bin/activate
 # Step 1: Convert JSON to Markdown
 python scripts/convert_json_to_markdown.py
 
-# Step 2: Organize content
-python -m scripts.content_organizer
-
-# Step 3: Link bilingual pages
+# Step 2: Link bilingual pages
 python scripts/link_bilingual_pages.py
 
 # Run tests
