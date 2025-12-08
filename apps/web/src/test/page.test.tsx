@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, vi } from "vitest";
 import Home from "../app/page";
+import * as contentModule from "../lib/content";
 
 describe("Home Page", () => {
   it("renders the main heading", () => {
@@ -22,5 +23,16 @@ describe("Home Page", () => {
     links.forEach((link) => {
       expect(link.getAttribute("href")).toMatch(/^\/et\//);
     });
+  });
+
+  it("renders error message when landing page not found", () => {
+    // Mock loadLandingPage to return null
+    const spy = vi.spyOn(contentModule, "loadLandingPage").mockReturnValue(null);
+
+    render(<Home />);
+
+    expect(screen.getByText("Content not found")).toBeInTheDocument();
+
+    spy.mockRestore();
   });
 });

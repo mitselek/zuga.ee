@@ -71,6 +71,7 @@ lerna-debug.log*
 .next/
 out/
 next-env.d.ts
+*.tsbuildinfo
 
 # Testing
 .vitest/
