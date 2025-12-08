@@ -11,7 +11,8 @@ Content transformation pipeline for Zuga.ee migration to Obsidian.
 1. **JSON → Markdown conversion** (next step)
 2. **Content organization** by language and type
 3. **Bilingual linking** (Estonian ↔ English)
-4. **Media download** from Google Photos
+
+**Note**: Images from Google Sites are permanently lost and not recoverable.
 
 ## Active Scripts
 
@@ -26,7 +27,6 @@ Content transformation pipeline for Zuga.ee migration to Obsidian.
 - `markdown_converter.py` - Markdown formatting utilities
 - `content_organizer.py` - Organize content by type/language
 - `link_bilingual_pages.py` - Link bilingual page pairs
-- `media_downloader.py` - Download and optimize images
 
 ## Usage
 
@@ -44,16 +44,15 @@ python -m scripts.content_organizer
 # Step 3: Link bilingual pages
 python scripts/link_bilingual_pages.py
 
-# Step 4: Download media
-python scripts/media_downloader.py
-
 # Run tests
 pytest scripts/tests/ -v
 ```
 
 ## Archived Scripts
 
-Extraction phase scripts (no longer needed) are in `archive/extraction_phase/`:
+### Extraction Phase
+
+In `archive/extraction_phase/` - Scripts used during manual HTML extraction:
 
 - `html_beautifier.py` - Formatted HTML for analysis
 - `html_cleaner.py` - Stripped Google Sites boilerplate
@@ -62,5 +61,11 @@ Extraction phase scripts (no longer needed) are in `archive/extraction_phase/`:
 - `analyze_image_mapping.py` - Analyzed image stats
 - `use_image_placeholders.py` - Added image placeholders
 
-These scripts were used during the manual extraction phase from Google Sites HTML exports.
-The extraction is now complete, and all content exists as validated JSON.
+### Media Download Phase
+
+In `archive/media_phase/` - Image download not feasible (images lost):
+
+- `media_downloader.py` - Would have downloaded images from Google Photos
+- `test_media_downloader.py` - Test suite for media downloader
+
+**Decision**: Google Sites images are permanently inaccessible and cannot be recovered.
