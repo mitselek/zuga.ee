@@ -1,0 +1,25 @@
+{
+  "name": "@zuga/types",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "./src/content.ts",
+  "types": "./src/content.ts",
+  "exports": {
+    ".": "./src/content.ts",
+    "./validators": "./src/validators.ts"
+  },
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "gray-matter": "^4.0.3",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "typescript": "^5.3.0",
+    "vitest": "^1.0.0"
+  }
+}
