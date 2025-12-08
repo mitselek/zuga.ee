@@ -91,6 +91,9 @@ coverage/
 *.sublime-project
 *.sublime-workspace
 
+# Obsidian
+.obsidian/
+
 # OS
 Thumbs.db
 Desktop.ini
