@@ -22,8 +22,8 @@ Related documentation: docs/DATA_MODEL.md
 
 from datetime import datetime
 from enum import Enum
-from typing import Literal, Optional
-from pydantic import BaseModel, Field, HttpUrl
+from typing import Any, Literal, Optional
+from pydantic import BaseModel, Field
 
 
 # ============================================================================
@@ -239,7 +239,7 @@ class ExtractedPage(BaseModel):
     )
 
     # REQUIRED: Media library
-    media: list[MediaItem] = Field(
+    media: list[MediaItem] = Field(  # type: ignore[valid-type]
         default_factory=list,
         description="All media items (images, videos, backgrounds)"
     )
@@ -453,7 +453,7 @@ class ExtractedPage(BaseModel):
         Returns:
             List of validation warnings (empty if page is complete)
         """
-        warnings = []
+        warnings: list[str] = []
 
         # Check for legacy fields that need migration
         if self.page_metadata:
@@ -497,7 +497,6 @@ def validate_json_file(filepath: str) -> tuple[bool, ExtractedPage | None, list[
         Tuple of (is_valid, parsed_page, errors)
     """
     import json
-    from pathlib import Path
 
     try:
         with open(filepath) as f:
@@ -512,7 +511,7 @@ def validate_json_file(filepath: str) -> tuple[bool, ExtractedPage | None, list[
         return (False, None, [str(e)])
 
 
-def analyze_migration_needs(directory: str) -> dict:
+def analyze_migration_needs(directory: str) -> dict[str, Any]:
     """
     Analyze all JSON files and report migration requirements.
 
@@ -524,7 +523,7 @@ def analyze_migration_needs(directory: str) -> dict:
     """
     from pathlib import Path
 
-    stats = {
+    stats: dict[str, Any] = {
         "total_files": 0,
         "valid_files": 0,
         "invalid_files": 0,
@@ -535,7 +534,7 @@ def analyze_migration_needs(directory: str) -> dict:
     for filepath in Path(directory).glob("*.json"):
         stats["total_files"] += 1
 
-        is_valid, page, messages = validate_json_file(str(filepath))
+        is_valid, _, messages = validate_json_file(str(filepath))
 
         if is_valid:
             stats["valid_files"] += 1
