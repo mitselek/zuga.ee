@@ -19,12 +19,21 @@ Usage:
 import argparse
 import sys
 from pathlib import Path
-from typing import Optional
+from typing import TypedDict, Optional
 
 from extraction_models import ExtractedPage
 
 
-def convert_file(json_path: Path, output_dir: Path, dry_run: bool = False) -> dict:
+class ConversionResult(TypedDict):
+    """Result of converting a single JSON file."""
+
+    file: str
+    status: str
+    output_path: Optional[str]
+    error: Optional[str]
+
+
+def convert_file(json_path: Path, output_dir: Path, dry_run: bool = False) -> ConversionResult:
     """
     Convert single JSON file to markdown.
 
@@ -36,7 +45,7 @@ def convert_file(json_path: Path, output_dir: Path, dry_run: bool = False) -> di
     Returns:
         Dict with conversion stats
     """
-    result = {
+    result: ConversionResult = {
         "file": json_path.name,
         "status": "success",
         "output_path": None,
@@ -77,9 +86,7 @@ def convert_file(json_path: Path, output_dir: Path, dry_run: bool = False) -> di
 
 def main() -> int:
     """Main entry point."""
-    parser = argparse.ArgumentParser(
-        description="Convert validated JSON files to markdown"
-    )
+    parser = argparse.ArgumentParser(description="Convert validated JSON files to markdown")
     parser.add_argument(
         "--dry-run",
         action="store_true",
@@ -118,7 +125,7 @@ def main() -> int:
     print()
 
     # Convert all files
-    results = []
+    results: list[ConversionResult] = []
     for json_path in json_files:
         print(f"Processing {json_path.name}...", end=" ")
         result = convert_file(json_path, args.output_dir, args.dry_run)
