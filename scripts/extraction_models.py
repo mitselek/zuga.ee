@@ -18,6 +18,20 @@ Analysis basis: 35 JSON files in packages/content/source_zuga_ee/extracted/
 - Goal: Migrate all files to canonical format defined here
 
 Related documentation: docs/DATA_MODEL.md
+
+IMPORTANT - TypeScript Sync Required:
+    These models have corresponding TypeScript types in:
+    - packages/types/src/content.ts (interfaces)
+    - packages/types/src/validators.ts (Zod schemas)
+
+    When modifying these models, you MUST update TypeScript types:
+    1. Update corresponding interface in packages/types/src/content.ts
+    2. Update Zod schema in packages/types/src/validators.ts (if validation changed)
+    3. Run tests: cd packages/types && pnpm test
+    4. Verify all 35 markdown files still validate
+
+    See: docs/PLANNING_PYDANTIC_TYPESCRIPT_INTEGRATION.md for sync protocol
+    See: https://github.com/mitselek/zuga.ee/issues/13 for implementation details
 """
 
 from datetime import datetime
@@ -101,6 +115,8 @@ class MediaItem(BaseModel):
     Consolidates all media from:
     - Format A: `media` array
     - Format B: `hero_image`, `site_logo`, `performance_images`, `gallery_images`, `workshop_images`
+
+    SYNC WARNING: TypeScript type at packages/types/src/content.ts::MediaItem
     """
     type: MediaType = Field(..., description="Type of media item")
     url: str = Field(..., description="Media URL (Google Photos, YouTube, etc.)")
@@ -120,7 +136,10 @@ class MediaItem(BaseModel):
 
 
 class VideoEmbed(BaseModel):
-    """YouTube video embed (legacy - migrate to MediaItem)."""
+    """YouTube video embed (legacy - migrate to MediaItem).
+
+    SYNC WARNING: TypeScript type at packages/types/src/content.ts::VideoEmbed
+    """
     url: str = Field(..., description="YouTube embed URL")
     platform: Literal["youtube", "vimeo"] = Field("youtube", description="Video platform")
     video_id: str = Field(..., description="Platform-specific video ID")
@@ -169,6 +188,8 @@ class PageMetadata(BaseModel):
     - Obsidian note linking
     - SEO and social sharing
     - Navigation and site structure
+
+    SYNC WARNING: TypeScript type at packages/types/src/content.ts::PageFrontmatter
     """
     title: str = Field(..., description="Page title (REQUIRED - use page type if no natural title)")
     language: Language = Field(..., description="Content language")
@@ -224,6 +245,12 @@ class ExtractedPage(BaseModel):
     # Convert to Obsidian markdown
     markdown = page.to_markdown()
     ```
+
+    SYNC WARNING: TypeScript types must be updated when this model changes!
+        - TypeScript: packages/types/src/content.ts::PageFrontmatter
+        - Zod schema: packages/types/src/validators.ts::PageFrontmatterSchema
+        - Tests: cd packages/types && pnpm test (validates 35 markdown files)
+        - See: docs/PLANNING_PYDANTIC_TYPESCRIPT_INTEGRATION.md
     """
 
     # REQUIRED: Core page metadata

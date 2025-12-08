@@ -140,17 +140,57 @@ Based on `scripts/extraction_models.py` lines 1-300:
 4. **Run tests**: `cd packages/types && pnpm test` (validates all 35 files)
 5. **Update comments**: Ensure cross-references are current
 
-### Prevention of Drift
+### Prevention of Drift (Bidirectional Linking)
+
+**✅ IMPLEMENTED**: Backlinks added to Python models to alert developers of TypeScript sync needs.
 
 **In Python** (`scripts/extraction_models.py`):
+
+Module-level warning in docstring:
+
+```python
+"""
+IMPORTANT - TypeScript Sync Required:
+    These models have corresponding TypeScript types in:
+    - packages/types/src/content.ts (interfaces)
+    - packages/types/src/validators.ts (Zod schemas)
+
+    When modifying these models, you MUST update TypeScript types:
+    1. Update corresponding interface in packages/types/src/content.ts
+    2. Update Zod schema in packages/types/src/validators.ts (if validation changed)
+    3. Run tests: cd packages/types && pnpm test
+    4. Verify all 35 markdown files still validate
+
+    See: docs/PLANNING_PYDANTIC_TYPESCRIPT_INTEGRATION.md for sync protocol
+    See: https://github.com/mitselek/zuga.ee/issues/13 for implementation details
+"""
+```
+
+Class-level warnings on key models:
 
 ```python
 class ExtractedPage(BaseModel):
     """
-    SYNC NOTE: TypeScript types in packages/types/src/content.ts
-    must be updated when this model changes.
+    SYNC WARNING: TypeScript types must be updated when this model changes!
+        - TypeScript: packages/types/src/content.ts::PageFrontmatter
+        - Zod schema: packages/types/src/validators.ts::PageFrontmatterSchema
+        - Tests: cd packages/types && pnpm test (validates 35 markdown files)
+        - See: docs/PLANNING_PYDANTIC_TYPESCRIPT_INTEGRATION.md
+    """
 
-    Run: cd packages/types && pnpm test
+class MediaItem(BaseModel):
+    """
+    SYNC WARNING: TypeScript type at packages/types/src/content.ts::MediaItem
+    """
+
+class VideoEmbed(BaseModel):
+    """
+    SYNC WARNING: TypeScript type at packages/types/src/content.ts::VideoEmbed
+    """
+
+class PageMetadata(BaseModel):
+    """
+    SYNC WARNING: TypeScript type at packages/types/src/content.ts::PageFrontmatter
     """
 ```
 
@@ -166,6 +206,11 @@ class ExtractedPage(BaseModel):
  */
 export interface PageFrontmatter { ... }
 ```
+
+**Result**: Developers are warned in BOTH directions:
+
+- **Python → TypeScript**: Docstrings tell Python devs where to update TS types
+- **TypeScript → Python**: Comments tell TS devs which Python model is the source
 
 ---
 

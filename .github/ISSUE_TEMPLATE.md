@@ -67,9 +67,9 @@ After evaluating options, we're implementing **manual TypeScript interfaces** th
    - Optional arrays: gallery[], videos[], translated[]
    - Must match `ExtractedPage.to_markdown()` output format
 
-**Cross-Reference Comments**:
+**Cross-Reference Comments (Bidirectional)**:
 
-Each TypeScript interface MUST include comment linking to source:
+Each TypeScript interface MUST include comment linking to source Python model:
 
 ```typescript
 /**
@@ -85,6 +85,14 @@ export interface PageFrontmatter {
   // ...
 }
 ```
+
+**NOTE**: Python models already have backlinks to TypeScript types! See:
+
+- `scripts/extraction_models.py` module docstring (points to packages/types/)
+- `ExtractedPage` class docstring (sync warning with test command)
+- `MediaItem`, `VideoEmbed`, `PageMetadata` docstrings (TypeScript locations)
+
+This ensures developers modifying Python models are immediately aware of TypeScript sync requirements.
 
 ---
 
