@@ -13,9 +13,11 @@
 ### Two Options Evaluated
 
 #### Option 1: SOFT Connection (✅ CHOSEN)
+
 **Manual TypeScript interfaces mirroring Pydantic models**
 
 **Pros**:
+
 - Simple, no build complexity
 - Frontend stays independent
 - Easy to understand and maintain
@@ -23,17 +25,20 @@
 - No Python runtime needed for TypeScript development
 
 **Cons**:
+
 - Manual sync required when models change
 - Risk of drift between Python and TypeScript
 
 **Best for**: Small schemas (~10 models), infrequent changes ✅ **Our situation**
 
 #### Option 2: HARD Connection (❌ REJECTED)
+
 **Auto-generate TypeScript from Pydantic using tools**
 
 Tools: `pydantic-to-typescript`, `datamodel-code-generator`
 
 **Why rejected**:
+
 - Over-engineered for our small, stable schema
 - Adds build toolchain complexity
 - Generated code can be verbose/ugly
@@ -46,7 +51,7 @@ Tools: `pydantic-to-typescript`, `datamodel-code-generator`
 
 ### Architecture
 
-```
+```text
 ┌─────────────────────────────────────────────────────────────┐
 │ Source of Truth: scripts/extraction_models.py (Pydantic v2) │
 └─────────────────┬───────────────────────────────────────────┘
@@ -56,7 +61,7 @@ Tools: `pydantic-to-typescript`, `datamodel-code-generator`
                   ▼
 ┌─────────────────────────────────────────────────────────────┐
 │ TypeScript Types: packages/types/src/content.ts             │
-│ - PageFrontmatter interface                                  │
+│ - PageFrontmatter interface                                 │
 │ - MediaItem, VideoEmbed, Link interfaces                    │
 │ - Language, MediaType, PageType enums                       │
 └─────────────────┬───────────────────────────────────────────┘
@@ -75,8 +80,8 @@ Tools: `pydantic-to-typescript`, `datamodel-code-generator`
                   ▼
 ┌─────────────────────────────────────────────────────────────┐
 │ Next.js App: apps/web/src/                                  │
-│ - Content loading utilities                                  │
-│ - Type-safe component props                                  │
+│ - Content loading utilities                                 │
+│ - Type-safe component props                                 │
 │ - Validated frontmatter parsing                             │
 └─────────────────────────────────────────────────────────────┘
 ```
@@ -97,15 +102,18 @@ Based on `scripts/extraction_models.py` lines 1-300:
 ### Core Types
 
 1. **PageFrontmatter** (PRIMARY - unblocks homepage)
+
    - Required: title, slug, language, description, type, status
    - Optional: page_type, hero_image, translated[]
    - Arrays: gallery[], videos[]
 
 2. **MediaItem** (needed for galleries/videos)
+
    - url, description, width (for images)
    - platform, video_id, title (for videos)
 
 3. **VideoEmbed** (YouTube embeds)
+
    - platform, video_id, title, embed_config
 
 4. **Enums**
@@ -135,6 +143,7 @@ Based on `scripts/extraction_models.py` lines 1-300:
 ### Prevention of Drift
 
 **In Python** (`scripts/extraction_models.py`):
+
 ```python
 class ExtractedPage(BaseModel):
     """
@@ -146,6 +155,7 @@ class ExtractedPage(BaseModel):
 ```
 
 **In TypeScript** (`packages/types/src/content.ts`):
+
 ```typescript
 /**
  * Page frontmatter structure from markdown files.
@@ -166,12 +176,14 @@ export interface PageFrontmatter { ... }
 **Why?** Catches discrepancies between Pydantic output and TypeScript expectations.
 
 **Approach**:
+
 1. Load all 35 markdown files from `packages/content/pages/`
 2. Parse YAML frontmatter with gray-matter
 3. Validate with Zod schemas
 4. Report: Which files pass, which fail, what errors
 
 **Coverage**:
+
 - ✅ Happy path: All 35 files should validate
 - ✅ Required fields: Missing title/slug/language fails
 - ✅ Enums: Invalid language/type fails
@@ -183,12 +195,12 @@ export interface PageFrontmatter { ... }
 ```typescript
 // packages/types/src/content.test.ts
 
-describe('PageFrontmatter validation', () => {
-  it('validates all 35 markdown files', () => {
+describe("PageFrontmatter validation", () => {
+  it("validates all 35 markdown files", () => {
     const files = getAllMarkdownFiles();
     const errors = [];
 
-    files.forEach(file => {
+    files.forEach((file) => {
       const { data } = matter(readFileSync(file));
       try {
         PageFrontmatterSchema.parse(data);
@@ -245,6 +257,7 @@ pnpm test -- --reporter=verbose
 **URL**: https://github.com/mitselek/zuga.ee/issues/13
 
 **Contains**:
+
 - Strategic rationale (SOFT vs HARD connection)
 - Step-by-step implementation guide (6 steps)
 - Testing strategy against real markdown files
@@ -294,12 +307,14 @@ pnpm test -- --reporter=verbose
 ## Success Metrics
 
 **Before**:
+
 - ❌ No TypeScript types for frontmatter
 - ❌ Manual parsing prone to runtime errors
 - ❌ No validation of content structure
 - ❌ Next.js homepage blocked
 
 **After**:
+
 - ✅ Type-safe frontmatter parsing
 - ✅ Runtime validation catches malformed content
 - ✅ 100% test coverage (35/35 markdown files)
@@ -318,6 +333,7 @@ pnpm test -- --reporter=verbose
 **Impact**: High (runtime errors, broken pages)
 
 **Mitigation**:
+
 - Cross-reference comments in both codebases
 - Tests validate against real markdown files
 - Sync protocol documented in README
@@ -330,6 +346,7 @@ pnpm test -- --reporter=verbose
 **Impact**: Medium (consider auto-generation tools)
 
 **Mitigation**:
+
 - If models exceed 20-30 types, revisit HARD connection option
 - Monitor: Time spent on sync vs schema change frequency
 - Threshold: If sync takes >1 hour per change, automate
@@ -343,6 +360,7 @@ pnpm test -- --reporter=verbose
 **Approach**: Pydantic → JSON Schema → TypeScript
 
 **Rejected because**:
+
 - Adds complexity without clear benefit
 - JSON Schema doesn't capture all Pydantic features
 - Still requires tooling (json-schema-to-typescript)
@@ -352,6 +370,7 @@ pnpm test -- --reporter=verbose
 **Approach**: Define schema in .proto files, generate both
 
 **Rejected because**:
+
 - Massive overkill for content types
 - Adds build complexity
 - Protobuf not idiomatic for web content
@@ -361,6 +380,7 @@ pnpm test -- --reporter=verbose
 **Approach**: Write TypeScript types, generate Pydantic
 
 **Rejected because**:
+
 - Pydantic is already source of truth (35 files validated)
 - Python does data extraction/conversion
 - Frontend doesn't dictate backend schema
