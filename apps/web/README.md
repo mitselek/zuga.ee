@@ -1,5 +1,8 @@
 # zuga.ee Web
 
+[![Frontend Tests](https://github.com/mitselek/zuga.ee/actions/workflows/ci.yml/badge.svg?job=frontend-tests)](https://github.com/mitselek/zuga.ee/actions/workflows/ci.yml)
+[![Build Status](https://github.com/mitselek/zuga.ee/actions/workflows/ci.yml/badge.svg?job=build)](https://github.com/mitselek/zuga.ee/actions/workflows/ci.yml)
+
 Next.js frontend with TypeScript strict mode and comprehensive testing.
 
 ## Setup

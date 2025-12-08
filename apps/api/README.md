@@ -1,5 +1,7 @@
 # zuga.ee API
 
+[![Backend Tests](https://github.com/mitselek/zuga.ee/actions/workflows/ci.yml/badge.svg?job=backend-tests)](https://github.com/mitselek/zuga.ee/actions/workflows/ci.yml)
+
 FastAPI backend with strict TDD, Pydantic models, and AI agent integration.
 
 ## Setup

@@ -1,5 +1,7 @@
 # @zuga/types
 
+[![CI](https://github.com/mitselek/zuga.ee/actions/workflows/ci.yml/badge.svg)](https://github.com/mitselek/zuga.ee/actions/workflows/ci.yml)
+
 TypeScript types and runtime validators for Zuga content files.
 
 ## Purpose
