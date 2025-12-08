@@ -5,6 +5,7 @@ language: et
 description: ZUGA fotogalerii
 type: gallery
 status: published
+original_url: https://www.zuga.ee/et/galerii-et
 page_type: gallery
 hero_image: https://lh5.googleusercontent.com/5s6ZiEssAsch3DKl9HqGW8TyRCjhw0ue5nkfUTKJiNwrm12UwdfwIuol42T1Ebp8oABHIjbHtzBsgF8WpVytl3Q=w16383
 gallery:

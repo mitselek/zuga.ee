@@ -5,6 +5,7 @@ language: et
 description: Zuga etendus 'Meelekolu' fotogalerii
 type: performance
 status: published
+original_url: https://www.zuga.ee/et/etendused-noorele-publikule-meelekolu
 page_type: performance
 translated:
 - english-inthemood

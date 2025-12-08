@@ -5,6 +5,7 @@ language: et
 description: Zuga koduleht
 type: landing
 status: published
+original_url: https://www.zuga.ee/et/index
 page_type: landing
 videos:
 - platform: youtube

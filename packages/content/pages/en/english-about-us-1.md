@@ -5,6 +5,7 @@ language: en
 description: Zuga about us page
 type: about
 status: published
+original_url: https://www.zuga.ee/en/english-about-us-1
 page_type: about
 hero_image: https://lh5.googleusercontent.com/5OA_l_jHmBadKXKOU5GY4Aa9B9LtiLWyvxtrg8JcCIv7kwuHrsGWqOoSE5XltyW2--SOYdAn30xU-hYaRYUtGlU=w16383
 gallery:
@@ -34,8 +35,6 @@ videos:
   video_id: qp22v58UQnw
   title: ZUGA video greeting
   url: https://www.youtube.com/embed/qp22v58UQnw
-translated:
-- tegijad
 ---
 
 # About Us

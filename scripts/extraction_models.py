@@ -357,6 +357,9 @@ class ExtractedPage(BaseModel):
             "status": "published",
         }
 
+        # Generate original URL
+        frontmatter["original_url"] = f"https://www.zuga.ee/{self.metadata.language.value}/{self.metadata.slug}"
+
         # Optional fields
         if self.metadata.page_type:
             frontmatter["page_type"] = self.metadata.page_type

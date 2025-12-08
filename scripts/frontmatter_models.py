@@ -53,7 +53,9 @@ class ContentFrontmatter(BaseModel):
     )
 
     # Optional fields
-    type: Optional[Literal["page", "performance", "news"]] = Field(
+    type: Optional[
+        Literal["page", "performance", "news", "about", "landing", "gallery", "workshop"]
+    ] = Field(
         None, description="Content classification"
     )
     description: Optional[str] = Field(None, description="Meta description")

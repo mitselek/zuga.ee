@@ -5,6 +5,7 @@ language: et
 description: Meelekolu mängud workshop
 type: workshop
 status: published
+original_url: https://www.zuga.ee/et/workshopid-meelekolu-mangud-mindstuff-games
 page_type: workshop
 videos:
 - platform: youtube
@@ -16,6 +17,7 @@ videos:
 # Meelekolu Mängud Mindstuff Games
 
 ## Gallery
+
 
 ## Video
 

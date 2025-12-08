@@ -5,6 +5,7 @@ language: et
 description: Zuga etendus 'Zugazuugzuh-Zuh-Zuh' fotogalerii
 type: performance
 status: published
+original_url: https://www.zuga.ee/et/etendused-noorele-publikule-zugazuugzuh-zuh-zuh
 page_type: performance
 hero_image: https://lh3.googleusercontent.com/eGraYX6xBLk_CEVp_P2fET0uRNC_PV9lnqLRBLXMHTlvJmlCqHaR4qjUz5KZjX7j6Ok6eKRsxOdrGeNpj9s8fco=w16383
 gallery:

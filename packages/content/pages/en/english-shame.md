@@ -5,6 +5,7 @@ language: en
 description: Zuga performance 'Shame' photo gallery
 type: performance
 status: published
+original_url: https://www.zuga.ee/en/english-shame
 page_type: performance
 translated:
 - etendused-suurtele-habi

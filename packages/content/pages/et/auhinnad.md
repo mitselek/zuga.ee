@@ -5,6 +5,7 @@ language: et
 description: Zuga auhinnad ja tunnustused
 type: about
 status: published
+original_url: https://www.zuga.ee/et/auhinnad
 page_type: about
 hero_image: https://lh4.googleusercontent.com/Kc3Llh-GM5h-vFoxk7RFe4PJydnj52DKvq8bVGcS8QIBMGFFIyH5f2Ua-CdFZEY6LcMIIXnOGCZQvHWWVEk5anU=w16383
 gallery:

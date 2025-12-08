@@ -5,6 +5,7 @@ language: et
 description: Zuga etenduste indeksleht noorele publikule
 type: landing
 status: published
+original_url: https://www.zuga.ee/et/etendused-noorele-publikule
 page_type: landing
 hero_image: https://lh5.googleusercontent.com/YmL-ZKflrTu0uUJnzvcMQ9812g16lIXAfb2u1wmCWwluKk_RwjfjV3T_td4mMmiTLHIhYBvy3l7we3cFw39C0c0=w16383
 gallery:

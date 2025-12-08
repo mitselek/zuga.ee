@@ -45,7 +45,14 @@ export enum MediaType {
  * Content type classification.
  * Python source: scripts/frontmatter_models.py::ContentFrontmatter.type
  */
-export type PageType = "page" | "performance" | "news";
+export type PageType =
+  | "page"
+  | "performance"
+  | "news"
+  | "about"
+  | "landing"
+  | "gallery"
+  | "workshop";
 
 /**
  * Publication status.

@@ -5,6 +5,7 @@ language: en
 description: Zuga performance '2-2-22' photo gallery
 type: performance
 status: published
+original_url: https://www.zuga.ee/en/english-2-2-22
 page_type: performance
 translated:
 - etendused-noorele-publikule-2-2-22

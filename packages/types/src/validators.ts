@@ -45,7 +45,15 @@ export const MediaTypeSchema = z.enum([
  * Page type schema.
  * Python source: scripts/frontmatter_models.py::ContentFrontmatter.type
  */
-export const PageTypeSchema = z.enum(["page", "performance", "news"]);
+export const PageTypeSchema = z.enum([
+  "page",
+  "performance",
+  "news",
+  "about",
+  "landing",
+  "gallery",
+  "workshop",
+]);
 
 /**
  * Content status schema.
@@ -116,23 +124,17 @@ export const TranslationReferenceSchema = z.object({
  *
  * This is the primary validation schema for markdown files.
  * All 35 content files must conform to this structure.
- *
- * NOTE: The actual generated markdown uses a simpler format than
- * the Python frontmatter_models.py defines. This schema matches
- * what extraction_models.py::ExtractedPage.to_markdown() actually generates:
- * - original_url is NOT generated (optional)
- * - translated is a simple array of slugs, not objects (for now)
  */
 export const PageFrontmatterSchema = z.object({
   // Required fields
   title: z.string().min(1, "Title is required"),
   slug: z.string().min(1, "Slug is required"),
   language: z.enum(["et", "en"]),
+  original_url: z.string().url("Must be a valid URL"),
   status: ContentStatusSchema,
 
   // Optional fields with defaults
-  original_url: z.string().url("Must be a valid URL").optional(),
-  type: z.string().optional(), // Accept any string - actual data has varied values
+  type: PageTypeSchema.optional(),
   description: z.string().optional(),
   tags: z.array(z.string()).default([]),
 

@@ -5,6 +5,7 @@ language: et
 description: Zuga etendus 'Suur Teadmatus' fotogalerii
 type: performance
 status: published
+original_url: https://www.zuga.ee/et/etendused-suurtele-suur-teadmatus
 page_type: performance
 translated:
 - english-the-great-unknown

@@ -5,6 +5,7 @@ language: et
 description: ZUGA heliliikumistöötoad fotogalerii
 type: workshop
 status: published
+original_url: https://www.zuga.ee/et/workshopid-zuga-heliliikumistootoad
 page_type: workshop
 hero_image: https://lh6.googleusercontent.com/Jr_4_M-6kyMiEsY9IJqTGzjACXX11I-t3IurHx-xpXEhfoxpTlW5Sc5VfKRf8Br5s2ZgnI0mXyo6lYnK68r8oes=w16383
 gallery:

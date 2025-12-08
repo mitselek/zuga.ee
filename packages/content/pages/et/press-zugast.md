@@ -5,6 +5,7 @@ language: et
 description: Press ja meediamaterjalid Zugast
 type: about
 status: published
+original_url: https://www.zuga.ee/et/press-zugast
 page_type: about
 hero_image: https://lh4.googleusercontent.com/AQSjuo_PSjIanHJZViP-uPGfqNAp9fWeBSZdAAu4LhkMvOqMNWJJFw7TE0ozSSrp7L_QB7iTwKRdsIDqNRnx73Q=w16383
 gallery:

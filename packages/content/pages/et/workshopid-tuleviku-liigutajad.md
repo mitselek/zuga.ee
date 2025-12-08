@@ -5,6 +5,7 @@ language: et
 description: Zuga töötuba 'Tuleviku Liigutajad' fotogalerii
 type: workshop
 status: published
+original_url: https://www.zuga.ee/et/workshopid-tuleviku-liigutajad
 page_type: workshop
 hero_image: https://lh3.googleusercontent.com/K12icI186SriVtl2NJADhrmIcGLJv4cXQ-t_xilgBeclEexIQdUy4YwhvbnkPRvpZnWCYRc_YhIXtu5UvfBzhws=w16383
 gallery:

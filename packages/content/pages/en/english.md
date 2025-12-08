@@ -5,6 +5,7 @@ language: en
 description: Zuga English landing page
 type: landing
 status: published
+original_url: https://www.zuga.ee/en/english
 page_type: landing
 hero_image: https://lh5.googleusercontent.com/5OA_l_jHmBadKXKOU5GY4Aa9B9LtiLWyvxtrg8JcCIv7kwuHrsGWqOoSE5XltyW2--SOYdAn30xU-hYaRYUtGlU=w16383
 gallery:

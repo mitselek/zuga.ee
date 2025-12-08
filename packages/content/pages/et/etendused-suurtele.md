@@ -5,6 +5,7 @@ language: et
 description: Zuga etenduste indeksleht suurtele
 type: landing
 status: published
+original_url: https://www.zuga.ee/et/etendused-suurtele
 page_type: landing
 hero_image: https://lh3.googleusercontent.com/eGraYX6xBLk_CEVp_P2fET0uRNC_PV9lnqLRBLXMHTlvJmlCqHaR4qjUz5KZjX7j6Ok6eKRsxOdrGeNpj9s8fco=w16383
 gallery:

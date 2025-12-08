@@ -5,6 +5,7 @@ language: et
 description: Zuga etendus 'Ilma' fotogalerii
 type: performance
 status: published
+original_url: https://www.zuga.ee/et/etendused-noorele-publikule-ilma
 page_type: performance
 translated:
 - english-weather-or-not

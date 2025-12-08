@@ -5,6 +5,7 @@ language: et
 description: Zuga fotogalerii
 type: gallery
 status: published
+original_url: https://www.zuga.ee/et/galerii
 page_type: gallery
 videos:
 - platform: youtube

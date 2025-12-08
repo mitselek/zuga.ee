@@ -5,6 +5,7 @@ language: en
 description: Zuga performance 'Weather or Not' photo gallery
 type: performance
 status: published
+original_url: https://www.zuga.ee/en/english-weather-or-not
 page_type: performance
 translated:
 - etendused-noorele-publikule-ilma

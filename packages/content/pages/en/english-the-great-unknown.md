@@ -5,6 +5,7 @@ language: en
 description: Zuga performance 'The Great Unknown' photo gallery
 type: performance
 status: published
+original_url: https://www.zuga.ee/en/english-the-great-unknown
 page_type: performance
 translated:
 - etendused-suurtele-suur-teadmatus

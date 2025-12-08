@@ -5,6 +5,7 @@ language: et
 description: Zuga etendus 'Häbi' fotogalerii
 type: performance
 status: published
+original_url: https://www.zuga.ee/et/etendused-suurtele-habi
 page_type: performance
 translated:
 - english-shame

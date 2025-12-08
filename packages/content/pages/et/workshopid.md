@@ -5,6 +5,7 @@ language: et
 description: Zuga workshopid ja töötoad
 type: landing
 status: published
+original_url: https://www.zuga.ee/et/workshopid
 page_type: landing
 videos:
 - platform: youtube
@@ -16,6 +17,7 @@ videos:
 # Workshopid
 
 ## Gallery
+
 
 ## Video
 
