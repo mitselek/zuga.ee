@@ -3,7 +3,9 @@ title: Galerii
 slug: galerii-et
 language: et
 description: ZUGA fotogalerii
-type: gallery
+type: detail
+category: gallery
+legacy_type: gallery
 status: published
 original_url: https://www.zuga.ee/et/galerii-et
 page_type: gallery

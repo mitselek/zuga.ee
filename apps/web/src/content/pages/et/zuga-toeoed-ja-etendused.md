@@ -3,7 +3,9 @@ title: Zuga Töööd ja Etendused
 slug: zuga-toeoed-ja-etendused
 language: et
 description: Zuga tööd ja etendused
-type: about
+type: detail
+category: about
+legacy_type: about
 status: published
 original_url: https://www.zuga.ee/et/zuga-toeoed-ja-etendused
 page_type: about

@@ -3,7 +3,9 @@ title: Workshopid
 slug: workshopid
 language: et
 description: Zuga workshopid ja töötoad
-type: landing
+type: section
+category: workshopid
+legacy_type: landing
 status: published
 original_url: https://www.zuga.ee/et/workshopid
 page_type: landing

@@ -3,7 +3,10 @@ title: 2-2-22
 slug: etendused-noorele-publikule-2-2-22
 language: et
 description: Zuga etendus '2-2-22' fotogalerii
-type: performance
+type: detail
+category: etendused
+subcategory: noorele-publikule
+legacy_type: performance
 status: published
 original_url: https://www.zuga.ee/et/etendused-noorele-publikule-2-2-22
 page_type: performance

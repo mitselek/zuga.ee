@@ -3,7 +3,10 @@ title: Etendused Suurtele
 slug: etendused-suurtele
 language: et
 description: Zuga etenduste indeksleht suurtele
-type: landing
+type: section
+category: etendused
+subcategory: suurtele
+legacy_type: landing
 status: published
 original_url: https://www.zuga.ee/et/etendused-suurtele
 page_type: landing

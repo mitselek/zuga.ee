@@ -3,7 +3,9 @@ title: Zuga Liikumise Töötuba Peredele / Zugas Movement Workshop For Families
 slug: workshopid-zuga-liikumise-tootuba-peredele-zugas-movement-workshop-for-families
 language: et
 description: Zuga liikumise töötuba peredele
-type: workshop
+type: detail
+category: workshopid
+legacy_type: workshop
 status: published
 original_url: https://www.zuga.ee/et/workshopid-zuga-liikumise-tootuba-peredele-zugas-movement-workshop-for-families
 page_type: workshop

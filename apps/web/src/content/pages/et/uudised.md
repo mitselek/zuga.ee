@@ -3,7 +3,9 @@ title: Uudised
 slug: uudised
 language: et
 description: Zuga uudised ja info
-type: landing
+type: section
+category: news
+legacy_type: landing
 status: published
 original_url: https://www.zuga.ee/et/uudised
 page_type: landing

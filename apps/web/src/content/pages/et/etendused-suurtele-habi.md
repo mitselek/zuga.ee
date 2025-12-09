@@ -3,7 +3,10 @@ title: Häbi
 slug: etendused-suurtele-habi
 language: et
 description: Zuga etendus 'Häbi' fotogalerii
-type: performance
+type: detail
+category: etendused
+subcategory: suurtele
+legacy_type: performance
 status: published
 original_url: https://www.zuga.ee/et/etendused-suurtele-habi
 page_type: performance

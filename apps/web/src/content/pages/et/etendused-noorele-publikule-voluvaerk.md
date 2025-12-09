@@ -3,7 +3,10 @@ title: Võluväärk
 slug: etendused-noorele-publikule-voluvaerk
 language: et
 description: Zuga etendus 'Võluväärk' fotogalerii
-type: performance
+type: detail
+category: etendused
+subcategory: noorele-publikule
+legacy_type: performance
 status: published
 original_url: https://www.zuga.ee/et/etendused-noorele-publikule-voluvaerk
 page_type: performance

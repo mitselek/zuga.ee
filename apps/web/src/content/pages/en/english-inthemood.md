@@ -3,7 +3,9 @@ title: In The Mood
 slug: english-inthemood
 language: en
 description: Zuga performance 'In The Mood' photo gallery
-type: performance
+type: detail
+category: etendused
+legacy_type: performance
 status: published
 original_url: https://www.zuga.ee/en/english-inthemood
 page_type: performance

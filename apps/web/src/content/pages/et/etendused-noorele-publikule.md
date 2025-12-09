@@ -3,7 +3,10 @@ title: Etendused Noorele Publikule
 slug: etendused-noorele-publikule
 language: et
 description: Zuga etenduste indeksleht noorele publikule
-type: landing
+type: section
+category: etendused
+subcategory: noorele-publikule
+legacy_type: landing
 status: published
 original_url: https://www.zuga.ee/et/etendused-noorele-publikule
 page_type: landing

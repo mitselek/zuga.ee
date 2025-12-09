@@ -3,7 +3,9 @@ title: ZUGA Liikumispausid
 slug: workshopid-zuga-liikumispausid
 language: et
 description: ZUGA liikumispausid fotogalerii
-type: workshop
+type: detail
+category: workshopid
+legacy_type: workshop
 status: published
 original_url: https://www.zuga.ee/et/workshopid-zuga-liikumispausid
 page_type: workshop

@@ -3,7 +3,9 @@ title: 2-2-22
 slug: english-2-2-22
 language: en
 description: Zuga performance '2-2-22' photo gallery
-type: performance
+type: detail
+category: etendused
+legacy_type: performance
 status: published
 original_url: https://www.zuga.ee/en/english-2-2-22
 page_type: performance

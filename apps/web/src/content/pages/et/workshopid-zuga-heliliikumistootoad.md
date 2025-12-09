@@ -3,7 +3,9 @@ title: ZUGA Heliliikumistöötoad
 slug: workshopid-zuga-heliliikumistootoad
 language: et
 description: ZUGA heliliikumistöötoad fotogalerii
-type: workshop
+type: detail
+category: workshopid
+legacy_type: workshop
 status: published
 original_url: https://www.zuga.ee/et/workshopid-zuga-heliliikumistootoad
 page_type: workshop

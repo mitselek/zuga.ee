@@ -3,7 +3,10 @@ title: Müra
 slug: etendused-suurtele-mura
 language: et
 description: Zuga etendus 'Müra' fotogalerii
-type: performance
+type: detail
+category: etendused
+subcategory: suurtele
+legacy_type: performance
 status: published
 original_url: https://www.zuga.ee/et/etendused-suurtele-mura
 page_type: performance

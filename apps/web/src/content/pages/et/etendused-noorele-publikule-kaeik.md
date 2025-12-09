@@ -3,7 +3,10 @@ title: Käeik
 slug: etendused-noorele-publikule-kaeik
 language: et
 description: Zuga etendus 'Käeik' fotogalerii
-type: performance
+type: detail
+category: etendused
+subcategory: noorele-publikule
+legacy_type: performance
 status: published
 original_url: https://www.zuga.ee/et/etendused-noorele-publikule-kaeik
 page_type: performance

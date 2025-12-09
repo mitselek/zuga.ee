@@ -3,7 +3,9 @@ title: Tuleviku Liigutajad
 slug: workshopid-tuleviku-liigutajad
 language: et
 description: Zuga töötuba 'Tuleviku Liigutajad' fotogalerii
-type: workshop
+type: detail
+category: workshopid
+legacy_type: workshop
 status: published
 original_url: https://www.zuga.ee/et/workshopid-tuleviku-liigutajad
 page_type: workshop

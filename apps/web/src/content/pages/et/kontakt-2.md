@@ -3,7 +3,9 @@ title: Kontakt
 slug: kontakt-2
 language: et
 description: Võta ühendust Zugaga
-type: about
+type: detail
+category: about
+legacy_type: about
 status: published
 original_url: https://www.zuga.ee/et/kontakt-2
 page_type: about
