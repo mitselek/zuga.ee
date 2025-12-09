@@ -1,8 +1,7 @@
 ---
-title: English
-slug: english
+title: Home
 language: en
-description: Zuga English landing page
+description: United Dancers of ZUGA - Contemporary theatre for children and adults
 type: landing
 status: published
 original_url: https://www.zuga.ee/en/english
