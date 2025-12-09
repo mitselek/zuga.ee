@@ -5,7 +5,6 @@ language: et
 description: Zuga tööd ja etendused
 type: detail
 category: about
-legacy_type: about
 status: published
 original_url: https://www.zuga.ee/et/zuga-toeoed-ja-etendused
 page_type: about

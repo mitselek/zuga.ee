@@ -6,7 +6,6 @@ description: Zuga etendus 'Suur Teadmatus' fotogalerii
 type: detail
 category: etendused
 subcategory: suurtele
-legacy_type: performance
 status: published
 original_url: https://www.zuga.ee/et/etendused-suurtele-suur-teadmatus
 page_type: performance

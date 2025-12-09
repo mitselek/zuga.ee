@@ -6,7 +6,6 @@ description: Zuga on teatri- ja etenduskunstide valdkonnas tegutsev organisatsio
 type: section
 category: about
 order: 101
-legacy_type: landing
 status: published
 original_url: https://www.zuga.ee/et/meist
 page_type: landing

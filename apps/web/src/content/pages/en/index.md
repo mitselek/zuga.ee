@@ -4,7 +4,6 @@ language: en
 description: United Dancers of ZUGA - Contemporary theatre for children and adults
 type: home
 category: about
-legacy_type: landing
 status: published
 original_url: https://www.zuga.ee/en/english
 page_type: landing

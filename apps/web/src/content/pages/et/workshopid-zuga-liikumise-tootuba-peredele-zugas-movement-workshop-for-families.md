@@ -5,7 +5,6 @@ language: et
 description: Zuga liikumise töötuba peredele
 type: detail
 category: workshopid
-legacy_type: workshop
 status: published
 original_url: https://www.zuga.ee/et/workshopid-zuga-liikumise-tootuba-peredele-zugas-movement-workshop-for-families
 page_type: workshop

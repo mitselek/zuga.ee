@@ -5,7 +5,6 @@ language: et
 description: Press ja meediamaterjalid Zugast
 type: detail
 category: about
-legacy_type: about
 status: published
 original_url: https://www.zuga.ee/et/press-zugast
 page_type: about

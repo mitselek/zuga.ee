@@ -5,7 +5,6 @@ language: en
 description: Zuga performance 'The Passage' photo gallery
 type: detail
 category: etendused
-legacy_type: performance
 status: published
 original_url: https://www.zuga.ee/en/english-thepassage
 page_type: performance

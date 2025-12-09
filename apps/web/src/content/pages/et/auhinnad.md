@@ -5,7 +5,6 @@ language: et
 description: Zuga auhinnad ja tunnustused
 type: detail
 category: about
-legacy_type: about
 status: published
 original_url: https://www.zuga.ee/et/auhinnad
 page_type: about

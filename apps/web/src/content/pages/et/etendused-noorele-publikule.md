@@ -7,7 +7,6 @@ type: section
 category: etendused
 subcategory: noorele-publikule
 order: 2
-legacy_type: landing
 status: published
 original_url: https://www.zuga.ee/et/etendused-noorele-publikule
 page_type: landing

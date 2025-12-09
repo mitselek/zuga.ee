@@ -5,7 +5,6 @@ language: en
 description: Zuga about us page
 type: detail
 category: about
-legacy_type: about
 status: published
 original_url: https://www.zuga.ee/en/english-about-us-1
 page_type: about

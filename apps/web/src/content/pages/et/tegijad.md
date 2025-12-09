@@ -5,7 +5,6 @@ language: et
 description: Zuga meeskond ja tegijad
 type: detail
 category: about
-legacy_type: about
 status: published
 original_url: https://www.zuga.ee/et/tegijad
 page_type: about

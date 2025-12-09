@@ -7,7 +7,6 @@ type: section
 category: etendused
 subcategory: suurtele
 order: 1
-legacy_type: landing
 status: published
 original_url: https://www.zuga.ee/et/etendused-suurtele
 page_type: landing

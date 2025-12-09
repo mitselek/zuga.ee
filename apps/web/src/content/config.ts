@@ -54,17 +54,6 @@ const pagesCollection = defineCollection({
     // NEW: Optional subcategory for grouping
     subcategory: z.string().optional(), // e.g., 'suurtele', 'noorele-publikule'
 
-    // Legacy fields (kept temporarily for reference during migration)
-    legacy_type: z.enum([
-      'performance',
-      'about',
-      'workshop',
-      'news',
-      'gallery',
-      'contact',
-      'landing',
-    ]).optional(),
-
     status: z.enum(['published', 'draft'], {
       errorMap: () => ({ message: 'Status must be "published" or "draft"' }),
     }),

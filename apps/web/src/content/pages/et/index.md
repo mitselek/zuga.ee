@@ -5,7 +5,6 @@ language: et
 description: Zuga koduleht
 type: home
 category: about
-legacy_type: landing
 status: published
 original_url: https://www.zuga.ee/et/index
 page_type: landing
@@ -20,3 +19,5 @@ videos:
 # Zuga
 
 Performance video available in frontmatter metadata.
+
+Kas kogu see jutt ilmub kodulehel "Meist" lehel?

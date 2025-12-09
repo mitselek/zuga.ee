@@ -6,7 +6,6 @@ description: Pilte meie etendustest ja tööprotsessist
 type: section
 category: gallery
 order: 102
-legacy_type: landing
 status: published
 page_type: landing
 ---

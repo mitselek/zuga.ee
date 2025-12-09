@@ -5,7 +5,6 @@ language: et
 description: ZUGA liikumispausid fotogalerii
 type: detail
 category: workshopid
-legacy_type: workshop
 status: published
 original_url: https://www.zuga.ee/et/workshopid-zuga-liikumispausid
 page_type: workshop

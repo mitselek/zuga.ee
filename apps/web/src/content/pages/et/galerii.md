@@ -5,7 +5,6 @@ language: et
 description: Zuga fotogalerii
 type: detail
 category: gallery
-legacy_type: gallery
 status: published
 original_url: https://www.zuga.ee/et/galerii
 page_type: gallery
