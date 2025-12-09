@@ -2,6 +2,8 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import LanguageSwitcher from '../../components/LanguageSwitcher.astro';
+import HomeSection from '../../components/HomeSection.astro';
+import ContentCard from '../../components/ContentCard.astro';
 
 export async function getStaticPaths() {
   const pages = await getCollection('pages', ({ data }) => {
@@ -62,111 +64,101 @@ const isEstonian = page.data.language === 'et';
   </section>
 
   <!-- Etendused Section -->
-  <section id="etendused" class="min-h-screen py-24 bg-white">
-    <div class="max-w-7xl mx-auto px-4">
-      <h2 class="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
-        {isEstonian ? 'Etendused' : 'Performances'}
-      </h2>
-      <p class="text-xl text-slate-600 mb-12">
-        {isEstonian ? 'Meie etendused suurtele ja noorele publikule' : 'Our performances for adults and young audiences'}
-      </p>
-
-      <!-- Suurtele subsection -->
-      <div id="suurtele" class="mb-16">
-        <h3 class="text-2xl font-semibold text-slate-800 mb-6">
-          {isEstonian ? 'Suurtele' : 'For Adults'}
-        </h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {etendused.filter(p => p.data.subcategory === 'suurtele').map(item => (
-            <a href={`/${page.data.language}/${item.data.category}/${item.id.replace(/^(en|et)\//, '').replace(/\.md$/, '')}`}
-               class="block p-6 border border-slate-200 rounded-lg hover:shadow-lg transition-shadow">
-              <h4 class="text-xl font-semibold text-slate-900 mb-2">{item.data.title}</h4>
-              <p class="text-slate-600">{item.data.description}</p>
-            </a>
-          ))}
-        </div>
-      </div>
-
-      <!-- Noorele publikule subsection -->
-      <div id="noorele-publikule" class="mb-16">
-        <h3 class="text-2xl font-semibold text-slate-800 mb-6">
-          {isEstonian ? 'Noorele publikule' : 'For Young Audiences'}
-        </h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {etendused.filter(p => p.data.subcategory === 'noorele-publikule').map(item => (
-            <a href={`/${page.data.language}/${item.data.category}/${item.id.replace(/^(en|et)\//, '').replace(/\.md$/, '')}`}
-               class="block p-6 border border-slate-200 rounded-lg hover:shadow-lg transition-shadow">
-              <h4 class="text-xl font-semibold text-slate-900 mb-2">{item.data.title}</h4>
-              <p class="text-slate-600">{item.data.description}</p>
-            </a>
-          ))}
-        </div>
+  <HomeSection
+    id="etendused"
+    title={isEstonian ? 'Etendused' : 'Performances'}
+    description={isEstonian ? 'Meie etendused suurtele ja noorele publikule' : 'Our performances for adults and young audiences'}
+    background="white"
+  >
+    <!-- Suurtele subsection -->
+    <div id="suurtele" class="mb-16">
+      <h3 class="text-2xl font-semibold text-slate-800 mb-6">
+        {isEstonian ? 'Suurtele' : 'For Adults'}
+      </h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {etendused.filter(p => p.data.subcategory === 'suurtele').map(item => (
+          <ContentCard
+            title={item.data.title}
+            description={item.data.description}
+            href={`/${page.data.language}/${item.data.category}/${item.id.replace(/^(en|et)\//, '').replace(/\.md$/, '')}`}
+            subcategory={isEstonian ? 'Suurtele' : 'For Adults'}
+          />
+        ))}
       </div>
     </div>
-  </section>
+
+    <!-- Noorele publikule subsection -->
+    <div id="noorele-publikule" class="mb-16">
+      <h3 class="text-2xl font-semibold text-slate-800 mb-6">
+        {isEstonian ? 'Noorele publikule' : 'For Young Audiences'}
+      </h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {etendused.filter(p => p.data.subcategory === 'noorele-publikule').map(item => (
+          <ContentCard
+            title={item.data.title}
+            description={item.data.description}
+            href={`/${page.data.language}/${item.data.category}/${item.id.replace(/^(en|et)\//, '').replace(/\.md$/, '')}`}
+            subcategory={isEstonian ? 'Noorele publikule' : 'For Young Audiences'}
+          />
+        ))}
+      </div>
+    </div>
+  </HomeSection>
 
   <!-- Workshopid Section -->
-  <section id="workshopid" class="min-h-screen py-24 bg-slate-50">
-    <div class="max-w-7xl mx-auto px-4">
-      <h2 class="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
-        {isEstonian ? 'Workshopid' : 'Workshops'}
-      </h2>
-      <p class="text-xl text-slate-600 mb-12">
-        {isEstonian ? 'Liikumise ja loomingulisuse töötoad' : 'Movement and creativity workshops'}
-      </p>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {workshopid.map(item => (
-          <a href={`/${page.data.language}/${item.data.category}/${item.id.replace(/^(en|et)\//, '').replace(/\.md$/, '')}`}
-             class="block p-6 border border-slate-200 rounded-lg hover:shadow-lg transition-shadow bg-white">
-            <h4 class="text-xl font-semibold text-slate-900 mb-2">{item.data.title}</h4>
-            <p class="text-slate-600">{item.data.description}</p>
-          </a>
-        ))}
-      </div>
+  <HomeSection
+    id="workshopid"
+    title={isEstonian ? 'Workshopid' : 'Workshops'}
+    description={isEstonian ? 'Liikumise ja loomingulisuse töötoad' : 'Movement and creativity workshops'}
+    background="slate"
+  >
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {workshopid.map(item => (
+        <ContentCard
+          title={item.data.title}
+          description={item.data.description}
+          href={`/${page.data.language}/${item.data.category}/${item.id.replace(/^(en|et)\//, '').replace(/\.md$/, '')}`}
+          category={isEstonian ? 'Workshop' : 'Workshop'}
+        />
+      ))}
     </div>
-  </section>
+  </HomeSection>
 
   <!-- About Section -->
-  <section id="about" class="min-h-screen py-24 bg-white">
-    <div class="max-w-7xl mx-auto px-4">
-      <h2 class="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
-        {isEstonian ? 'Meist' : 'About Us'}
-      </h2>
-      <p class="text-xl text-slate-600 mb-12">
-        {isEstonian ? 'Tutvuge meie meeskonna ja tegemistega' : 'Meet our team and learn about our work'}
-      </p>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {about.map(item => (
-          <a href={`/${page.data.language}/${item.data.category}/${item.id.replace(/^(en|et)\//, '').replace(/\.md$/, '')}`}
-             class="block p-6 border border-slate-200 rounded-lg hover:shadow-lg transition-shadow">
-            <h4 class="text-xl font-semibold text-slate-900 mb-2">{item.data.title}</h4>
-            <p class="text-slate-600">{item.data.description}</p>
-          </a>
-        ))}
-      </div>
+  <HomeSection
+    id="about"
+    title={isEstonian ? 'Meist' : 'About Us'}
+    description={isEstonian ? 'Tutvuge meie meeskonna ja tegemistega' : 'Meet our team and learn about our work'}
+    background="white"
+  >
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {about.map(item => (
+        <ContentCard
+          title={item.data.title}
+          description={item.data.description}
+          href={`/${page.data.language}/${item.data.category}/${item.id.replace(/^(en|et)\//, '').replace(/\.md$/, '')}`}
+        />
+      ))}
     </div>
-  </section>
+  </HomeSection>
 
   <!-- Gallery Section -->
-  <section id="gallery" class="min-h-screen py-24 bg-slate-50">
-    <div class="max-w-7xl mx-auto px-4">
-      <h2 class="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
-        {isEstonian ? 'Galerii' : 'Gallery'}
-      </h2>
-      <p class="text-xl text-slate-600 mb-12">
-        {isEstonian ? 'Pilte meie etendustest ja tööprotsessist' : 'Photos from our performances and creative process'}
-      </p>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {gallery.map(item => (
-          <a href={`/${page.data.language}/${item.data.category}/${item.id.replace(/^(en|et)\//, '').replace(/\.md$/, '')}`}
-             class="block p-6 border border-slate-200 rounded-lg hover:shadow-lg transition-shadow bg-white">
-            <h4 class="text-xl font-semibold text-slate-900 mb-2">{item.data.title}</h4>
-            <p class="text-slate-600">{item.data.description}</p>
-          </a>
-        ))}
-      </div>
+  <HomeSection
+    id="gallery"
+    title={isEstonian ? 'Galerii' : 'Gallery'}
+    description={isEstonian ? 'Pilte meie etendustest ja tööprotsessist' : 'Photos from our performances and creative process'}
+    background="slate"
+  >
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {gallery.map(item => (
+        <ContentCard
+          title={item.data.title}
+          description={item.data.description}
+          href={`/${page.data.language}/${item.data.category}/${item.id.replace(/^(en|et)\//, '').replace(/\.md$/, '')}`}
+        />
+      ))}
     </div>
-  </section>
+  </HomeSection>
 
   <!-- Contact Section -->
   <section id="contact" class="min-h-screen py-24 bg-white">
