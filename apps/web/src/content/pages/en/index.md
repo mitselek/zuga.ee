@@ -39,12 +39,3 @@ videos:
 ---
 
 # English
-
-## Gallery
-
-This performance features 7 gallery images.
-Photo gallery for English section
-
-## Video
-
-ZUGA video greeting

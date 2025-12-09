@@ -18,8 +18,4 @@ videos:
 
 # Zuga
 
-## Gallery
-
-## Video
-
 Performance video available in frontmatter metadata.

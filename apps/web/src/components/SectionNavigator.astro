@@ -143,64 +143,47 @@ const getLabel = (section: typeof sections[0]) => language === 'et' ? section.la
       });
     }
 
-    // Set up Intersection Observer
-    const observerOptions = {
-      threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0],
-      rootMargin: '-20% 0px -20% 0px'
-    };
+    // Update current section based on scroll position
+    function updateCurrentSection() {
+      const viewportCenter = window.innerHeight / 2;
+      let activeIndex = 0;
+      let closestDistance = Infinity;
 
-    let visibleSections = new Map();
+      // Find the section whose top is closest to (but above) viewport center
+      for (let i = 0; i < sectionList.length; i++) {
+        const element = document.getElementById(sectionList[i].id);
+        if (!element) continue;
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        const sectionId = entry.target.id;
+        const rect = element.getBoundingClientRect();
+        const distanceFromCenter = viewportCenter - rect.top;
 
-        if (entry.isIntersecting) {
-          visibleSections.set(sectionId, entry.intersectionRatio);
-        } else {
-          visibleSections.delete(sectionId);
-        }
-      });
-
-      // Find the section with highest intersection ratio
-      // Prioritize sections that are at least 30% visible to avoid tiny sections
-      if (visibleSections.size > 0) {
-        let topSectionId = null;
-        let maxRatio = 0;
-
-        // First, try to find sections with significant visibility (>30%)
-        let significantSections = Array.from(visibleSections.entries()).filter(([id, ratio]) => ratio > 0.3);
-
-        if (significantSections.length === 0) {
-          // If no significant sections, use all visible sections
-          significantSections = Array.from(visibleSections.entries());
-        }
-
-        // Find the earliest section (by document order) among significant ones
-        let earliestIndex = Infinity;
-
-        significantSections.forEach(([id, ratio]) => {
-          const index = sectionList.findIndex(s => s.id === id);
-          if (index !== -1 && index < earliestIndex) {
-            earliestIndex = index;
-            topSectionId = id;
-            maxRatio = ratio;
+        // Only consider sections whose top has passed the viewport center
+        if (rect.top <= viewportCenter) {
+          // Pick the one closest to center (smallest positive distance)
+          if (distanceFromCenter < closestDistance) {
+            closestDistance = distanceFromCenter;
+            activeIndex = i;
           }
-        });
-
-        if (topSectionId && earliestIndex !== currentSectionIndex) {
-          updateSectionDisplay(earliestIndex);
         }
       }
-    }, observerOptions);
 
-    // Observe all sections
-    sectionList.forEach(section => {
-      const element = document.getElementById(section.id);
-      if (element) {
-        observer.observe(element);
+      // Update display if section changed
+      if (activeIndex !== currentSectionIndex) {
+        updateSectionDisplay(activeIndex);
       }
-    });
+    }
+
+    // Update on scroll with throttling
+    let scrollTimeout;
+    window.addEventListener('scroll', () => {
+      if (scrollTimeout) {
+        cancelAnimationFrame(scrollTimeout);
+      }
+      scrollTimeout = requestAnimationFrame(updateCurrentSection);
+    }, { passive: true });
+
+    // Initial update
+    updateCurrentSection();
 
     // Toggle on pill click
     navPill.addEventListener('click', toggleExpanded);
