@@ -23,17 +23,17 @@ const defaultOgImage = `${siteUrl}/og-image.jpg`;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{title} | Zuga Theatre</title>
+    <title>{title} | {language === 'et' ? 'ZUGA ühendatud tantsijad' : 'United Dancers of ZUGA'}</title>
     
     <!-- SEO Meta Tags -->
     <meta name="description" content={pageDescription} />
-    <meta name="author" content="Zuga Theatre" />
+    <meta name="author" content={language === 'et' ? 'ZUGA ühendatud tantsijad' : 'United Dancers of ZUGA'} />
     <link rel="canonical" href={currentUrl} />
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content={currentUrl} />
-    <meta property="og:title" content={`${title} | Zuga Theatre`} />
+    <meta property="og:title" content={`${title} | ${language === 'et' ? 'ZUGA ühendatud tantsijad' : 'United Dancers of ZUGA'}`} />
     <meta property="og:description" content={pageDescription} />
     <meta property="og:image" content={ogImage || defaultOgImage} />
     <meta property="og:locale" content={language === 'et' ? 'et_EE' : 'en_US'} />
@@ -41,7 +41,7 @@ const defaultOgImage = `${siteUrl}/og-image.jpg`;
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content={currentUrl} />
-    <meta name="twitter:title" content={`${title} | Zuga Theatre`} />
+    <meta name="twitter:title" content={`${title} | ${language === 'et' ? 'ZUGA ühendatud tantsijad' : 'United Dancers of ZUGA'}`} />
     <meta name="twitter:description" content={pageDescription} />
     <meta name="twitter:image" content={ogImage || defaultOgImage} />
     
@@ -56,8 +56,11 @@ const defaultOgImage = `${siteUrl}/og-image.jpg`;
     <header style="background-color: var(--color-primary);" class="shadow-md">
       <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6" role="navigation" aria-label="Main navigation">
         <div class="flex items-center justify-between">
-          <a href={`/${language}/`} class="text-3xl font-bold text-white hover:text-accent transition-colors" style="font-family: var(--font-heading);">
-            Zuga Theatre
+          <a href={`/${language}/`} class="flex items-center gap-4 group" aria-label={language === 'et' ? 'ZUGA ühendatud tantsijad - Avaleht' : 'United Dancers of ZUGA - Home'}>
+            <img src="/logo.gif" alt="ZUGA logo" class="h-16 w-auto" />
+            <span class="text-2xl font-bold text-white group-hover:text-accent transition-colors hidden sm:block" style="font-family: var(--font-heading);">
+              {language === 'et' ? 'ZUGA ühendatud tantsijad' : 'United Dancers of ZUGA'}
+            </span>
           </a>
           <slot name="language-switcher" />
         </div>
@@ -72,7 +75,7 @@ const defaultOgImage = `${siteUrl}/og-image.jpg`;
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div class="text-center">
           <p class="text-gray-300 mb-2">
-            © {new Date().getFullYear()} Zuga Theatre
+            © {new Date().getFullYear()} {language === 'et' ? 'ZUGA ühendatud tantsijad' : 'United Dancers of ZUGA'}
           </p>
           <p class="text-gray-400 text-sm">
             {language === 'et' ? 'Kaasaegne teater lastele ja täiskasvanutele' : 'Contemporary theatre for children and adults'}
