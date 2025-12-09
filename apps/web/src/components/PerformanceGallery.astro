@@ -1,0 +1,42 @@
+---
+interface GalleryItem {
+  url: string;
+  width?: number;
+  description?: string;
+}
+
+interface Props {
+  items: GalleryItem[];
+}
+
+const { items } = Astro.props;
+---
+
+{items && items.length > 0 && (
+  <section class="my-12">
+    <h2 class="text-2xl font-bold mb-6">Gallery</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      {items.map((item, index) => (
+        <div class="relative aspect-video bg-gray-200 rounded-lg overflow-hidden group">
+          <div class="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-gray-300 to-gray-400">
+            <svg class="w-16 h-16 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 transition-opacity" />
+          {item.description && (
+            <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-75 text-white p-2 text-sm opacity-0 group-hover:opacity-100 transition-opacity">
+              {item.description}
+            </div>
+          )}
+          <span class="absolute top-2 left-2 bg-white bg-opacity-90 text-xs px-2 py-1 rounded">
+            Image {index + 1}
+          </span>
+        </div>
+      ))}
+    </div>
+    <p class="text-sm text-gray-500 mt-4">
+      Note: Original images are unavailable. Placeholders shown.
+    </p>
+  </section>
+)}

@@ -1,0 +1,39 @@
+---
+interface Props {
+  currentLang: string;
+  currentSlug: string;
+  translations?: Array<{ language: string; slug: string }>;
+}
+
+const { currentLang, currentSlug, translations = [] } = Astro.props;
+
+const languages = [
+  { code: 'et', label: 'ET' },
+  { code: 'en', label: 'EN' },
+];
+---
+
+<div class="flex gap-2">
+  {languages.map((lang) => {
+    const translation = translations.find(t => t.language === lang.code);
+    const href = translation 
+      ? `/${lang.code}/${translation.slug}`
+      : `/${lang.code}/${currentSlug}`;
+    const isActive = currentLang === lang.code;
+    
+    return (
+      <a
+        href={href}
+        class:list={[
+          "px-3 py-1 rounded text-sm font-medium transition-colors",
+          isActive 
+            ? "bg-gray-900 text-white" 
+            : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+        ]}
+        aria-current={isActive ? "page" : undefined}
+      >
+        {lang.label}
+      </a>
+    );
+  })}
+</div>

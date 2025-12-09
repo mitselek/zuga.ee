@@ -1,0 +1,46 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LanguageSwitcher from '../../components/LanguageSwitcher.astro';
+import PerformanceGallery from '../../components/PerformanceGallery.astro';
+import VideoEmbed from '../../components/VideoEmbed.astro';
+
+export async function getStaticPaths() {
+  const pages = await getCollection('pages', ({ data }) => {
+    return data.status === 'published';
+  });
+
+  return pages.map(page => ({
+    params: {
+      lang: page.data.language,
+      slug: page.id.replace(/^(en|et)\//, '').replace(/\.md$/, ''),
+    },
+    props: { page },
+  }));
+}
+
+const { page } = Astro.props;
+const { Content } = await page.render();
+const currentSlug = page.id.replace(/^(en|et)\//, '').replace(/\.md$/, '');
+---
+
+<BaseLayout 
+  title={page.data.title}
+  description={page.data.description}
+  language={page.data.language}
+>
+  <LanguageSwitcher 
+    slot="language-switcher"
+    currentLang={page.data.language}
+    currentSlug={currentSlug}
+    translations={page.data.translated}
+  />
+  
+  <article class="prose prose-lg max-w-none">
+    <h1>{page.data.title}</h1>
+    <Content />
+  </article>
+  
+  {page.data.gallery && <PerformanceGallery items={page.data.gallery} />}
+  {page.data.videos && <VideoEmbed videos={page.data.videos} />}
+</BaseLayout>
