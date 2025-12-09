@@ -7,12 +7,12 @@ repos:
       - id: check-yaml
       - id: check-added-large-files
         args: ['--maxkb=5000']  # Allow up to 5MB for archived images
-        exclude: ^packages/content/assets/images/
+        exclude: ^source_zuga_ee/
       - id: check-json
       - id: check-toml
       - id: check-merge-conflict
 
-  # Python tooling for scripts/ directory
+  # Python tooling for scripts/ directory (ready for future use)
   - repo: https://github.com/psf/black
     rev: 23.12.1
     hooks:
