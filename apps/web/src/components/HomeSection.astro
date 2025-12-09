@@ -6,16 +6,17 @@ interface Props {
   id: string;
   background?: 'white' | 'slate';
   heroImage?: string;
+  backgroundColor?: string;
 }
 
-const { title, description, children, id, background = 'white', heroImage } = Astro.props;
+const { title, description, children, id, background = 'white', heroImage, backgroundColor } = Astro.props;
 const bgClass = background === 'slate' ? 'bg-slate-50' : 'bg-white';
 ---
 
 <section
   id={id}
-  class={`min-h-screen py-24 relative ${heroImage ? 'bg-slate-900' : bgClass}`}
-  style={heroImage ? `background-image: url('${heroImage}'); background-size: cover; background-position: center;` : ''}
+  class={`min-h-screen py-24 relative ${heroImage ? 'bg-slate-900' : (backgroundColor ? '' : bgClass)}`}
+  style={heroImage ? `background-image: url('${heroImage}'); background-size: cover; background-position: center;` : (backgroundColor ? `background-color: ${backgroundColor};` : '')}
 >
   {heroImage && (
     <div class="absolute inset-0 bg-gradient-to-b from-slate-900/50 to-slate-900/30"></div>
