@@ -25,12 +25,13 @@ const languages = [
       <a
         href={href}
         class:list={[
-          "px-3 py-1 rounded text-sm font-medium transition-colors",
+          "px-4 py-2 rounded-md text-sm font-semibold transition-all",
           isActive 
-            ? "bg-gray-900 text-white" 
-            : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+            ? "bg-accent text-primary shadow-md" 
+            : "bg-white/10 text-white hover:bg-white/20 hover:text-accent"
         ]}
         aria-current={isActive ? "page" : undefined}
+        aria-label={`Switch to ${lang.label}`}
       >
         {lang.label}
       </a>

@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import LanguageSwitcher from '../../components/LanguageSwitcher.astro';
+import PageHero from '../../components/PageHero.astro';
 import PerformanceGallery from '../../components/PerformanceGallery.astro';
 import VideoEmbed from '../../components/VideoEmbed.astro';
 
@@ -36,11 +37,31 @@ const currentSlug = page.id.replace(/^(en|et)\//, '').replace(/\.md$/, '');
     translations={page.data.translated}
   />
   
-  <article class="prose prose-lg max-w-none">
-    <h1>{page.data.title}</h1>
+  <PageHero 
+    title={page.data.title}
+    subtitle={page.data.description}
+    type={page.data.type}
+  />
+  
+  <article class="prose prose-lg prose-slate max-w-4xl mx-auto mb-16">
     <Content />
   </article>
   
-  {page.data.gallery && <PerformanceGallery items={page.data.gallery} />}
-  {page.data.videos && <VideoEmbed videos={page.data.videos} />}
+  {page.data.gallery && (
+    <section class="mb-16">
+      <h2 class="text-3xl font-bold mb-8 text-center" style="font-family: var(--font-heading); color: var(--color-primary);">
+        {page.data.language === 'et' ? 'Galerii' : 'Gallery'}
+      </h2>
+      <PerformanceGallery items={page.data.gallery} />
+    </section>
+  )}
+  
+  {page.data.videos && (
+    <section class="mb-16">
+      <h2 class="text-3xl font-bold mb-8 text-center" style="font-family: var(--font-heading); color: var(--color-primary);">
+        {page.data.language === 'et' ? 'Videod' : 'Videos'}
+      </h2>
+      <VideoEmbed videos={page.data.videos} />
+    </section>
+  )}
 </BaseLayout>
