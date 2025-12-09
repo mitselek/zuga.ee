@@ -1,0 +1,106 @@
+---
+interface Props {
+  language: string;
+}
+
+const { language } = Astro.props;
+
+const navigationItems = language === 'et' 
+  ? [
+      { label: 'Avaleht', href: '/et/index' },
+      { label: 'Etendused', href: '/et/etendused-suurtele' },
+      { label: 'Töötoad', href: '/et/workshopid' },
+      { label: 'Tegijad', href: '/et/tegijad' },
+      { label: 'Galerii', href: '/et/galerii' },
+      { label: 'Kontakt', href: '/et/kontakt-2' },
+    ]
+  : [
+      { label: 'Home', href: '/en/index' },
+      { label: 'Performances', href: '/en/english-shame' },
+      { label: 'About Us', href: '/en/english-about-us-1' },
+    ];
+
+const currentPath = Astro.url.pathname;
+---
+
+<nav class="hidden md:flex items-center gap-1 lg:gap-2" role="navigation">
+  {navigationItems.map((item) => {
+    const isActive = currentPath === item.href || currentPath.startsWith(item.href + '/');
+    return (
+      <a
+        href={item.href}
+        class:list={[
+          "px-3 lg:px-4 py-2 rounded-md text-sm font-medium transition-colors",
+          isActive 
+            ? "bg-white/20 text-accent" 
+            : "text-white/90 hover:bg-white/10 hover:text-white"
+        ]}
+        aria-current={isActive ? "page" : undefined}
+      >
+        {item.label}
+      </a>
+    );
+  })}
+</nav>
+
+<!-- Mobile menu button -->
+<button
+  id="mobile-menu-button"
+  class="md:hidden p-2 rounded-md text-white hover:bg-white/10 transition-colors"
+  aria-label={language === 'et' ? 'Menüü' : 'Menu'}
+  aria-expanded="false"
+  aria-controls="mobile-menu"
+>
+  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+  </svg>
+</button>
+
+<!-- Mobile menu -->
+<div
+  id="mobile-menu"
+  class="hidden md:hidden absolute top-full left-0 right-0 shadow-lg"
+  style="background-color: var(--color-primary-light);"
+>
+  <div class="px-4 py-3 space-y-1">
+    {navigationItems.map((item) => {
+      const isActive = currentPath === item.href || currentPath.startsWith(item.href + '/');
+      return (
+        <a
+          href={item.href}
+          class:list={[
+            "block px-4 py-3 rounded-md text-base font-medium transition-colors",
+            isActive 
+              ? "bg-white/20 text-accent" 
+              : "text-white/90 hover:bg-white/10 hover:text-white"
+          ]}
+          aria-current={isActive ? "page" : undefined}
+        >
+          {item.label}
+        </a>
+      );
+    })}
+  </div>
+</div>
+
+<script>
+  // Mobile menu toggle
+  const button = document.getElementById('mobile-menu-button');
+  const menu = document.getElementById('mobile-menu');
+  
+  if (button && menu) {
+    button.addEventListener('click', () => {
+      const isExpanded = button.getAttribute('aria-expanded') === 'true';
+      button.setAttribute('aria-expanded', String(!isExpanded));
+      menu.classList.toggle('hidden');
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!button.contains(e.target as Node) && !menu.contains(e.target as Node)) {
+        button.setAttribute('aria-expanded', 'false');
+        menu.classList.add('hidden');
+      }
+    });
+  }
+</script>
