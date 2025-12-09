@@ -2,7 +2,6 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import LanguageSwitcher from '../../components/LanguageSwitcher.astro';
-import PageHero from '../../components/PageHero.astro';
 
 export async function getStaticPaths() {
   const pages = await getCollection('pages', ({ data }) => {
@@ -20,6 +19,19 @@ export async function getStaticPaths() {
 
 const { page } = Astro.props;
 const { Content } = await page.render();
+
+// Get content for each category to display in sections
+const allPages = await getCollection('pages', ({ data }) => {
+  return data.status === 'published' && data.language === page.data.language;
+});
+
+const etendused = allPages.filter(p => p.data.category === 'etendused' && p.data.type === 'detail');
+const workshopid = allPages.filter(p => p.data.category === 'workshopid' && p.data.type === 'detail');
+const about = allPages.filter(p => p.data.category === 'about' && p.data.type === 'detail');
+const gallery = allPages.filter(p => p.data.category === 'gallery' && p.data.type === 'detail');
+const news = allPages.filter(p => p.data.category === 'news' && p.data.type === 'detail');
+
+const isEstonian = page.data.language === 'et';
 ---
 
 <BaseLayout
@@ -34,13 +46,146 @@ const { Content } = await page.render();
     translations={page.data.translated}
   />
 
-  <PageHero
-    title={page.data.title}
-    subtitle={page.data.description}
-    type={page.data.type}
-  />
+  <!-- Hero Section -->
+  <section id="hero" class="min-h-screen flex items-center justify-center bg-gradient-to-b from-slate-50 to-white">
+    <div class="max-w-4xl mx-auto px-4 py-16 text-center">
+      <h1 class="text-5xl md:text-7xl font-bold text-slate-900 mb-6">
+        {page.data.title}
+      </h1>
+      <p class="text-xl md:text-2xl text-slate-600 mb-8">
+        {page.data.description}
+      </p>
+      <div class="prose prose-lg prose-slate mx-auto">
+        <Content />
+      </div>
+    </div>
+  </section>
 
-  <article class="prose prose-lg prose-slate max-w-4xl mx-auto mb-16">
-    <Content />
-  </article>
+  <!-- Etendused Section -->
+  <section id="etendused" class="min-h-screen py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+        {isEstonian ? 'Etendused' : 'Performances'}
+      </h2>
+      <p class="text-xl text-slate-600 mb-12">
+        {isEstonian ? 'Meie etendused suurtele ja noorele publikule' : 'Our performances for adults and young audiences'}
+      </p>
+
+      <!-- Suurtele subsection -->
+      <div id="suurtele" class="mb-16">
+        <h3 class="text-2xl font-semibold text-slate-800 mb-6">
+          {isEstonian ? 'Suurtele' : 'For Adults'}
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {etendused.filter(p => p.data.subcategory === 'suurtele').map(item => (
+            <a href={`/${page.data.language}/${item.data.category}/${item.id.replace(/^(en|et)\//, '').replace(/\.md$/, '')}`}
+               class="block p-6 border border-slate-200 rounded-lg hover:shadow-lg transition-shadow">
+              <h4 class="text-xl font-semibold text-slate-900 mb-2">{item.data.title}</h4>
+              <p class="text-slate-600">{item.data.description}</p>
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <!-- Noorele publikule subsection -->
+      <div id="noorele-publikule" class="mb-16">
+        <h3 class="text-2xl font-semibold text-slate-800 mb-6">
+          {isEstonian ? 'Noorele publikule' : 'For Young Audiences'}
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {etendused.filter(p => p.data.subcategory === 'noorele-publikule').map(item => (
+            <a href={`/${page.data.language}/${item.data.category}/${item.id.replace(/^(en|et)\//, '').replace(/\.md$/, '')}`}
+               class="block p-6 border border-slate-200 rounded-lg hover:shadow-lg transition-shadow">
+              <h4 class="text-xl font-semibold text-slate-900 mb-2">{item.data.title}</h4>
+              <p class="text-slate-600">{item.data.description}</p>
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Workshopid Section -->
+  <section id="workshopid" class="min-h-screen py-24 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+        {isEstonian ? 'Workshopid' : 'Workshops'}
+      </h2>
+      <p class="text-xl text-slate-600 mb-12">
+        {isEstonian ? 'Liikumise ja loomingulisuse töötoad' : 'Movement and creativity workshops'}
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {workshopid.map(item => (
+          <a href={`/${page.data.language}/${item.data.category}/${item.id.replace(/^(en|et)\//, '').replace(/\.md$/, '')}`}
+             class="block p-6 border border-slate-200 rounded-lg hover:shadow-lg transition-shadow bg-white">
+            <h4 class="text-xl font-semibold text-slate-900 mb-2">{item.data.title}</h4>
+            <p class="text-slate-600">{item.data.description}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="min-h-screen py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+        {isEstonian ? 'Meist' : 'About Us'}
+      </h2>
+      <p class="text-xl text-slate-600 mb-12">
+        {isEstonian ? 'Tutvuge meie meeskonna ja tegemistega' : 'Meet our team and learn about our work'}
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {about.map(item => (
+          <a href={`/${page.data.language}/${item.data.category}/${item.id.replace(/^(en|et)\//, '').replace(/\.md$/, '')}`}
+             class="block p-6 border border-slate-200 rounded-lg hover:shadow-lg transition-shadow">
+            <h4 class="text-xl font-semibold text-slate-900 mb-2">{item.data.title}</h4>
+            <p class="text-slate-600">{item.data.description}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section id="gallery" class="min-h-screen py-24 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4">
+      <h2 class="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+        {isEstonian ? 'Galerii' : 'Gallery'}
+      </h2>
+      <p class="text-xl text-slate-600 mb-12">
+        {isEstonian ? 'Pilte meie etendustest ja tööprotsessist' : 'Photos from our performances and creative process'}
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {gallery.map(item => (
+          <a href={`/${page.data.language}/${item.data.category}/${item.id.replace(/^(en|et)\//, '').replace(/\.md$/, '')}`}
+             class="block p-6 border border-slate-200 rounded-lg hover:shadow-lg transition-shadow bg-white">
+            <h4 class="text-xl font-semibold text-slate-900 mb-2">{item.data.title}</h4>
+            <p class="text-slate-600">{item.data.description}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="min-h-screen py-24 bg-white">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h2 class="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+        {isEstonian ? 'Kontakt' : 'Contact'}
+      </h2>
+      <p class="text-xl text-slate-600 mb-12">
+        {isEstonian ? 'Võta meiega ühendust' : 'Get in touch with us'}
+      </p>
+      <div class="prose prose-lg prose-slate mx-auto">
+        <p class="text-lg">info@zuga.ee</p>
+      </div>
+    </div>
+  </section>
 </BaseLayout>
+
+<style>
+  html {
+    scroll-behavior: smooth;
+  }
+</style>
