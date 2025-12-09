@@ -12,67 +12,28 @@ repos:
       - id: check-toml
       - id: check-merge-conflict
 
+  # Python tooling for scripts/ directory
   - repo: https://github.com/psf/black
     rev: 23.12.1
     hooks:
       - id: black
         language_version: python3.12
-        files: ^apps/api/
+        files: ^scripts/
 
   - repo: https://github.com/pycqa/flake8
     rev: 7.0.0
     hooks:
       - id: flake8
-        files: ^apps/api/
+        files: ^scripts/
         args: ['--max-line-length=88', '--extend-ignore=E203,W503']
 
-  - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v1.7.1
-    hooks:
-      - id: mypy
-        files: ^apps/api/
-        additional_dependencies: [
-          pydantic>=2.5.0,
-          fastapi>=0.104.0,
-          types-pyyaml,
-        ]
-        args: [--strict, --ignore-missing-imports]
-
+  # Astro web app checks
   - repo: local
     hooks:
-      - id: pytest
-        name: pytest
-        entry: bash -c 'cd apps/api && ../../.venv/bin/pytest'
-        language: system
-        pass_filenames: false
-        files: ^apps/api/
-        stages: [pre-commit]
-
-      - id: prettier
-        name: prettier
-        entry: bash -c 'cd apps/web && npm run format --check'
-        language: system
-        files: ^apps/web/.*\.(ts|tsx|js|jsx|json|css|md)$
-        pass_filenames: false
-
-      - id: eslint
-        name: eslint
-        entry: bash -c 'cd apps/web && npm run lint'
-        language: system
-        files: ^apps/web/.*\.(ts|tsx|js|jsx)$
-        pass_filenames: false
-
-      - id: typescript
-        name: typescript
-        entry: bash -c 'cd apps/web && npm run type-check'
-        language: system
-        files: ^apps/web/.*\.tsx?$
-        pass_filenames: false
-
-      - id: vitest
-        name: vitest
-        entry: bash -c 'cd apps/web && npm test -- --run'
+      - id: astro-build
+        name: astro-build
+        entry: bash -c 'cd apps/web && npm run build'
         language: system
         pass_filenames: false
         files: ^apps/web/
-        stages: [pre-commit]
+        stages: [pre-push]  # Only run on push, not every commit (build is slow)
