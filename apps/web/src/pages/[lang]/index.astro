@@ -22,32 +22,35 @@ export async function getStaticPaths() {
 const { page } = Astro.props;
 const { Content } = await page.render();
 
-// Get content for each category to display in sections
+// Get all published pages in current language
 const allPages = await getCollection('pages', ({ data }) => {
   return data.status === 'published' && data.language === page.data.language;
 });
 
-const etendused = allPages.filter(p => p.data.category === 'etendused' && p.data.type === 'detail');
-const workshopid = allPages.filter(p => p.data.category === 'workshopid' && p.data.type === 'detail');
-const about = allPages.filter(p => p.data.category === 'about' && p.data.type === 'detail');
-const gallery = allPages.filter(p => p.data.category === 'gallery' && p.data.type === 'detail');
-const news = allPages.filter(p => p.data.category === 'news' && p.data.type === 'detail');
+// Get all section pages and sort by order field
+const sections = allPages
+  .filter(p => p.data.type === 'section' && p.data.page_type === 'landing')
+  .sort((a, b) => {
+    const orderA = a.data.order ?? 999;
+    const orderB = b.data.order ?? 999;
+    if (orderA !== orderB) return orderA - orderB;
+    return a.data.category.localeCompare(b.data.category);
+  });
 
-// Get section landing pages for hero images
-const workshopidSection = allPages.find(p => p.data.category === 'workshopid' && p.data.page_type === 'landing');
+// Helper function to get detail items for a category
+const getDetailItems = (category: string) =>
+  allPages.filter(p => p.data.category === category && p.data.type === 'detail');
 
-// Get all subsection landing pages for etendused (dynamic - adapts to any subcategories)
-const etendustedSubsections = allPages.filter(p =>
-  p.data.category === 'etendused' &&
-  p.data.page_type === 'landing' &&
-  p.data.subcategory
-).sort((a, b) => {
-  // Sort by order field first, then fallback to subcategory name
-  const orderA = a.data.order ?? 999;
-  const orderB = b.data.order ?? 999;
-  if (orderA !== orderB) return orderA - orderB;
-  return (a.data.subcategory || '').localeCompare(b.data.subcategory || '');
-});
+// Helper function to get subsections for a category
+const getSubsections = (category: string) =>
+  allPages
+    .filter(p => p.data.category === category && p.data.page_type === 'landing' && p.data.subcategory)
+    .sort((a, b) => {
+      const orderA = a.data.order ?? 999;
+      const orderB = b.data.order ?? 999;
+      if (orderA !== orderB) return orderA - orderB;
+      return (a.data.subcategory || '').localeCompare(b.data.subcategory || '');
+    });
 
 const isEstonian = page.data.language === 'et';
 ---
@@ -87,114 +90,71 @@ const isEstonian = page.data.language === 'et';
     </div>
   </section>
 
-  <!-- Etendused Section -->
-  <HomeSection
-    id="etendused"
-    title={isEstonian ? 'Etendused' : 'Performances'}
-    description={isEstonian ? 'Meie etendused suurtele ja noorele publikule' : 'Our performances for adults and young audiences'}
-    background="white"
-  >
-    {etendustedSubsections.map(subsection => {
-      const subsectionItems = etendused.filter(p => p.data.subcategory === subsection.data.subcategory);
-      return (
-        <div
-          id={subsection.data.subcategory}
-          class="mb-16 rounded-lg p-8 relative"
-          style={subsection.data.hero_image ? `background-image: url('${subsection.data.hero_image}'); background-size: cover; background-position: center;` : ''}
-        >
-          {subsection.data.hero_image && (
-            <div class="absolute inset-0 bg-gradient-to-b from-slate-900/70 to-slate-900/50 rounded-lg"></div>
-          )}
-          <div class="relative z-10">
-            <h3 class={`text-2xl font-semibold mb-6 ${subsection.data.hero_image ? 'text-white' : 'text-slate-800'}`}>
-              {subsection.data.title}
-            </h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {subsectionItems.map(item => (
-                <ContentCard
-                  title={item.data.title}
-                  description={item.data.description}
-                  href={`/${page.data.language}/${item.data.category}/${item.id.replace(/^(en|et)\//, '').replace(/\.md$/, '')}`}
-                  subcategory={subsection.data.title}
-                />
-              ))}
-            </div>
+  <!-- Dynamic Sections -->
+  {sections.map((section, index) => {
+    const detailItems = getDetailItems(section.data.category);
+    const subsections = getSubsections(section.data.category);
+    const hasSubsections = subsections.length > 0;
+
+    // Alternate background colors
+    const background = index % 2 === 0 ? 'white' : 'slate';
+
+    return (
+      <HomeSection
+        id={section.data.category}
+        title={section.data.title}
+        description={section.data.description}
+        heroImage={section.data.hero_image}
+        background={background}
+      >
+        {hasSubsections ? (
+          // Render subsections (e.g., Suurtele, Noorele Publikule)
+          <>
+            {subsections.map(subsection => {
+              const subsectionItems = detailItems.filter(p => p.data.subcategory === subsection.data.subcategory);
+              return (
+                <div
+                  id={subsection.data.subcategory}
+                  class="mb-16 rounded-lg p-8 relative"
+                  style={subsection.data.hero_image ? `background-image: url('${subsection.data.hero_image}'); background-size: cover; background-position: center;` : ''}
+                >
+                  {subsection.data.hero_image && (
+                    <div class="absolute inset-0 bg-gradient-to-b from-slate-900/70 to-slate-900/50 rounded-lg"></div>
+                  )}
+                  <div class="relative z-10">
+                    <h3 class={`text-2xl font-semibold mb-6 ${subsection.data.hero_image ? 'text-white' : 'text-slate-800'}`}>
+                      {subsection.data.title}
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                      {subsectionItems.map(item => (
+                        <ContentCard
+                          title={item.data.title}
+                          description={item.data.description}
+                          href={`/${page.data.language}/${item.data.category}/${item.id.replace(/^(en|et)\//, '').replace(/\.md$/, '')}`}
+                          subcategory={subsection.data.title}
+                        />
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </>
+        ) : (
+          // Render regular detail items in grid
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {detailItems.map(item => (
+              <ContentCard
+                title={item.data.title}
+                description={item.data.description}
+                href={`/${page.data.language}/${item.data.category}/${item.id.replace(/^(en|et)\//, '').replace(/\.md$/, '')}`}
+              />
+            ))}
           </div>
-        </div>
-      );
-    })}
-  </HomeSection>
-
-  <!-- Workshopid Section -->
-  <HomeSection
-    id="workshopid"
-    title={isEstonian ? 'Workshopid' : 'Workshops'}
-    description={isEstonian ? 'Liikumise ja loomingulisuse töötoad' : 'Movement and creativity workshops'}
-    background="slate"
-    heroImage={workshopidSection?.data.hero_image}
-  >
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {workshopid.map(item => (
-        <ContentCard
-          title={item.data.title}
-          description={item.data.description}
-          href={`/${page.data.language}/${item.data.category}/${item.id.replace(/^(en|et)\//,'').replace(/\.md$/, '')}`}
-          category={isEstonian ? 'Workshop' : 'Workshop'}
-        />
-      ))}
-    </div>
-  </HomeSection>
-
-  <!-- About Section -->
-  <HomeSection
-    id="about"
-    title={isEstonian ? 'Meist' : 'About Us'}
-    description={isEstonian ? 'Tutvuge meie meeskonna ja tegemistega' : 'Meet our team and learn about our work'}
-    background="white"
-  >
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {about.map(item => (
-        <ContentCard
-          title={item.data.title}
-          description={item.data.description}
-          href={`/${page.data.language}/${item.data.category}/${item.id.replace(/^(en|et)\//, '').replace(/\.md$/, '')}`}
-        />
-      ))}
-    </div>
-  </HomeSection>
-
-  <!-- Gallery Section -->
-  <HomeSection
-    id="gallery"
-    title={isEstonian ? 'Galerii' : 'Gallery'}
-    description={isEstonian ? 'Pilte meie etendustest ja tööprotsessist' : 'Photos from our performances and creative process'}
-    background="slate"
-  >
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {gallery.map(item => (
-        <ContentCard
-          title={item.data.title}
-          description={item.data.description}
-          href={`/${page.data.language}/${item.data.category}/${item.id.replace(/^(en|et)\//, '').replace(/\.md$/, '')}`}
-        />
-      ))}
-    </div>
-  </HomeSection>
-
-  <!-- Contact Section -->
-  <section id="contact" class="min-h-screen py-24 bg-white">
-    <div class="max-w-4xl mx-auto px-4 text-center">
-      <h2 class="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
-        {isEstonian ? 'Kontakt' : 'Contact'}
-      </h2>
-      <p class="text-xl text-slate-600 mb-12">
-        {isEstonian ? 'Võta meiega ühendust' : 'Get in touch with us'}
-      </p>
-      <div class="prose prose-lg prose-slate mx-auto">
-        <p class="text-lg">info@zuga.ee</p>
-      </div>
-    </div>
-  </section>
+        )}
+      </HomeSection>
+    );
+  })}
 </BaseLayout>
 
 <style>

@@ -5,6 +5,7 @@ language: et
 description: Zuga workshopid ja töötoad
 type: section
 category: workshopid
+order: 100
 legacy_type: landing
 status: published
 original_url: https://www.zuga.ee/et/workshopid
