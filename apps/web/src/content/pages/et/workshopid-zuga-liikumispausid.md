@@ -28,14 +28,29 @@ gallery:
 - url: /images/workshopid-zuga-liikumispausid-6.jpg
   width: 2560
   description: Liikumispauside hetk
-videos:
-- platform: youtube
-  video_id: qp22v58UQnw
-  title: ZUGA videotervitus
-  url: https://www.youtube.com/embed/qp22v58UQnw
+audio:
+- platform: soundcloud
+  track_id: "1024564312"
+  title: Zuga liikumispaus number 1
+  url: https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1024564312
+- platform: soundcloud
+  track_id: "1024564306"
+  title: Zuga liikumispaus number 2
+  url: https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1024564306
+- platform: soundcloud
+  track_id: "1024564300"
+  title: Zuga liikumispaus number 3
+  url: https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1024564300
+- platform: soundcloud
+  track_id: "1024564294"
+  title: Zuga liikumispaus number 4
+  url: https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1024564294
+- platform: soundcloud
+  track_id: "1024564288"
+  title: Zuga liikumispaus number 5
+  url: https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1024564288
 ---
 
-# ZUGA Liikumispausid
 
 Zuga liikumispausid on 5-10 minuti pikkused helijuhendid, mis on mõeldud istuva töö- või koolipäeva vahepaladeks. Liikumispausid pakuvad liikumispiirangute tingimustes võimalust püsti tõusmiseks ja enda sirutamiseks nii neile, kes kodudes arvuti taga istumas, kui õpilastele koolitundide vahele.
 
@@ -60,10 +75,8 @@ Liikumispausid on kõigile tasuta kasutamiseks. Hetkel on pakkuda viis erinevat 
 
 Kui jäädvustad liikumispausidel sirutamist, võid julgelt tag'ida meid sotsiaalmeedias @soltumatutantsulava ja kasutada #liikumispaus
 
-## Video
+## Kajastused meedias
 
-Vaata ZUGA videotervitust ja tutvu liikumispausidega lähemalt.
-
-## Galerii
-
-Fotod liikumispauside läbiviimisest.
+- [HOMMIKUINTERVJUU: Tiina Mölder, ZUGA liikumispausid](https://ringfm.treraadio.ee/kordus/4758/hommikuintervjuu-tiina-molder-zuga-liikumispausid), Ring FM, 21. aprill 2021
+- [Ärataja: Kärt Tõnisson – Koos ZUGA Ühendatud Tantsijatega loodi Liikumispausid, mis on kõigile tasuta kasutamiseks](https://podcast.kuku.postimees.ee/podcast/arataja-kart-tonisson-koos-zuga-uhendatud-tantsijatega-loodi-liikumispausid-mis-on-koigile-tasuta-kasutamiseks/), KUKU raadio, 16. aprill 2021
+- [R2 Pulss. Triinu Aron: Sõltumatu Tantsu Lava ja ZUGA ühendatud Tantsijad lõid liikumispausid](https://r2.err.ee/1608164389/r2-pulss-robin-juhkental/1251106), Raadio 2, 15. aprill 2021

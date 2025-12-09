@@ -5,6 +5,7 @@ import LanguageSwitcher from '../../../components/LanguageSwitcher.astro';
 import PageHero from '../../../components/PageHero.astro';
 import PerformanceGallery from '../../../components/PerformanceGallery.astro';
 import VideoEmbed from '../../../components/VideoEmbed.astro';
+import AudioEmbed from '../../../components/AudioEmbed.astro';
 import PerformanceList from '../../../components/PerformanceList.astro';
 
 export async function getStaticPaths() {
@@ -30,6 +31,13 @@ export async function getStaticPaths() {
 const { page } = Astro.props;
 const { Content } = await page.render();
 const currentSlug = page.id.replace(/^(en|et)\//, '').replace(/\.md$/, '');
+
+// Section titles based on language
+const sectionTitles = {
+  audio: page.data.language === 'et' ? 'Helid' : 'Audio',
+  gallery: page.data.language === 'et' ? 'Pildid' : 'Gallery',
+  video: page.data.language === 'et' ? 'Videod' : 'Videos',
+};
 ---
 
 <BaseLayout
@@ -54,18 +62,31 @@ const currentSlug = page.id.replace(/^(en|et)\//, '').replace(/\.md$/, '');
     <Content />
   </article>
 
-  {page.data.type === 'performance' && page.data.gallery && (
-    <PerformanceGallery images={page.data.gallery} />
+  {page.data.audio && page.data.audio.length > 0 && (
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+      <h2 class="text-3xl font-bold text-slate-900 mb-8">{sectionTitles.audio}</h2>
+      <AudioEmbed audio={page.data.audio} />
+    </div>
   )}
 
-  {page.data.type === 'performance' && page.data.videoUrl && (
-    <VideoEmbed
-      url={page.data.videoUrl}
-      title={page.data.title}
-    />
+  {page.data.gallery && page.data.gallery.length > 0 && (
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+      <h2 class="text-3xl font-bold text-slate-900 mb-8">{sectionTitles.gallery}</h2>
+      <PerformanceGallery images={page.data.gallery} />
+    </div>
   )}
 
-  {page.data.type === 'landing' && page.data.performances && (
-    <PerformanceList performances={page.data.performances} />
+  {page.data.videos && page.data.videos.length > 0 && (
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+      <h2 class="text-3xl font-bold text-slate-900 mb-8">{sectionTitles.video}</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {page.data.videos.map((video: any) => (
+          <VideoEmbed
+            url={video.url}
+            title={video.title || page.data.title}
+          />
+        ))}
+      </div>
+    </div>
   )}
 </BaseLayout>

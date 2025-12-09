@@ -78,6 +78,12 @@ const pagesCollection = defineCollection({
       title: z.string().optional(),
       url: z.string().url(),
     })).optional(),
+    audio: z.array(z.object({
+      platform: z.enum(['soundcloud']),
+      track_id: z.string().min(1),
+      title: z.string().optional(),
+      url: z.string().url(),
+    })).optional(),
 
     // Bilingual linking
     translated: z.array(z.object({
