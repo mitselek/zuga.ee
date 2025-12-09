@@ -7,11 +7,12 @@ interface Props {
   description?: string;
   language: string;
   ogImage?: string;
+  isHomepage?: boolean;
 }
 
-const { title, description, language, ogImage } = Astro.props;
-const defaultDescription = language === 'et' 
-  ? 'Kaasaegne teater lastele ja täiskasvanutele' 
+const { title, description, language, ogImage, isHomepage = false } = Astro.props;
+const defaultDescription = language === 'et'
+  ? 'Kaasaegne teater lastele ja täiskasvanutele'
   : 'Contemporary theatre for children and adults';
 const pageDescription = description || defaultDescription;
 const siteUrl = 'https://zuga.ee';
@@ -25,12 +26,12 @@ const defaultOgImage = `${siteUrl}/og-image.jpg`;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title} | {language === 'et' ? 'ZUGA ühendatud tantsijad' : 'United Dancers of ZUGA'}</title>
-    
+
     <!-- SEO Meta Tags -->
     <meta name="description" content={pageDescription} />
     <meta name="author" content={language === 'et' ? 'ZUGA ühendatud tantsijad' : 'United Dancers of ZUGA'} />
     <link rel="canonical" href={currentUrl} />
-    
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content={currentUrl} />
@@ -38,14 +39,14 @@ const defaultOgImage = `${siteUrl}/og-image.jpg`;
     <meta property="og:description" content={pageDescription} />
     <meta property="og:image" content={ogImage || defaultOgImage} />
     <meta property="og:locale" content={language === 'et' ? 'et_EE' : 'en_US'} />
-    
+
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content={currentUrl} />
     <meta name="twitter:title" content={`${title} | ${language === 'et' ? 'ZUGA ühendatud tantsijad' : 'United Dancers of ZUGA'}`} />
     <meta name="twitter:description" content={pageDescription} />
     <meta name="twitter:image" content={ogImage || defaultOgImage} />
-    
+
     <!-- Theme Color -->
     <meta name="theme-color" content="#1a202c" />
   </head>
@@ -53,8 +54,8 @@ const defaultOgImage = `${siteUrl}/og-image.jpg`;
     <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 px-4 py-2 text-accent bg-white rounded shadow-lg">
       {language === 'et' ? 'Jätka põhisisu juurde' : 'Skip to main content'}
     </a>
-    
-    <header class="bg-white shadow-md">
+
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-md">
       <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4" role="navigation" aria-label="Main navigation">
         <div class="flex items-center justify-between gap-4">
           <a href={`/${language}/`} class="flex items-center gap-3 group shrink-0" aria-label={language === 'et' ? 'ZUGA ühendatud tantsijad - Avaleht' : 'United Dancers of ZUGA - Home'}>
@@ -63,19 +64,19 @@ const defaultOgImage = `${siteUrl}/og-image.jpg`;
               {language === 'et' ? 'ZUGA ühendatud tantsijad' : 'United Dancers of ZUGA'}
             </span>
           </a>
-          
+
           <div class="flex items-center gap-2 lg:gap-4">
-            <Navigation language={language} />
+            <Navigation language={language} isHomepage={isHomepage} />
             <slot name="language-switcher" />
           </div>
         </div>
       </nav>
     </header>
-    
-    <main id="main-content" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+    <main id="main-content" class={isHomepage ? "" : "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12"}>
       <slot />
     </main>
-    
+
     <footer style="background-color: var(--color-primary);" class="mt-24">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div class="text-center">

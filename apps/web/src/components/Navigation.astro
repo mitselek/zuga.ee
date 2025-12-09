@@ -1,46 +1,41 @@
 ---
 interface Props {
   language: string;
+  isHomepage?: boolean;
 }
 
-const { language } = Astro.props;
+const { language, isHomepage = false } = Astro.props;
 
-const navigationItems = language === 'et' 
+// Homepage uses anchor links, other pages use full URLs
+const navigationItems = language === 'et'
   ? [
-      { label: 'Avaleht', href: '/et/index' },
-      { label: 'Etendused', href: '/et/etendused-suurtele' },
-      { label: 'Töötoad', href: '/et/workshopid' },
-      { label: 'Tegijad', href: '/et/tegijad' },
-      { label: 'Galerii', href: '/et/galerii' },
-      { label: 'Kontakt', href: '/et/kontakt-2' },
+      { label: 'Etendused', href: isHomepage ? '#etendused' : `/et/#etendused`, anchor: 'etendused' },
+      { label: 'Workshopid', href: isHomepage ? '#workshopid' : `/et/#workshopid`, anchor: 'workshopid' },
+      { label: 'Meist', href: isHomepage ? '#about' : `/et/#about`, anchor: 'about' },
+      { label: 'Galerii', href: isHomepage ? '#gallery' : `/et/#gallery`, anchor: 'gallery' },
+      { label: 'Kontakt', href: isHomepage ? '#contact' : `/et/#contact`, anchor: 'contact' },
     ]
   : [
-      { label: 'Home', href: '/en/index' },
-      { label: 'Performances', href: '/en/english-shame' },
-      { label: 'About Us', href: '/en/english-about-us-1' },
+      { label: 'Performances', href: isHomepage ? '#etendused' : `/en/#etendused`, anchor: 'etendused' },
+      { label: 'Workshops', href: isHomepage ? '#workshopid' : `/en/#workshopid`, anchor: 'workshopid' },
+      { label: 'About', href: isHomepage ? '#about' : `/en/#about`, anchor: 'about' },
+      { label: 'Gallery', href: isHomepage ? '#gallery' : `/en/#gallery`, anchor: 'gallery' },
+      { label: 'Contact', href: isHomepage ? '#contact' : `/en/#contact`, anchor: 'contact' },
     ];
 
 const currentPath = Astro.url.pathname;
 ---
 
 <nav class="hidden md:flex items-center gap-1 lg:gap-2" role="navigation">
-  {navigationItems.map((item) => {
-    const isActive = currentPath === item.href || currentPath.startsWith(item.href + '/');
-    return (
-      <a
-        href={item.href}
-        class:list={[
-          "px-3 lg:px-4 py-2 rounded-md text-sm font-medium transition-colors",
-          isActive 
-            ? "bg-accent text-primary" 
-            : "text-gray-700 hover:bg-gray-100 hover:text-primary"
-        ]}
-        aria-current={isActive ? "page" : undefined}
-      >
-        {item.label}
-      </a>
-    );
-  })}
+  {navigationItems.map((item) => (
+    <a
+      href={item.href}
+      class="nav-link px-3 lg:px-4 py-2 rounded-md text-sm font-medium transition-colors text-gray-700 hover:bg-gray-100 hover:text-indigo-600"
+      data-anchor={item.anchor}
+    >
+      {item.label}
+    </a>
+  ))}
 </nav>
 
 <!-- Mobile menu button -->
@@ -62,23 +57,15 @@ const currentPath = Astro.url.pathname;
   class="hidden md:hidden absolute top-full left-0 right-0 shadow-lg bg-white border-t"
 >
   <div class="px-4 py-3 space-y-1">
-    {navigationItems.map((item) => {
-      const isActive = currentPath === item.href || currentPath.startsWith(item.href + '/');
-      return (
-        <a
-          href={item.href}
-          class:list={[
-            "block px-4 py-3 rounded-md text-base font-medium transition-colors",
-            isActive 
-              ? "bg-accent text-primary" 
-              : "text-gray-700 hover:bg-gray-100 hover:text-primary"
-          ]}
-          aria-current={isActive ? "page" : undefined}
-        >
-          {item.label}
-        </a>
-      );
-    })}
+    {navigationItems.map((item) => (
+      <a
+        href={item.href}
+        class="mobile-nav-link block px-4 py-3 rounded-md text-base font-medium transition-colors text-gray-700 hover:bg-gray-100 hover:text-indigo-600"
+        data-anchor={item.anchor}
+      >
+        {item.label}
+      </a>
+    ))}
   </div>
 </div>
 
@@ -86,14 +73,14 @@ const currentPath = Astro.url.pathname;
   // Mobile menu toggle
   const button = document.getElementById('mobile-menu-button');
   const menu = document.getElementById('mobile-menu');
-  
+
   if (button && menu) {
     button.addEventListener('click', () => {
       const isExpanded = button.getAttribute('aria-expanded') === 'true';
       button.setAttribute('aria-expanded', String(!isExpanded));
       menu.classList.toggle('hidden');
     });
-    
+
     // Close menu when clicking outside
     document.addEventListener('click', (e) => {
       if (!button.contains(e.target as Node) && !menu.contains(e.target as Node)) {
@@ -101,5 +88,43 @@ const currentPath = Astro.url.pathname;
         menu.classList.add('hidden');
       }
     });
+
+    // Close menu when clicking a link
+    const mobileLinks = menu.querySelectorAll('.mobile-nav-link');
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        button.setAttribute('aria-expanded', 'false');
+        menu.classList.add('hidden');
+      });
+    });
+  }
+
+  // Intersection Observer for active section highlighting
+  if (window.location.pathname.match(/^\/(et|en)\/?$/)) {
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link[data-anchor]');
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('id');
+            navLinks.forEach((link) => {
+              if (link.getAttribute('data-anchor') === id) {
+                link.classList.add('bg-indigo-50', 'text-indigo-600');
+              } else {
+                link.classList.remove('bg-indigo-50', 'text-indigo-600');
+              }
+            });
+          }
+        });
+      },
+      {
+        threshold: 0.3,
+        rootMargin: '-100px 0px -50% 0px',
+      }
+    );
+
+    sections.forEach((section) => observer.observe(section));
   }
 </script>
