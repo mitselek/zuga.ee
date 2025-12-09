@@ -18,7 +18,7 @@ def extract_subcategory(slug: str, old_type: str) -> Optional[str]:
         return 'noorele-publikule'
     return None
 
-def determine_new_fields(slug: str, old_type: str) -> Dict[str, str]:
+def determine_new_fields(slug: str, old_type: str) -> Dict[str, Optional[str]]:
     """
     Determine new type, category, and subcategory based on old values.
 
