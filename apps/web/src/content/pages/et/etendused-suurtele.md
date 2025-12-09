@@ -10,7 +10,7 @@ legacy_type: landing
 status: published
 original_url: https://www.zuga.ee/et/etendused-suurtele
 page_type: landing
-hero_image: https://lh3.googleusercontent.com/eGraYX6xBLk_CEVp_P2fET0uRNC_PV9lnqLRBLXMHTlvJmlCqHaR4qjUz5KZjX7j6Ok6eKRsxOdrGeNpj9s8fco=w16383
+hero_image: /images/suurtele-bg.png
 gallery:
 - url: https://lh4.googleusercontent.com/hytlhv6sEQB5sw7qXqn_nPWdUXl6OQPV3dW_rxq2j10OmDzANiUuYPQ1ZWf2qyN8zNGl_tUoBLfxpDCHYusghPPKPx9LEDq3jjkVeaiF2tLy-62_Sg1dV7udRw5kO5t56w=w1280
   width: 1280

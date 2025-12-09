@@ -5,20 +5,28 @@ interface Props {
   children?: any;
   id: string;
   background?: 'white' | 'slate';
+  heroImage?: string;
 }
 
-const { title, description, children, id, background = 'white' } = Astro.props;
+const { title, description, children, id, background = 'white', heroImage } = Astro.props;
 const bgClass = background === 'slate' ? 'bg-slate-50' : 'bg-white';
 ---
 
-<section id={id} class={`min-h-screen py-24 ${bgClass}`}>
-  <div class="max-w-7xl mx-auto px-4">
+<section
+  id={id}
+  class={`min-h-screen py-24 relative ${heroImage ? 'bg-slate-900' : bgClass}`}
+  style={heroImage ? `background-image: url('${heroImage}'); background-size: cover; background-position: center;` : ''}
+>
+  {heroImage && (
+    <div class="absolute inset-0 bg-gradient-to-b from-slate-900/70 to-slate-900/50"></div>
+  )}
+  <div class={`max-w-7xl mx-auto px-4 ${heroImage ? 'relative z-10' : ''}`}>
     <div class="mb-12">
-      <h2 class="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+      <h2 class={`text-4xl md:text-5xl font-bold mb-4 ${heroImage ? 'text-white' : 'text-slate-900'}`}>
         {title}
       </h2>
       {description && (
-        <p class="text-xl text-slate-600">
+        <p class={`text-xl ${heroImage ? 'text-white/90' : 'text-slate-600'}`}>
           {description}
         </p>
       )}

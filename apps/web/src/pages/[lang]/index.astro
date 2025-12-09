@@ -33,6 +33,19 @@ const about = allPages.filter(p => p.data.category === 'about' && p.data.type ==
 const gallery = allPages.filter(p => p.data.category === 'gallery' && p.data.type === 'detail');
 const news = allPages.filter(p => p.data.category === 'news' && p.data.type === 'detail');
 
+// Get section landing pages for hero images
+const workshopidSection = allPages.find(p => p.data.category === 'workshopid' && p.data.page_type === 'landing');
+
+// Get all subsection landing pages for etendused (dynamic - adapts to any subcategories)
+const etendustedSubsections = allPages.filter(p =>
+  p.data.category === 'etendused' &&
+  p.data.page_type === 'landing' &&
+  p.data.subcategory
+).sort((a, b) => {
+  // Sort by subcategory for consistent ordering
+  return (a.data.subcategory || '').localeCompare(b.data.subcategory || '');
+});
+
 const isEstonian = page.data.language === 'et';
 ---
 
@@ -50,15 +63,22 @@ const isEstonian = page.data.language === 'et';
   />
 
   <!-- Hero Section -->
-  <section id="hero" class="min-h-screen flex items-center justify-center bg-gradient-to-b from-slate-50 to-white">
-    <div class="max-w-4xl mx-auto px-4 py-16 text-center">
-      <h1 class="text-5xl md:text-7xl font-bold text-slate-900 mb-6">
+  <section
+    id="hero"
+    class="min-h-screen flex items-center justify-center relative bg-slate-900"
+    style={page.data.hero_image ? `background-image: url('${page.data.hero_image}'); background-size: cover; background-position: center;` : ''}
+  >
+    {page.data.hero_image && (
+      <div class="absolute inset-0 bg-gradient-to-b from-slate-900/60 to-slate-900/40"></div>
+    )}
+    <div class="relative z-10 max-w-4xl mx-auto px-4 py-16 text-center">
+      <h1 class={`text-5xl md:text-7xl font-bold mb-6 ${page.data.hero_image ? 'text-white' : 'text-slate-900'}`}>
         {page.data.title}
       </h1>
-      <p class="text-xl md:text-2xl text-slate-600 mb-8">
+      <p class={`text-xl md:text-2xl mb-8 ${page.data.hero_image ? 'text-white/90' : 'text-slate-600'}`}>
         {page.data.description}
       </p>
-      <div class="prose prose-lg prose-slate mx-auto">
+      <div class={`prose prose-lg mx-auto ${page.data.hero_image ? 'prose-invert' : 'prose-slate'}`}>
         <Content />
       </div>
     </div>
@@ -71,39 +91,35 @@ const isEstonian = page.data.language === 'et';
     description={isEstonian ? 'Meie etendused suurtele ja noorele publikule' : 'Our performances for adults and young audiences'}
     background="white"
   >
-    <!-- Suurtele subsection -->
-    <div id="suurtele" class="mb-16">
-      <h3 class="text-2xl font-semibold text-slate-800 mb-6">
-        {isEstonian ? 'Suurtele' : 'For Adults'}
-      </h3>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {etendused.filter(p => p.data.subcategory === 'suurtele').map(item => (
-          <ContentCard
-            title={item.data.title}
-            description={item.data.description}
-            href={`/${page.data.language}/${item.data.category}/${item.id.replace(/^(en|et)\//, '').replace(/\.md$/, '')}`}
-            subcategory={isEstonian ? 'Suurtele' : 'For Adults'}
-          />
-        ))}
-      </div>
-    </div>
-
-    <!-- Noorele publikule subsection -->
-    <div id="noorele-publikule" class="mb-16">
-      <h3 class="text-2xl font-semibold text-slate-800 mb-6">
-        {isEstonian ? 'Noorele publikule' : 'For Young Audiences'}
-      </h3>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {etendused.filter(p => p.data.subcategory === 'noorele-publikule').map(item => (
-          <ContentCard
-            title={item.data.title}
-            description={item.data.description}
-            href={`/${page.data.language}/${item.data.category}/${item.id.replace(/^(en|et)\//, '').replace(/\.md$/, '')}`}
-            subcategory={isEstonian ? 'Noorele publikule' : 'For Young Audiences'}
-          />
-        ))}
-      </div>
-    </div>
+    {etendustedSubsections.map(subsection => {
+      const subsectionItems = etendused.filter(p => p.data.subcategory === subsection.data.subcategory);
+      return (
+        <div
+          id={subsection.data.subcategory}
+          class="mb-16 rounded-lg p-8 relative"
+          style={subsection.data.hero_image ? `background-image: url('${subsection.data.hero_image}'); background-size: cover; background-position: center;` : ''}
+        >
+          {subsection.data.hero_image && (
+            <div class="absolute inset-0 bg-gradient-to-b from-slate-900/70 to-slate-900/50 rounded-lg"></div>
+          )}
+          <div class="relative z-10">
+            <h3 class={`text-2xl font-semibold mb-6 ${subsection.data.hero_image ? 'text-white' : 'text-slate-800'}`}>
+              {subsection.data.title}
+            </h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {subsectionItems.map(item => (
+                <ContentCard
+                  title={item.data.title}
+                  description={item.data.description}
+                  href={`/${page.data.language}/${item.data.category}/${item.id.replace(/^(en|et)\//, '').replace(/\.md$/, '')}`}
+                  subcategory={subsection.data.title}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      );
+    })}
   </HomeSection>
 
   <!-- Workshopid Section -->
@@ -112,13 +128,14 @@ const isEstonian = page.data.language === 'et';
     title={isEstonian ? 'Workshopid' : 'Workshops'}
     description={isEstonian ? 'Liikumise ja loomingulisuse töötoad' : 'Movement and creativity workshops'}
     background="slate"
+    heroImage={workshopidSection?.data.hero_image}
   >
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {workshopid.map(item => (
         <ContentCard
           title={item.data.title}
           description={item.data.description}
-          href={`/${page.data.language}/${item.data.category}/${item.id.replace(/^(en|et)\//, '').replace(/\.md$/, '')}`}
+          href={`/${page.data.language}/${item.data.category}/${item.id.replace(/^(en|et)\//,'').replace(/\.md$/, '')}`}
           category={isEstonian ? 'Workshop' : 'Workshop'}
         />
       ))}

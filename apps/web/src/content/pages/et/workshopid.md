@@ -9,6 +9,7 @@ legacy_type: landing
 status: published
 original_url: https://www.zuga.ee/et/workshopid
 page_type: landing
+hero_image: /images/workshopid-bg.png
 videos:
 - platform: youtube
   video_id: qp22v58UQnw
