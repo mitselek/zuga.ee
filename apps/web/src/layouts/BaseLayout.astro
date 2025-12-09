@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import Navigation from '../components/Navigation.astro';
+import SectionNavigator from '../components/SectionNavigator.astro';
 
 interface Props {
   title: string;
@@ -55,7 +56,8 @@ const defaultOgImage = `${siteUrl}/og-image.jpg`;
       {language === 'et' ? 'Jätka põhisisu juurde' : 'Skip to main content'}
     </a>
 
-    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md shadow-md">
+    <!-- Desktop: static header, Mobile: sticky header -->
+    <header class="md:relative sticky top-0 z-40 bg-white md:bg-white/90 md:backdrop-blur-md shadow-md">
       <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4" role="navigation" aria-label="Main navigation">
         <div class="flex items-center justify-between gap-4">
           <a href={`/${language}/`} class="flex items-center gap-3 group shrink-0" aria-label={language === 'et' ? 'ZUGA ühendatud tantsijad - Avaleht' : 'United Dancers of ZUGA - Home'}>
@@ -72,6 +74,8 @@ const defaultOgImage = `${siteUrl}/og-image.jpg`;
         </div>
       </nav>
     </header>
+
+    {isHomepage && <SectionNavigator language={language} />}
 
     <main id="main-content" class={isHomepage ? "" : "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12"}>
       <slot />

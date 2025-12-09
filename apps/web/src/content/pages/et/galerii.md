@@ -20,7 +20,6 @@ videos:
 
 ## Gallery
 
-
 ## Video
 
 Performance video available in frontmatter metadata.

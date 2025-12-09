@@ -26,7 +26,8 @@ const navigationItems = language === 'et'
 const currentPath = Astro.url.pathname;
 ---
 
-<nav class="hidden md:flex items-center gap-1 lg:gap-2" role="navigation">
+<!-- Desktop navigation now hidden (handled by SectionNavigator) -->
+<nav class="hidden" role="navigation" aria-hidden="true">
   {navigationItems.map((item) => (
     <a
       href={item.href}
@@ -97,34 +98,5 @@ const currentPath = Astro.url.pathname;
         menu.classList.add('hidden');
       });
     });
-  }
-
-  // Intersection Observer for active section highlighting
-  if (window.location.pathname.match(/^\/(et|en)\/?$/)) {
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-link[data-anchor]');
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const id = entry.target.getAttribute('id');
-            navLinks.forEach((link) => {
-              if (link.getAttribute('data-anchor') === id) {
-                link.classList.add('bg-indigo-50', 'text-indigo-600');
-              } else {
-                link.classList.remove('bg-indigo-50', 'text-indigo-600');
-              }
-            });
-          }
-        });
-      },
-      {
-        threshold: 0.3,
-        rootMargin: '-100px 0px -50% 0px',
-      }
-    );
-
-    sections.forEach((section) => observer.observe(section));
   }
 </script>

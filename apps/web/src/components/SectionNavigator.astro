@@ -1,0 +1,281 @@
+---
+interface Props {
+  language: 'et' | 'en';
+}
+
+const { language } = Astro.props;
+
+// Define sections with their anchors and labels
+const sections = [
+  { id: 'hero', labelEt: 'Avaleht', labelEn: 'Home' },
+  { id: 'etendused', labelEt: 'Etendused', labelEn: 'Performances' },
+  { id: 'suurtele', labelEt: 'Suurtele', labelEn: 'For Adults', parent: 'etendused' },
+  { id: 'noorele-publikule', labelEt: 'Noorele publikule', labelEn: 'For Young Audiences', parent: 'etendused' },
+  { id: 'workshopid', labelEt: 'Töötoad', labelEn: 'Workshops' },
+  { id: 'about', labelEt: 'Meist', labelEn: 'About' },
+  { id: 'gallery', labelEt: 'Galerii', labelEn: 'Gallery' },
+  { id: 'contact', labelEt: 'Kontakt', labelEn: 'Contact' },
+];
+
+const getLabel = (section: typeof sections[0]) => language === 'et' ? section.labelEt : section.labelEn;
+---
+
+<!-- Desktop-only floating section navigator -->
+<nav
+  id="section-navigator"
+  class="hidden md:fixed md:top-8 md:left-8 md:z-50 md:block"
+  aria-label="Section navigation"
+>
+  <!-- Collapsed state: shows current + prev/next -->
+  <button
+    id="nav-pill"
+    class="nav-pill bg-white/90 backdrop-blur-md shadow-lg rounded-full px-6 py-3 transition-all duration-300 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-indigo-500"
+    aria-expanded="false"
+    aria-controls="nav-expanded"
+  >
+    <div class="flex flex-col items-center justify-center min-w-[120px]">
+      <!-- Previous section (faded) -->
+      <div
+        id="nav-prev"
+        class="text-xs text-gray-400 opacity-50 transition-all duration-300"
+        aria-hidden="true"
+      ></div>
+
+      <!-- Current section (prominent) -->
+      <div
+        id="nav-current"
+        class="text-base font-semibold text-gray-900 py-1 transition-all duration-300"
+      ></div>
+
+      <!-- Next section (faded) -->
+      <div
+        id="nav-next"
+        class="text-xs text-gray-400 opacity-50 transition-all duration-300"
+        aria-hidden="true"
+      ></div>
+    </div>
+  </button>
+
+  <!-- Expanded state: shows all sections -->
+  <div
+    id="nav-expanded"
+    class="hidden absolute top-0 left-0 bg-white/95 backdrop-blur-md shadow-xl rounded-2xl px-4 py-3 min-w-[200px]"
+  >
+    <div class="flex flex-col space-y-1">
+      {sections.map(section => (
+        <a
+          href={`#${section.id}`}
+          data-section={section.id}
+          class:list={[
+            'nav-section-link px-4 py-2 rounded-lg text-sm transition-all duration-200',
+            'hover:bg-indigo-50 hover:text-indigo-600',
+            'focus:outline-none focus:ring-2 focus:ring-indigo-500',
+            section.parent && 'pl-8 text-xs' // Indent subsections
+          ]}
+        >
+          {getLabel(section)}
+        </a>
+      ))}
+    </div>
+  </div>
+</nav>
+
+<script define:vars={{ sections }}>
+  // Only run on homepage
+  if (window.location.pathname.match(/^\/(et|en)\/?$/)) {
+    // Wait for DOM to be fully loaded
+    function initNavigator() {
+      const navPill = document.getElementById('nav-pill');
+      const navExpanded = document.getElementById('nav-expanded');
+      const navCurrent = document.getElementById('nav-current');
+      const navPrev = document.getElementById('nav-prev');
+      const navNext = document.getElementById('nav-next');
+
+      if (!navPill || !navExpanded || !navCurrent || !navPrev || !navNext) {
+        console.warn('SectionNavigator: Required elements not found');
+        return;
+      }
+
+      let isExpanded = false;
+      let currentSectionIndex = -1; // Start at -1 so first detection triggers update
+
+      // Section data passed from Astro
+      const sectionList = sections;
+
+    // Toggle expanded/collapsed state
+    function toggleExpanded() {
+      isExpanded = !isExpanded;
+      navPill.setAttribute('aria-expanded', isExpanded.toString());
+
+      if (isExpanded) {
+        navPill.classList.add('hidden');
+        navExpanded.classList.remove('hidden');
+      } else {
+        navPill.classList.remove('hidden');
+        navExpanded.classList.add('hidden');
+      }
+    }
+
+    // Update displayed section names
+    function updateSectionDisplay(index) {
+      currentSectionIndex = index;
+
+      const current = sectionList[index];
+      const prev = index > 0 ? sectionList[index - 1] : null;
+      const next = index < sectionList.length - 1 ? sectionList[index + 1] : null;
+
+      // Get label based on language
+      const lang = window.location.pathname.includes('/et') ? 'et' : 'en';
+      const getLabel = (section) => lang === 'et' ? section.labelEt : section.labelEn;
+
+      navCurrent.textContent = getLabel(current);
+      navPrev.textContent = prev ? getLabel(prev) : '';
+      navNext.textContent = next ? getLabel(next) : '';
+
+      // Highlight active section in expanded view
+      document.querySelectorAll('.nav-section-link').forEach(link => {
+        const sectionId = link.getAttribute('data-section');
+        if (sectionId === current.id) {
+          link.classList.add('bg-indigo-50', 'text-indigo-600', 'font-semibold');
+        } else {
+          link.classList.remove('bg-indigo-50', 'text-indigo-600', 'font-semibold');
+        }
+      });
+    }
+
+    // Set up Intersection Observer
+    const observerOptions = {
+      threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0],
+      rootMargin: '-20% 0px -20% 0px'
+    };
+
+    let visibleSections = new Map();
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const sectionId = entry.target.id;
+
+        if (entry.isIntersecting) {
+          visibleSections.set(sectionId, entry.intersectionRatio);
+        } else {
+          visibleSections.delete(sectionId);
+        }
+      });
+
+      // Find the section with highest intersection ratio
+      // Prioritize sections that are at least 30% visible to avoid tiny sections
+      if (visibleSections.size > 0) {
+        let topSectionId = null;
+        let maxRatio = 0;
+
+        // First, try to find sections with significant visibility (>30%)
+        let significantSections = Array.from(visibleSections.entries()).filter(([id, ratio]) => ratio > 0.3);
+
+        if (significantSections.length === 0) {
+          // If no significant sections, use all visible sections
+          significantSections = Array.from(visibleSections.entries());
+        }
+
+        // Find the earliest section (by document order) among significant ones
+        let earliestIndex = Infinity;
+
+        significantSections.forEach(([id, ratio]) => {
+          const index = sectionList.findIndex(s => s.id === id);
+          if (index !== -1 && index < earliestIndex) {
+            earliestIndex = index;
+            topSectionId = id;
+            maxRatio = ratio;
+          }
+        });
+
+        if (topSectionId && earliestIndex !== currentSectionIndex) {
+          updateSectionDisplay(earliestIndex);
+        }
+      }
+    }, observerOptions);
+
+    // Observe all sections
+    sectionList.forEach(section => {
+      const element = document.getElementById(section.id);
+      if (element) {
+        observer.observe(element);
+      }
+    });
+
+    // Toggle on pill click
+    navPill.addEventListener('click', toggleExpanded);
+
+    // Navigate and collapse on section link click
+    document.querySelectorAll('.nav-section-link').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = link.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
+
+        if (targetElement) {
+          targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+          // Collapse after a short delay
+          setTimeout(() => {
+            if (isExpanded) {
+              toggleExpanded();
+            }
+          }, 300);
+        }
+      });
+    });
+
+    // Click outside to collapse
+    document.addEventListener('click', (e) => {
+      if (isExpanded && !navExpanded.contains(e.target) && !navPill.contains(e.target)) {
+        toggleExpanded();
+      }
+    });
+
+    // Keyboard support (Escape to collapse)
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && isExpanded) {
+        toggleExpanded();
+        navPill.focus();
+      }
+    });
+
+    // Don't force initialization - let Intersection Observer detect the visible section
+    // This prevents wrong section showing on page load
+  }
+
+  // Initialize when DOM is ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initNavigator);
+  } else {
+    initNavigator();
+  }
+}
+</script>
+
+<style>
+  .nav-pill {
+    cursor: pointer;
+    user-select: none;
+  }
+
+  #nav-expanded {
+    animation: slideDown 0.2s ease-out;
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Smooth text transitions */
+  #nav-current, #nav-prev, #nav-next {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+</style>

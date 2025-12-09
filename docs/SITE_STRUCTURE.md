@@ -66,17 +66,46 @@ Single scrollable homepage with sections, detail pages remain separate routes.
 └─ Contact Section (inline)
 ```
 
-### New Navigation (not visible or hidden or collapsed by default)
+### New Navigation (Implemented)
 
-in collapsed state its floating on top left and showing the name of current section. on section change it smoothly transitions to new section name. Also previous and next section names could be faintly visible on top and bottom of the current section name to indicate user can scroll up or down to navigate to those sections. When clicked it expands to show full nav.
+**Desktop:** Floating pill navigator (top-left corner)
+
+- **Collapsed state**: Shows current section name with faded prev/next sections
+- **Smooth transitions**: Section names update automatically as user scrolls
+- **Expandable**: Click to reveal all sections
+- **Interactive**: Click section to navigate, auto-collapses after selection
+- **Intersection Observer**: Tracks visible sections with 30% threshold
+
+**Mobile:** Sticky header with hamburger menu
+
+- Traditional mobile menu (unchanged from Phase 3.3)
+- Hamburger icon in header
+- Full navigation menu slides down on click
+
+**Header Differences:**
+
+- **Desktop**: Static header, logo + language switcher only
+- **Mobile**: Sticky header, logo + language switcher + hamburger
 
 ```text
-Main Nav: [Etendused ↓] [Töötoad ↓] [Tegijad ↓] [Galerii ↓] [Kontakt ↓]
-               ↓            ↓           ↓          ↓          ↓
-          Anchor to    Anchor to   Anchor to  Anchor to  Anchor to
-          section      section     section    section    section
-          on same      on same     on same    on same    on same
-          page         page        page       page       page
+Desktop: [Floating Pill]     Mobile: [Logo] [☰]
+         ┌─────────┐                 ↓
+         │  Meist  │              [Full Nav Menu]
+         │Etendused│
+         │Töötoad  │
+         └─────────┘
+         Click to expand
+              ↓
+         ┌─────────┐
+         │ Avaleht │
+         │Etendused│
+         │ •Suurtele
+         │ •Noorele
+         │Töötoad  │
+         │  Meist  │
+         │ Galerii │
+         │ Kontakt │
+         └─────────┘
 ```
 
 ---
@@ -128,7 +157,7 @@ type: "landing" |
   "news";
 ```
 
-**Pros:** Describes content nature  
+**Pros:** Describes content nature
 **Cons:** Doesn't reflect hierarchy
 
 #### Option B: Hierarchical Types (New and preferred)
@@ -138,7 +167,7 @@ type: "home" | "section" | "detail";
 category: "performance" | "workshop" | "about" | "gallery" | "contact" | "news";
 ```
 
-**Pros:** Clear hierarchy + content type  
+**Pros:** Clear hierarchy + content type
 **Cons:** More fields to maintain
 
 #### Option C: Hybrid
@@ -155,7 +184,7 @@ type: "home" |
 // others = detail pages (no separate section pages needed)
 ```
 
-**Pros:** Simple, matches new structure  
+**Pros:** Simple, matches new structure
 **Cons:** Loses explicit section concept
 
 **Decision:** Option B (Hierarchical) - Use `type` for hierarchy level and `category` for content type. This provides clear structure and flexibility.
@@ -174,7 +203,7 @@ type: "home" |
 
 #### Option A: Keep Current (with category prefix)
 
-**Pros:** SEO-friendly, category visible in URL  
+**Pros:** SEO-friendly, category visible in URL
 **Cons:** Long URLs
 
 #### Option B: Flatten
@@ -185,7 +214,7 @@ type: "home" |
 /et/meelekolu-mangud
 ```
 
-**Pros:** Shorter, cleaner  
+**Pros:** Shorter, cleaner
 **Cons:** Loses category context in URL
 
 #### Option C: Add hierarchy
@@ -196,7 +225,7 @@ type: "home" |
 /et/workshopid/meelekolu-mangud
 ```
 
-**Pros:** Clear hierarchy, organized  
+**Pros:** Clear hierarchy, organized
 **Cons:** Requires routing changes
 
 #### Option D: Modified Hierarchy (Recommended)
@@ -206,7 +235,7 @@ type: "home" |
 /et/workshopid/meelekolu-mangud
 ```
 
-**Pros:** Clean hierarchy without over-nesting, category visible in URL, no collision risk, better SEO  
+**Pros:** Clean hierarchy without over-nesting, category visible in URL, no collision risk, better SEO
 **Cons:** Subcategory not in URL (but can be in frontmatter)
 
 **Decision:** Option D - Two-level hierarchy `/[lang]/[category]/[slug]`. Subcategory stored in frontmatter for filtering/grouping on homepage, but not in URL to keep it clean.
@@ -215,38 +244,42 @@ type: "home" |
 
 ## Implementation Phases
 
-### Phase 1: Terminology Alignment
+### Phase 1: Terminology Alignment ✅
 
-- [ ] Update type field values in schema
-- [ ] Rename files if needed
-- [ ] Update component references
+- [x] Update type field values in schema
+- [x] Rename files if needed
+- [x] Update component references
 
-### Phase 2: Homepage Consolidation
+### Phase 2: Homepage Consolidation ✅
 
-- [ ] Create long-scroll homepage layout
-- [ ] Build section components (inline listings)
-- [ ] Update navigation to anchor links
-- [ ] Handle smooth scrolling
+- [x] Create long-scroll homepage layout
+- [x] Build section components (inline listings)
+- [x] Update navigation to anchor links
+- [x] Handle smooth scrolling
 
-### Phase 3: Detail Page Updates
+### Phase 3: Navigation & Components ✅
 
-- [ ] Decide on detail page UX
-- [ ] Update routing if needed
-- [ ] Add back-navigation
-- [ ] Test language switching
+- [x] Build ContentCard and HomeSection components
+- [x] Implement sticky navigation with active states
+- [x] Create floating pill navigator for desktop
+- [x] Maintain mobile hamburger menu
+- [x] Test responsive behaviors
 
-### Phase 4: Content Migration
+### Phase 4: Content Migration ✅
 
-- [ ] Update all markdown frontmatter
-- [ ] Move/rename files as needed
-- [ ] Update cross-references
+- [x] Update all markdown frontmatter (36 pages)
+- [x] Implement hierarchical routing
+- [x] Create redirects for old URLs
+- [x] Update cross-references
 
-### Phase 5: Testing & Polish
+### Phase 5: Testing & Polish (In Progress)
 
-- [ ] Test all navigation flows
-- [ ] Verify SEO (canonical URLs, sitemap)
+- [x] Test navigation flows
+- [x] Verify SEO (canonical URLs, sitemap)
 - [ ] Accessibility audit
-- [ ] Mobile responsiveness
+- [ ] Mobile responsiveness testing
+- [ ] Performance optimization
+- [ ] Analytics integration
 
 ---
 
@@ -262,7 +295,12 @@ type: "home" |
 
 ## Decisions Log
 
-| Date       | Decision            | Rationale                                         |
-| ---------- | ------------------- | ------------------------------------------------- |
-| 2025-12-09 | Terminology defined | Homepage → Section → Detail hierarchy established |
-| _TBD_      | _Pending_           | _Awaiting discussion_                             |
+| Date       | Decision                           | Rationale                                                                                    |
+| ---------- | ---------------------------------- | -------------------------------------------------------------------------------------------- |
+| 2025-12-09 | Terminology defined                | Homepage → Section → Detail hierarchy established                                            |
+| 2025-12-09 | Hierarchical schema (Option B)     | Type field for hierarchy, category for content type. Clear structure with flexibility        |
+| 2025-12-09 | Two-level URLs (Option D)          | `/[lang]/[category]/[slug]` balances SEO and cleanliness                                     |
+| 2025-12-09 | Featured subset display            | 3-5 cards per subcategory on homepage with categorized grouping                              |
+| 2025-12-09 | Separate detail page routes        | Traditional approach for better SEO and accessibility                                        |
+| 2025-12-09 | Floating pill navigator (desktop)  | Top-left pill with prev/current/next sections, expandable. Mobile keeps hamburger menu       |
+| 2025-12-09 | Static desktop header              | Desktop header not sticky (floating nav handles navigation). Mobile header remains sticky    |
