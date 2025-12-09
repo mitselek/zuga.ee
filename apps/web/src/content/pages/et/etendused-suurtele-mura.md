@@ -2,7 +2,6 @@
 title: Müra
 slug: etendused-suurtele-mura
 language: et
-description: Zuga etendus 'Müra' fotogalerii
 type: detail
 category: etendused
 subcategory: suurtele
@@ -12,43 +11,54 @@ page_type: performance
 translated:
 - language: en
   slug: english-noise
-hero_image: https://lh5.googleusercontent.com/59xxbVjoQYLbBMwlqolRPWd-PFa58oVPkN_XaSTVetAGh6-hlKXkTjKQALp29V_5IyR2pNoVBUsZWlV7pXtA4Yw=w16383
+hero_image: /images/etendused-mura-proovist.jpg
 gallery:
-- url: https://lh6.googleusercontent.com/eYtRjbVrbUHsbpG_S7LWlbHD-KzNOaYrixrKuDrkiYHpSMotOa_Eo8q36rARlmjCPSIK4wEvOSJi0jfzHmn-AEAT_z89ZSVw9CJayo_u6sRZWPlIP36T0pSY2Aek3rv_hA=w1280
-  width: 1280
-  description: Etenduse foto
-- url: https://lh4.googleusercontent.com/9VYlWXTJiw-uJ_fo2avWXR0rRbKXlf2VoJ63t0h7uJTXyAa_dhvw19tQCtEq4cHJNip7UP4yVPImSla1JCEvcIgv1e9sX9-ZaWGvZQrNc5D0RUbOdeY-5pNxhafL9EAxag=w1280
-  width: 1280
-  description: Etenduse foto
-- url: https://lh4.googleusercontent.com/KmbemukJTQo9yo0WbK_YYz7GlqvqFfG8XLN4ItyWzbS4xRPM70UbxSaQR4SfZ6sUTKe8jAZHeduESwh3T_dFw6Q=w1280
-  width: 1280
-  description: Etenduse foto
-- url: https://lh6.googleusercontent.com/ZSQVEXkNQvVK5ND6uIlC3QYTLlWeYgjJ02ce_1DyzAtEqrO9C0TzOQr5yzrxs14byS9JNBoHJhQirbJZD49RfnTtYgq0vcAWVCbNwxX96ePle2dhbqpuO2HCt23kTbK07g=w1280
-  width: 1280
-  description: Etenduse foto
-- url: https://lh4.googleusercontent.com/cEg2Tkn90RBLgt5Hln4B7cVttaWq63QsOvO6w7FzNK1mBHVqu6LtontM8VTbcWYP=w1280
-  width: 1280
-  description: Etenduse foto
-- url: https://lh5.googleusercontent.com/6YSCrXvN8ZsalV2KjOQqa4cVr5NfOroFLm9sG0NnJIP-tzupaWwKmDIjykbVfzXEKG5tsTTOn9PDWJ8XyocgqrmmSyXOHd461OwGQxZYaPXg4OVh=w1280
-  width: 1280
-  description: Etenduse foto
-- url: https://lh3.googleusercontent.com/gwanlqpY2gdC3RJYsbod3J3We0dgskInBKN1LkjVlNLukToMVbvsn8QYceAGxx8koSKZwt5vmN8MhMKE6yD9wEnkceXYwjvP2qKdS_wv4cfWQn6u0orPTmWx8-4wvsYSRA=w1280
-  width: 1280
-  description: Etenduse foto
+- url: /images/etendused-mura-etendus.jpg
+  width: 1200
+  height: 800
+  description: Etendusest "Müra"
+- url: /images/etendused-mura-postimees.jpg
+  width: 1920
+  height: 1080
+  description: Etendusest "Müra"
 videos:
+- platform: vimeo
+  video_id: "359221287"
+  title: Dance performance NOISE (MÜRA)
+  url: https://vimeo.com/359221287
 - platform: youtube
-  video_id: qp22v58UQnw
-  title: ZUGA videotervitus
-  url: https://www.youtube.com/embed/qp22v58UQnw
+  video_id: Nj_JGAGBt28
+  title: NOISE (MÜRA) - Helena Krinal/ZUGA
+  url: https://www.youtube.com/embed/Nj_JGAGBt28
 ---
 
-# Müra
+## Tantsuetendus MÜRA
 
-## Gallery
+**Helena Krinal/ZUGA**
 
-This performance features 7 gallery images.
-Fotogalerii etendusest Müra
+Maailmas, kus müra on saanud normiks, on meid hirmutamas vaikus. „Müra" on helivibratsioonide, kehade ja ruumi füüsiline kohtumine; leotatud ja serveeritud igasuguse müraga, millega oleme harjunud, hoolimata selle häirivast mõjust meie elule. Tantsulavastus, mis on sündinud vaikses Eestis ja kasvanud Palestiina valjudel tänavatel.
 
-## Video
+**Lavastaja:** Helena Krinal (krinal | mansour)
 
-ZUGA videotervitus
+**Esitajad:** Tiina Mölder, Helen Reitsnik ja Ajjar Ausma
+
+**Lavakujundaja:** Keili Retter
+
+**Valguskujundaja:** Oliver Kulpsoo
+
+**Heli- ja graafiline kujundaja:** Asma Ghanem (Palestiina)
+
+**Dramaturg:** Katrin Tegova
+
+**Tootmine:** Väike Objekt A ja United Dancers of Zuga
+
+**Kaastootmine:** krinal | mansour ja Sõltumatu Tantsu Lava
+
+**Esietendus:** 6.06.2019 Sõltumatu Tantsu Laval Tallinnas, Eestis
+
+### Arvustused ja kajastused
+
+- [ERR – "Helena Krinali ja ZUGA tantsulavastus „Müra" esietendus Palestiinas"](https://kultuur.err.ee/929451/helena-krinali-ja-zuga-tantsulavastus-mura-esietendus-palestiinas)
+- [EPL – "Helena Krinali ja ZUGA tantsulavastus „Müra" esietendus Palestiinas"](https://epl.delfi.ee/artikkel/85886801/helena-krinali-ja-zuga-tantsulavastus-mura-esietendus-palestiinas)
+- [Postimees – "Sõltumatu Tantsu Laval Helena Krinali ja ZUGA tantsulavastus „Müra""](https://kultuur.postimees.ee/6701530/soltumatu-tantsu-laval-helena-krinali-ja-zuga-tantsulavastus-mura)
+- [Berliini Eesti Kultuuriselts – "MÜRA ZUGA"](https://berliinieestikultuuriselts.com/mura-zuga/)

@@ -41,12 +41,8 @@ ZUGA Ühendatud Tantsijad on tantsijaid ja koreograafe koondav kollektiiv, mis o
 
 ## Laste tagasiside
 
-*"Päris lahe oli olla mingi kuju, keda liigutatakse!"*
-
-*"Ma algul ei viitsinud, aga pärast oleks tahtnud veel kauem seda tundi."*
-
-*"Tore oli rühmas ja paaris teistsuguseid ülesandeid teha."*
-
-*"Mulle nii meeldis, et täitsa lõpp."*
-
-*"See tund oli nagu äratustund hommikul!"*
+- *"Päris lahe oli olla mingi kuju, keda liigutatakse!"*
+- *"Ma algul ei viitsinud, aga pärast oleks tahtnud veel kauem seda tundi."*
+- *"Tore oli rühmas ja paaris teistsuguseid ülesandeid teha."*
+- *"Mulle nii meeldis, et täitsa lõpp."*
+- *"See tund oli nagu äratustund hommikul!"*
