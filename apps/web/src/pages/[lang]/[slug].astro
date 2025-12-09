@@ -8,46 +8,77 @@ import VideoEmbed from '../../components/VideoEmbed.astro';
 import PerformanceList from '../../components/PerformanceList.astro';
 
 export async function getStaticPaths() {
-  const pages = await getCollection('pages', ({ data }) => {
+  const allPages = await getCollection('pages', ({ data }) => {
     return data.status === 'published';
   });
 
-  return pages.map(page => ({
-    params: {
-      lang: page.data.language,
-      slug: page.id.replace(/^(en|et)\//, '').replace(/\.md$/, ''),
-    },
-    props: { page },
-  }));
+  const paths = [];
+
+  for (const page of allPages) {
+    const slug = page.id.replace(/^(en|et)\//, '').replace(/\.md$/, '');
+
+    // For detail pages, create redirect to new hierarchical URL
+    if (page.data.type === 'detail') {
+      paths.push({
+        params: {
+          lang: page.data.language,
+          slug: slug,
+        },
+        props: {
+          page,
+          redirect: `/${page.data.language}/${page.data.category}/${slug}`,
+        },
+      });
+    }
+    // For section pages, render normally
+    else if (page.data.type === 'section') {
+      paths.push({
+        params: {
+          lang: page.data.language,
+          slug: slug,
+        },
+        props: { page },
+      });
+    }
+    // Skip home pages (handled by [lang]/index.astro)
+  }
+
+  return paths;
 }
 
-const { page } = Astro.props;
+const { page, redirect } = Astro.props;
+
+// If this is a detail page, redirect to new hierarchical URL
+if (redirect) {
+  return Astro.redirect(redirect, 301);
+}
+
 const { Content } = await page.render();
 const currentSlug = page.id.replace(/^(en|et)\//, '').replace(/\.md$/, '');
 ---
 
-<BaseLayout 
+<BaseLayout
   title={page.data.title}
   description={page.data.description}
   language={page.data.language}
 >
-  <LanguageSwitcher 
+  <LanguageSwitcher
     slot="language-switcher"
     currentLang={page.data.language}
     currentSlug={currentSlug}
     translations={page.data.translated}
   />
-  
-  <PageHero 
+
+  <PageHero
     title={page.data.title}
     subtitle={page.data.description}
     type={page.data.type}
   />
-  
+
   <article class="prose prose-lg prose-slate max-w-4xl mx-auto mb-16">
     <Content />
   </article>
-  
+
   {page.data.gallery && (
     <section class="mb-16">
       <h2 class="text-3xl font-bold mb-8 text-center" style="font-family: var(--font-heading); color: var(--color-primary);">
@@ -56,7 +87,7 @@ const currentSlug = page.id.replace(/^(en|et)\//, '').replace(/\.md$/, '');
       <PerformanceGallery items={page.data.gallery} />
     </section>
   )}
-  
+
   {page.data.videos && (
     <section class="mb-16">
       <h2 class="text-3xl font-bold mb-8 text-center" style="font-family: var(--font-heading); color: var(--color-primary);">
@@ -65,10 +96,10 @@ const currentSlug = page.id.replace(/^(en|et)\//, '').replace(/\.md$/, '');
       <VideoEmbed videos={page.data.videos} />
     </section>
   )}
-  
+
   <!-- Show list of related pages for category/index pages -->
   {(currentSlug.includes('etendused') || currentSlug.includes('workshopid')) && (
-    <PerformanceList 
+    <PerformanceList
       language={page.data.language}
       category={currentSlug}
       currentSlug={currentSlug}

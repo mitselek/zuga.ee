@@ -1,0 +1,46 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import LanguageSwitcher from '../../components/LanguageSwitcher.astro';
+import PageHero from '../../components/PageHero.astro';
+
+export async function getStaticPaths() {
+  const pages = await getCollection('pages', ({ data }) => {
+    // Only generate routes for home pages with published status
+    return data.status === 'published' && data.type === 'home';
+  });
+
+  return pages.map(page => ({
+    params: {
+      lang: page.data.language,
+    },
+    props: { page },
+  }));
+}
+
+const { page } = Astro.props;
+const { Content } = await page.render();
+---
+
+<BaseLayout
+  title={page.data.title}
+  description={page.data.description}
+  language={page.data.language}
+>
+  <LanguageSwitcher
+    slot="language-switcher"
+    currentLang={page.data.language}
+    currentSlug="index"
+    translations={page.data.translated}
+  />
+
+  <PageHero
+    title={page.data.title}
+    subtitle={page.data.description}
+    type={page.data.type}
+  />
+
+  <article class="prose prose-lg prose-slate max-w-4xl mx-auto mb-16">
+    <Content />
+  </article>
+</BaseLayout>
