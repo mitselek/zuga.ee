@@ -2,35 +2,32 @@
 title: ZUGA Liikumispausid
 slug: workshopid-zuga-liikumispausid
 language: et
-description: ZUGA liikumispausid fotogalerii
+description: 5-10 minuti pikkused helijuhendid istuva töö- või koolipäeva vahepaladeks
 type: detail
 category: workshopid
 status: published
 original_url: https://www.zuga.ee/et/workshopid-zuga-liikumispausid
 page_type: workshop
-hero_image: https://lh3.googleusercontent.com/f_Y8bEmDx0aEa3A7mbSHdK3l684x6MTTnG1QfIBka_ahRHbSr-3VXpfiSaN1lnSFo9uS6y65cBs-zen22eqxYFY=w16383
+hero_image: /images/workshopid-zuga-liikumispausid-hero.jpg
 gallery:
-- url: https://lh6.googleusercontent.com/Ek0yUufUhK8uy5VkxE8L0v9WmKxuUX9EAJY83N_RTsJMHRIIKzMA-AHcwLZwV8LvdKo6EqBqeybkm9_5SPdMiFOT-VROvmDrB5lUP-M6LGPpLrxFaRLySjjRxAH_0Bt1og=w1280
-  width: 1280
-  description: Töötoa foto
-- url: https://lh3.googleusercontent.com/K2XhZTtZ5VUuyyKdhOa3XWvOarmlSgNcpgqnb6gxK6PCiNcYVRQQKZuJLoO0u-Lhd5kMx8KXtr7fU-ziuaFNdIXAxEraEXaLL202tLyha78Hvs1pyvXwkdks4PNeW293BQ=w1280
-  width: 1280
-  description: Töötoa foto
-- url: https://lh5.googleusercontent.com/8NjC0VpXGI_Rx5ykm8ECWs9rsCoH2Zlha2aGJWHXCy_AdgVJQo6rpljiqGZU4Nxx68UhrSh5umw0b_aG_btvQN4=w1280
-  width: 1280
-  description: Töötoa foto
-- url: https://lh3.googleusercontent.com/OuWj6hZ-e4axsPR8WNqlIieRD1p6aspL-BuzR2mzJsDyiKw3B8auSAtQdPtD7gpV70h3N0sRCdfITBMEZ1XYt5Nwp2_-juVfHfS-Y0R5AM-Gyl4JlWIAQK0GwKWUKmRi4w=w1280
-  width: 1280
-  description: Töötoa foto
-- url: https://lh3.googleusercontent.com/2AxLZ-3yF9Bl4JIgFZVqQPyhQOShdRZgOLdyopImYKZvtjeDLwqUGKehQ728v9cy=w1280
-  width: 1280
-  description: Töötoa foto
-- url: https://lh6.googleusercontent.com/DMt8HXjUOB44Nas1tdTUBn5epC-TYIVEdG-jrDoAfM90AZq-D-9WPKDKKXGM7dZgzVuIzWFwAxKPtpqVrtmEyGBzXw6joWwKGb91Iw80PexrH1v0=w1280
-  width: 1280
-  description: Töötoa foto
-- url: https://lh3.googleusercontent.com/jas9VZ3Z9kHqNXS1uk1HHLp5pyZ8rKj91P5spbNrzkanXzz41bHzTkJpP-HKQWPxjVyITvqRjUFTn0SmxBEZWpc92rnxCtj6deXMvwGuh3jHw6ermG_6wTmokgdH80e9KQ=w1280
-  width: 1280
-  description: Töötoa foto
+- url: /images/workshopid-zuga-liikumispausid-1.jpg
+  width: 2560
+  description: Liikumispauside läbiviimine
+- url: /images/workshopid-zuga-liikumispausid-2.jpg
+  width: 2560
+  description: Osalejad liikumispausil
+- url: /images/workshopid-zuga-liikumispausid-3.jpg
+  width: 2560
+  description: Grupp tegevuses
+- url: /images/workshopid-zuga-liikumispausid-4.jpg
+  width: 2560
+  description: Liikumisharjutused
+- url: /images/workshopid-zuga-liikumispausid-5.jpg
+  width: 2560
+  description: Osalejad sirutamas
+- url: /images/workshopid-zuga-liikumispausid-6.jpg
+  width: 2560
+  description: Liikumispauside hetk
 videos:
 - platform: youtube
   video_id: qp22v58UQnw
@@ -40,11 +37,33 @@ videos:
 
 # ZUGA Liikumispausid
 
-## Gallery
+Zuga liikumispausid on 5-10 minuti pikkused helijuhendid, mis on mõeldud istuva töö- või koolipäeva vahepaladeks. Liikumispausid pakuvad liikumispiirangute tingimustes võimalust püsti tõusmiseks ja enda sirutamiseks nii neile, kes kodudes arvuti taga istumas, kui õpilastele koolitundide vahele.
 
-This performance features 7 gallery images.
-Fotogalerii ZUGA liikumispausid
+## Kellele sobivad?
+
+Liikumispausid sobivad igas vanuses huvilisele:
+
+- Meestele ja naistele
+- Lastele ja noortele
+- Tipp- ja harrastussportlastele
+- Kõigile, kes soovivad end liigutada ning seeläbi tervena hoida
+
+Samuti sobivad need imehästi kasutamiseks kas füüsikaloengu viimasteks minutiteks või ka päev läbi kestvate veebikonverentside turgutavaks vahepalaks.
+
+## Lähenemisviis
+
+Liikumispauside ülesehituses on rakendatud inimese funktsionaalset loomuomast liikumist, pakkudes tavapäraste kükkide ja hüpete asemel loomingulisemat lähenemist liikumiseks. Need ärgitavad keha kõiki meeli andes niiviisi energiat järgnevateks töötundideks.
+
+## Kättesaadavus
+
+Liikumispausid on kõigile tasuta kasutamiseks. Hetkel on pakkuda viis erinevat liikumispausi.
+
+Kui jäädvustad liikumispausidel sirutamist, võid julgelt tag'ida meid sotsiaalmeedias @soltumatutantsulava ja kasutada #liikumispaus
 
 ## Video
 
-ZUGA videotervitus
+Vaata ZUGA videotervitust ja tutvu liikumispausidega lähemalt.
+
+## Galerii
+
+Fotod liikumispauside läbiviimisest.

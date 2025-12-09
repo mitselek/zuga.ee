@@ -12,7 +12,7 @@ page_type: performance
 translated:
 - language: en
   slug: english-shame
-hero_image: https://lh5.googleusercontent.com/59xxbVjoQYLbBMwlqolRPWd-PFa58oVPkN_XaSTVetAGh6-hlKXkTjKQALp29V_5IyR2pNoVBUsZWlV7pXtA4Yw=w16383
+hero_image: /images/etendused-suurtele-habi-hero.jpg
 gallery:
 - url: https://lh6.googleusercontent.com/eYtRjbVrbUHsbpG_S7LWlbHD-KzNOaYrixrKuDrkiYHpSMotOa_Eo8q36rARlmjCPSIK4wEvOSJi0jfzHmn-AEAT_z89ZSVw9CJayo_u6sRZWPlIP36T0pSY2Aek3rv_hA=w1280
   width: 1280

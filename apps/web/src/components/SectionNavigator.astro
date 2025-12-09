@@ -20,24 +20,24 @@ const sections = [
 const getLabel = (section: typeof sections[0]) => language === 'et' ? section.labelEt : section.labelEn;
 ---
 
-<!-- Desktop-only floating section navigator -->
+<!-- Floating section navigator - always visible -->
 <nav
   id="section-navigator"
-  class="hidden md:fixed md:top-8 md:left-8 md:z-50 md:block md:w-fit"
+  class="fixed top-8 left-8 z-50"
   aria-label="Section navigation"
 >
   <!-- Collapsed state: circular pill with carousel -->
   <button
     id="nav-pill"
-    class="nav-pill shadow-lg rounded-full w-32 h-32 transition-all duration-300 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 overflow-hidden flex items-center justify-center relative"
-    style="background: linear-gradient(to right, transparent 0%, rgba(255, 255, 255, 0.7) 20%, rgba(255, 255, 255, 0.8) 40%, rgba(255, 255, 255, 0.8) 60%, rgba(255, 255, 255, 0.7) 80%, transparent 100%); backdrop-filter: blur(12px);"
+    class="nav-pill shadow-lg rounded-full transition-all duration-300 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 overflow-hidden flex items-center justify-center relative"
+    style="width: 128px; height: 128px; min-width: 128px; min-height: 128px; background: linear-gradient(to right, transparent 0%, rgba(255, 255, 255, 0.7) 20%, rgba(255, 255, 255, 0.8) 40%, rgba(255, 255, 255, 0.8) 60%, rgba(255, 255, 255, 0.7) 80%, transparent 100%); backdrop-filter: blur(12px);"
     aria-expanded="false"
     aria-controls="nav-expanded"
   >
-    <div class="h-32 w-32 overflow-hidden relative">
+    <div style="height: 128px; width: 128px; min-width: 128px; min-height: 128px;" class="overflow-hidden relative">
       <div id="nav-carousel" class="flex flex-col items-center transition-transform duration-700 ease-in-out" style="transform: translateY(40px);">
         {sections.map(section => (
-          <div class="w-32 h-10 flex items-center justify-center nav-carousel-item">
+          <div style="width: 128px;" class="h-10 flex items-center justify-center nav-carousel-item">
             {section.id === 'hero' ? (
               <img src="/logo.svg" alt="Zuga" class="w-30 h-30 transition-all duration-700" />
             ) : (

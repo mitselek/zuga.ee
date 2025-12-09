@@ -12,7 +12,7 @@ interface Props {
 
 const { title, description, children, id, background = 'white', heroImage, backgroundColor, isFirstSection = false } = Astro.props;
 const bgClass = background === 'slate' ? 'bg-slate-50' : 'bg-white';
-const paddingClass = isFirstSection ? 'pt-0 pb-24' : 'py-24';
+const paddingClass = isFirstSection ? 'pt-12 pb-24' : 'py-24';
 ---
 
 <section

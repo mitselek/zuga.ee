@@ -11,7 +11,7 @@ page_type: performance
 translated:
 - language: et
   slug: etendused-suurtele-habi
-hero_image: https://lh5.googleusercontent.com/PXSN6CJeVTYvu_x98JfAS3NBScOCkqV2WJW0HXxDJZWAA5pu8fyh7o59Y-BweUELFvpWPqx55G_kz-QCKDI1Y9Y=w16383
+hero_image: /images/etendused-suurtele-habi-hero.jpg
 gallery:
 - url: https://lh4.googleusercontent.com/zAG_7dQ9ctOWgapMIimu30Tjrugto9ndwjDyxOaacOQKB4vH3EwnXEsJd1k6zS0puQEuYYBLtBvUa8yd01YSh8VTXwlkKAza5qe4OJZTBVo_CMg1t1jFku0MSUk8kBOfkA=w1280
   width: 1280
