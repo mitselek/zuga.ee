@@ -68,13 +68,15 @@ Single scrollable homepage with sections, detail pages remain separate routes.
 
 ### New Navigation (Implemented)
 
-**Desktop:** Floating pill navigator (top-left corner)
+**Desktop:** Floating pill navigator
 
+- **Position**: Starts below header, scrolls up with page, then sticks at top-left (sticky positioning)
 - **Collapsed state**: Shows current section name with faded prev/next sections
 - **Smooth transitions**: Section names update automatically as user scrolls
 - **Expandable**: Click to reveal all sections
 - **Interactive**: Click section to navigate, auto-collapses after selection
-- **Intersection Observer**: Tracks visible sections with 30% threshold
+- **Scroll tracking**: Position-based detection using getBoundingClientRect
+- **Algorithm**: Selects section whose top edge is closest to (but above) viewport center
 
 **Mobile:** Sticky header with hamburger menu
 
