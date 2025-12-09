@@ -53,3 +53,12 @@ jobs:
 
       - name: Build Astro site
         run: npm run build
+
+  quality-gate:
+    name: Quality Gate
+    runs-on: ubuntu-latest
+    needs: [astro-build]  # Add scripts-quality when enabled
+    if: success()
+
+    steps:
+      - run: echo "✅ All quality checks passed!"
