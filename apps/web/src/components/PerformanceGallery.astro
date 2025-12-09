@@ -23,7 +23,7 @@ const { items } = Astro.props;
         </div>
         <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300" />
         {item.description && (
-          <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent text-white p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+          <div class="absolute bottom-0 left-0 right-0 bg-linear-to-t from-black/90 to-transparent text-white p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
             <p class="text-sm font-medium">{item.description}</p>
           </div>
         )}

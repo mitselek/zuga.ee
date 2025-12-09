@@ -5,6 +5,7 @@ import LanguageSwitcher from '../../components/LanguageSwitcher.astro';
 import PageHero from '../../components/PageHero.astro';
 import PerformanceGallery from '../../components/PerformanceGallery.astro';
 import VideoEmbed from '../../components/VideoEmbed.astro';
+import PerformanceList from '../../components/PerformanceList.astro';
 
 export async function getStaticPaths() {
   const pages = await getCollection('pages', ({ data }) => {
@@ -63,5 +64,14 @@ const currentSlug = page.id.replace(/^(en|et)\//, '').replace(/\.md$/, '');
       </h2>
       <VideoEmbed videos={page.data.videos} />
     </section>
+  )}
+  
+  <!-- Show list of related pages for category/index pages -->
+  {(currentSlug.includes('etendused') || currentSlug.includes('workshopid')) && (
+    <PerformanceList 
+      language={page.data.language}
+      category={currentSlug}
+      currentSlug={currentSlug}
+    />
   )}
 </BaseLayout>

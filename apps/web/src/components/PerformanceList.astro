@@ -1,0 +1,66 @@
+---
+import { getCollection } from 'astro:content';
+
+interface Props {
+  language: string;
+  category?: string;
+  currentSlug?: string;
+}
+
+const { language, category, currentSlug } = Astro.props;
+
+// Get all published pages in this language
+const allPages = await getCollection('pages', ({ data }) => {
+  return data.status === 'published' && data.language === language;
+});
+
+// Filter pages based on category if provided
+let filteredPages = allPages;
+if (category) {
+  filteredPages = allPages.filter(page => {
+    const slug = page.id.replace(/^(en|et)\//, '').replace(/\.md$/, '');
+    // Exclude the current page itself
+    if (slug === currentSlug) return false;
+    // Match pages that start with the category
+    return slug.startsWith(category);
+  });
+}
+
+// Sort by title
+filteredPages.sort((a, b) => a.data.title.localeCompare(b.data.title));
+---
+
+{filteredPages.length > 0 && (
+  <section class="my-16">
+    <h2 class="text-3xl font-bold mb-8" style="font-family: var(--font-heading); color: var(--color-primary);">
+      {language === 'et' ? 'Kõik etendused' : 'All Performances'}
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {filteredPages.map((page) => {
+        const slug = page.id.replace(/^(en|et)\//, '').replace(/\.md$/, '');
+        const href = `/${language}/${slug}`;
+        
+        return (
+          <a
+            href={href}
+            class="group block p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 border border-gray-200 hover:border-accent"
+          >
+            <h3 class="text-xl font-bold mb-2 group-hover:text-accent transition-colors" style="font-family: var(--font-heading); color: var(--color-primary);">
+              {page.data.title}
+            </h3>
+            {page.data.description && (
+              <p class="text-gray-600 text-sm line-clamp-3">
+                {page.data.description}
+              </p>
+            )}
+            {page.data.type && (
+              <span class="inline-block mt-3 px-3 py-1 text-xs font-semibold rounded-full" style="background-color: var(--color-accent); color: var(--color-primary);">
+                {page.data.type}
+              </span>
+            )}
+          </a>
+        );
+      })}
+    </div>
+  </section>
+)}
