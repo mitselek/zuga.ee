@@ -1,8 +1,8 @@
 ---
-title: Käeik
+title: Käik
 slug: etendused-noorele-publikule-kaeik
 language: et
-description: Zuga etendus 'Käeik' fotogalerii
+description: Zuga etendus 'Käik' fotogalerii
 type: detail
 category: etendused
 subcategory: noorele-publikule
@@ -42,12 +42,12 @@ videos:
   url: https://www.youtube.com/embed/qp22v58UQnw
 ---
 
-# Käeik
+# Käik
 
 ## Gallery
 
 This performance features 7 gallery images.
-Fotogalerii etendusest Käeik
+Fotogalerii etendusest Käik
 
 ## Video
 

@@ -8,13 +8,13 @@ const { language } = Astro.props;
 // Define sections with their anchors and labels
 const sections = [
   { id: 'hero', labelEt: 'Avaleht', labelEn: 'Home' },
-  { id: 'etendused', labelEt: 'Etendused', labelEn: 'Performances' },
-  { id: 'suurtele', labelEt: 'Suurtele', labelEn: 'For Adults', parent: 'etendused' },
-  { id: 'noorele-publikule', labelEt: 'Noorele publikule', labelEn: 'For Young Audiences', parent: 'etendused' },
-  { id: 'workshopid', labelEt: 'Töötoad', labelEn: 'Workshops' },
-  { id: 'about', labelEt: 'Meist', labelEn: 'About' },
-  { id: 'gallery', labelEt: 'Galerii', labelEn: 'Gallery' },
-  { id: 'contact', labelEt: 'Kontakt', labelEn: 'Contact' },
+  { id: 'category-etendused', labelEt: 'Etendused', labelEn: 'Performances' },
+  { id: 'category-suurtele', labelEt: 'Suurtele', labelEn: 'For Adults', parent: 'category-etendused' },
+  { id: 'category-noorele-publikule', labelEt: 'Noorele publikule', labelEn: 'For Young Audiences', parent: 'category-etendused' },
+  { id: 'category-workshopid', labelEt: 'Töötoad', labelEn: 'Workshops' },
+  { id: 'category-about', labelEt: 'Meist', labelEn: 'About' },
+  { id: 'category-gallery', labelEt: 'Galerii', labelEn: 'Gallery' },
+  { id: 'category-contact', labelEt: 'Kontakt', labelEn: 'Contact' },
 ];
 
 const getLabel = (section: typeof sections[0]) => language === 'et' ? section.labelEt : section.labelEn;
@@ -23,37 +23,30 @@ const getLabel = (section: typeof sections[0]) => language === 'et' ? section.la
 <!-- Desktop-only floating section navigator -->
 <nav
   id="section-navigator"
-  class="hidden md:sticky md:top-8 md:left-8 md:z-50 md:block md:w-fit md:ml-8"
-  style="margin-bottom: -100px;"
+  class="hidden md:fixed md:top-8 md:left-8 md:z-50 md:block md:w-fit"
   aria-label="Section navigation"
 >
-  <!-- Collapsed state: shows current + prev/next -->
+  <!-- Collapsed state: circular pill with carousel -->
   <button
     id="nav-pill"
-    class="nav-pill bg-white/90 backdrop-blur-md shadow-lg rounded-full px-6 py-3 transition-all duration-300 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-indigo-500"
+    class="nav-pill bg-white/90 backdrop-blur-md shadow-lg rounded-full w-32 h-32 transition-all duration-300 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 overflow-hidden flex items-center justify-center"
     aria-expanded="false"
     aria-controls="nav-expanded"
   >
-    <div class="flex flex-col items-center justify-center min-w-[120px]">
-      <!-- Previous section (faded) -->
-      <div
-        id="nav-prev"
-        class="text-xs text-gray-400 opacity-50 transition-all duration-300"
-        aria-hidden="true"
-      ></div>
-
-      <!-- Current section (prominent) -->
-      <div
-        id="nav-current"
-        class="text-base font-semibold text-gray-900 py-1 transition-all duration-300"
-      ></div>
-
-      <!-- Next section (faded) -->
-      <div
-        id="nav-next"
-        class="text-xs text-gray-400 opacity-50 transition-all duration-300"
-        aria-hidden="true"
-      ></div>
+    <div class="h-32 w-32 overflow-hidden relative">
+      <div id="nav-carousel" class="flex flex-col items-center transition-transform duration-700 ease-in-out" style="transform: translateY(40px);">
+        {sections.map(section => (
+          <div class="w-32 h-10 flex items-center justify-center nav-carousel-item">
+            {section.id === 'hero' ? (
+              <img src="/logo.svg" alt="Zuga" class="w-16 h-16 transition-all duration-700" />
+            ) : (
+              <span class="text-base font-semibold text-gray-900 transition-all duration-700 text-center px-2">
+                {getLabel(section)}
+              </span>
+            )}
+          </div>
+        ))}
+      </div>
     </div>
   </button>
 
@@ -62,14 +55,17 @@ const getLabel = (section: typeof sections[0]) => language === 'et' ? section.la
     id="nav-expanded"
     class="hidden absolute top-0 left-0 bg-white/95 backdrop-blur-md shadow-xl rounded-2xl px-4 py-3 min-w-[200px]"
   >
-    <div class="flex flex-col space-y-1">
+    <div class="relative flex flex-col space-y-1">
+      <!-- Floating active indicator -->
+      <div id="active-indicator" class="absolute left-0 w-full h-10 bg-indigo-100 rounded-lg transition-transform duration-700 ease-in-out pointer-events-none" style="transform: translateY(0px); opacity: 0;"></div>
+
       {sections.map(section => (
         <a
           href={`#${section.id}`}
           data-section={section.id}
           class:list={[
-            'nav-section-link px-4 py-2 rounded-lg text-sm transition-all duration-200',
-            'hover:bg-indigo-50 hover:text-indigo-600',
+            'nav-section-link px-4 py-2 rounded-lg text-sm transition-colors duration-200 relative z-10',
+            'hover:text-indigo-600',
             'focus:outline-none focus:ring-2 focus:ring-indigo-500',
             section.parent && 'pl-8 text-xs' // Indent subsections
           ]}
@@ -88,11 +84,9 @@ const getLabel = (section: typeof sections[0]) => language === 'et' ? section.la
     function initNavigator() {
       const navPill = document.getElementById('nav-pill');
       const navExpanded = document.getElementById('nav-expanded');
-      const navCurrent = document.getElementById('nav-current');
-      const navPrev = document.getElementById('nav-prev');
-      const navNext = document.getElementById('nav-next');
+      const navCarousel = document.getElementById('nav-carousel');
 
-      if (!navPill || !navExpanded || !navCurrent || !navPrev || !navNext) {
+      if (!navPill || !navExpanded || !navCarousel) {
         console.warn('SectionNavigator: Required elements not found');
         return;
       }
@@ -122,24 +116,77 @@ const getLabel = (section: typeof sections[0]) => language === 'et' ? section.la
       currentSectionIndex = index;
 
       const current = sectionList[index];
-      const prev = index > 0 ? sectionList[index - 1] : null;
-      const next = index < sectionList.length - 1 ? sectionList[index + 1] : null;
 
-      // Get label based on language
-      const lang = window.location.pathname.includes('/et') ? 'et' : 'en';
-      const getLabel = (section) => lang === 'et' ? section.labelEt : section.labelEn;
+      // Scroll carousel to show current section centered
+      const itemHeight = 40; // h-10 = 40px
+      const offset = index * itemHeight - 40; // Center in viewport (40px offset to show prev item)
+      navCarousel.style.transform = `translateY(-${offset}px)`;
 
-      navCurrent.textContent = getLabel(current);
-      navPrev.textContent = prev ? getLabel(prev) : '';
-      navNext.textContent = next ? getLabel(next) : '';
+      // Update styling for all items (both text and logo)
+      const items = document.querySelectorAll('.nav-carousel-item');
+      items.forEach((item, i) => {
+        const textElement = item.querySelector('span');
+        const logoElement = item.querySelector('img');
 
-      // Highlight active section in expanded view
-      document.querySelectorAll('.nav-section-link').forEach(link => {
+        if (i === index) {
+          // Current item - prominent
+          if (textElement) {
+            textElement.classList.remove('text-xs', 'text-gray-400');
+            textElement.classList.add('text-base', 'font-semibold', 'text-gray-900');
+            textElement.style.opacity = '1';
+          }
+          if (logoElement) {
+            logoElement.style.opacity = '1';
+            logoElement.classList.remove('w-8', 'h-8');
+            logoElement.classList.add('w-16', 'h-16');
+          }
+        } else if (i === index - 1 || i === index + 1) {
+          // Adjacent items - smaller and faded
+          if (textElement) {
+            textElement.classList.remove('text-base', 'font-semibold', 'text-gray-900');
+            textElement.classList.add('text-xs', 'text-gray-400');
+            textElement.style.opacity = '0.6';
+          }
+          if (logoElement) {
+            logoElement.style.opacity = '0.6';
+            logoElement.classList.remove('w-16', 'h-16');
+            logoElement.classList.add('w-8', 'h-8');
+          }
+        } else {
+          // Far items - very faded
+          if (textElement) {
+            textElement.classList.remove('text-base', 'font-semibold', 'text-gray-900');
+            textElement.classList.add('text-xs', 'text-gray-400');
+            textElement.style.opacity = '0.3';
+          }
+          if (logoElement) {
+            logoElement.style.opacity = '0.3';
+            logoElement.classList.remove('w-16', 'h-16');
+            logoElement.classList.add('w-8', 'h-8');
+          }
+        }
+      });
+
+      // Smoothly move active indicator in expanded view
+      const activeIndicator = document.getElementById('active-indicator');
+      const links = document.querySelectorAll('.nav-section-link');
+
+      links.forEach((link, linkIndex) => {
         const sectionId = link.getAttribute('data-section');
         if (sectionId === current.id) {
-          link.classList.add('bg-indigo-50', 'text-indigo-600', 'font-semibold');
+          link.classList.add('text-indigo-600', 'font-semibold');
+
+          // Move indicator to active link position
+          if (activeIndicator) {
+            const linkRect = link.getBoundingClientRect();
+            const containerRect = link.parentElement.getBoundingClientRect();
+            const offsetY = linkRect.top - containerRect.top;
+
+            activeIndicator.style.transform = `translateY(${offsetY}px)`;
+            activeIndicator.style.opacity = '1';
+          }
         } else {
-          link.classList.remove('bg-indigo-50', 'text-indigo-600', 'font-semibold');
+          link.classList.remove('text-indigo-600', 'font-semibold');
         }
       });
     }

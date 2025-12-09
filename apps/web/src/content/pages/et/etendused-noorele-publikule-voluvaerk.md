@@ -1,8 +1,8 @@
 ---
-title: Võluväärk
+title: Võluvärk
 slug: etendused-noorele-publikule-voluvaerk
 language: et
-description: Zuga etendus 'Võluväärk' fotogalerii
+description: Zuga etendus 'Võluvärk' fotogalerii
 type: detail
 category: etendused
 subcategory: noorele-publikule
@@ -39,12 +39,12 @@ videos:
   url: https://www.youtube.com/embed/qp22v58UQnw
 ---
 
-# Võluväärk
+# Võluvärk
 
 ## Gallery
 
 This performance features 7 gallery images.
-Fotogalerii etendusest Võluväärk
+Fotogalerii etendusest Võluvärk
 
 ## Video
 

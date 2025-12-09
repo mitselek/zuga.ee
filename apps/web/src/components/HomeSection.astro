@@ -7,15 +7,17 @@ interface Props {
   background?: 'white' | 'slate';
   heroImage?: string;
   backgroundColor?: string;
+  isFirstSection?: boolean;
 }
 
-const { title, description, children, id, background = 'white', heroImage, backgroundColor } = Astro.props;
+const { title, description, children, id, background = 'white', heroImage, backgroundColor, isFirstSection = false } = Astro.props;
 const bgClass = background === 'slate' ? 'bg-slate-50' : 'bg-white';
+const paddingClass = isFirstSection ? 'pt-0 pb-24' : 'py-24';
 ---
 
 <section
   id={id}
-  class={`min-h-screen py-24 relative ${heroImage ? 'bg-slate-900' : (backgroundColor ? '' : bgClass)}`}
+  class={`min-h-screen ${paddingClass} relative ${heroImage ? 'bg-slate-900' : (backgroundColor ? '' : bgClass)}`}
   style={heroImage ? `background-image: url('${heroImage}'); background-size: cover; background-position: center;` : (backgroundColor ? `background-color: ${backgroundColor};` : '')}
 >
   {heroImage && (

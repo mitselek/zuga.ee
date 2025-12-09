@@ -14,23 +14,17 @@ const languages = [
 ---
 
 <div class="flex gap-2">
-  {languages.map((lang) => {
+  {languages.filter(lang => lang.code !== currentLang).map((lang) => {
     const translation = translations.find(t => t.language === lang.code);
-    const href = translation 
+    // For homepage (index), just use language code without slug
+    const href = translation
       ? `/${lang.code}/${translation.slug}`
-      : `/${lang.code}/${currentSlug}`;
-    const isActive = currentLang === lang.code;
-    
+      : (currentSlug === 'index' ? `/${lang.code}/` : `/${lang.code}/${currentSlug}`);
+
     return (
       <a
         href={href}
-        class:list={[
-          "px-4 py-2 rounded-md text-sm font-semibold transition-all border",
-          isActive 
-            ? "bg-accent text-primary border-accent shadow-md" 
-            : "bg-white text-gray-700 border-gray-300 hover:border-accent hover:text-accent"
-        ]}
-        aria-current={isActive ? "page" : undefined}
+        class="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold transition-all shadow-lg bg-white/80 backdrop-blur-md text-gray-600 hover:bg-white hover:text-gray-900 hover:ring-2 hover:ring-gray-300"
         aria-label={`Switch to ${lang.label}`}
       >
         {lang.label}

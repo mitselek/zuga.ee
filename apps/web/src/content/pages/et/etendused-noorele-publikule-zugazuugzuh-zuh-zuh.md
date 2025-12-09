@@ -1,8 +1,8 @@
 ---
-title: Zugazuugzuh-Zuh-Zuh
+title: Zuga zuug zuh-zuh-zuh
 slug: etendused-noorele-publikule-zugazuugzuh-zuh-zuh
 language: et
-description: Zuga etendus 'Zugazuugzuh-Zuh-Zuh' fotogalerii
+description: Zuga etendus 'Zuga zuug zuh-zuh-zuh' fotogalerii
 type: detail
 category: etendused
 subcategory: noorele-publikule
@@ -39,12 +39,12 @@ videos:
   url: https://www.youtube.com/embed/qp22v58UQnw
 ---
 
-# Zugazuugzuh-Zuh-Zuh
+# Zuga zuug zuh-zuh-zuh
 
 ## Gallery
 
 This performance features 7 gallery images.
-Fotogalerii etendusest Zugazuugzuh-Zuh-Zuh
+Fotogalerii etendusest Zuga zuug zuh-zuh-zuh
 
 ## Video
 

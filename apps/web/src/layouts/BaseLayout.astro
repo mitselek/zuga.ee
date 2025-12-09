@@ -57,27 +57,29 @@ const defaultOgImage = `${siteUrl}/og-image.jpg`;
     </a>
 
     <!-- Desktop: static header, Mobile: sticky header -->
-    <header class="md:relative sticky top-0 z-40 bg-white md:bg-white/90 md:backdrop-blur-md shadow-md">
-      <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4" role="navigation" aria-label="Main navigation">
-        <div class="flex items-center justify-between gap-4">
-          <a href={`/${language}/`} class="flex items-center gap-3 group shrink-0" aria-label={language === 'et' ? 'ZUGA ühendatud tantsijad - Avaleht' : 'United Dancers of ZUGA - Home'}>
-            <img src="/logo.svg" alt="ZUGA logo" class="h-12 sm:h-14 lg:h-16 w-auto" />
-            <span class="text-lg sm:text-xl lg:text-2xl font-bold group-hover:text-accent transition-colors hidden sm:block" style="font-family: var(--font-heading); color: var(--color-primary);">
-              {language === 'et' ? 'ZUGA ühendatud tantsijad' : 'United Dancers of ZUGA'}
-            </span>
-          </a>
+    <!-- Hidden on homepage where navigation is handled by circular pill -->
+    {!isHomepage && (
+      <header class="md:relative sticky top-0 z-40 bg-white md:bg-white/90 md:backdrop-blur-md shadow-md">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4" role="navigation" aria-label="Main navigation">
+          <div class="flex items-center justify-between gap-4">
+            <a href={`/${language}/`} class="flex items-center gap-3 group shrink-0" aria-label={language === 'et' ? 'ZUGA ühendatud tantsijad - Avaleht' : 'United Dancers of ZUGA - Home'}>
+              <img src="/logo.svg" alt="ZUGA logo" class="h-12 sm:h-14 lg:h-16 w-auto" />
+              <span class="text-lg sm:text-xl lg:text-2xl font-bold group-hover:text-accent transition-colors hidden sm:block" style="font-family: var(--font-heading); color: var(--color-primary);">
+                {language === 'et' ? 'ZUGA ühendatud tantsijad' : 'United Dancers of ZUGA'}
+              </span>
+            </a>
 
-          <div class="flex items-center gap-2 lg:gap-4">
-            <Navigation language={language} isHomepage={isHomepage} />
-            <slot name="language-switcher" />
+            <div class="flex items-center gap-2 lg:gap-4">
+              <Navigation language={language} isHomepage={isHomepage} />
+              <slot name="language-switcher" />
+            </div>
           </div>
-        </div>
-      </nav>
-    </header>
-
-    {isHomepage && <SectionNavigator language={language} />}
+        </nav>
+      </header>
+    )}
 
     <main id="main-content" class={isHomepage ? "" : "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12"}>
+      {isHomepage && <SectionNavigator language={language} />}
       <slot />
     </main>
 

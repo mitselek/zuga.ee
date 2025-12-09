@@ -62,12 +62,14 @@ const isEstonian = page.data.language === 'et';
   language={page.data.language}
   isHomepage={true}
 >
-  <LanguageSwitcher
-    slot="language-switcher"
-    currentLang={page.data.language}
-    currentSlug="index"
-    translations={page.data.translated}
-  />
+  <!-- Floating language switcher -->
+  <div class="fixed top-8 right-8 z-50">
+    <LanguageSwitcher
+      currentLang={page.data.language}
+      currentSlug="index"
+      translations={page.data.translated}
+    />
+  </div>
 
   <!-- Hero Section -->
   <section
@@ -105,12 +107,13 @@ const isEstonian = page.data.language === 'et';
 
     return (
       <HomeSection
-        id={section.data.category}
+        id={`category-${section.data.category}`}
         title={section.data.title}
         description={section.data.description}
         heroImage={section.data.hero_image}
         backgroundColor={section.data.background_color}
         background={background}
+        isFirstSection={index === 0}
       >
         {/* Render section markdown content with light overlay for hero images */}
         {section.data.hero_image ? (
@@ -133,7 +136,7 @@ const isEstonian = page.data.language === 'et';
               const subsectionItems = detailItems.filter(p => p.data.subcategory === subsection.data.subcategory);
               return (
                 <div
-                  id={subsection.data.subcategory}
+                  id={`category-${subsection.data.subcategory}`}
                   class="mb-16 rounded-lg p-8 relative"
                   style={subsection.data.hero_image ? `background-image: url('${subsection.data.hero_image}'); background-size: cover; background-position: center;` : ''}
                 >
