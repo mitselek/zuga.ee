@@ -2,7 +2,7 @@
 title: Etendused
 slug: etendused
 language: et
-description: Zuga etendused pakuvad elamusi nii suurtele kui ka noorele publikule.
+description: Zuga etendused
 type: section
 category: etendused
 order: 10

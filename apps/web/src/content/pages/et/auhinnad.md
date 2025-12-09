@@ -8,7 +8,7 @@ category: about
 status: published
 original_url: https://www.zuga.ee/et/auhinnad
 page_type: about
-hero_image: https://lh4.googleusercontent.com/Kc3Llh-GM5h-vFoxk7RFe4PJydnj52DKvq8bVGcS8QIBMGFFIyH5f2Ua-CdFZEY6LcMIIXnOGCZQvHWWVEk5anU=w16383
+hero_image: /images/auhinnad-bg.jpg
 gallery:
 - url: https://lh5.googleusercontent.com/zmVi3Xi90_cLWodUHyE-sJIuKtiGXxWjyippMRgy9MxagfR4yo4-zyUSt34zOyo3b1HWJUwbozXkC4OANXw3aJmzuQUrY0xWimQ5iBOhfj0wlv250QLIe9vMmxoayuN6Nw=w1280
   width: 1280

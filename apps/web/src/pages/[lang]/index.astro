@@ -154,6 +154,7 @@ const isEstonian = page.data.language === 'et';
                           description={item.data.description}
                           href={`/${page.data.language}/${item.data.category}/${item.id.replace(/^(en|et)\//, '').replace(/\.md$/, '')}`}
                           subcategory={subsection.data.title}
+                          image={item.data.hero_image}
                         />
                       ))}
                     </div>
@@ -170,6 +171,7 @@ const isEstonian = page.data.language === 'et';
                 title={item.data.title}
                 description={item.data.description}
                 href={`/${page.data.language}/${item.data.category}/${item.id.replace(/^(en|et)\//, '').replace(/\.md$/, '')}`}
+                image={item.data.hero_image}
               />
             ))}
           </div>

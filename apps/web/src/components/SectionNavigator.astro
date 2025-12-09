@@ -29,7 +29,8 @@ const getLabel = (section: typeof sections[0]) => language === 'et' ? section.la
   <!-- Collapsed state: circular pill with carousel -->
   <button
     id="nav-pill"
-    class="nav-pill bg-white/90 backdrop-blur-md shadow-lg rounded-full w-32 h-32 transition-all duration-300 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 overflow-hidden flex items-center justify-center"
+    class="nav-pill shadow-lg rounded-full w-32 h-32 transition-all duration-300 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 overflow-hidden flex items-center justify-center relative"
+    style="background: linear-gradient(to right, transparent 0%, rgba(255, 255, 255, 0.7) 20%, rgba(255, 255, 255, 0.8) 40%, rgba(255, 255, 255, 0.8) 60%, rgba(255, 255, 255, 0.7) 80%, transparent 100%); backdrop-filter: blur(12px);"
     aria-expanded="false"
     aria-controls="nav-expanded"
   >
@@ -38,7 +39,7 @@ const getLabel = (section: typeof sections[0]) => language === 'et' ? section.la
         {sections.map(section => (
           <div class="w-32 h-10 flex items-center justify-center nav-carousel-item">
             {section.id === 'hero' ? (
-              <img src="/logo.svg" alt="Zuga" class="w-16 h-16 transition-all duration-700" />
+              <img src="/logo.svg" alt="Zuga" class="w-30 h-30 transition-all duration-700" />
             ) : (
               <span class="text-base font-semibold text-gray-900 transition-all duration-700 text-center px-2">
                 {getLabel(section)}
@@ -119,8 +120,9 @@ const getLabel = (section: typeof sections[0]) => language === 'et' ? section.la
 
       // Scroll carousel to show current section centered
       const itemHeight = 40; // h-10 = 40px
-      const offset = index * itemHeight - 40; // Center in viewport (40px offset to show prev item)
-      navCarousel.style.transform = `translateY(-${offset}px)`;
+      // Start at 40px offset, then move by itemHeight for each section
+      const offset = 40 - (index * itemHeight);
+      navCarousel.style.transform = `translateY(${offset}px)`;
 
       // Update styling for all items (both text and logo)
       const items = document.querySelectorAll('.nav-carousel-item');
@@ -137,8 +139,8 @@ const getLabel = (section: typeof sections[0]) => language === 'et' ? section.la
           }
           if (logoElement) {
             logoElement.style.opacity = '1';
-            logoElement.classList.remove('w-8', 'h-8');
-            logoElement.classList.add('w-16', 'h-16');
+            logoElement.classList.remove('w-12', 'h-12');
+            logoElement.classList.add('w-30', 'h-30');
           }
         } else if (i === index - 1 || i === index + 1) {
           // Adjacent items - smaller and faded
@@ -149,8 +151,8 @@ const getLabel = (section: typeof sections[0]) => language === 'et' ? section.la
           }
           if (logoElement) {
             logoElement.style.opacity = '0.6';
-            logoElement.classList.remove('w-16', 'h-16');
-            logoElement.classList.add('w-8', 'h-8');
+            logoElement.classList.remove('w-30', 'h-30');
+            logoElement.classList.add('w-12', 'h-12');
           }
         } else {
           // Far items - very faded
@@ -161,8 +163,8 @@ const getLabel = (section: typeof sections[0]) => language === 'et' ? section.la
           }
           if (logoElement) {
             logoElement.style.opacity = '0.3';
-            logoElement.classList.remove('w-16', 'h-16');
-            logoElement.classList.add('w-8', 'h-8');
+            logoElement.classList.remove('w-30', 'h-30');
+            logoElement.classList.add('w-12', 'h-12');
           }
         }
       });
