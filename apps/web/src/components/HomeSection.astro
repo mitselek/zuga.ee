@@ -18,17 +18,22 @@ const bgClass = background === 'slate' ? 'bg-slate-50' : 'bg-white';
   style={heroImage ? `background-image: url('${heroImage}'); background-size: cover; background-position: center;` : ''}
 >
   {heroImage && (
-    <div class="absolute inset-0 bg-gradient-to-b from-slate-900/70 to-slate-900/50"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-slate-900/50 to-slate-900/30"></div>
   )}
   <div class={`max-w-7xl mx-auto px-4 ${heroImage ? 'relative z-10' : ''}`}>
     <div class="mb-12">
-      <h2 class={`text-4xl md:text-5xl font-bold mb-4 ${heroImage ? 'text-white' : 'text-slate-900'}`}>
+      <h2 class={`text-4xl md:text-5xl font-bold mb-4 ${heroImage ? 'text-white drop-shadow-[0_4px_8px_rgba(0,0,0,0.8)]' : 'text-slate-900'}`}>
         {title}
       </h2>
       {description && (
-        <p class={`text-xl ${heroImage ? 'text-white/90' : 'text-slate-600'}`}>
-          {description}
-        </p>
+        <div class={heroImage ? 'relative -mx-4 px-4 py-6' : ''}>
+          {heroImage && (
+            <div class="absolute inset-0 bg-slate-900/70"></div>
+          )}
+          <p class={`text-xl max-w-4xl ${heroImage ? 'text-white relative z-10' : 'text-slate-600'}`}>
+            {description}
+          </p>
+        </div>
       )}
     </div>
     <slot />
