@@ -11,6 +11,6 @@ status: published
 page_type: landing
 ---
 
-# Etendused
+## Etendused
 
 Zuga etendused pakuvad elamusi nii suurtele kui ka noorele publikule.

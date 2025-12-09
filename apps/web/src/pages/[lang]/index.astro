@@ -92,10 +92,13 @@ const isEstonian = page.data.language === 'et';
   </section>
 
   <!-- Dynamic Sections -->
-  {sections.map((section, index) => {
+  {sections.map(async (section, index) => {
     const detailItems = getDetailItems(section.data.category);
     const subsections = getSubsections(section.data.category);
     const hasSubsections = subsections.length > 0;
+
+    // Render section markdown content
+    const { Content: SectionContent } = await section.render();
 
     // Alternate background colors
     const background = index % 2 === 0 ? 'white' : 'slate';
@@ -109,6 +112,20 @@ const isEstonian = page.data.language === 'et';
         backgroundColor={section.data.background_color}
         background={background}
       >
+        {/* Render section markdown content with light overlay for hero images */}
+        {section.data.hero_image ? (
+          <div class="relative -mx-4 px-4 py-6 mb-12">
+            <div class="absolute inset-0 bg-white/40"></div>
+            <div class="prose prose-lg max-w-none relative z-10 [text-shadow:_0_2px_8px_rgb(255_255_255_/_80%)]">
+              <SectionContent />
+            </div>
+          </div>
+        ) : (
+          <div class="prose prose-lg max-w-none mb-12">
+            <SectionContent />
+          </div>
+        )}
+
         {hasSubsections ? (
           // Render subsections (e.g., Suurtele, Noorele Publikule)
           <>
