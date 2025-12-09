@@ -4,7 +4,7 @@ slug: english-topsy-turvy
 language: en
 type: detail
 category: etendused
-subcategory: noortele
+subcategory: noorele-publikule
 status: published
 hero_image: /images/etendused-uperpall-hero.jpg
 translated:
