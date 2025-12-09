@@ -42,7 +42,10 @@ const etendustedSubsections = allPages.filter(p =>
   p.data.page_type === 'landing' &&
   p.data.subcategory
 ).sort((a, b) => {
-  // Sort by subcategory for consistent ordering
+  // Sort by order field first, then fallback to subcategory name
+  const orderA = a.data.order ?? 999;
+  const orderB = b.data.order ?? 999;
+  if (orderA !== orderB) return orderA - orderB;
   return (a.data.subcategory || '').localeCompare(b.data.subcategory || '');
 });
 

@@ -73,6 +73,7 @@ const pagesCollection = defineCollection({
     description: z.string().optional(),
     page_type: z.string().optional(), // Legacy field, preserved for reference
     original_url: z.string().url().optional(),
+    order: z.number().optional(), // Manual ordering for subsections
 
     // Media fields
     hero_image: z.string().optional(),

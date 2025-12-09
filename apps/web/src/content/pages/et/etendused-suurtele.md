@@ -1,11 +1,12 @@
 ---
-title: Etendused Suurtele
+title: Etendused suurtele
 slug: etendused-suurtele
 language: et
 description: Zuga etenduste indeksleht suurtele
 type: section
 category: etendused
 subcategory: suurtele
+order: 1
 legacy_type: landing
 status: published
 original_url: https://www.zuga.ee/et/etendused-suurtele
