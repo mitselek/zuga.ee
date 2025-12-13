@@ -73,16 +73,20 @@ const pagesCollection = defineCollection({
       description: z.string().optional(),
     })).optional(),
     videos: z.array(z.object({
-      platform: z.enum(['youtube', 'vimeo']),
-      video_id: z.string().min(1),
+      platform: z.enum(['youtube', 'vimeo', 'err']),
+      video_id: z.string().min(1).optional(), // Required for youtube/vimeo, optional for err
       title: z.string().optional(),
       url: z.string().url(),
+      source: z.string().optional(), // For ERR videos
+      date: z.string().optional(), // For ERR videos
     })).optional(),
     audio: z.array(z.object({
-      platform: z.enum(['soundcloud']),
-      track_id: z.string().min(1),
+      platform: z.enum(['soundcloud', 'err', 'custom']),
+      track_id: z.string().min(1).optional(), // Required for soundcloud, optional for others
       title: z.string().optional(),
       url: z.string().url(),
+      source: z.string().optional(), // e.g., "ERR Vikerraadio"
+      date: z.string().optional(), // Broadcast/publication date
     })).optional(),
 
     // Bilingual linking
