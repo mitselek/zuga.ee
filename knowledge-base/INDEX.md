@@ -33,6 +33,18 @@ Cataloged materials about ZUGA performances, reviews, and research.
 
 ### 2016
 
+#### November
+
+- **[ZUGA püüab ohjata meele(k)olusid](articles/2016-11-tantsukuukiri-meelekolu.md)**
+  - _Tantsukuukiri NR 61_
+  - Author: Marie Pullerits (Tantsukunstnik ja teatrikriitik)
+  - Interviewees: Kärt Tõnisson, Tiina Mölder
+  - Performance: meeleKolu (2016)
+  - Topics: Emotions and moods, children's theatre, creative process, contemporary dance, bodily expression
+  - Type: Interview
+  - Key Quote: "Kui vaatad liikumist laval, tunned seda ka oma kehaga"
+  - Status: Archived
+
 #### October
 
 - **[Teatriluup: meeleKolu](articles/2016-10-err-teatriluup-meelekolu.md)**
