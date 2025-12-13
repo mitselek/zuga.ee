@@ -1,9 +1,11 @@
 ---
 interface AudioItem {
-  platform: 'soundcloud';
-  track_id: string;
+  platform: 'soundcloud' | 'err' | 'custom';
+  track_id?: string;
   title?: string;
   url: string;
+  source?: string;
+  date?: string;
 }
 
 interface Props {
@@ -20,20 +22,34 @@ const { audio } = Astro.props;
         {track.title && (
           <div class="px-4 py-3 bg-slate-100 border-b border-slate-200">
             <h4 class="text-base font-semibold text-slate-900">{track.title}</h4>
+            {track.source && track.date && (
+              <p class="text-sm text-slate-600 mt-1">{track.source} • {new Date(track.date).toLocaleDateString('et-EE')}</p>
+            )}
           </div>
         )}
         <div class="p-2">
-          <iframe
-            width="100%"
-            height="166"
-            scrolling="no"
-            frameborder="no"
-            allow="autoplay"
-            src={track.url}
-            title={track.title || 'Audio track'}
-            loading="lazy"
-            class="w-full"
-          ></iframe>
+          {track.platform === 'soundcloud' ? (
+            <iframe
+              width="100%"
+              height="166"
+              scrolling="no"
+              frameborder="no"
+              allow="autoplay"
+              src={track.url}
+              title={track.title || 'Audio track'}
+              loading="lazy"
+              class="w-full"
+            ></iframe>
+          ) : (
+            <audio
+              controls
+              preload="none"
+              class="w-full"
+              src={track.url}
+            >
+              Your browser does not support the audio element.
+            </audio>
+          )}
         </div>
       </div>
     ))}

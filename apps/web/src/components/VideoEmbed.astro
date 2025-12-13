@@ -1,9 +1,11 @@
 ---
 interface VideoItem {
-  platform: 'youtube' | 'vimeo';
-  video_id: string;
+  platform: 'youtube' | 'vimeo' | 'err';
+  video_id?: string;
   title?: string;
   url: string;
+  source?: string;
+  date?: string;
 }
 
 interface Props {
@@ -29,19 +31,33 @@ function getEmbedUrl(video: VideoItem): string {
         {video.title && (
           <div class="px-6 py-3" style="background-color: var(--color-primary);">
             <h3 class="text-lg font-semibold text-white">{video.title}</h3>
+            {video.source && video.date && video.platform === 'err' && (
+              <p class="text-sm text-white/80 mt-1">{video.source} • {new Date(video.date).toLocaleDateString('et-EE')}</p>
+            )}
           </div>
         )}
         <div class="aspect-video bg-gray-900">
-          <iframe
-            src={getEmbedUrl(video)}
-            title={video.title || 'Performance video'}
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-            class="w-full h-full"
-          />
+          {video.platform === 'err' ? (
+            <video
+              controls
+              preload="metadata"
+              class="w-full h-full"
+              src={video.url}
+            >
+              Your browser does not support the video element.
+            </video>
+          ) : (
+            <iframe
+              src={getEmbedUrl(video)}
+              title={video.title || 'Performance video'}
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+              class="w-full h-full"
+            />
+          )}
         </div>
       </div>
     ))}
   </div>
-)
+)}
