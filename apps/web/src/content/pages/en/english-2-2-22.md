@@ -74,38 +74,40 @@ videos:
 
 ## About the Performance
 
-I want to do it so that everything would somehow obey me, but in a way that I wouldn't trample on anyone.
+I'd like to see that everything obeys me, but so that… I won't have to step on anyone.
 
-I make my own game rules.
+I make my own rules to the game. I can handle this, I make myself strong, I crawl and I jump.
 
-I can manage, I make myself strong, I climb and jump.
+I sit on two chairs at once, go to three schools and speak four languages.
 
-I sit on two chairs, go to three schools, speak four languages.
+I know I'm loud, I'll give you a tough battle.
 
-I make a loud noise, and give a proper fight.
+I win and I lose and I learn and stumble, sometimes I mumble. When they want me to be humble I rumble until I crumble and drowse.
 
-I win, lose, learn, fall, I stomp and sulk.
+My rules are simple: I want no-one to nag me and no-one to bag me, I want to be a part of the gang and accepted as single. To sit among the big and be the hero to the small, I'm not a zero.
 
-I want to stay friends. And become friends.
+And be it said, that I won't sit down with my mouth open so that someone else can stuff it with vitamins. I am full of vitality myself and have my own chair to tell right from wrong.
 
-I'm interested in exciting, momentum and joy, silly laughter, messy head and good joke and… I want to do the opposite, SOMETIMES, or just do it at another time, OTHER TIMES.
+I want to become great… as the square root of time-space, to clarify the rules for everyone. Then we may play and have a good day. But don't forget I walk my way.
+
+And you don't take my toys without permission, if you don't listen I will load my ammunition to stand my position. Don't take my bag! Don't come into my room! DON'T TOUCH MY STUFF! …without my permission.
+
+I want to stay friends as well as make friends. I just want to be cool in the end.
+
+Because I go for contrast, thrill, rush and joy, foolish giggle, messy hair and good jokes… I like to do things backwards, SOMETIMES, or simply do them some other time, ANOTHER TIME.
 
 ---
 
-Zuga United Dancers' performance "2 + 2 = 22" drills into rules and regulations, visible and invisible agreements in our shared dear life as children and parents. It turns them upside down, sneaks aside and steps past, doesn't offer a seat or invites to their side or sits on two chairs at once, while still looking for their place together. In this activity there is an attempt to arrive, even if accompanied by the cry "Adapt!".
+ZUGA's new production "2 + 2 = 22" digs deep into the rules and arrangements, the visible and invisible agreements that exist in the shared lives of children and parents; it turns them upside down, sidesteps and oversteps them, doesn't offer them a seat or invites them to stand side by side or seats them on two chairs at once, all the while looking for a place that they can call their own. The aim is to arrive at a destination, even when accompanied by calls to "Go to your place!".
 
-This performance originated in summer 2019 when Zuga United Dancers went to Latvia and explored rules together with Valmiera Drama Theatre actors – Aigars Āpinis, Elina Dambe and Rihards Jakovlevs. Together they created the performance "Tools to rule", which was performed at the Valmiera Summer Theatre Festival in August 2019.
+The production got its start in the summer of 2019 in Latvia where together with actors of Valmiera Drama Theatre – Aigars Āpinis, Elina Dambe, Rihards Jakovleva – the performance "Tools to Rule" was created which premiered at the Valmieras Summer Theatre Festival in August 2019. We are thankful for their contribution which is reflected in our current performance "2 + 2 = 22".
+
+## About United Dancers of Zuga
+
+The United Dancers of Zuga is a collective of dancers and choreographers that was conceived in 1999 by the young active dancemakers Tiina Mölder, Kaja Kann and Jarmo Karing. ZUGA is the only company in Estonia that has consistently and regularly been producing dance performances for children. For ZUGA, children and adults are equal partners that share a world and a living space. ZUGA's performances have won theatre and dance awards, and they have toured in Estonia and abroad (Finland, the USA, Germany, Lithuania, Latvia, the Netherlands, Palestine, Sweden, Russia, Romania, Croatia, Poland, England, China) with their performances.
 
 ## Recognition
 
 "2 + 2 = 22" was nominated in 2020 for the [Salme Reeg Children's Theatre Award](http://teatriliit.ee/auhinnad/nominendid/nominendid-2020) as a "playful, engaging and mind-expanding performance".
-
-## Press Coverage
-
-- [2 + 2 = 22](http://kuukiri.tantsuliit.ee/artikkel/2222/) – Kristina-Maria Heinsalu, Dance Monthly, December 2019
-- [Dancing out of the rules, or 2 + 2 = 22](https://epl.delfi.ee/kultuur/tantsime-reeglitest-valja-ehk-2-2-22?id=88157077) – Andres Maimik and Miriam Mia Maimik, Eesti Päevaleht, November 25, 2019
-- [Review: I forbid, I order, I create and play](https://kultuur.err.ee/1000372/arvustus-keelan-kasen-loon-ja-mangin) – Annemari Parmakson, ERR Culture, November 7, 2019
-- [Exciting, momentum and joy, silly laughter, messy head and good joke](https://estonianwithabackpack.com/2019/10/30/ponev-hoog-ja-room-loll-naer-sassis-pea-ning-hea-nali/) – Eveliis (Estonian with a Backpack), October 30, 2019
-- [Zuga is inspired by children's play logic](https://stl.ee/zuga/) – Katrin Tegova, Choreocoffee, October 1, 2019
 
 ## Gallery
