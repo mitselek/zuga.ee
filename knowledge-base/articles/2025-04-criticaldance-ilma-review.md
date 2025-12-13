@@ -29,7 +29,7 @@ venue: Sõltumatu Tantsu Lava (STL), Tallinn, Estonia
 
 ## About the Company
 
-Zuga United Dancers is a collective of dancers and choreographers working collaboratively since 1999. They create productions for children and adults, addressing a range of themes. *Ilma / Weather or Not* highlights climate change and environmental concerns, using movement and text, involving the audience in the process and featuring the Zuga team: Tina Mölder, Kärt Tynisson, Helen Reitsnik, Ajjar Ausma and Päär Pärenson.
+Zuga United Dancers is a collective of dancers and choreographers working collaboratively since 1999. They create productions for children and adults, addressing a range of themes. _Ilma / Weather or Not_ highlights climate change and environmental concerns, using movement and text, involving the audience in the process and featuring the Zuga team: Tina Mölder, Kärt Tynisson, Helen Reitsnik, Ajjar Ausma and Päär Pärenson.
 
 ## Performance Description
 
@@ -51,7 +51,7 @@ A quieter, final phase features a quartet of the dancers in some of the most mem
 
 ## Critical Assessment
 
-*Ilma / Weather or Not* succeeds in a variety of ways. It addresses an important issue in an accessible format for adults and young people with attention grabbing text and movement. Some of the youngest ones clearly had a ball getting out of their seats and buzzing round the stage.
+_Ilma / Weather or Not_ succeeds in a variety of ways. It addresses an important issue in an accessible format for adults and young people with attention grabbing text and movement. Some of the youngest ones clearly had a ball getting out of their seats and buzzing round the stage.
 
 Sound by Kalle Tikas and varied lighting by Oliver Kulpsoo creating shadows on the walls, contributed significantly to the overall effect. Following the performance, there was an opportunity for the audience members to stay behind for thirty minutes and ask questions of the performers about the production and the dangers of climate change.
 
@@ -59,7 +59,7 @@ The spoken text of the performance was naturally in Estonian, but the management
 
 ## Conclusion
 
-*Ilma / Weather or Not* is an enjoyable, imaginative and enlightening work which continues touring to schools and festivals – well worth a visit.
+_Ilma / Weather or Not_ is an enjoyable, imaginative and enlightening work which continues touring to schools and festivals – well worth a visit.
 
 ---
 
@@ -91,6 +91,7 @@ Stuart Sweeney is a contributor to CriticalDance covering contemporary dance and
 Photography by Alana Proosa
 
 Image descriptions from the review:
+
 1. Dancers on floor conveying climate anxiety
 2. Interactive audience participation with plastic bags representing greenhouse effect
 3. Final quartet with dancers supporting each other through cooperative movement
@@ -98,6 +99,6 @@ Image descriptions from the review:
 
 ---
 
-*Tags: Ilma, Weather or Not, Zuga, Modern/contemporary dance (UK & Europe), Reviews*
+_Tags: Ilma, Weather or Not, Zuga, Modern/contemporary dance (UK & Europe), Reviews_
 
 **Categories:** Modern/contemporary dance (UK & Europe), Reviews

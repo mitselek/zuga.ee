@@ -48,6 +48,7 @@ Räägime etendusest, positiivsest aktivismist, aga ka sellest, mida saab kunstn
 ### Lavastus "Ilma"
 
 Lavastus tegeleb kliima- ja keskkonnateemal läbi kolme tasandi:
+
 - **maaILM** – meie keskkond ja maailm
 - **ILMAteade** – ilmaprognoosid ja kliimamuutus
 - **ILMA olemine** – ilma milleta saame hakkama
@@ -57,6 +58,7 @@ Lavastus kasutab positiivse aktivismi lähenemist, kaasates publikut interaktiiv
 ### Positiivne aktivism
 
 Keskkonnaprobleemide käsitlemisel püütakse vältida süütunnet ja liialdatud moraaliõpetust. Eesmärk on:
+
 - Tekitada mõtlemist ja küsimusi
 - Inspireerida muutusi läbi loomingulise lähenemise
 - Pakkuda lootust ja tegutsemisvõimalusi
@@ -65,6 +67,7 @@ Keskkonnaprobleemide käsitlemisel püütakse vältida süütunnet ja liialdatud
 ### Disaineri ja kunstniku roll
 
 **Marta Konovalov** räägib keskkonnaprobleemidega tegeleva disaineri tööst ja sellest, kuidas:
+
 - Lavakunst saab visualiseerida keerulisi teemasid
 - Kostüümid ja lavakujundus võivad endas kanda keskkonnahoidu sõnumeid
 - Loovprotsess ise saab olla jätkusuutlik
@@ -73,6 +76,7 @@ Keskkonnaprobleemide käsitlemisel püütakse vältida süütunnet ja liialdatud
 ### Päikesepaneelid ja elurikkus
 
 Saate teises pooles räägib Tartu Ülikooli taastamisökoloog **Krista Takkis** päikeseparkide mõjust ümbritsevale elurikkusele:
+
 - Milline on päikesepargi mõju kohalikule loodusele
 - Kas ja kuidas saaks paneelide alust ja vahelist ala paremini kasutusele võtta
 - Päikeseparkide potentsiaal elurikkuse toetamisel

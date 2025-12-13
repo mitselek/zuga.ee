@@ -15,32 +15,32 @@ price: Pilet Fientas
 purchase_link: https://fienta.com/et/zuga-helimuramistootuba
 hero_image: /images/zuga-heliliikumistootoad-hero.jpg
 gallery:
-- url: https://lh5.googleusercontent.com/LVe-GWoMHgTeRwxEPP4uf3WHWTjJ_JT7aRM8Er_vqNzSScAtFtke89O0lYsVhQQJe3RTdirHQ400hTM0aVQGyyTByHEGxxWD9SblYt6k5G3ezThh66CBLSmv3JmQ4u6LMg=w1280
-  width: 1280
-  description: Töötoa foto
-- url: https://lh5.googleusercontent.com/vZAacHogCtjAcO-RjOtt8wP5y3grz3iYZsiXO4Ne6amHoK1Ebe_tkLb1_Ac6s1eGQFYUzY13k60NvH0XZVIr0BoDv2UvQ00cRUcGeG-19mc6SS2Muqjd8aQqb72q7qyy3Q=w1280
-  width: 1280
-  description: Töötoa foto
-- url: https://lh3.googleusercontent.com/m_7vMqhZxj10O-DZyCHUC-fngUUU3ah22kA8XsmjTPSEHDfUJjUnXp7vkWN0pNtFGxZA-WtQlwwyFwE3HfW7Z8o=w1280
-  width: 1280
-  description: Töötoa foto
-- url: https://lh6.googleusercontent.com/l17U8pWSvIqUd3xAhlhB0CahzNLyaBrr_sMpBpRfHRHsL3389YZas2lsCSnFZTEjKLSpSrLoJ1TcPTmqqusHg5uvr2WOC9dj94LZet4o4ImTGPJqbyzEA93pHhwVRRhYzg=w1280
-  width: 1280
-  description: Töötoa foto
-- url: https://lh5.googleusercontent.com/55PP67F8epIQWSOTeBQM4deG1E0jRxHgXc0iEUWcxRboIpMXXVZR70rVj-l2WTbD=w1280
-  width: 1280
-  description: Töötoa foto
-- url: https://lh6.googleusercontent.com/DEE_0FP1T9JmpZc0CKUajogjEm3pXMbVZ5PBf9J3XQNDWoMZ512kmYwgHytdfMtfkBBZtM1VFokXtbkIqWsLYjyHIwQdAuQCW5usti8YTwsXkNGy=w1280
-  width: 1280
-  description: Töötoa foto
-- url: https://lh6.googleusercontent.com/pvK2vfq74KlLHTTVHMZfDGx3ndr5OmSBluXTSOCXvZm0bVuD0VMhDpoitn6jE-1I0Tw_KRSPodIbVek3lIoGx2h5Jlwk307X_6qPXCPE45--OGYIl7-pC2oykS_3-XJkgA=w1280
-  width: 1280
-  description: Töötoa foto
+  - url: https://lh5.googleusercontent.com/LVe-GWoMHgTeRwxEPP4uf3WHWTjJ_JT7aRM8Er_vqNzSScAtFtke89O0lYsVhQQJe3RTdirHQ400hTM0aVQGyyTByHEGxxWD9SblYt6k5G3ezThh66CBLSmv3JmQ4u6LMg=w1280
+    width: 1280
+    description: Töötoa foto
+  - url: https://lh5.googleusercontent.com/vZAacHogCtjAcO-RjOtt8wP5y3grz3iYZsiXO4Ne6amHoK1Ebe_tkLb1_Ac6s1eGQFYUzY13k60NvH0XZVIr0BoDv2UvQ00cRUcGeG-19mc6SS2Muqjd8aQqb72q7qyy3Q=w1280
+    width: 1280
+    description: Töötoa foto
+  - url: https://lh3.googleusercontent.com/m_7vMqhZxj10O-DZyCHUC-fngUUU3ah22kA8XsmjTPSEHDfUJjUnXp7vkWN0pNtFGxZA-WtQlwwyFwE3HfW7Z8o=w1280
+    width: 1280
+    description: Töötoa foto
+  - url: https://lh6.googleusercontent.com/l17U8pWSvIqUd3xAhlhB0CahzNLyaBrr_sMpBpRfHRHsL3389YZas2lsCSnFZTEjKLSpSrLoJ1TcPTmqqusHg5uvr2WOC9dj94LZet4o4ImTGPJqbyzEA93pHhwVRRhYzg=w1280
+    width: 1280
+    description: Töötoa foto
+  - url: https://lh5.googleusercontent.com/55PP67F8epIQWSOTeBQM4deG1E0jRxHgXc0iEUWcxRboIpMXXVZR70rVj-l2WTbD=w1280
+    width: 1280
+    description: Töötoa foto
+  - url: https://lh6.googleusercontent.com/DEE_0FP1T9JmpZc0CKUajogjEm3pXMbVZ5PBf9J3XQNDWoMZ512kmYwgHytdfMtfkBBZtM1VFokXtbkIqWsLYjyHIwQdAuQCW5usti8YTwsXkNGy=w1280
+    width: 1280
+    description: Töötoa foto
+  - url: https://lh6.googleusercontent.com/pvK2vfq74KlLHTTVHMZfDGx3ndr5OmSBluXTSOCXvZm0bVuD0VMhDpoitn6jE-1I0Tw_KRSPodIbVek3lIoGx2h5Jlwk307X_6qPXCPE45--OGYIl7-pC2oykS_3-XJkgA=w1280
+    width: 1280
+    description: Töötoa foto
 videos:
-- platform: youtube
-  video_id: qp22v58UQnw
-  title: ZUGA videotervitus
-  url: https://www.youtube.com/embed/qp22v58UQnw
+  - platform: youtube
+    video_id: rPxJ8u2dqpo
+    title: Liikumise töötuba peredele
+    url: https://www.youtube.com/embed/rPxJ8u2dqpo
 ---
 
 ## ZUGA Heliliikumistöötoad
@@ -61,6 +61,7 @@ Nii, nagu raamatut lugedes tekivad igal inimesel oma kujutluspildid, saab ka sii
 ### Töötoad
 
 #### Rändur ja Kaitseingel
+
 **Juhendaja:** Päär Pärenson
 
 Heliliikumistöötuba "Rändur ja kaitseingel" toimub paaris ja sobib alates 6. eluaastast kõikidele liikumisvõimelistele pereliikmetele, sõpradele või koolikaaslastele – vanusevahe partnerite vahel ei ole takistuseks. Paare võib ka rohkem olla.
@@ -74,6 +75,7 @@ Keskkonnaks sobiks kõige paremini suurem ruum, kus ei ole palju mööblit, aga 
 ---
 
 #### Rännak ühele õues
+
 **Juhendaja:** Tiina Mölder
 
 Heliliikumistöötuba "Rännak ühele õues" on liikumisrännak õues ühele osavõtjale ja sobib alates 14. eluaastast. Küllap pigem täiskasvanutele, nt vanematele, kes soovivad korraks perest eemalduda ja võtta 20 minutit iseendale. Minna kõndima või jooksma, tunda tuule paitust, kevade, talve, sügise või suve lõhnasid, mis just parasjagu õues on. Väikesed juhised aitavad rajal püsida.
@@ -85,6 +87,7 @@ Töötuba võib toimuda nii oma kodu ümbruses või seal, kus sa just parasjagu 
 ---
 
 #### Ruum liigutab
+
 **Juhendaja:** Kärt Tõnisson
 
 Heliliikumistöötuba "Ruum liigutab" on igasuguses vanuses inimestele, kes armastavad liikuda, vahel võib-olla ka veidi veiderdada ja mängida. Töötuba saab läbi viia kodus oma perega või klassiruumis osade kaupa liikumispausidena.
@@ -96,6 +99,7 @@ Heliliikumistöötuba "Ruum liigutab" on igasuguses vanuses inimestele, kes arma
 ---
 
 #### Kujutluses ja ruumis
+
 **Juhendaja:** Ajjar Ausma
 
 Heliliikumistöötuba "Kujutluses ja ruumis" sobib lastele alates 10. eluaastast, kuid ka väiksematele lastele koos vanema õe, vennaga või vanematega läbiviimiseks. Seda saab teha nii üksi, paaris kui grupiga. Asukohana sobivad nii su oma kodune eluruum või mõni muu tubane ruum kuskil mujal, aga ka õueala looduses või linnakeskkonnas, samuti tantsusaal. Kõige olulisem on, et sa oleksid kohal, keskenduksid, laseksid kujutlusvõimel end kanda ning kehal sellele julgelt järgneda.

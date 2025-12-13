@@ -29,9 +29,11 @@ status: archived
 ## ZUGA Tantsuauhinnad
 
 ### 2007
+
 **ZUGA ühendatud tantsijad** – lavastuse „Naine ja Hunt" idee, koreograafia ja videorežii (Kanuti Gildi SAAL)
 
 ### 2005
+
 **Tantsutrupp ZUGA** – Kaja Kann, Helen Reitsnik, Tiina Mölder – lavastus „ZUGA teeb suure linna"
 
 ---

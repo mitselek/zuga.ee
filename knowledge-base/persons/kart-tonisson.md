@@ -14,12 +14,14 @@ Kärt Tõnisson on vabakutseline tantsija, koreograaf, tantsuõpetaja ja loovlii
 ## Õpetajatöö
 
 Suurema osa oma tööajast veedab Kärt lastega koos liikudes:
+
 - **Rocca al Mare Veskimöldre lasteaed**
 - **Püha Johannese Kool**
 
 ## Rahvusvaheline kogemus
 
 Kärt on tantsinud:
+
 - Ühes Kuusalu vanas küünis mulla peal
 - Raekoja platsi munakividel
 - **Rahvusvaheliselt:** New Yorgi, Moskva, Berliini ja teiste Euroopa linnade tantsuteatri lavadel
@@ -27,6 +29,7 @@ Kärt on tantsinud:
 ## ZUGA lavastused
 
 Viimastel aastatel on olnud kaaslooja ja liikuja ZUGA Ühendatud Tantsijate lavastustes:
+
 - "Võluvärk" (2011)
 - "meeleKolu" (2016)
 - "Tempo" (2018)

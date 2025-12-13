@@ -20,12 +20,12 @@ related_performances:
 
 **Teatrivaatleja Eleriin Miilman arvustus ZUGA Ühendatud Tantsijate lavastusest "Ilma".**
 
-*Autor: Eleriin Miilman (teatrivaatleja)*
-*Avaldatud: 13. november 2024*
-*Allikas: Eesti Päevaleht*
+_Autor: Eleriin Miilman (teatrivaatleja)_
+_Avaldatud: 13. november 2024_
+_Allikas: Eesti Päevaleht_
 
 ![Zuga lavastus „Ilma" julgustab kohe reageerima, otsustama ja sihikindlalt tegutsema.](https://images.delfi.ee/media-api-image-cropper/v1/aafb347a-a55d-4294-81cc-0e1b54ebf352.jpg)
-*Foto: Alana Proosa*
+_Foto: Alana Proosa_
 
 ## Peamine teema
 
@@ -42,11 +42,13 @@ Enne lavastuse algust palub Sõltumatu Tantsu Lava fuajees „üks naine" – la
 ### Küsimused publikule
 
 Kuidas etendusele tuldi, kas kuuldi linnulaulu, milline oli ilm? Läbisegi kõlavad vastused:
+
 - "Bussiga!"
 - "Jaa!"
 - "Tuuline"
 
 Järgnevad retoorilised küsimused:
+
 - "Kas oleks võimalik sellele mõelda omakeskis ja hääleta?"
 - "Kas saali pimenedes võiks mängida vaikusemängu?"
 
@@ -56,7 +58,7 @@ Sagin ja vadin annavad ainumõeldava vastuse – „Ei!", mis etendusel ka kinni
 
 ## Märkused
 
-*Täistekst on kättesaadav Eesti Päevalehe Delfi Kogupakett tellimuse kaudu. Siin esitatud on artikli avalikult kättesaadav osa.*
+_Täistekst on kättesaadav Eesti Päevalehe Delfi Kogupakett tellimuse kaudu. Siin esitatud on artikli avalikult kättesaadav osa._
 
 ## Lavastuse info
 

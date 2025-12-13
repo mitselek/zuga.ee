@@ -13,6 +13,11 @@ venue: Sõltumatu Tantsu Lava
 age_recommendation: 10+
 duration: 60
 hero_image: https://lh4.googleusercontent.com/DBxwueB6fPHRnLW2vhLTuUXqMXwXCvMQW-AliKEHn5c6X1O7ismAvtROvjQkbwGfsZsyzGcdc_-6lU_Ipmo1jg4=w16383
+videos:
+  - platform: hls
+    url: https://vod.err.ee/hls/uudised/f923793435785f60bf71e5bbd793ca9c/v/master.m3u8
+    title: Päär Pärenson about "Ilma"
+    description: ERR news, 24.10.2024
 translated:
 - language: et
   slug: etendused-noorele-publikule-ilma
@@ -30,7 +35,7 @@ Zuga United Dancers' playful dance performance deals with weather and environmen
 
 Performances are followed by a small discussion with the creators and audience to further explore the themes addressed in the production.
 
-### Creative Team
+## Creative Team
 
 **Directors, Choreographers and Performers:** Tiina Mölder, Kärt Tõnisson, Helen Reitsnik, Ajjar Ausma, Päär Pärenson
 **Lighting Designer:** Oliver Kulpsoo
@@ -40,19 +45,19 @@ Performances are followed by a small discussion with the creators and audience t
 
 **Special thanks to:** Aet Annist, Kristjan Piirimäe, Maia-Liisa Anton, Kalamaja School, Tõnismäe State Gymnasium
 
-### Zuga United Dancers
+## Zuga United Dancers
 
 Zuga United Dancers is an association of dancers and choreographers that has been working together since 1999. They are the only group in Estonia that consistently and regularly creates dance performances for children. For Zuga, children and adults are equal partners who share the same world and living space.
 
 Their children's performances have received attention and numerous theatre and dance awards (Salme Reek Award, Draamake Award, Estonian Theatre Annual Award, Independent Performing Arts Award), and they have performed with their productions both in Estonia and abroad (Finland, USA, Germany, Lithuania, Latvia, Netherlands, Palestine, Sweden, Russia, Romania, Croatia, Poland, England, China).
 
-### Audience Feedback
+## Audience Feedback
 
 *“The performance made me think about how we sometimes don't even notice how we affect our surroundings. It actually seems quite unnatural that people have so quickly developed technology and machines and started mass-producing so many things.”* – Student who attended the performance
 
 *“The dancers' movement language was sometimes unpredictable, which made the whole story even more interesting. I would recommend this performance to everyone, because everyone will get some new thought for themselves.”* – Student who attended the performance
 
-### Reviews and Articles
+## Reviews and Articles
 
 - [Review “Ilma / Weather or Not”](https://criticaldance.org/zuga-ilan-weather-or-not/) – Stuart Sweeney, CriticalDance, 30.03.2025
 - [REVIEW | Zuga dancers' weather-making performance](https://epl.delfi.ee/artikkel/120336005/arvustus-zuga-tantsijate-ilma-tegev-lavastus) – Eleriin Miilman, Eesti Päevaleht, 13.11.2024 (in Estonian)
@@ -60,7 +65,7 @@ Their children's performances have received attention and numerous theatre and d
 - [Ökoskoop. Climate-focused performance "Ilma" and solar panels](https://vikerraadio.err.ee/1609490843/okoskoop-kliimast-konelev-lavastus-ilma-ja-paikesepaneelid) – Ökoskoop, 28.10.2024 (in Estonian)
 - [Päär Pärenson about "Ilma": there's dance, movement in space and a pinch of song](https://kultuur.err.ee/1609501726/paar-parenson-lavastusest-ilma-on-tantsu-on-ruumis-liikumist-ja-napuotsaga-laulu) – ERR Culture Portal, 24.10.2024 (in Estonian)
 
-### Links
+## Links
 
 - [Performance page (STL)](https://www.stl.ee/lavastused/ilma)
 - [Calculate your carbon footprint](https://www.bioneer.ee/kuidas-arvutada-s%C3%BCsiniku-jalaj%C3%A4lge)

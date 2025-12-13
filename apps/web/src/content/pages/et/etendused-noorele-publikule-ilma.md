@@ -13,9 +13,14 @@ venue: Sõltumatu Tantsu Lava
 age_recommendation: 10+
 duration: 60
 hero_image: https://lh5.googleusercontent.com/YmL-ZKflrTu0uUJnzvcMQ9812g16lIXAfb2u1wmCWwluKk_RwjfjV3T_td4mMmiTLHIhYBvy3l7we3cFw39C0c0=w16383
+videos:
+  - platform: err
+    url: https://vod.err.ee/hls/uudised/f923793435785f60bf71e5bbd793ca9c/v/master.m3u8
+    title: Päär Pärenson lavastusest "Ilma"
+    description: ERR uudised, 24.10.2024
 translated:
-- language: en
-  slug: english-weather-or-not
+  - language: en
+    slug: english-weather-or-not
 ---
 
 # Ilma
@@ -30,7 +35,7 @@ Zuga Ühendatud Tantsijate mänguline tantsulavastus tegeleb ilma ja keskkonna t
 
 Etendustele järgneb väike arutelu koos lavastajate ja publikuga, et avada veelgi lavastuses käsitletud teemasid.
 
-### Lavastusmeeskond
+## Lavastusmeeskond
 
 **Lavastajad, koreograafid ja etendajad:** Tiina Mölder, Kärt Tõnisson, Helen Reitsnik, Ajjar Ausma, Päär Pärenson
 **Valguskunstnik:** Oliver Kulpsoo
@@ -40,19 +45,19 @@ Etendustele järgneb väike arutelu koos lavastajate ja publikuga, et avada veel
 
 **Täname:** Aet Annist, Kristjan Piirimäe, Maia-Liisa Anton, Kalamaja Kool, Tõnismäe Riidigümnaasium
 
-### Zuga Ühendatud Tantsijad
+## Zuga Ühendatud Tantsijad
 
 Zuga Ühendatud Tantsijad on tantsijaid ja koreograafe koondav ühendus, mis on koos tegutsenud 1999. aastast. Nad on ainus järjepidevalt ja regulaarselt lastele tantsulavastusi loov kooslus Eestis. Zuga jaoks on lapsed ja suured võrdväärsed partnerid, kes jagavad sama maailma ja sama elamise ruumi.
 
 Nende lastelavastused on pälvinud tähelepanu ja mitmeid teatri- ja tantsuauhindu (Salme Reegi auhind, Draamakese auhind, Eesti teatri aastaauhind, Sõltumatu etenduskunsti auhind) ning nad on esinenud oma lavastustega nii Eestis kui väljaspool (Soomes, USA-s, Saksamaal, Leedus, Lätis, Hollandis, Palestiinas, Rootsis, Venemaal, Rumeenias, Horvaatias, Poolas, Inglismaal, Hiinas).
 
-### Muljed publikult
+## Muljed publikult
 
-*“Etendus pani mind mõtlema sellele, et me ei panegi vahel isegi tähele, kuidas enda ümbrust mõjutame. Tegelikult tundub üpris ebaloomulik, et inimesed on nii kiiresti arendanud välja tehnoloogia ning masinad ja massiliselt nii palju asju tootma hakanud.”* – Etendusel käinud õpilane
+_“Etendus pani mind mõtlema sellele, et me ei panegi vahel isegi tähele, kuidas enda ümbrust mõjutame. Tegelikult tundub üpris ebaloomulik, et inimesed on nii kiiresti arendanud välja tehnoloogia ning masinad ja massiliselt nii palju asju tootma hakanud.”_ – Etendusel käinud õpilane
 
-*“Tantsijate liikumiskeel oli kohati etteaimamatu, mis tegi kogu loo veelgi huvitavamaks. Soovitaksin seda etendust igaühele, sest igaüks saab mõne uue mõtte omale.”* – Etendusel käinud õpilane
+_“Tantsijate liikumiskeel oli kohati etteaimamatu, mis tegi kogu loo veelgi huvitavamaks. Soovitaksin seda etendust igaühele, sest igaüks saab mõne uue mõtte omale.”_ – Etendusel käinud õpilane
 
-### Arvustused ja artiklid
+## Arvustused ja artiklid
 
 - [Arvustus “Ilma / Weather or Not”](https://criticaldance.org/zuga-ilan-weather-or-not/) – Stuart Sweeney, CriticalDance, 30.03.2025
 - [ARVUSTUS | Zuga tantsijate ilma tegev lavastus](https://epl.delfi.ee/artikkel/120336005/arvustus-zuga-tantsijate-ilma-tegev-lavastus) – Eleriin Miilman, Eesti Päevaleht, 13.11.2024
@@ -60,7 +65,7 @@ Nende lastelavastused on pälvinud tähelepanu ja mitmeid teatri- ja tantsuauhin
 - [Ökoskoop. Kliimast kõnelev lavastus “Ilma” ja päikesepaneelid](https://vikerraadio.err.ee/1609490843/okoskoop-kliimast-konelev-lavastus-ilma-ja-paikesepaneelid) – Ökoskoop, 28.10.2024
 - [Päär Pärenson lavastusest “Ilma”: on tantsu, on ruumis liikumist ja näpuotsaga laulu](https://kultuur.err.ee/1609501726/paar-parenson-lavastusest-ilma-on-tantsu-on-ruumis-liikumist-ja-napuotsaga-laulu) – ERR kultuuriportaal, 24.10.2024
 
-### Lingid
+## Lingid
 
 - [Lavastuse koduleht (STL)](https://www.stl.ee/lavastused/ilma)
 - [Arvuta oma süsinikujalajälge](https://www.bioneer.ee/kuidas-arvutada-s%C3%BCsiniku-jalaj%C3%A4lge)

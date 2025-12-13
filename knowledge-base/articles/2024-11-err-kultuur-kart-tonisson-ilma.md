@@ -21,13 +21,14 @@ related_performances:
 
 **Intervjuu lavastaja ja tantsija Kärt Tõnissoniga ERR kultuuriportaalis. 26. oktoobril esietendub Sõltumatu Tantsu Laval Zuga Ühendatud Tantsijate uuslavastus "Ilma", mis tegeleb kliimaga seotud teemadega positiivse aktivismi kaudu.**
 
-*Autor: Sanna Kartau*
-*Avaldatud: 5. november 2024*
-*Allikas: ERR Kultuuriportaal*
+_Autor: Sanna Kartau_
+_Avaldatud: 5. november 2024_
+_Allikas: ERR Kultuuriportaal_
 
 ## Intervjuus osalejad
 
 Sanna Kartau vestles vihmasel sügisõhtul STLi proovisaalis Zuga Ühendatud Tantsijatega:
+
 - Kärt Tõnisson (lavastaja, tantsija)
 - Helen Reitsnik
 - Tiina Mölder
@@ -53,6 +54,7 @@ Sanna Kartau vestles vihmasel sügisõhtul STLi proovisaalis Zuga Ühendatud Tan
 ### Inspiratsioon ja mõttekaaslased
 
 Lavastuse protsessis kohtuti ekspertidega:
+
 - **Aet Annist** (filosoof)
 - **Kristjan Piirimäe** (ajaloolane)
 - **Maia-Liisa Anton**
@@ -128,7 +130,7 @@ Zuga on teostega "Müra" ja "Käik" Palestiinas esinemas käinud. "Müra" koreog
 
 ---
 
-*Toimetaja: Kaspar Viilup*
+_Toimetaja: Kaspar Viilup_
 
 ## Seotud materjalid
 
