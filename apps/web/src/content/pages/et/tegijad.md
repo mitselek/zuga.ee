@@ -17,12 +17,3 @@ translated:
 - language: en
   slug: english-about-us-1
 ---
-
-# Tegijad
-
-## Gallery
-
-
-## Video
-
-Performance video available in frontmatter metadata.

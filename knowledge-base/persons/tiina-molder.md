@@ -20,10 +20,20 @@ Tiina Mölder on vabakutseline tantsukunstnik, **ZUGA Ühendatud Tantsijate asut
 - Õpetaja
 - Koostöö teiste lavastajate ja (tantsu)kunstnikega
 
+## Auhinnad
+
+### 2007 - Tantsuauhind
+**"Naine ja Hunt"** - idee, koreograafia ja videorežii (koos ZUGA Ühendatud Tantsijatega)
+
+### 2005 - Tantsuauhind
+**"ZUGA teeb suure linna"** - Tantsutrupp ZUGA (koos Kaja Kann ja Helen Reitsnikuga)
+
 ## ZUGA lavastused
 
-Tiina on üks ZUGA ühendatud tantsijatest ja ZUGA lavastuste autoritest. Alates 2014. aastast on ta loonud ja esitanud tantsulavastusi lastele ja täiskasvanutele koos teiste ZUGA Ühendatud Tantsijatega:
+Tiina on üks ZUGA ühendatud tantsijatest ja ZUGA lavastuste autoritest. Ta on olnud koreograaf, lavastaja ja esitaja alates asutamisest:
 
+- "Naine ja Hunt" (2006) - koreograaf - **2007 Tantsuauhind, 2006 Philip Morris Award**
+- "ZUGA teeb suure linna" (2005) - **2005 Tantsuauhind**
 - "Zuga zuug zuh-zuh-zuh" (2009)
 - "Võluvärk" (2011)
 - "Käik" (2014)
@@ -31,7 +41,11 @@ Tiina on üks ZUGA ühendatud tantsijatest ja ZUGA lavastuste autoritest. Alates
 - "Tempo" (2018)
 - "Müra" (2019)
 - "2+2=22" (2019)
+- "Suur Teadmatus" (2022)
+- "Hool/Care" (2024)
+- "Ilma" (2024)
 
 ## Allikas
 
 - [ZUGA Heliliikumistöötoad, STL.ee](https://www.stl.ee/lisaprogramm/tootoad/zuga-heliliikumistootoad)
+- [Eesti Teatriliit - Tantsuauhind](https://www.teatriliit.ee/auhinnad/laureaadid-auhindade-jargi/tantsuauhind)

@@ -28,6 +28,23 @@ Oma suulist sõnumit on Päär peamiselt edastanud ansamblite koosseisus:
 
 ## ZUGA lavastused
 
+Aktiivne esitaja ZUGA lavastustes alates 2014:
+
+- "Käik" (2014)
+- "meeleKolu" (2016)
+- "Tempo" (2018)
+- "Müra" (2019)
+- "2+2=22" (2019)
+- "Suur Teadmatus" (2022)
+- "Ilma" (2024) - esitaja (sh "Warm and comfortable" laul)
+
+## Meediakajastus
+
+- ERR kultuur - "Päär Pärenson lavastusest 'Ilma'" (2024-10-24)
+- Intervjuud kliimateemaliste lavastuste kohta (2022-2024)
+
+## ZUGA lavastused (täiendavad)
+
 Viimastel aastatel on olnud osaline ZUGA lavastustes:
 
 - "Käik" (2014)

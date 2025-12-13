@@ -27,9 +27,11 @@ Alates 2014. aastast on ta loonud ja esitanud tantsulavastusi lastele ja täiska
 - "Käik" (2014)
 - "Meelekolu" (2016)
 - "Tempo" (2018)
-- "Müra" (2019)
+- "Müra" (2019) - esitaja (Helena Krinali koostöö)
 - "2+2=22" (2019)
+- "Hool/Care" (2024) - esitaja (Helena Krinali koostöö)
 
 ## Allikas
 
 - [ZUGA Heliliikumistöötoad, STL.ee](https://www.stl.ee/lisaprogramm/tootoad/zuga-heliliikumistootoad)
+- Performance pages: Müra, Hool/Care
