@@ -1,13 +1,34 @@
 ---
-title: 2-2-22
+title: 2+2=22
 slug: english-2-2-22
 language: en
-description: Zuga performance '2-2-22' photo gallery
+description: A performance about rules and agreements as children and parents
 type: detail
 category: etendused
+subcategory: noorele-publikule
 status: published
 original_url: https://www.zuga.ee/en/english-2-2-22
 page_type: performance
+premiere_date: 2019-10-30
+venue: Sõltumatu Tantsu Lava
+duration: 55
+age_recommendation: 6-13
+awards:
+  - Salme Reeg Children's Theatre Award nominee 2020
+credits:
+  directors:
+    - Tiina Mölder
+    - Kärt Tõnisson
+    - Helen Reitsnik
+    - Ajjar Ausma
+    - Päär Pärenson
+  light_designer: Oliver Kulpsoo
+  costume_designer: Keili Retter
+  set_designers:
+    - Keili Retter
+    - Oliver Kulpsoo
+  composer: Lauri-Dag Tüür
+  dramaturge: Andri Luup
 translated:
 - language: et
   slug: etendused-noorele-publikule-2-2-22
@@ -45,13 +66,46 @@ videos:
   url: https://www.youtube.com/embed/qp22v58UQnw
 ---
 
-# 2-2-22
+# 2+2=22
+
+**Premiere:** October 30, 2019, Sõltumatu Tantsu Lava
+**Duration:** 55 minutes
+**Suitable for:** All children and parents, especially children aged 6-13
+
+## About the Performance
+
+I want to do it so that everything would somehow obey me, but in a way that I wouldn't trample on anyone.
+
+I make my own game rules.
+
+I can manage, I make myself strong, I climb and jump.
+
+I sit on two chairs, go to three schools, speak four languages.
+
+I make a loud noise, and give a proper fight.
+
+I win, lose, learn, fall, I stomp and sulk.
+
+I want to stay friends. And become friends.
+
+I'm interested in exciting, momentum and joy, silly laughter, messy head and good joke and… I want to do the opposite, SOMETIMES, or just do it at another time, OTHER TIMES.
+
+---
+
+Zuga United Dancers' performance "2 + 2 = 22" drills into rules and regulations, visible and invisible agreements in our shared dear life as children and parents. It turns them upside down, sneaks aside and steps past, doesn't offer a seat or invites to their side or sits on two chairs at once, while still looking for their place together. In this activity there is an attempt to arrive, even if accompanied by the cry "Adapt!".
+
+This performance originated in summer 2019 when Zuga United Dancers went to Latvia and explored rules together with Valmiera Drama Theatre actors – Aigars Āpinis, Elina Dambe and Rihards Jakovlevs. Together they created the performance "Tools to rule", which was performed at the Valmiera Summer Theatre Festival in August 2019.
+
+## Recognition
+
+"2 + 2 = 22" was nominated in 2020 for the [Salme Reeg Children's Theatre Award](http://teatriliit.ee/auhinnad/nominendid/nominendid-2020) as a "playful, engaging and mind-expanding performance".
+
+## Press Coverage
+
+- [2 + 2 = 22](http://kuukiri.tantsuliit.ee/artikkel/2222/) – Kristina-Maria Heinsalu, Dance Monthly, December 2019
+- [Dancing out of the rules, or 2 + 2 = 22](https://epl.delfi.ee/kultuur/tantsime-reeglitest-valja-ehk-2-2-22?id=88157077) – Andres Maimik and Miriam Mia Maimik, Eesti Päevaleht, November 25, 2019
+- [Review: I forbid, I order, I create and play](https://kultuur.err.ee/1000372/arvustus-keelan-kasen-loon-ja-mangin) – Annemari Parmakson, ERR Culture, November 7, 2019
+- [Exciting, momentum and joy, silly laughter, messy head and good joke](https://estonianwithabackpack.com/2019/10/30/ponev-hoog-ja-room-loll-naer-sassis-pea-ning-hea-nali/) – Eveliis (Estonian with a Backpack), October 30, 2019
+- [Zuga is inspired by children's play logic](https://stl.ee/zuga/) – Katrin Tegova, Choreocoffee, October 1, 2019
 
 ## Gallery
-
-This performance features 7 gallery images.
-Photo gallery from 2-2-22 performance
-
-## Video
-
-ZUGA video greeting

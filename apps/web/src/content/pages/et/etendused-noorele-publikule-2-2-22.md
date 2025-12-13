@@ -1,37 +1,39 @@
 ---
-title: 2-2-22
+title: 2+2=22
 slug: etendused-noorele-publikule-2-2-22
 language: et
-description: Zuga etendus '2-2-22' fotogalerii
+description: Lavastus reeglite ja kokkulepete kohta lastena ja vanematena
 type: detail
 category: etendused
 subcategory: noorele-publikule
 status: published
 original_url: https://www.zuga.ee/et/etendused-noorele-publikule-2-2-22
 page_type: performance
+premiere_date: 2019-10-30
+venue: Sõltumatu Tantsu Lava
+duration: 55
+age_recommendation: 6-13
+awards:
+  - Salme Reegi nimelise lasteteatri auhinna nominent 2020
+credits:
+  directors:
+    - Tiina Mölder
+    - Kärt Tõnisson
+    - Helen Reitsnik
+    - Ajjar Ausma
+    - Päär Pärenson
+  light_designer: Oliver Kulpsoo
+  costume_designer: Keili Retter
+  set_designers:
+    - Keili Retter
+    - Oliver Kulpsoo
+  composer: Lauri-Dag Tüür
+  dramaturge: Andri Luup
 translated:
 - language: en
   slug: english-2-2-22
 hero_image: https://f12.pmo.ee/1DZH2_KfjVrUoIxlhD-b43SG9js=/721x0/filters:focal(1071x830:3347x2071):format(webp)/nginx/o/2019/10/25/12685729t1h5664.jpg
 gallery:
-- url: https://lh4.googleusercontent.com/vPnKixFBUoWgV0CRF1z_IbfLvS6cd3ku3CCmF5hvE0bTH2Y0G75kOKXZbhSpVYC0tglA7bLTzfYrF8bodWgrXPaTUbHPnp8vu9yDZir5ZYm1W-N7RXsKUBdLXcStmuGwQQ=w1280
-  width: 1280
-  description: Etenduse foto
-- url: https://lh3.googleusercontent.com/MKj8SZG9-IAHGWbwUuKwJVymzxwzahKlfDXTTJlcf6VkvM9kczyOc632Fq1nyIUFie8zrosTqXpYZx9B3uhK5rgBKxiaGVTFUmn1nFQlI3x6MAyEfe_H5i0594349djo2g=w1280
-  width: 1280
-  description: Etenduse foto
-- url: https://lh4.googleusercontent.com/ocdsQxvE6YzKuJ3jWF6ECXyfBXFeflylXEXOoNfTKC-wK3UdSc00cn3MGvRaeBn1aBwfiKggA8L9wjIcEvLqspA=w1280
-  width: 1280
-  description: Etenduse foto
-- url: https://lh6.googleusercontent.com/vmhPq72Ik3L-qoDpiH2zYDn9uld2Av2UagIoWVnKpSOp02Fbn0S43oSARHF4Cv2BUVDng8T8iV2x1lff9CB_emiSoxwBpdabrkd0WqZ-harBM9CYZNkscRztgcop75wyjw=w1280
-  width: 1280
-  description: Etenduse foto
-- url: https://lh4.googleusercontent.com/2vo4TIKK02ciKmxmqBNVUXCon06qufQ-yxhZrrrBhJ-T8PRjdWeFZEA0G2BQjwrV=w1280
-  width: 1280
-  description: Etenduse foto
-- url: https://lh6.googleusercontent.com/_XWrhfKNHL3KQMASqxdaXcuZJXvqSjEmLqML4CfzjnZIPSF4MkTuILpyJqsWBK46jLqpJr1bI4k97fPnsrbHgsCxbFLXTxBUpvE_vCozi8zxZShO=w1280
-  width: 1280
-  description: Etenduse foto
 - url: https://lh3.googleusercontent.com/9VEz2JqVbN_-FI8US7JIlPpTOtGdIniGvq7rBoWNxwL0bZDbUDAyOw0wW6ZV51a5riMUAlxAOZhyRSa3OEw10B3q60rRtP3-_hsUuUvhMnxKwaJcAjmXJzskeWDN0HXdvQ=w1280
   width: 1280
   description: Etenduse foto
@@ -46,13 +48,46 @@ videos:
   url: https://www.youtube.com/embed/qp22v58UQnw
 ---
 
-# 2-2-22
+# 2+2=22
 
-## Gallery
+**Esietendus:** 30. oktoober 2019, Sõltumatu Tantsu Lava
+**Kestus:** 55 minutit
+**Sobib:** Kõigile lastele ja vanematele, eriti lastele vanuses 6-13
 
-This performance features 7 gallery images.
-Fotogalerii etendusest 2-2-22
+## Lavastusest
 
-## Video
+Ma tahaks teha nii, et kõik mulle kuidagi alluks, aga nii, et ma kellegi peal ei talluks.
 
-ZUGA videotervitus
+Ma teen oma mängureeglid.
+
+Ma saan hakkama, ma teen end tugevaks, ma ronin ja hüppan.
+
+Istun kahel toolil, käin kolmes koolis, räägin neljas keeles.
+
+Ma teen kõva häält, ja annan korraliku lahingu.
+
+Ma võidan, kaotan, õpin, kukun, ma trambin ja tukun.
+
+Ma tahan jääda sõpradeks. Ja saada sõpradeks.
+
+Mind huvitab põnev, hoog ja rõõm, loll naer, sassis pea ning hea nali ja… ma tahan teha vastupidi, MÕNIKORD, või lihtsalt teisel ajal teha seda, TEINEKORD.
+
+---
+
+Zuga Ühendatud Tantsijate lavastus "2 + 2 = 22" puurib reegleid ja korraldusi, nähtavaid ja nähtamatuid kokkuleppeid meie ühises armsas elus lastena ja vanematena. Keerab need pahupidi, hiilib kõrvale ja astub mööda, ei paku istet või kutsub enda kõrvale või istub kahel toolil korraga, samal ajal ikkagi koos oma kohta otsides. Selles tegevuses on püüe jõuda kohale, isegi kui seda saadab hüüe "Kohane!".
+
+Käesolev lavastus sai alguse 2019. a. suvel, kui Zuga Ühendatud Tantsijad käisid Lätis ja uurisid reegleid koos Valmiera Draamateatri näitlejatega – Aigars Āpinis, Elina Dambe ja Rihards Jakovlevs. Siis loodi koos lavastus "Tools to rule", mis etendus Valmieras Suveteatri Festivalil augustis 2019.
+
+## Tunnustus
+
+"2 + 2 = 22" nomineeriti 2020. aastal [Salme Reegi nimelisele lasteteatri auhinnale](http://teatriliit.ee/auhinnad/nominendid/nominendid-2020) kui "mänguline, kaasav ja mõtteringi avardav lavastus".
+
+## Kajastus
+
+- [2 + 2 = 22](http://kuukiri.tantsuliit.ee/artikkel/2222/) – Kristina-Maria Heinsalu, TantsuKuukiri, detsember 2019
+- [Tantsime reeglitest välja ehk 2 + 2 = 22](https://epl.delfi.ee/kultuur/tantsime-reeglitest-valja-ehk-2-2-22?id=88157077) – Andres Maimik ja Miriam Mia Maimik, Eesti Päevaleht, 25. november 2019
+- [Arvustus. Keelan, käsen, loon ja mängin](https://kultuur.err.ee/1000372/arvustus-keelan-kasen-loon-ja-mangin) – Annemari Parmakson, ERR Kultuur, 7. november 2019
+- [Põnev, hoog ja rõõm, loll naer, sassis pea ning hea nali](https://estonianwithabackpack.com/2019/10/30/ponev-hoog-ja-room-loll-naer-sassis-pea-ning-hea-nali/) – Eveliis ehk Estonian with a Backpack, 30. oktoober 2019
+- [Zugat inspireerib laste mänguloogika](https://stl.ee/zuga/) – Katrin Tegova, Koreokohvik, 1. oktoober 2019
+
+## Galerii
