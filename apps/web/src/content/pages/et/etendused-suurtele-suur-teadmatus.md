@@ -8,6 +8,9 @@ subcategory: suurtele
 status: published
 original_url: https://www.zuga.ee/et/etendused-suurtele-suur-teadmatus
 page_type: performance
+premiere_date: 2022-03-10
+venue: Sõltumatu Tantsu Lava
+duration: 60
 translated:
 - language: en
   slug: english-the-great-unknown
@@ -41,13 +44,17 @@ gallery:
 
 **Zuga Ühendatud Tantsijad**
 
+Sageli on jutud meie elus tõsised või isegi surmtõsised, lõplikud! Elage ettevaatlikult, käige nööri mööda, ärge külmetage, jääte haigeks ja purikas kukub pähe, murrate kaela ja leiate oma otsa. Aga mis siis, kui see ots ei ole ots? Kui sellel kõigel ei olegi kurba lõppu? Nii, nagu tähistaevas näib meile otsatuna, lummava ja lõputuna. Mis siis, kui ongi õigus kõigil neil, kes ütlevad, et me läheme paremasse paika, et meid ootavadki ees haljad ja niisked niidud?
+
+Kui me põlemegi puhtaks kogu oma valust ja läheme lendu nagu tulelinnud. Kergete ja vabadena?
+
+Kas ei oleks hea siis teha koos läbi mõned rituaalid, pesta puhtaks oma silmnägu, ehtida end pidurüüsse ja panna selga parim kuub ning tantsida läbi uljad ühistantsud? Katsuda korra käega mulda, visata tuulde oma tuhk. Ja anda oma süda ära ning mitte hoida kümne küünega kõigest, mis näib meile omana.
+
+Pole ju mõtet teha nägu, et meie teame kõike, meile on kõik selge. Õigem oleks tunnistada, me ei tea. Meie ees laiub suur, sügav teadmatus. Ja on meie endi teha, mis värvitooni me sellele sügavusele anname. Kas musta, tumesinise või helesinise. Kas meie teadmatus on raske ja koormav või kerge ja õhuline. Või hoopis mõlemat.
+
+Elagu suur teadmatus, olgu meie tulevik sügav, ilus ja kõikehõlmav. Saagu, mis saab. Tulgu, mis tuleb.
+
 "Suur teadmatus" on Zuga Ühendatud Tantsijate füüsiline mõtisklus lahtilaskmisest, ärasaatmisest ja rituaalidest, mis puhastavad ning valmistavad ette kohtumist uue ruumi ja uue maailmaga.
-
-Sageli on jutud meie elus tõsised või isegi surmtõsised, lõplikud! Elage ettevaatlikult, käige nööri mööda, ärge külmetage, jääte haigeks ja purikas kukub pähe, murrate kaela ja leiate oma otsa. Aga mis siis, kui see ots ei ole ots? Kui sellel kõigel ei olegi kurba lõppu? Nii, nagu tähistaevas näib meile otsatuna, lummava ja lõputuna. Mis siis, kui ongi õigus kõigil neil, kes ütlevad, et me läheme paremasse paika, et meid ootavadki ees haljad heinamaad ja niisked niidud?
-
-Kui me põlemegi puhtaks kogu oma valust ja läheme lendu nagu tulesulis linnud. Kergete ja vabadena? Kas ei oleks hea siis teha koos läbi mõned rituaalid, pesta puhtaks oma silmnägu, ehtida end pidurüüsse ja panna selga parim kuub ning tantsida läbi uljad ühistantsud? Katsuda korra käega mulda, visata tuulde oma tuhk. Ja anda oma süda ära ning mitte hoida kümne küünega kõigest, mis näib meile omana.
-
-Pole ju mõtet teha nägu, et meie teame kõike, meile on kõik selge. Õigem oleks tunnistada, me ei tea. Meie ees laiub suur, sügav teadmatus. Ja on meie endi teha, mis värvitooni me sellele sügavusele anname. Kas musta, tumesinise või helesinise. Kas meie teadmatus on raske ja koormav või kerge ja õhuline. Või hoopis mõlemat. Elagu suur teadmatus, olgu meie tulevik sügav, ilus ja kõikehõlmav. Saagu, mis saab. Tulgu, mis tuleb.
 
 ### Lavastusmeeskond
 

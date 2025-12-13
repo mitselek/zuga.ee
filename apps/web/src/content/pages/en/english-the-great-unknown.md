@@ -8,6 +8,9 @@ category: etendused
 status: published
 original_url: https://www.zuga.ee/en/english-the-great-unknown
 page_type: performance
+premiere_date: 2022-03-10
+venue: Independent Dance Stage
+duration: 60
 translated:
 - language: et
   slug: etendused-suurtele-suur-teadmatus
@@ -41,13 +44,17 @@ gallery:
 
 **Zuga United Dancers**
 
-"The Great Unknown" is a physical meditation by Zuga United Dancers on letting go, sending off, and rituals that cleanse and prepare us for encountering new spaces and new worlds.
+Often the stories in our lives are serious or even deadly solemn, final! Live carefully, walk along the string, do not get cold, you will get sick and an icicle will fall on your head, you will break your neck and find your end. But what if that end isn't the end? If all this has no sad ending? Just as the starry sky seems endless, enchanting and endless to us. What if all those who say that we are going to a better place, where green and moist meadows are awaiting, are right?
 
-Often the stories in our lives are serious or even deadly serious, final! Live carefully, walk the line, don't catch cold, you'll get sick and a brick will fall on your head, you'll break your neck and meet your end. But what if that end is not the end? What if none of this has a sad ending? Just as the starry sky seems endless to us, enchanting and infinite. What if all those who say we're going to a better place, that green meadows and moist grasslands await us, are right?
+What if we burn away all our pain and go on a flight like fiery birds. Light and free?
 
-What if we burn clean of all our pain and take flight like phoenixes. Light and free? Wouldn't it be good then to go through some rituals together, wash our faces clean, dress in festive clothes and put on our best coat and dance through joyous group dances? Touch the earth once with our hand, scatter our ashes to the wind. And give our heart away and not hold on with all our might to everything that seems ours.
+Wouldn't it be nice to do some rituals together, wash your face, dress up and put on our best coat, and dance some bold group dances? Touch the soil with our hand, throw our ashes into the wind. And give away our heart, not hold on to everything with our ten nails that we think belongs to us.
 
-There's no point pretending we know everything, that everything is clear to us. It would be more honest to admit, we don't know. Before us lies a great, deep unknown. And it's up to us what color we give to that depth. Whether black, dark blue or light blue. Whether our unknown is heavy and burdensome or light and airy. Or perhaps both. Long live the great unknown, may our future be deep, beautiful and all-encompassing. Whatever will be, will be. Whatever comes, comes.
+There is no point in making a face that we know everything, that everything is clear to us. It would be better to admit we don't know. There is a great, deep unknown before us. And it is up to us to determine the color we add to this depth. Either black, dark blue or light blue. Whether our lack of knowledge is heavy and burdensome or light and airy. Or both.
+
+Long live the great unknown, may our future be deep, beautiful, and all-encompassing. Let it be. What may come, may come.
+
+"The Great Unknown" is a physical contemplation by Zuga United Dancers about letting go, sending someone off, and rituals that cleanse and prepare us for meeting with a new space and a new world.
 
 ### Creative Team
 
