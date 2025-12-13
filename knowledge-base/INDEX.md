@@ -13,6 +13,17 @@ Cataloged materials about ZUGA performances, reviews, and research.
 
 ## Press Releases
 
+### 2026
+
+#### March
+
+- **[Zuga Ühendatud Tantsijate uuslavastus "Mis Sul viga on?!"](press/2026-03-mis-sul-viga-on-announcement.md)**
+  - Performance: Mis Sul viga on?! (2026)
+  - Topics: Mental health, noticing each other, collaboration with Peaasi.ee
+  - Type: Premiere announcement
+  - Premiere: 21. märts 2026, Sõltumatu Tantsu Lava
+  - Status: Upcoming
+
 ### 2016
 
 #### September

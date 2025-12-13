@@ -94,11 +94,13 @@ Kindlasti on meie jaoks oluline läbiv aspekt mäng ja publiku kaasahaaramine l�
 ---
 
 **Meeskond:**
+
 - Koreograafid: Helen Reitsnik, Kärt Tõnisson, Tiina Mölder, Triin Lilleorg, Ajjar Ausma, Päär Pärenson
 - Sihtgrupp: 9–13-aastased (koguperele)
 - Esietendus: oktoober 2016
 
 **Võtmeteemad:**
+
 - Emotsioonid ja meeleolud
 - Kehaline tunnetamine
 - Tunnete läbielamine ja väljendamine

@@ -36,6 +36,7 @@ Vaiba alla on peitu pugenud lodev ja...
 Zuga ühendatud tantsijad on tantsijaid ja koreograafe koondav kollektiiv, mis on koos tegutsenud 1999. aastast. Nad on ainus järjepidevalt ja regulaarselt lastele tantsulavastusi loov tantsukooslus Eestis.
 
 Nende lastelavastused on pälvinud tähelepanu ning mitmeid teatri- ja tantsuauhindu:
+
 - Salme Reegi auhind
 - Draamakese auhind
 - Teatriaasta auhind
@@ -46,6 +47,7 @@ Nad on esinenud nii Eestis kui välismaal: Soomes, USA-s, Saksamaal, Leedus, Lä
 ## Meeskond
 
 **Autorid ja esitajad:**
+
 - Helen Reitsnik
 - Kärt Tõnisson
 - Tiina Mölder
@@ -54,6 +56,7 @@ Nad on esinenud nii Eestis kui välismaal: Soomes, USA-s, Saksamaal, Leedus, Lä
 - Päär Pärenson (Cabaret Rhizome)
 
 **Kunstnikud:**
+
 - Helikujundaja: Kalle Tikas
 - Kunstnik: Keili Retter
 - Valguskunstnik: Oliver Kulpsoo
