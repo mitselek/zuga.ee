@@ -11,7 +11,7 @@ page_type: performance
 translated:
 - language: et
   slug: etendused-noorele-publikule-2-2-22
-hero_image: https://lh5.googleusercontent.com/PXSN6CJeVTYvu_x98JfAS3NBScOCkqV2WJW0HXxDJZWAA5pu8fyh7o59Y-BweUELFvpWPqx55G_kz-QCKDI1Y9Y=w16383
+hero_image: https://f12.pmo.ee/1DZH2_KfjVrUoIxlhD-b43SG9js=/721x0/filters:focal(1071x830:3347x2071):format(webp)/nginx/o/2019/10/25/12685729t1h5664.jpg
 gallery:
 - url: https://lh4.googleusercontent.com/zAG_7dQ9ctOWgapMIimu30Tjrugto9ndwjDyxOaacOQKB4vH3EwnXEsJd1k6zS0puQEuYYBLtBvUa8yd01YSh8VTXwlkKAza5qe4OJZTBVo_CMg1t1jFku0MSUk8kBOfkA=w1280
   width: 1280
@@ -35,6 +35,10 @@ gallery:
   width: 1280
   description: Performance photo
 videos:
+- platform: youtube
+  video_id: zj4R_qkHg8Q
+  title: "2+2=22 performance"
+  url: https://www.youtube.com/embed/zj4R_qkHg8Q
 - platform: youtube
   video_id: qp22v58UQnw
   title: ZUGA video greeting

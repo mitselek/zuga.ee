@@ -12,7 +12,7 @@ page_type: performance
 translated:
 - language: en
   slug: english-2-2-22
-hero_image: https://lh3.googleusercontent.com/E9JYoSPVzSgdMHpLR4QymETWN3X-hwdxc-RtIBeIi1INrt0NvMIhRxaMfroLu-gtHmOHs1PYHjAuoY1cMuF7HYI=w16383
+hero_image: https://f12.pmo.ee/1DZH2_KfjVrUoIxlhD-b43SG9js=/721x0/filters:focal(1071x830:3347x2071):format(webp)/nginx/o/2019/10/25/12685729t1h5664.jpg
 gallery:
 - url: https://lh4.googleusercontent.com/vPnKixFBUoWgV0CRF1z_IbfLvS6cd3ku3CCmF5hvE0bTH2Y0G75kOKXZbhSpVYC0tglA7bLTzfYrF8bodWgrXPaTUbHPnp8vu9yDZir5ZYm1W-N7RXsKUBdLXcStmuGwQQ=w1280
   width: 1280
@@ -36,6 +36,10 @@ gallery:
   width: 1280
   description: Etenduse foto
 videos:
+- platform: youtube
+  video_id: zj4R_qkHg8Q
+  title: "2+2=22 lavastus"
+  url: https://www.youtube.com/embed/zj4R_qkHg8Q
 - platform: youtube
   video_id: qp22v58UQnw
   title: ZUGA videotervitus
