@@ -18,6 +18,7 @@ credits:
 translated:
 - language: en
   slug: english-whats-wrong-with-you
+hero_image: https://fienta.com/cf/img/?width=1070&dpr=1&format=webp&v=1764153816&gcs=true&file=/uploads/2025/11/157610/157610-et-251126124336.png
 ---
 
 # Mis Sul viga on?!
