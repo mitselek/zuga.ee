@@ -14,7 +14,7 @@ age_recommendation: 10+
 duration: 60
 hero_image: https://lh4.googleusercontent.com/DBxwueB6fPHRnLW2vhLTuUXqMXwXCvMQW-AliKEHn5c6X1O7ismAvtROvjQkbwGfsZsyzGcdc_-6lU_Ipmo1jg4=w16383
 videos:
-  - platform: hls
+  - platform: err
     url: https://vod.err.ee/hls/uudised/f923793435785f60bf71e5bbd793ca9c/v/master.m3u8
     title: Päär Pärenson about "Ilma"
     description: ERR news, 24.10.2024
