@@ -2,6 +2,15 @@
 
 Cataloged materials about ZUGA performances, reviews, and research.
 
+## Research & Awards
+
+### Awards
+
+- **[Tantsuauhind (Eesti Teatriliit)](research/awards-tantsuauhind.md)**
+  - 2007: ZUGA ühendatud tantsijad – "Naine ja Hunt" (idee, koreograafia, videorežii)
+  - 2005: Tantsutrupp ZUGA – "ZUGA teeb suure linna" (Kaja Kann, Helen Reitsnik, Tiina Mölder)
+  - Status: Archived
+
 ## Press Releases
 
 ### 2016
