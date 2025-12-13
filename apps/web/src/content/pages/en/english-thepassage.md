@@ -17,7 +17,7 @@ awards:
 translated:
 - language: et
   slug: etendused-noorele-publikule-kaeik
-hero_image: /images/kaik-web-2.jpg
+hero_image: /images/kaik-web-14.jpg
 gallery:
 - url: /images/kaik-web-2.jpg
   description: Performance photo

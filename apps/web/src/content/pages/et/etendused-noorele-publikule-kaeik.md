@@ -18,7 +18,7 @@ awards:
 translated:
 - language: en
   slug: english-thepassage
-hero_image: /images/kaik-web-2.jpg
+hero_image: /images/kaik-web-14.jpg
 gallery:
 - url: /images/kaik-web-2.jpg
   description: Etenduse foto
