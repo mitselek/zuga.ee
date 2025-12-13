@@ -13,6 +13,12 @@ translated:
 - language: en
   slug: english-inthemood
 hero_image: /images/etendused-meelekolu-hero.jpg
+audio:
+- platform: err
+  title: Teatriluup – meeleKolu
+  url: https://vod.err.ee/hls/arhiiv/AUDIO/a_115965_RMARHIIV.m4a/index-a1.m3u8
+  source: ERR Vikerraadio
+  date: "2016-10-18"
 gallery:
 - url: /images/etendused-meelekolu-1.jpg
   width: 2048
@@ -90,5 +96,5 @@ Zuga ühendatud tantsijate panus Eesti tantsuteatri arengusse oma kvaliteetsete 
 - [Meele(olu)line ja pingevaba keskpäevane teatriõhtu](http://kultuur.postimees.ee/v2/3885433/meele-olu-line-ja-pingevaba-keskpaeevane-teatriohtu), Postimees, Rait Avestik, 28. oktoober 2016
 - [Harjutusi kollektiivseks lapsepõlveks](http://kultuur.err.ee/v/teater/4fa09e67-f87b-471f-b604-fc68c23b1a00/arvustus-harjutusi-kollektiivseks-lapsepolveks), ERR kultuuriportaal, Merilin Pärli, 20. oktoober 2016
 - ["meeleKolu", lastele mõeldud tantsulavastus, mis ei küsi vanust](http://epl.delfi.ee/news/kultuur/meelekolu-lastele-moeldud-tantsulavastus-mis-ei-kusi-vanust?id=75943127), Eesti Päevaleht, Keiu Virro, 18. oktoober 2016
-- [Teatriluup](http://klassikaraadio.err.ee/v/teatriluup/saated/9f5d8e9a-afe0-4ff9-bb05-5febc0a8504b/teatriluup-1810), Vikerraadio, Keiu Virro, 18. oktoober 2016
+- [Teatriluup](https://arhiiv.err.ee/audio/vaata/teatriluup-212800), ERR Vikerraadio, Keiu Virro, 18. oktoober 2016
 - [Kultuurinädal pealinnas](http://www.tallinnatv.eu/index.php/saated-sarjad/kultuur/kultuurinadal-pealinnas/10612-2016-10-18-kultuurinadal-pealinnas), Tallinna TV, Kadri Pihelo
