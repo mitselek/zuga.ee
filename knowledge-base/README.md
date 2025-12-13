@@ -26,14 +26,81 @@ Files should follow this pattern:
 
 ## Metadata
 
-Each file should include YAML frontmatter with the following fields:
+Each file should include YAML frontmatter with validated fields. See `config.ts` for complete schema definitions:
 
-- **Date**: Publication or creation date
-- **Source**: Original URL or publication name
-- **Type**: article, review, interview, press-release, research-notes
-- **Related Performances**: List of performances mentioned
-- **Language**: et, en, or both
-- **Status**: archived, review-pending, ready-to-publish
+### Articles
+- **title** (required): Article title
+- **date** (required): Publication date (YYYY-MM-DD, YYYY-MM, or YYYY)
+- **type** (required): article, review, interview, preview, news, radio-interview, radio, television-program
+- **language** (required): en or et
+- **publication**, **author**, **url**: Publication metadata
+- **tags**, **related_performances**: Content categorization
+- **program**, **host**, **hosts**, **interviewees**, **guests**: For radio/TV content
+- **status**: active (default), archived, review-pending, ready-to-publish
+
+### Persons
+- **name** (required): Person's full name
+- **role** (required): Role description
+- **member_since**: Year joined (YYYY or number)
+- **founding_member**: Boolean for founding members
+- **status**: active (default), inactive, former
+
+### Press
+- **date** (required): Release date
+- **type** (required): press-release, announcement, media-kit, promotional
+- **language** (required): en or et
+- **source**, **publication**: Source information
+- **performance**, **related_performances**: Related content
+- **status**: active (default), archived, upcoming, draft
+
+### Research
+- **type** (required): award, research-notes, interview, production-notes, background
+- **date**: Optional date field
+- **award**, **awarded_by**, **recipients**, **organization**, **performance**, **year**: Award-specific fields
+- **source**: Source URL
+- **status**: active (default), archived
+
+## Type-Safe Configuration
+
+This knowledge base uses Zod schemas for type-safe validation, similar to the web app's content collections (`apps/web/src/content/config.ts`).
+
+### Setup
+
+```bash
+cd knowledge-base
+npm install
+```
+
+### Schema Definitions
+
+The `config.ts` file defines Zod schemas for each collection type:
+
+- **Articles** (`articleSchema`) - Press articles, reviews, interviews
+- **Persons** (`personSchema`) - Member and collaborator profiles
+- **Press** (`pressSchema`) - Press releases and announcements
+- **Research** (`researchSchema`) - Awards, research notes, background materials
+
+### Usage
+
+Import and use the schemas for validation:
+
+```typescript
+import { articleSchema, personSchema, pressSchema, researchSchema } from './config';
+
+// Validate frontmatter data
+const result = articleSchema.safeParse(frontmatterData);
+if (!result.success) {
+  console.error(result.error);
+}
+```
+
+### TypeScript Types
+
+TypeScript types are automatically inferred from the schemas:
+
+```typescript
+import type { Article, Person, Press, Research } from './config';
+```
 
 ## Usage
 
