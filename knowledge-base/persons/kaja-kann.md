@@ -20,12 +20,15 @@ Kaja Kann on üks ZUGA kolmest asutajaliikmest, kes asutas trupi 1999. aastal ko
 ## Auhinnad
 
 ### 2007 - Tantsuauhind
+
 **"Naine ja Hunt"** - idee, koreograafia ja videorežii (koos ZUGA Ühendatud Tantsijatega)
 
 ### 2006 - Philip Morris Award
+
 **"Naine ja Hunt"** - koreograafia ja etendus
 
 ### 2005 - Tantsuauhind
+
 **"ZUGA teeb suure linna"** - Tantsutrupp ZUGA (koos Helen Reitsnik ja Tiina Mölderiga)
 
 ## Peamine töö: "Naine ja Hunt" (2006)
@@ -33,11 +36,13 @@ Kaja Kann on üks ZUGA kolmest asutajaliikmest, kes asutas trupi 1999. aastal ko
 Kaja kõige tuntum töö on "Naine ja Hunt", kus ta mängis eesti naise rolli koos briti tantsija Bush Hartshorniga, kes kehastus hundiks. Lavastus uuris kultuurilisi ja põlvkondlikke erinevusi läbi naise ja hundi metafoori.
 
 ### Loomisprotsess
+
 - Veetis koos Bush Hartshorniga nädala Jõepere talus
 - Uuris eesti ja inglise kultuurilisi erinevusi
 - Baasil folkloorne tantsuviis "Targa rehealune"
 
 ### Meediakajastus
+
 - Intervjuu ERR Päevakaja saates (2006-02-26)
 - EPL artikkel: "ZUGA 'Naine ja Hunt' uurib kultuuride erinevusi" (Tiiu Laks, 2006-02-26)
 - EPL artikkel: "ZUGA 'Naine ja hunt' sai taas preemia" (Tiiu Laks, 2007-06-04)

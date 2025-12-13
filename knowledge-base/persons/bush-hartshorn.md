@@ -33,12 +33,14 @@ Bush on töötanud paljude tunnustatud organisatsioonidega:
 ## ZUGA koostöö: "Naine ja Hunt" (2006)
 
 ### Auhinnad
+
 - **2007 Tantsuauhind** - idee, koreograafia ja videorežii
 - **2006 Philip Morris Award** - koreograafia ja etendus
 
 ### Loomisprotsess
 
 Bush veetis nädala Jõepere talus koos Kaja Kanniga, uurides:
+
 - Kultuurilisi erinevusi eesti ja inglise kultuuri vahel
 - Põlvkondlikke erinevusi
 - Metafoorilist suhet naise (Kaja Kann) ja hundi (Bush Hartshorn) vahel

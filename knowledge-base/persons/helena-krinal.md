@@ -47,6 +47,7 @@ Lisaks "Müra" ja "Hool/Care" on mainitud, et Helena on loonud kolm koostööd Z
 ## Loominguline lähenemine
 
 Helena Krinali töö keskendub:
+
 - Inimsuhetele ja nende keerukusele
 - Kaasaegsele ühiskonnale ja selle väljakutsetele
 - Kultuuridevahelisele dialoogile

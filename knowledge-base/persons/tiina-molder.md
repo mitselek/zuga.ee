@@ -23,9 +23,11 @@ Tiina Mölder on vabakutseline tantsukunstnik, **ZUGA Ühendatud Tantsijate asut
 ## Auhinnad
 
 ### 2007 - Tantsuauhind
+
 **"Naine ja Hunt"** - idee, koreograafia ja videorežii (koos ZUGA Ühendatud Tantsijatega)
 
 ### 2005 - Tantsuauhind
+
 **"ZUGA teeb suure linna"** - Tantsutrupp ZUGA (koos Kaja Kann ja Helen Reitsnikuga)
 
 ## ZUGA lavastused

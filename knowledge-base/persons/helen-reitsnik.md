@@ -15,6 +15,7 @@ Helen Reitsnik on ZUGA asutajaliige ja üks peamisi loojaid, kes on olnud kaasat
 ## Auhinnad
 
 ### 2005 - Tantsuauhind
+
 **"ZUGA teeb suure linna"** - Tantsutrupp ZUGA (koos Kaja Kann ja Tiina Mölderiga)
 
 ## ZUGA lavastused
@@ -22,6 +23,7 @@ Helen Reitsnik on ZUGA asutajaliige ja üks peamisi loojaid, kes on olnud kaasat
 Helen on olnud lavastaja, koreograaf ja esitaja paljudes ZUGA töödes:
 
 ### Lavastaja ja esitaja
+
 - "ZUGA teeb suure linna" (2005) - **2005 Tantsuauhind**
 - "Võluvärk" (2011) - esitaja
 - "Käik" (2014) - lavastaja ja esitaja
