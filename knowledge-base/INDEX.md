@@ -65,6 +65,15 @@ Profiles of ZUGA Ühendatud Tantsijad members and collaborators.
 
 #### November
 
+- **[ARVUSTUS | Zuga tantsijate ilma tegev lavastus](articles/2024-11-epl-eleriin-miilman-ilma-arvustus.md)**
+  - _Eesti Päevaleht_
+  - Author: Eleriin Miilman (teatrivaatleja)
+  - Performance: Ilma (2024)
+  - Topics: Interactive performance, audience participation, climate change, live dialogue
+  - Type: Review
+  - Key Quote: "Elav dialoog publikuga kestab etenduse algusest lõpuni – võiks öelda, et see on ilma tegev."
+  - Status: Active
+
 - **[Kärt Tõnisson lavastusest "Ilma": selles on õudselt palju paradokse, mida peame paremaks eluks](articles/2024-11-err-kultuur-kart-tonisson-ilma.md)**
   - _ERR Kultuuriportaal_
   - Author: Sanna Kartau
@@ -76,6 +85,16 @@ Profiles of ZUGA Ühendatud Tantsijad members and collaborators.
   - Status: Active
 
 #### October
+
+- **[Päär Pärenson lavastusest "Ilma": on tantsu, on ruumis liikumist ja näpuotsaga laulu](articles/2024-10-err-kultuur-paar-parenson-ilma.md)**
+  - _ERR Kultuuriportaal_
+  - Author: ERR
+  - Interviewees: Kärt Tõnisson, Päär Pärenson
+  - Performance: Ilma (2024)
+  - Topics: Premiere preview, climate change, interactive format, creative themes
+  - Type: Preview article
+  - Key Quote: "Saal on selliselt seatud, et inimesed saavad olla ise väga palju pildis ja väga palju osa võtta sellest etendusest."
+  - Status: Active
 
 - **[Ökoskoop: Kliimast kõnelev lavastus "Ilma" ja päikesepaneelid](articles/2024-10-err-vikerraadio-okoskoop-ilma.md)**
   - _ERR Vikerraadio_
