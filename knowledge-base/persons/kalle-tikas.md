@@ -27,6 +27,7 @@ Kalle Tikas on mitmekülgne kunstnik, kes on ZUGAga koostööd teinud nii helilo
 ## Loominguline lähemine
 
 Kalle Tikase töö eripäraks on:
+
 - Oskus luua originaalmuusikat, mis põhineb eesti folkloorseil elementidel
 - Heli integreerimine ruumi ja liikumisega
 - Mitmekülgsus - suudab töötada nii muusikalise kui tehnilise poolega

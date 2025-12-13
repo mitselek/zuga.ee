@@ -22,6 +22,7 @@ Reelika Palk on valguskunstnik, kes lõi valguskujunduse ZUGA ja Helena Krinali 
 Reelika Palk lõi valguskujunduse, mis toetab lavastuse teemasid hoolitsusest ja inimesteliste sidemete loomisest. Lavastus oli ZUGA ja Palestiina-Eesti koreograafi Helena Krinali (krinal | mansour) koostöö.
 
 ### Lavastusmeeskond
+
 - **Kontseptsioon ja koreograafia:** Helena Krinal
 - **Esitajad:** Helen Reitsnik, Ajjar Ausma
 - **Helilooja:** Liis Ring

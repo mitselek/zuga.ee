@@ -21,6 +21,7 @@ Alan Proosa on fotograaf, kes on jäädvustanud ZUGA lavastusi professionaalse d
 ## Fotograafia roll
 
 Alana Proosa fotod on olulised ZUGA lavastuste visuaalseks dokumenteerimiseks ja reklaamiks. Tema fotod on kasutatud:
+
 - Lavastuste reklaamkampaaniates
 - Meedia kajastustes
 - Kriitikaartiklites (nt CriticalDance arvustuses "Ilma" kohta)

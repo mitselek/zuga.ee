@@ -22,6 +22,7 @@ Marta Konovalov on ZUGAga koostööd alustanud 2024. aastal, saades peamiseks ku
 ## Loominguline lähenemine
 
 Marta kujundused 2024. aasta lavastustele:
+
 - "Hool/Care" - kujundus toetab hoolitsuse ja inimsuhtete teemat
 - "Ilma" - kostüümid ja lavakujundus loovad ilmastiku ja keskkonna meeleolu
 

@@ -22,6 +22,7 @@ Katrin Tegova on dramaturg, kes töötas ZUGA ja Helena Krinali koostöölavastu
 "Müra" oli ZUGA ja Palestiina-Eesti koreograafi Helena Krinali (krinal | mansour) koostöö. Katrin aitas kujundada lavastuse dramaturgilist struktuuri, mis uuris müra kui metafoori kaasaegses ühiskonnas.
 
 ### Lavastusmeeskond
+
 - **Koreograafia ja lavastus:** Helena Krinal
 - **Esitajad:** Helen Reitsnik, Ajjar Ausma
 - **Dramaturg:** Katrin Tegova

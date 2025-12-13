@@ -24,6 +24,7 @@ Oliver Kulpsoo on ZUGA peamine valguskunstnik alates 2016. aastast, kes on loonu
 ## Loominguline lähenemine
 
 Oliveri valguskujundus on ZUGA lavastuste lahutamatu osa:
+
 - Loob varjude ja valguse mängu, mis toetab liikumist
 - Varieerib valgustust lavastuse emotsionaalse seisundi väljendamiseks
 - Integreerib valguse tantsu ja ruumiga

@@ -21,6 +21,7 @@ Lauri-Dag Tüür on helilooja, kes on loonud muusika kahe ZUGA suure lavastuse j
 ## Loominguline protsess
 
 Lauri-Dag Tüüri koostöö ZUGAga on sügavalt integreeritud:
+
 - Osaleb lavastusprotsessis algusest peale
 - Loob muusikat, mis reageerib ja toetab liikumist
 - Uurib koos tantsijatega filosoofilisi teemasid läbi heli

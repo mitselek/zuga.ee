@@ -22,6 +22,7 @@ Liis Ring on helilooja, kes lõi muusika ZUGA ja Helena Krinali koostöölavastu
 Liis Ring lõi muusika, mis toetab lavastuse teemasid hoolitsusest ja inimsuhetest. Lavastus oli ZUGA ja Palestiina-Eesti koreograafi Helena Krinali (krinal | mansour) koostöö.
 
 ### Lavastusmeeskond
+
 - **Kontseptsioon ja koreograafia:** Helena Krinal
 - **Esitajad:** Helen Reitsnik, Ajjar Ausma
 - **Helilooja:** Liis Ring

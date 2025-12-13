@@ -21,11 +21,13 @@ Kadi Aare on visuaalkunstnik, kes vastutab ZUGA ja Helena Krinali koostöölavas
 ## Koostöö "Hool/Care" projektis
 
 Kadi Aare panus hõlmas:
+
 - Graafilist disaini (plakat, reklaammaterjal)
 - Lavastuse professionaalset fotodokumenteerimist
 - Videomaterjali loomist
 
 ### Lavastusmeeskond
+
 - **Kontseptsioon ja koreograafia:** Helena Krinal
 - **Esitajad:** Helen Reitsnik, Ajjar Ausma
 - **Helilooja:** Liis Ring

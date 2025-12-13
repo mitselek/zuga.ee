@@ -24,6 +24,7 @@ Keili Retter on olnud ZUGA peamine kostüümi- ja lavakujundaja aastatel 2016-20
 ## Loominguline panus
 
 Keili kujundused on aidanud määratleda ZUGA visuaalset keelt:
+
 - Kostüümid toetavad liikumist ja ei piira tantsijaid
 - Lavakujundus loob õhkkonda ilma ruumi üle koormamata
 - Visuaalsed elemendid on orgaaniliselt põimitud lavastuse narratiiviga
