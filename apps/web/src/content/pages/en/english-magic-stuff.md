@@ -81,8 +81,12 @@ United dancers of Zuga: Helen Reitsnik, Tiina Mölder, Kärt Tõnisson, Triin Li
 **Supported by:** Cultural Endowment of Estonia
 **Co-producer:** Kanuti Gildi SAAL
 
-### Links
+### Guest Performance at Rakvere Theatre
 
-- [Magic Stuff on Teater.ee](https://teater.ee/teatriinfo/lavastused/voluvark-kanuti-gildi-saal/)
+Magic Stuff reached Rakvere audiences in December 2011 as part of Rakvere Theatre's "RT ESITLEB" (RT PRESENTS) series. The performance was shown twice – at 11:00 AM and 6:00 PM – to accommodate all magic enthusiasts, both young and old.
+
+RT ESITLEB is a Rakvere Theatre project that brings performances from small theatres, independent theatre troupes, and similar groups to Rakvere audiences once a month. Magic Stuff was a perfect fit for the series as an unconventional children's performance in contemporary theatre style, combining dance, play, and audience interaction.
+
+### Links- [Magic Stuff on Teater.ee](https://teater.ee/teatriinfo/lavastused/voluvark-kanuti-gildi-saal/)
 - [Piletimaailm – Magic Stuff](https://www.piletimaailm.com/performances/38006-uus-tants-13-voluvark)
 - [Children's Stories – Magic Stuff (ERR Vikerraadio, 22.11.2011)](https://arhiiv.err.ee/audio/vaata/laste-lood-voluvark)

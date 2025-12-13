@@ -47,6 +47,47 @@ Profiles of ZUGA Ühendatud Tantsijad members and collaborators.
 
 ## Articles & Reviews
 
+### 2025
+
+#### April
+
+- **[Zuga: Ilma / Weather or Not](articles/2025-04-criticaldance-ilma-review.md)**
+  - _CriticalDance_
+  - Author: Stuart Sweeney
+  - Performance: Ilma / Weather or Not (2024)
+  - Topics: Climate change, audience participation, international review, positive activism
+  - Type: Review
+  - Performance date: 30. märts 2025
+  - Key Quote: "Ilma / Weather or Not is an enjoyable, imaginative and enlightening work which continues touring to schools and festivals – well worth a visit."
+  - Status: Active
+
+### 2024
+
+#### November
+
+- **[Kärt Tõnisson lavastusest "Ilma": selles on õudselt palju paradokse, mida peame paremaks eluks](articles/2024-11-err-kultuur-kart-tonisson-ilma.md)**
+  - _ERR Kultuuriportaal_
+  - Author: Sanna Kartau
+  - Interviewees: Kärt Tõnisson, Helen Reitsnik, Tiina Mölder, Ajjar Ausma, Päär Pärenson, Marta Konovalov, Ingrid Kääramees
+  - Performance: Ilma (2024)
+  - Topics: Climate change, parenting, paradoxes of better life, overconsumption, positive activism, creative process
+  - Type: Interview
+  - Key Quote: "Minu arust on õudselt palju paradokse selles, mida me peame paremaks eluks."
+  - Status: Active
+
+#### October
+
+- **[Ökoskoop: Kliimast kõnelev lavastus "Ilma" ja päikesepaneelid](articles/2024-10-err-vikerraadio-okoskoop-ilma.md)**
+  - _ERR Vikerraadio_
+  - Program: Ökoskoop
+  - Hosts: Krista Taim, Kristo Elias
+  - Guests: Marta Konovalov (disainer), Kärt Tõnisson (koreograaf)
+  - Performance: Ilma (2024)
+  - Topics: Climate change, positive activism, sustainable design, solar energy
+  - Type: Radio interview
+  - Air date: 28. oktoober 2024
+  - Status: Active
+
 ### 2019
 
 #### October

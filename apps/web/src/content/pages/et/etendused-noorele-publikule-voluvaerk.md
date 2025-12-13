@@ -55,6 +55,12 @@ Lavastustrupi liige Tiina Mölder kommenteerib lavastust "Võluvärk" järgmisel
 **Toetaja:** Eesti Kultuurkapital
 **Kaasprodutsent:** Kanuti Gildi SAAL
 
+### Külalisetendus Rakvere Teatris
+
+Võluvärk jõudis 2011. aasta detsembris Rakvere Teatri sarja "RT ESITLEB" raames Virumaa publikuni. Lavastust näidati kahel korral – hommikul kell 11:00 ja õhtul kell 18:00, et kõik võluväki-huvilised, nii suured kui väikesed, saali ära mahuksid.
+
+RT ESITLEB on Rakvere Teatri projekt, mille raames jõuab kord kuus Rakvere vaatajate ette mõne väiketeatri, sõltumatu teatritrupi või muu samalaadse koosluse poolt välja toodud lavastus. Võluvärk sobis sarja suurepäraselt kui kaasaegses teatrivõtmes tehtud tavapäratu lasteetendus, mis ühendab tantsu, mängu ja publikuga suhtlust.
+
 ### Lingid
 
 - [Lavastuse koduleht (SAAL)](http://www.saal.ee/event/392/)

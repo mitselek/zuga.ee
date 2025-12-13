@@ -2,52 +2,65 @@
 title: Weather or Not
 slug: english-weather-or-not
 language: en
-description: Zuga performance 'Weather or Not' photo gallery
+description: Playful dance performance about climate and environment. Positive activism for all children and parents aged 10 and up.
 type: detail
 category: etendused
+subcategory: noorele-publikule
 status: published
-original_url: https://www.zuga.ee/en/english-weather-or-not
 page_type: performance
+premiere_date: 2024-10-26
+venue: Sõltumatu Tantsu Lava
+age_recommendation: 10+
+duration: 60
+hero_image: https://lh4.googleusercontent.com/DBxwueB6fPHRnLW2vhLTuUXqMXwXCvMQW-AliKEHn5c6X1O7ismAvtROvjQkbwGfsZsyzGcdc_-6lU_Ipmo1jg4=w16383
 translated:
 - language: et
   slug: etendused-noorele-publikule-ilma
-hero_image: https://lh4.googleusercontent.com/DBxwueB6fPHRnLW2vhLTuUXqMXwXCvMQW-AliKEHn5c6X1O7ismAvtROvjQkbwGfsZsyzGcdc_-6lU_Ipmo1jg4=w16383
-gallery:
-- url: https://lh5.googleusercontent.com/eVaEZqsze67T__4KoM8TKETawGpmdnZdL4BU5qT9LN4jeqM0rmk5VpM-qThaFMvNZr9f45ofElXOSaS4jsBw9_uhFI0u6mowi13xCU4Mx_hNAlooy8z7Ohod2i8J3SMT9g=w1280
-  width: 1280
-  description: Performance photo
-- url: https://lh4.googleusercontent.com/L5GjbMdxlDflvcGjZY-Y2Ot-8l55AKClipoAmzxKhcTXOA_3BH7jFby8A5-cdRzuW2c9O9wTlrQEWj7NjT3zGzO8hP0OWFnjfSSSyvfrziH33vTSP0g8jrXiM9vBSIgTGw=w1280
-  width: 1280
-  description: Performance photo
-- url: https://lh4.googleusercontent.com/zSmMlvS_EOVr0RJgHZR1g1q795oiVHibhMl2SojqdvoQ0M6jFsFQMFinjWY5kcCAR7tDBnSdb8jsAwkSki3cFo8=w1280
-  width: 1280
-  description: Performance photo
-- url: https://lh3.googleusercontent.com/ISxjBB5tpBgRqXvbRdkrSuy5kQL3ig-BgoWYZ1Vtdrysxs82G0hk0qHQ01aYqWfvQU0PeYwBVx_L1nO93-PpLtigiotf0qa0264xyfR62ev0OOyuh9ghOt0iu4clmciaNA=w1280
-  width: 1280
-  description: Performance photo
-- url: https://lh3.googleusercontent.com/DVkdbGOKsSOkkcGsNGH6Ioxj18neHlEQ7ty5fPthArzNYPdr7m8g7rNP8xuoEE9g=w1280
-  width: 1280
-  description: Performance photo
-- url: https://lh6.googleusercontent.com/OKScbJphTWwFUpIOHEUBjCgTxkJ6O2QvN_tppH_rTVWJTn-kHwvS29JGClyy1smedsReklSnWqrW7rymYNDZfwhTavAESTop6FPT0bxpplHCBqnu=w1280
-  width: 1280
-  description: Performance photo
-- url: https://lh5.googleusercontent.com/x4gOtPqKly1nJV4pj88JD2yRsVlFmXdUJmr4roOj5PZ3ykxiC9D9EbmeZd-ZXFmPYXazuyoUCdG9vBUpq-5dZNUDk_0OuiVrLSHM4RUsl6w3sjCZp04hwT91Az_pnmTCTA=w1280
-  width: 1280
-  description: Performance photo
-videos:
-- platform: youtube
-  video_id: qp22v58UQnw
-  title: ZUGA video greeting
-  url: https://www.youtube.com/embed/qp22v58UQnw
 ---
 
 # Weather or Not
 
-## Gallery
+What does the weather do to us or we to the weather, what do we hear and see about the weather? What will tomorrow’s weather bring? Will we be left without our weather?
 
-This performance features 7 gallery images.
-Photo gallery from Weather or Not performance
+**Premiere:** October 26, 2024, Sõltumatu Tantsu Lava
+**Duration:** 1 hour
+**Recommended age:** 10 years and up
 
-## Video
+Zuga United Dancers' playful dance performance deals with weather and environmental themes: the WORLD, WEATHER forecast, BEING WITHOUT. Together with the audience, we explore ways in which weather and climate change affect us in our own bodies and on our own skin. Can we reach a solution together?
 
-ZUGA video greeting
+Performances are followed by a small discussion with the creators and audience to further explore the themes addressed in the production.
+
+### Creative Team
+
+**Directors, Choreographers and Performers:** Tiina Mölder, Kärt Tõnisson, Helen Reitsnik, Ajjar Ausma, Päär Pärenson
+**Lighting Designer:** Oliver Kulpsoo
+**Costume Designer:** Marta Konovalov
+**Set Designer:** Marta Konovalov
+**Sound Designer:** Kalle Tikas
+
+**Special thanks to:** Aet Annist, Kristjan Piirimäe, Maia-Liisa Anton, Kalamaja School, Tõnismäe State Gymnasium
+
+### Zuga United Dancers
+
+Zuga United Dancers is an association of dancers and choreographers that has been working together since 1999. They are the only group in Estonia that consistently and regularly creates dance performances for children. For Zuga, children and adults are equal partners who share the same world and living space.
+
+Their children's performances have received attention and numerous theatre and dance awards (Salme Reek Award, Draamake Award, Estonian Theatre Annual Award, Independent Performing Arts Award), and they have performed with their productions both in Estonia and abroad (Finland, USA, Germany, Lithuania, Latvia, Netherlands, Palestine, Sweden, Russia, Romania, Croatia, Poland, England, China).
+
+### Audience Feedback
+
+*“The performance made me think about how we sometimes don't even notice how we affect our surroundings. It actually seems quite unnatural that people have so quickly developed technology and machines and started mass-producing so many things.”* – Student who attended the performance
+
+*“The dancers' movement language was sometimes unpredictable, which made the whole story even more interesting. I would recommend this performance to everyone, because everyone will get some new thought for themselves.”* – Student who attended the performance
+
+### Reviews and Articles
+
+- [Review “Ilma / Weather or Not”](https://criticaldance.org/zuga-ilan-weather-or-not/) – Stuart Sweeney, CriticalDance, 30.03.2025
+- [REVIEW | Zuga dancers' weather-making performance](https://epl.delfi.ee/artikkel/120336005/arvustus-zuga-tantsijate-ilma-tegev-lavastus) – Eleriin Miilman, Eesti Päevaleht, 13.11.2024 (in Estonian)
+- [Kärt Tõnisson about "Ilma": there are terribly many paradoxes in what we consider a better life](https://kultuur.err.ee/1609512760/kart-tonisson-lavastusest-ilma-selles-on-oudselt-palju-paradokse-mida-peame-paremaks-eluks) – Sanna Kartau, ERR Culture Portal, 4.11.2024 (in Estonian)
+- [Ökoskoop. Climate-focused performance "Ilma" and solar panels](https://vikerraadio.err.ee/1609490843/okoskoop-kliimast-konelev-lavastus-ilma-ja-paikesepaneelid) – Ökoskoop, 28.10.2024 (in Estonian)
+- [Päär Pärenson about "Ilma": there's dance, movement in space and a pinch of song](https://kultuur.err.ee/1609501726/paar-parenson-lavastusest-ilma-on-tantsu-on-ruumis-liikumist-ja-napuotsaga-laulu) – ERR Culture Portal, 24.10.2024 (in Estonian)
+
+### Links
+
+- [Performance page (STL)](https://www.stl.ee/lavastused/ilma)
+- [Calculate your carbon footprint](https://www.bioneer.ee/kuidas-arvutada-s%C3%BCsiniku-jalaj%C3%A4lge)
