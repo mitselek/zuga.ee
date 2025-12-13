@@ -2,6 +2,15 @@
 
 Cataloged materials about ZUGA performances, reviews, and research.
 
+## Persons
+
+Profiles of ZUGA Ühendatud Tantsijad members and collaborators.
+
+- **[Ajjar Ausma](persons/ajjar-ausma.md)** - Tantsija, koreograaf, liikumisõpetaja (2014–)
+- **[Kärt Tõnisson](persons/kart-tonisson.md)** - Tantsija, koreograaf, tantsuõpetaja (2011–)
+- **[Päär Pärenson](persons/paar-parenson.md)** - Tantsija, koreograaf, näitleja, räppar (MC J.O.C) (2014–)
+- **[Tiina Mölder](persons/tiina-molder.md)** - Tantsukunstnik, koreograaf, asutajaliige (1999–)
+
 ## Research & Awards
 
 ### Awards
