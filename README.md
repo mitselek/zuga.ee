@@ -1,5 +1,7 @@
 # zuga.ee
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/98e0f86f-4e2c-459c-a489-61bd250a442b/deploy-status)](https://app.netlify.com/projects/zuga/deploys)
+
 Zuga Theatre - High-performance bilingual (Estonian/English) portfolio website showcasing theatrical performances.
 
 ## Project Status
