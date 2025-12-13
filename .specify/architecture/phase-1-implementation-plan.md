@@ -289,32 +289,33 @@ npm run build
 
 ---
 
-## Phase 8: Deployment Setup (Day 5 - Morning)
+## Phase 8: Deployment Setup ✅ COMPLETED
 
 **Goal**: Configure Netlify for automatic deployments.
 
 ### Tasks
 
-- [ ] **8.1**: Create Netlify configuration
-  - Create `netlify.toml` in root
-  - Set build command: `npm run build -w apps/web`
-  - Set publish directory: `apps/web/dist`
-  - Set Node version: `20`
+- [x] **8.1**: Create Netlify configuration
+  - Created `apps/web/netlify.toml`
+  - Set base directory: `apps/web`
+  - Set build command: `npm run build`
+  - Set publish directory: `dist` (relative to base)
+  - Security headers configured (X-Frame-Options, CSP, etc.)
+  - Cache headers for static assets (31536000s)
 
-- [ ] **8.2**: Set up Netlify project
-  - Connect GitHub repo to Netlify
-  - Configure deploy previews for all branches
-  - Set production branch: `main`
+- [x] **8.2**: Set up Netlify project
+  - Connected GitHub repo to Netlify
+  - Configured automatic deployments from `main` branch
+  - Build status badge added to README
 
 - [ ] **8.3**: Configure custom domain
   - Add custom domain: `zuga.ee`
   - Enable HTTPS (Let's Encrypt)
   - Verify DNS propagation
 
-- [ ] **8.4**: Add redirect rules
-  - Create `apps/web/public/_redirects`
-  - Root redirect: `/ /et/ 302` (Estonian default)
-  - 404 handling: `/* /404.html 404`
+- [x] **8.4**: Add redirect rules
+  - Configured in `netlify.toml`: `/ → /et/index` (302)
+  - 404 handling via Astro's built-in support
 
 ### Validation
 

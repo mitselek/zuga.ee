@@ -74,6 +74,7 @@ npm run preview
 - **TypeScript**: Strict type checking
 - **Zod**: Runtime content validation
 - **Markdown + YAML**: Content source format
+- **Netlify**: Hosting and continuous deployment
 
 ## Future Phases
 

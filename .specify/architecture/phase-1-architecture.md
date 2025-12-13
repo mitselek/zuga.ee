@@ -87,7 +87,7 @@ Launch a technically excellent portfolio website that showcases Zuga Theatre's p
 
 ### Hosting
 
-**Netlify** (Recommended for MVP)
+**Netlify** (✅ Deployed)
 
 **Rationale**:
 
@@ -96,6 +96,15 @@ Launch a technically excellent portfolio website that showcases Zuga Theatre's p
 - Global CDN distribution
 - Free tier sufficient for MVP
 - **Constitutional Compliance**: §5 Pragmatic Simplicity (managed service)
+
+**Configuration**:
+
+- Base directory: `apps/web`
+- Build command: `npm run build`
+- Publish directory: `dist`
+- Automatic deployments on push to `main`
+- Security headers configured (CSP, X-Frame-Options, etc.)
+- Cache headers for static assets (1 year)
 
 ---
 
