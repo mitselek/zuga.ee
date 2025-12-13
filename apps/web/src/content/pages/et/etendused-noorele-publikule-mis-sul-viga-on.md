@@ -6,7 +6,7 @@ description: Lavastus vaimse tervise ja üksteise märkamise teemal (koostöös 
 type: detail
 category: etendused
 subcategory: noorele-publikule
-status: draft
+status: published
 page_type: performance
 premiere_date: 2026-03-21
 venue: Sõltumatu Tantsu Lava
