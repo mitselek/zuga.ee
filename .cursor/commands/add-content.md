@@ -279,7 +279,8 @@ Use this workflow when creating NEW content files based on Knowledge Base inform
    - If slug exists, suggest alternative: `{slug}-2`, `{slug}-uus`, etc.
 
 3. **Validate required fields checklist**:
-   ```markdown
+
+   ```typescript
    ✓ title: [Value]
    ✓ slug: [Value] (lowercase, alphanumeric, hyphens only)
    ✓ language: [et/en]
@@ -414,7 +415,8 @@ Use this workflow when creating NEW content files based on Knowledge Base inform
    - Translate title, description, body content
    - Keep same slug (or adjust for language conventions)
    - Link files via `translated` field:
-     ```yaml
+
+     ```typescript
      translated:
        - language: en
          slug: english-slug
@@ -459,7 +461,7 @@ Use this workflow when creating NEW content files based on Knowledge Base inform
 
 **User input**:
 
-```
+```text
 Create an Estonian page for the "Ilma" performance based on KnB content
 ```
 
@@ -544,7 +546,7 @@ Liikumisteatri ZUGA uus lavastus "Ilma" uurib kliimamuutusi läbi tundliku liiku
 
 **User input**:
 
-```
+```text
 Add new ERR article about Hool/Care to the performance page
 ```
 
@@ -585,7 +587,7 @@ Add new ERR article about Hool/Care to the performance page
 
 1. **Invoke the prompt** with content input:
 
-   ```
+   ```text
    @workspace /add-content [paste your content here]
    ```
 
@@ -646,7 +648,7 @@ Add new ERR article about Hool/Care to the performance page
 
 **Example decision flow**:
 
-```
+```text
 User: "Create page for Ilma performance"
     ↓
 Check: Does knowledge-base/ have Ilma content?
@@ -940,6 +942,7 @@ Use this workflow when modifying EXISTING content files.
    - If translation not updated: "Consider updating {language} translation for consistency"
 
 3. **Show diff summary** (optional but helpful):
+
    ```markdown
    **Changed lines**:
 
@@ -954,7 +957,7 @@ Use this workflow when modifying EXISTING content files.
 
 ## Decision Tree: Create vs Update
 
-```
+```text
 User provides content
     ↓
 Parse user intent
@@ -1001,7 +1004,7 @@ Similar file exists?
 
 **User input**:
 
-```
+```text
 Update the Häbi performance page - set status to published and add hero image habi-hero.jpg
 ```
 
@@ -1020,7 +1023,7 @@ Update the Häbi performance page - set status to published and add hero image h
 
 **User input**:
 
-```
+```text
 Add a "Cast" section to the Häbi page with the following:
 - Director: Mari Mätas
 - Performers: Ann Reimann, Tiina Tauraite
@@ -1047,7 +1050,7 @@ Add a "Cast" section to the Häbi page with the following:
 
 **User input**:
 
-```
+```text
 Change the YouTube video for Häbi to the new trailer: https://youtube.com/watch?v=newtrailer123
 ```
 
@@ -1057,6 +1060,7 @@ Change the YouTube video for Häbi to the new trailer: https://youtube.com/watch
 2. Check `videos` array in frontmatter
 3. Propose: Replace video_id "abc123xyz" → "newtrailer123"
 4. Update frontmatter:
+
    ```yaml
    videos:
      - platform: youtube
@@ -1064,6 +1068,7 @@ Change the YouTube video for Häbi to the new trailer: https://youtube.com/watch
        title: Zuga etendus "Häbi"
        url: https://www.youtube.com/embed/newtrailer123
    ```
+
 5. Write updated file
 6. Report: "✅ Updated YouTube video ID"
 
@@ -1084,6 +1089,7 @@ Add these photos to the Häbi gallery:
 2. Check existing `gallery` array (2 images already)
 3. Propose: Append 3 new images to gallery
 4. Update frontmatter:
+
    ```yaml
    gallery:
      - url: /images/habi-promo.jpg
@@ -1097,5 +1103,6 @@ Add these photos to the Häbi gallery:
      - url: /images/habi-backstage.jpg
        description: Kulissidetagused
    ```
+
 5. Write updated file
 6. Report: "✅ Added 3 images to gallery (now 5 total)"
