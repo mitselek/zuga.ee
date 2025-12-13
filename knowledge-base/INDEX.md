@@ -2,6 +2,20 @@
 
 Cataloged materials about ZUGA performances, reviews, and research.
 
+## Press Releases
+
+### 2016
+
+#### September
+
+- **[ZUGA ühendatud tantsijate uus lastelavastus väguratele mürsikutele ja avastavatele käinikutele](press/2016-09-meelekolu-press-release.md)**
+  - _Tantsukuukiri_
+  - Performance: meeleKolu (2016)
+  - Topics: Premiere announcement, children's theatre, Sõltumatu Tantsu Lava
+  - Type: Press release
+  - Premiere: 15. oktoober 2016, Sõltumatu Tantsu Lava
+  - Status: Archived
+
 ## Articles & Reviews
 
 ### 2019
