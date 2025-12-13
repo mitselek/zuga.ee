@@ -9,7 +9,11 @@ subcategory: noorele-publikule
 status: published
 original_url: https://www.zuga.ee/et/etendused-noorele-publikule-voluvaerk
 page_type: performance
-hero_image: https://lh4.googleusercontent.com/DP1WrY6YsmzC8Y2fMLGPDArVtaCdOHSO1V-4YoAjG_sGk0xJUnVUTGnCmaE7t7oXR_hZYMF0hyp6vAUZ0aU8v2c=w16383
+premiere_date: 2011-10-08
+venue: Kanuti Gildi SAAL
+age_recommendation: 4-7
+duration: 40
+hero_image: /images/voluvark-hero.jpg
 translated:
 - language: en
   slug: english-magic-stuff
@@ -26,26 +30,33 @@ audio:
   date: "2011-11-22"
 ---
 
-# Võluvärk
+## Tantsuetendus lastele "Võluvärk"
 
-Tantsuetendus lastele. 4-7-aastastele.
+**Soovitatav vanus:** 4–7 aastat
 
-Teemad, millega lavastuses tegeldakse, on võluilm, nõidus ja mäng. Zuga sõnul sünnib laste mängudes enamus asju just võluväel. Koos lastega võetakse ette fantaasiaküllane retk ning avatakse mitmeid salauksi, et avastada uut ja põnevat ja seda kõike ilma päris uksest välja astumata.
+Teemad, millega lavastuses tegeldakse, on võluilm, nõidus ja mäng, sest ZUGA sõnul sünnib laste mängudes enamus asju just võluväel.
 
-**Esietendus:** 8. oktoober 2011, Kanuti Gildi SAAL
+Ettevalmistusprotsessis on ZUGA pööranud pilgu muinasjuttudele ja sealt pärit tuntud tegelaste poole. Koos lastega võetakse ette fantaasiaküllane retk ning avatakse mitmeid salauksi, et avastada uut ja põnevat ja seda kõike ilma päris uksest välja astumata.
 
+Lavastuse eesmärk on jätta ruumi vaatajate fantaasiale. Mäng käib läbi liikumise ja tantsu, lastel endil on võimalus sõna sekka öelda ning mängu kulgu suunata.
+
+Lavastustrupi liige Tiina Mölder kommenteerib lavastust "Võluvärk" järgmiselt: "Meie, täiskasvanud inimesed, üritame võluväge üles leida ja seda läbi tantsu, mängu ja helide. Proovime seda leida nõnda, et see haaraks ka väikeseid vaatajaid ning et hoopis nemad aitaksid meid etenduse käigus mängus edasi."
+
+### Lavastusmeeskond
+
+**Tants ja mäng:** Triin Lilleorg, Tiina Mölder, Helen Reitsnik, Kärt Tõnisson
+**Heli ja tehnika:** Maike Lond
+**Kostüüm:** Liis Plato
+**Luule:** Sulev Oll
+
+**Esietendus:** 8. oktoober 2011, Kanuti Gildi SAALi stuudios
 **Kestus:** 40 minutit
 
-## Lavastusmeeskond
-
-- **Idee ja koreograafia:** Helen Reitsnik, Tiina Mölder, Kärt Tõnisson, Triin Lilleorg
-- **Produtsent:** Kanuti Gildi SAAL
-
-## Esinejad
-
-Zuga ühendatud tantsijad: Helen Reitsnik, Tiina Mölder, Kärt Tõnisson, Triin Lilleorg
+**Toetaja:** Eesti Kultuurkapital
+**Kaasprodutsent:** Kanuti Gildi SAAL
 
 ### Lingid
 
+- [Lavastuse koduleht (SAAL)](http://www.saal.ee/event/392/)
 - [Piletimaailm – Võluvärk](https://www.piletimaailm.com/performances/38006-uus-tants-13-voluvark)
 - [Laste lood – Võluvärk (ERR Vikerraadio, 22.11.2011)](https://arhiiv.err.ee/audio/vaata/laste-lood-voluvark)

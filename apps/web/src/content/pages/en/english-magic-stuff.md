@@ -8,7 +8,11 @@ category: etendused
 subcategory: noorele-publikule
 status: published
 page_type: performance
-hero_image: https://lh4.googleusercontent.com/DP1WrY6YsmzC8Y2fMLGPDArVtaCdOHSO1V-4YoAjG_sGk0xJUnVUTGnCmaE7t7oXR_hZYMF0hyp6vAUZ0aU8v2c=w16383
+hero_image: /images/voluvark-hero.jpg
+premiere_date: 2011-10-08
+venue: Kanuti Gildi SAAL
+age_recommendation: 4-7
+duration: 40
 translated:
 - language: et
   slug: etendused-noorele-publikule-voluvaerk
@@ -49,26 +53,36 @@ audio:
 
 # Magic Stuff
 
-Dance piece for children. 4-7 year olds.
-
-Zuga has made a new dance piece for children about a wonder world, magic and game. In children's games most of the things will take place with the little help of magic. The idea is to visit a far-away land without leaving the room.
-
-Together with children, we embark on a fantasy-filled journey and open many secret doors to discover new and exciting things - all without stepping out through a real door.
+*"We want to find the magic that is hidden in the essence of small everyday things, for example, a simple movement, a sound, a whisper, a moment of something happening, and create an opening to look at things we usually don't notice."*
+— Tiina Mölder, choreographer
 
 **Premiere:** October 8, 2011, Kanuti Gildi SAAL
-
 **Duration:** 40 minutes
+**Age recommendation:** 4-7 years
+
+Zuga has created a new dance piece for children about a wonder world, magic and game. In children's games, most things happen with a little help of magic. The idea is to visit a far-away land without leaving the room.
+
+Together with children, we embark on a fantasy-filled journey and open many secret doors to discover new and exciting things - all without stepping out through a real door.
 
 ## Creative Team
 
 - **Idea and Choreography:** Helen Reitsnik, Tiina Mölder, Kärt Tõnisson, Triin Lilleorg
+- **Sound and Lighting Design:** Maike Lond
+- **Costume Design:** Liis Plato
+- **Poetry Consultant:** Sulev Oll
 - **Producer:** Kanuti Gildi SAAL
 
 ## Performers
 
 United dancers of Zuga: Helen Reitsnik, Tiina Mölder, Kärt Tõnisson, Triin Lilleorg
 
+---
+
+**Supported by:** Cultural Endowment of Estonia
+**Co-producer:** Kanuti Gildi SAAL
+
 ### Links
 
+- [Magic Stuff on Teater.ee](https://teater.ee/teatriinfo/lavastused/voluvark-kanuti-gildi-saal/)
 - [Piletimaailm – Magic Stuff](https://www.piletimaailm.com/performances/38006-uus-tants-13-voluvark)
 - [Children's Stories – Magic Stuff (ERR Vikerraadio, 22.11.2011)](https://arhiiv.err.ee/audio/vaata/laste-lood-voluvark)
