@@ -2,6 +2,22 @@
 
 This directory contains archived materials about ZUGA that may not be published on the website immediately but are worth preserving for historical and reference purposes.
 
+## ⚠️ IMPORTANT: Content Standards
+
+**All content in the Knowledge Base MUST adhere to strict factual standards.**
+
+See **[CONTENT_STANDARDS.md](./CONTENT_STANDARDS.md)** for complete rules.
+
+**Key principles**:
+
+1. **Verbatim text only** - Copy exactly from source, no paraphrasing
+2. **No translation** - Preserve original language
+3. **No gap filling** - Leave missing information empty
+4. **Source attribution required** - Every file must include `source_url` and source metadata
+5. **One source per file** - Don't combine multiple sources
+
+The Knowledge Base is a **factual archive**, not curated content. Homepage content is created FROM KnB sources using the `/add-content` prompt.
+
 ## Structure
 
 ### `/articles`
@@ -29,6 +45,7 @@ Files should follow this pattern:
 Each file should include YAML frontmatter with validated fields. See `config.ts` for complete schema definitions:
 
 ### Articles
+
 - **title** (required): Article title
 - **date** (required): Publication date (YYYY-MM-DD, YYYY-MM, or YYYY)
 - **type** (required): article, review, interview, preview, news, radio-interview, radio, television-program
@@ -39,6 +56,7 @@ Each file should include YAML frontmatter with validated fields. See `config.ts`
 - **status**: active (default), archived, review-pending, ready-to-publish
 
 ### Persons
+
 - **name** (required): Person's full name
 - **role** (required): Role description
 - **member_since**: Year joined (YYYY or number)
@@ -46,6 +64,7 @@ Each file should include YAML frontmatter with validated fields. See `config.ts`
 - **status**: active (default), inactive, former
 
 ### Press
+
 - **date** (required): Release date
 - **type** (required): press-release, announcement, media-kit, promotional
 - **language** (required): en or et
@@ -54,6 +73,7 @@ Each file should include YAML frontmatter with validated fields. See `config.ts`
 - **status**: active (default), archived, upcoming, draft
 
 ### Research
+
 - **type** (required): award, research-notes, interview, production-notes, background
 - **date**: Optional date field
 - **award**, **awarded_by**, **recipients**, **organization**, **performance**, **year**: Award-specific fields
@@ -85,7 +105,12 @@ The `config.ts` file defines Zod schemas for each collection type:
 Import and use the schemas for validation:
 
 ```typescript
-import { articleSchema, personSchema, pressSchema, researchSchema } from './config';
+import {
+  articleSchema,
+  personSchema,
+  pressSchema,
+  researchSchema,
+} from "./config";
 
 // Validate frontmatter data
 const result = articleSchema.safeParse(frontmatterData);
@@ -99,7 +124,7 @@ if (!result.success) {
 TypeScript types are automatically inferred from the schemas:
 
 ```typescript
-import type { Article, Person, Press, Research } from './config';
+import type { Article, Person, Press, Research } from "./config";
 ```
 
 ## Usage

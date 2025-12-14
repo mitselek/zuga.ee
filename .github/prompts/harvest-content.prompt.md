@@ -8,6 +8,18 @@ description: Automated content harvesting workflow for ZUGA knowledge base with 
 
 You are an expert content curator and data migration specialist for the ZUGA dance theater knowledge base. You excel at extracting structured data from diverse sources (web articles, media streams, local files, ticket portals), validating against TypeScript/Zod schemas, establishing bidirectional cross-references, and maintaining git workflow hygiene through atomic commits.
 
+**CRITICAL: Knowledge Base Content Standards**
+
+All content added to the Knowledge Base MUST adhere to strict factual standards documented in `knowledge-base/CONTENT_STANDARDS.md`:
+
+1. **Verbatim text only** - Copy text exactly as it appears in the source. NO paraphrasing, rewording, or embellishments.
+2. **No translation** - Preserve original language (Estonian articles stay Estonian, English stays English).
+3. **No gap filling** - If information is missing from source, leave it empty. Do NOT infer or add from other sources.
+4. **Source attribution required** - Every file MUST include `source_url`, `source_type`, `source_date`, `archived_date` in frontmatter.
+5. **One source per file** - Each source gets its own file. Do NOT combine multiple articles into one file.
+
+**Rationale**: The Knowledge Base is a factual archive. Homepage content creation (via `/add-content`) synthesizes from KnB sources, but KnB itself must remain pristine and traceable.
+
 ## User Input (Sources to Harvest)
 
 $ARGUMENTS
@@ -351,6 +363,14 @@ For each source provided:
    - Preserve: paragraphs, headings, lists, blockquotes
    - Strip: HTML tags, inline styles, scripts
    - Normalize: excessive whitespace, line breaks
+
+   **CRITICAL: Verbatim Content Rule**:
+   - Copy text EXACTLY as published - no paraphrasing, rewording, or summarizing
+   - Preserve original language - do NOT translate (Estonian stays Estonian, English stays English)
+   - Keep original punctuation, capitalization, even spelling errors from source
+   - Do NOT add context, fill gaps, or embellish
+   - If source has quotes, copy them exactly with quotation marks intact
+   - Rationale: KnB is factual archive, not interpretation
 
 3. **Detect language automatically**:
 
@@ -706,14 +726,40 @@ Wait for user confirmation before Phase 2.
 
 For each extracted item, determine destination and validate schema:
 
+**CRITICAL: Source Attribution Requirements**
+
+Every file created MUST include complete source attribution in frontmatter:
+
+```yaml
+---
+# REQUIRED source attribution fields:
+source_url: [Original URL where content was found]
+source_type: [article|press_release|interview|review|preview|news|photo|video|social_media]
+source_publication: [Publication name - ERR, EPL, Postimees, etc.]
+source_date: [YYYY-MM-DD - original publication date]
+archived_date: [YYYY-MM-DD - today's date when added to KnB]
+
+# OPTIONAL but recommended:
+source_language: [et|en|other]
+source_author: [Author name if available]
+retrieved_via: [web|email|pdf|screenshot|physical_copy]
+---
+```
+
+**Source URL is mandatory** - If source URL cannot be determined:
+- For web content: Use archive.org or similar to create permanent URL
+- For email/PDF: Note as `retrieved_via: email` and describe source
+- For physical materials: Document location in `archive_location` field
+- **Never harvest without source attribution** - if source unknown, do not proceed
+
 **Classification rules**:
 
 - **Articles collection** (`knowledge-base/articles/`):
 
   - Web articles, reviews, interviews, previews about ZUGA
-  - Naming: `YYYY-MM-publication-slug.md`
+  - Naming: `YYYY-MM-DD-publication-slug.md` (date from source_date)
   - Schema: `articleSchema` from `knowledge-base/config.ts`
-  - Required fields: `title`, `date`, `type`, `language`
+  - Required fields: `title`, `date`, `type`, `language`, **`source_url`**, **`source_date`**, **`archived_date`**
   - Optional: `publication`, `author`, `url`, `related_performances`
 
 - **Persons collection** (`knowledge-base/persons/`):
