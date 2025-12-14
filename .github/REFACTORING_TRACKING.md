@@ -30,16 +30,18 @@
 - ~~#33 - Standardize EN file naming (6-8h)~~ ✅
 - ~~#34 - Implement folder-based organization (10-12h)~~ (superseded by #46, #47, #48)
   - ~~#46 - [#34a] Folder structure: Performances (3-4h)~~ ✅
-  - #47 - [#34b] Folder structure: Workshops & About (2-3h)
-  - #48 - [#34c] Folder structure: Gallery, Contact, News & Indexes (2-3h)
+  - ~~#47 - [#34b] Folder structure: Workshops & About (2-3h)~~ ✅
+  - ~~#48 - [#34c] Folder structure: Gallery, Contact, News & Indexes (2-3h)~~ ✅
 - ~~#35 - Create performance & workshop registry (4-6h)~~ ✅
 
 ### Phase 3: Bidirectional Linking (P2 Medium)
 
-- #36 - Implement KnB → Web linking (6-8h)
-- #37 - Implement Web → KnB linking (6-8h)
-- #38 - Consolidate duplicate files (4-6h)
-- #39 - Enforce YYYY-MM-DD in KnB filenames (3-4h)
+- ~~#36 - Implement KnB → Web linking (6-8h)~~ (superseded by #49) ✅
+  - ~~#49 - Populate KnB→Web links (used_in_pages) (3-4h)~~ ✅ [07e9866]
+- ~~#37 - Implement Web → KnB linking (6-8h)~~ (superseded by #50) ✅
+  - ~~#50 - Populate Web→KnB links (knowledge_base_sources) (4-6h)~~ ✅ [977cb92]
+- ~~#38 - Consolidate duplicate files (4-6h)~~ ✅ [audit: no duplicates found]
+- ~~#39 - Enforce YYYY-MM-DD in KnB filenames (3-4h)~~ ✅ [audit: already compliant]
 
 ### Phase 4: Integration (P1 High)
 
