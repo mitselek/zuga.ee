@@ -12,7 +12,7 @@ premiere_date: 2018-03-16
 venue: Sõltumatu Tantsu Lava
 translated:
 - language: en
-  slug: english-tempo
+  slug: performances-for-adults-tempo
 hero_image: /images/tempo-hero.jpg
 gallery:
 - url: /images/tempo-hero.jpg

@@ -9,7 +9,7 @@ status: published
 hero_image: /images/etendused-uperpall-hero.jpg
 translated:
 - language: en
-  slug: english-topsy-turvy
+  slug: performances-for-young-audiences-topsy-turvy
 gallery:
 - url: /images/etendused-uperpall-1.jpg
   width: 1500

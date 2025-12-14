@@ -17,7 +17,7 @@ collaboration: Kumu Kunstimuuseum, Sõltumatu Tantsu Lava
 related_exhibition: Jeremy Shaw. Phase Shifting Index
 translated:
   - language: en
-    slug: english-future-movers
+    slug: workshops-future-movers
 hero_image: /images/tuleviku-liigutajad-hero.jpg
 gallery:
   - url: https://lh6.googleusercontent.com/mAjkZKLZ-TWLFDBJPHPhVtRcuX1fzLS9Mme3_YbjZeqPsDUFXasWmkF2QwJWYCjlCWItBCxCHldTK7Ymm9zUmYx-o8Xp_CEOHFUrxtJOEmIUzV5JTc9msn_7eQiFHiYO6Q=w1280

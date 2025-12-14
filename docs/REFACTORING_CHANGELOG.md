@@ -152,3 +152,68 @@ cp -r knowledge-base/persons.backup.20251214_111124 knowledge-base/persons
 - Branch: refactor/content-architecture
 
 ---
+
+## Issue #33: Standardize EN file naming to category-based convention (2025-12-14)
+
+**Type**: refactor
+**Scope**: web-content, migration
+**Effort**: 3 hours
+**Risk**: Medium
+
+### Changes Made
+
+- Created rename mapping script `scripts/generate-rename-map-33.js` to analyze files and generate mappings
+- Created rename execution script `scripts/rename-en-files-33.js` for automated renaming
+- Renamed 14 English files from `english-*` pattern to category-based naming:
+  - `english-shame.md` → `performances-for-adults-shame.md`
+  - `english-weather-or-not.md` → `performances-for-young-audiences-weather-or-not.md`
+  - `english-future-movers.md` → `workshops-future-movers.md`
+  - `english-about-us-1.md` → `about-us.md`
+  - And 10 more files following same pattern
+- Updated slug fields in all 14 renamed files
+- Updated translated fields in 14 ET files (bidirectional links)
+- Updated KnB references in 5 person files
+
+### Files Affected
+
+- Total files changed: 33
+- New files created: 2 (`scripts/generate-rename-map-33.js`, `scripts/rename-en-files-33.js`)
+- Files deleted: 0
+- Files renamed: 14 EN files
+- Files modified: 14 EN files (slug updates), 14 ET files (translated updates), 5 KnB files (reference updates)
+
+### Validation
+
+- Schema validation: ✅ Passed (all files validate successfully)
+- Build: ✅ Succeeded (Astro build completed successfully)
+- Link integrity: ✅ No broken internal links
+
+### Notes
+
+- Backup created before migration: `apps/web/src/content/pages/en.backup.20251214_111XXX`
+- All files renamed using `git mv` to preserve history
+- Bidirectional translated links maintained between EN and ET files
+- Original URLs preserved in `original_url` fields (historical reference)
+- Category-based naming now matches Estonian file structure
+
+### Rollback Procedure
+
+If rollback needed:
+```bash
+# Restore from backup
+rm -rf apps/web/src/content/pages/en
+cp -r apps/web/src/content/pages/en.backup.<timestamp> apps/web/src/content/pages/en
+
+# Restore ET files (if needed)
+git checkout HEAD~1 -- apps/web/src/content/pages/et/
+
+# Restore KnB files (if needed)
+git checkout HEAD~1 -- knowledge-base/persons/
+```
+
+### Commit
+
+- Commit hash: fab064cf0e02277b05537481aa7b20e536caf3d3
+- Branch: refactor/content-architecture
+
+---

@@ -35,4 +35,4 @@ Reelika Palk lõi valguskujunduse, mis toetab lavastuse teemasid hoolitsusest ja
 
 ## Allikad
 
-- apps/web/src/content/pages/en/english-care.md
+- apps/web/src/content/pages/en/performances-for-adults-care.md

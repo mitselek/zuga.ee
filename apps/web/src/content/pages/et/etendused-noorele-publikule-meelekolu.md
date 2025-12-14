@@ -11,7 +11,7 @@ original_url: https://www.zuga.ee/et/etendused-noorele-publikule-meelekolu
 page_type: performance
 translated:
 - language: en
-  slug: english-inthemood
+  slug: performances-for-young-audiences-inthemood
 hero_image: /images/etendused-meelekolu-hero.jpg
 audio:
 - platform: err

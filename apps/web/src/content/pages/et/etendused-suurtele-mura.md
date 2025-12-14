@@ -10,7 +10,7 @@ original_url: https://www.zuga.ee/et/etendused-suurtele-mura
 page_type: performance
 translated:
 - language: en
-  slug: english-noise
+  slug: performances-for-adults-noise
 hero_image: /images/etendused-mura-proovist.jpg
 gallery:
 - url: /images/etendused-mura-etendus.jpg

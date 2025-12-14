@@ -13,7 +13,7 @@ venue: Sõltumatu Tantsu Lava
 duration: 60
 translated:
 - language: en
-  slug: english-the-great-unknown
+  slug: performances-for-adults-the-great-unknown
 hero_image: /images/etendused-suur-teadmatus-hero.jpg
 gallery:
 - url: /images/etendused-suur-teadmatus-1.jpg

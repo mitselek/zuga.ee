@@ -16,7 +16,7 @@ duration: 40
 hero_image: /images/voluvark-hero.jpg
 translated:
 - language: en
-  slug: english-magic-stuff
+  slug: performances-for-young-audiences-magic-stuff
 videos:
 - platform: vimeo
   video_id: "61138564"

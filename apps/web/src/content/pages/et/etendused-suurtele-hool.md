@@ -9,7 +9,7 @@ status: published
 hero_image: /images/etendused-hool-hero.png
 translated:
 - language: en
-  slug: english-care
+  slug: performances-for-adults-care
 gallery:
 - url: /images/etendused-hool-1.jpg
   width: 1024

@@ -40,4 +40,4 @@ Kadi Aare panus hõlmas:
 
 ## Allikad
 
-- apps/web/src/content/pages/en/english-care.md
+- apps/web/src/content/pages/en/performances-for-adults-care.md

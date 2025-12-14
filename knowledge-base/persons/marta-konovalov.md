@@ -31,5 +31,5 @@ Marta kujundused 2024. aasta lavastustele:
 
 ## Allikad
 
-- apps/web/src/content/pages/en/english-care.md
+- apps/web/src/content/pages/en/performances-for-adults-care.md
 - apps/web/src/content/pages/et/etendused-noorele-publikule-ilma.md

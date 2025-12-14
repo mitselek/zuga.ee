@@ -20,7 +20,7 @@ videos:
     description: ERR uudised, 24.10.2024
 translated:
   - language: en
-    slug: english-weather-or-not
+    slug: performances-for-young-audiences-weather-or-not
 ---
 
 # Ilma

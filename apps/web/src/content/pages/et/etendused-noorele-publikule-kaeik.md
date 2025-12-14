@@ -17,7 +17,7 @@ awards:
   - Etenduskunstide auhind 2015
 translated:
 - language: en
-  slug: english-thepassage
+  slug: performances-for-young-audiences-thepassage
 hero_image: /images/kaik-web-14.jpg
 gallery:
 - url: /images/kaik-web-2.jpg
