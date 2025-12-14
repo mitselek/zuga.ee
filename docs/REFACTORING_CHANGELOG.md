@@ -43,6 +43,76 @@ All new fields are optional (non-breaking change). Existing files continue to va
 
 ---
 
+## Issue #41: Create validation scripts and update documentation (2025-12-14)
+
+**Type**: feat
+**Scope**: tooling, documentation
+**Effort**: 5 hours
+**Risk**: Low
+
+### Changes Made
+
+- Created comprehensive validation script `scripts/validate-all.js`:
+  - Validates all KnB files (articles, persons, press, research) against Zod schemas
+  - Validates all web content files against schema
+  - Validates performance/workshop registry files
+  - Checks bidirectional linking integrity between KnB and web pages
+  - Detects orphaned KnB content (not referenced by any web page)
+  - Detects unsupported web claims (pages without KnB source attribution)
+  - Supports filtering by validation type (`--knb-only`, `--web-only`, `--registry-only`, `--links-only`)
+  - Provides verbose output mode for detailed error messages
+
+- Updated `knowledge-base/README.md`:
+  - Added comprehensive validation section with usage instructions
+  - Documented all validation options and exit codes
+  - Added registry validation documentation
+
+- Updated `knowledge-base/CONTENT_STANDARDS.md`:
+  - Added registry validation rules section
+  - Added validation requirements section with command examples
+  - Documented validation checks (schema compliance, registry references, linking integrity)
+
+- Updated `apps/web/README.md`:
+  - Replaced default Astro template README with project-specific documentation
+  - Documented content structure and folder organization
+  - Documented content types and categories
+  - Added Knowledge Base source attribution section with examples
+  - Added validation instructions
+  - Added routing documentation
+
+### Files Affected
+
+- **New**: `scripts/validate-all.js` (600+ lines)
+- **Modified**: `knowledge-base/README.md`
+- **Modified**: `knowledge-base/CONTENT_STANDARDS.md`
+- **Modified**: `apps/web/README.md`
+
+### Validation
+
+- Schema validation: ✅ Passed (all KnB files validate against schemas)
+- Build: ✅ Succeeded (no build impact)
+- Script execution: ✅ All validation checks working
+- Documentation: ✅ Complete and accurate
+
+### Notes
+
+The validation script handles edge cases:
+- Date objects from YAML parsing are converted to ISO date strings
+- Tag arrays may contain numbers (coerced to strings)
+- Person status enum includes additional values found in actual files
+- Article type enum includes 'television' variant
+
+The script reports warnings (not errors) for:
+- Orphaned KnB content (expected until linking issues #36, #37 are complete)
+- Unsupported web claims (expected until linking issues are complete)
+
+### Commit
+
+- Commit hash: [to be added]
+- Branch: refactor/content-architecture
+
+---
+
 ## Issue #40: Update prompts for new schema fields (2025-12-14)
 
 **Type**: feat

@@ -124,7 +124,37 @@ Each registry file contains:
 
 ### Validation
 
-Validate registry files using the validation script:
+#### Comprehensive Validation
+
+Validate all KnB files, web content, registry files, and linking integrity:
+
+```bash
+node scripts/validate-all.js [--verbose]
+```
+
+**Options**:
+- `--verbose`: Print detailed validation output
+- `--knb-only`: Only validate KnB files
+- `--web-only`: Only validate web content files
+- `--registry-only`: Only validate registry files
+- `--links-only`: Only check linking integrity
+
+**What it validates**:
+
+- ✅ **KnB Files**: All articles, persons, press, and research files against Zod schemas
+- ✅ **Web Content**: All web page frontmatter against schema
+- ✅ **Registry**: Performance and workshop registry files
+- ✅ **Linking Integrity**: Bidirectional links between KnB and web pages
+- ⚠️ **Orphaned Content**: KnB files not referenced by any web page
+- ⚠️ **Unsupported Claims**: Web pages without KnB source attribution
+
+**Exit codes**:
+- `0`: All validations passed
+- `1`: Validation errors found
+
+#### Registry Validation
+
+Validate registry files specifically:
 
 ```bash
 node scripts/validate-registry.js [--verbose]

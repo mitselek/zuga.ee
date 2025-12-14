@@ -292,6 +292,36 @@ knowledge_base_sources:
 - Keep links bidirectional: if web page links to KnB, KnB should list web page in `used_in_pages`
 - Update links when content changes or new sources are added
 
+### Registry Validation Rules
+
+When referencing performances or workshops in KnB files:
+
+- **Use registry IDs**: Reference performance/workshop IDs from `registry/performances.yaml` and `registry/workshops.yaml`
+- **Validate references**: Use `related_knb.performances` array with registry IDs (e.g., `"ilma"`, `"habi"`)
+- **Don't use slugs**: Use the `id` field from registry, not `slug` or `full_slug`
+- **Run validation**: Use `node scripts/validate-all.js` to verify all references are valid
+
+### Validation Requirements
+
+All content must pass validation before committing:
+
+```bash
+# Validate all content
+node scripts/validate-all.js
+
+# Validate specific collections
+node scripts/validate-all.js --knb-only
+node scripts/validate-all.js --web-only
+node scripts/validate-all.js --registry-only
+```
+
+**Validation checks**:
+- ✅ Schema compliance (all required fields present, correct types)
+- ✅ Registry references (performance/workshop IDs exist in registry)
+- ✅ Bidirectional linking integrity (links are consistent)
+- ⚠️ Orphaned content detection (KnB files not referenced)
+- ⚠️ Unsupported claims detection (web pages without KnB sources)
+
 ## Content Types and Standards
 
 ### Articles (Press Coverage)
