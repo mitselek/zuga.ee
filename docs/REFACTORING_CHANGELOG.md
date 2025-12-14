@@ -217,3 +217,55 @@ git checkout HEAD~1 -- knowledge-base/persons/
 - Branch: refactor/content-architecture
 
 ---
+
+## Issue #35: Create performance and workshop registry (2025-12-14)
+
+**Type**: feat
+**Scope**: knb, schema
+**Effort**: 4 hours
+**Risk**: Low
+
+### Changes Made
+
+- Created `knowledge-base/registry/` directory
+- Created `performances.yaml` with 15 performances (6 for adults, 9 for young audiences)
+- Created `workshops.yaml` with 5 workshops
+- Created Zod schema in `registry/schema.ts` for type-safe validation
+- Created validation script `scripts/validate-registry.js`
+- Updated `knowledge-base/README.md` with comprehensive registry documentation
+- Updated `scripts/README.md` with validation script usage
+- Added `js-yaml` dependency to `knowledge-base/package.json`
+
+### Files Affected
+
+- Total files changed: 8
+- New files created: 4
+  - `knowledge-base/registry/performances.yaml`
+  - `knowledge-base/registry/workshops.yaml`
+  - `knowledge-base/registry/schema.ts`
+  - `scripts/validate-registry.js`
+- Files deleted: 0
+- Files renamed: 0
+
+### Validation
+
+- Schema validation: ✅ Passed (all registries validate successfully)
+- Build: ✅ N/A (registry files are standalone)
+- Tests: ✅ Validation script passes
+
+### Notes
+
+Registry provides canonical data for all ZUGA performances and workshops, enabling:
+- Slug validation in articles and web content
+- Cross-referencing via `related_knb.performances` IDs
+- Single source of truth for bilingual titles
+- Support for AI prompts with structured data
+
+Registry IDs can be used in KnB files' `related_knb.performances` fields (e.g., `"ilma"`, `"habi"`, `"2-2-22"`).
+
+### Commit
+
+- Commit hash: 9da98a7a24a68e1100ce88c6146bfa59cbf23278
+- Branch: refactor/content-architecture
+
+---
