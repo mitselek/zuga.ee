@@ -1,0 +1,95 @@
+version: "1.0"
+last_updated: "2025-12-14"
+
+workshops:
+  - id: meelekolu-mangud
+    title:
+      et: meeleKolu mängud
+      en: mindStuff games
+    slug:
+      et: meelekolu-mangud
+      en: mindstuff-games
+    full_slug:
+      et: workshopid-meelekolu-mangud-mindstuff-games
+      en: workshopid-meelekolu-mangud-mindstuff-games-en
+    target_audience: children
+    age_recommendation: 6-13
+    duration: 45
+    venue: null  # Held at schools/halls
+    status: active
+    categories:
+      - workshopid
+
+  - id: tuleviku-liigutajad
+    title:
+      et: Tuleviku Liigutajad
+      en: Future Movers
+    slug:
+      et: tuleviku-liigutajad
+      en: future-movers
+    full_slug:
+      et: workshopid-tuleviku-liigutajad
+      en: workshops-future-movers
+    target_audience: children
+    age_recommendation: "Lasteaia vanem rühm, põhikool I-II aste"
+    duration: 90
+    venue: Kumu Kunstimuuseum
+    status: archived  # Specific dates: 2021-10-15 to 2022-02-18
+    dates: 2021-10-15 - 2022-02-18
+    collaboration: Kumu Kunstimuuseum, Sõltumatu Tantsu Lava
+    categories:
+      - workshopid
+
+  - id: zuga-heliliikumistootoad
+    title:
+      et: ZUGA Heliliikumistöötoad
+      en: null
+    slug:
+      et: zuga-heliliikumistootoad
+      en: null
+    full_slug:
+      et: workshopid-zuga-heliliikumistootoad
+      en: null
+    target_audience: families
+    age_recommendation: null
+    duration: 15-20
+    venue: "Kodus, õues, metsas, koolis"
+    status: active
+    categories:
+      - workshopid
+
+  - id: zuga-liikumise-tootuba-peredele
+    title:
+      et: Liikumise töötuba peredele
+      en: ZUGA's Movement Workshop for Families
+    slug:
+      et: zuga-liikumise-tootuba-peredele
+      en: zuga-movement-workshop-for-families
+    full_slug:
+      et: workshopid-zuga-liikumise-tootuba-peredele-zugas-movement-workshop-for-families
+      en: null
+    target_audience: families
+    age_recommendation: null
+    duration: 60
+    venue: "Saal, kus on ruumi liikuda"
+    status: active
+    categories:
+      - workshopid
+
+  - id: zuga-liikumispausid
+    title:
+      et: ZUGA Liikumispausid
+      en: null
+    slug:
+      et: zuga-liikumispausid
+      en: null
+    full_slug:
+      et: workshopid-zuga-liikumispausid
+      en: null
+    target_audience: null
+    age_recommendation: null
+    duration: null
+    venue: null
+    status: active
+    categories:
+      - workshopid

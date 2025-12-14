@@ -32,6 +32,125 @@ Press releases, media kits, and promotional materials created by ZUGA.
 
 Background research, interviews, production notes, and other reference materials.
 
+### `/registry`
+
+Canonical registry files for performances and workshops. These YAML files serve as the single source of truth for performance/workshop metadata, enabling validation and cross-referencing across the Knowledge Base.
+
+**Files**:
+- `performances.yaml` - All ZUGA performances (historical and current)
+- `workshops.yaml` - All ZUGA workshops
+
+**Usage**: Reference performance/workshop IDs in `related_knb.performances` fields. See [Registry Documentation](#registry) below.
+
+## Registry
+
+The registry provides canonical data for all ZUGA performances and workshops, enabling:
+
+- **Slug validation**: Validate performance references in articles and web content
+- **Cross-referencing**: Use registry IDs in `related_knb.performances` fields
+- **Consistency**: Single source of truth for bilingual titles and metadata
+- **Automation**: Support AI prompts and content generation with structured data
+
+### Registry Structure
+
+Each registry file contains:
+
+- **version**: Registry format version (e.g., `"1.0"`)
+- **last_updated**: Date when registry was last updated (YYYY-MM-DD format)
+- **performances** or **workshops**: Array of entries
+
+### Performance Entry
+
+```yaml
+- id: ilma
+  title:
+    et: Ilma
+    en: Weather or Not
+  slug:
+    et: ilma
+    en: weather-or-not
+  full_slug:
+    et: etendused-noorele-publikule-ilma
+    en: performances-for-young-audiences-weather-or-not
+  premiere: "2024-10-26"
+  venue: Sõltumatu Tantsu Lava
+  duration: 60
+  target_audience: young_audiences
+  age_recommendation: "10+"
+  status: active
+  categories:
+    - etendused
+    - noorele-publikule
+```
+
+**Fields**:
+- **id** (required): Unique identifier (used in `related_knb.performances`)
+- **title** (required): Bilingual titles (`et`, `en` - at least one required)
+- **slug** (required): Short slugs (`et`, `en` - at least one required)
+- **full_slug** (required): Full web content slugs (`et`, `en` - at least one required)
+- **premiere** (optional): Premiere date (YYYY-MM-DD format)
+- **venue** (optional): Premiere venue
+- **duration** (optional): Duration in minutes
+- **target_audience** (required): `adults`, `young_audiences`, `families`, or `children`
+- **age_recommendation** (optional): Age recommendation string
+- **status** (required): `active`, `archived`, or `upcoming`
+- **categories** (required): Array of category strings
+
+### Workshop Entry
+
+```yaml
+- id: meelekolu-mangud
+  title:
+    et: meeleKolu mängud
+    en: mindStuff games
+  slug:
+    et: meelekolu-mangud
+    en: mindstuff-games
+  full_slug:
+    et: workshopid-meelekolu-mangud-mindstuff-games
+    en: workshopid-meelekolu-mangud-mindstuff-games-en
+  target_audience: children
+  age_recommendation: "6-13"
+  duration: 45
+  venue: null
+  status: active
+  categories:
+    - workshopid
+```
+
+**Fields**: Similar to performance, but without `premiere` field. May include `dates` (date range string) and `collaboration` fields.
+
+### Validation
+
+Validate registry files using the validation script:
+
+```bash
+node scripts/validate-registry.js [--verbose]
+```
+
+The script validates:
+- YAML syntax
+- Schema compliance (Zod schemas in `registry/schema.ts`)
+- Required fields
+- Data types and formats
+- Bilingual field requirements
+
+### Using Registry IDs
+
+Reference performances in KnB files using registry IDs:
+
+```yaml
+---
+related_knb:
+  performances:
+    - ilma
+    - habi
+    - "2-2-22"
+---
+```
+
+**Note**: Use the `id` field from the registry, not the slug or full_slug.
+
 ## Naming Convention
 
 Files should follow this pattern:
