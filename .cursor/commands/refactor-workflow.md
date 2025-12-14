@@ -20,6 +20,7 @@ $ARGUMENTS
 **Milestone**: Content Architecture Refactoring (Due: 2026-01-15)
 **Epic Issue**: #29
 **Documentation**:
+
 - Master Plan: `docs/REFACTORING_PLAN.md` (comprehensive 2000+ line specification)
 - Tracking: `.github/REFACTORING_TRACKING.md` (quick reference)
 - Content Standards: `knowledge-base/CONTENT_STANDARDS.md` (validation rules)
@@ -52,31 +53,37 @@ Execute these phases sequentially for each issue. Do not skip phases. Do not wor
 **Step-by-step instructions**:
 
 **Step 1** - Check milestone progress to understand current state:
+
 ```bash
 gh api repos/mitselek/zuga.ee/milestones/1 | jq '{open: .open_issues, closed: .closed_issues, percent_complete: ((.closed_issues | tonumber) / ((.open_issues | tonumber) + (.closed_issues | tonumber)) * 100)}'
 ```
 
 **Step 2** - List all open issues in the milestone, ordered by priority:
+
 ```bash
 gh issue list --milestone "Content Architecture Refactoring" --state open --json number,title,labels --jq 'sort_by(.labels | map(select(.name | startswith("p"))) | .[0].name) | .[] | "#\(.number): \(.title)"'
 ```
 
 **Step 3** - Select candidate issue following these criteria:
+
 - Priority order: P0-Critical → P1-High → P2-Medium
 - From same phase: #30-32 (Phase 1) → #33-35, #40-41 (Phase 2) → #36-39 (Phase 3)
 - All dependencies resolved
 
 **Step 4** - View the selected issue to read full requirements:
+
 ```bash
 gh issue view <issue-number>
 ```
 
 **Step 5** - Verify dependencies are satisfied by checking:
+
 - The "Dependencies" field in the issue description
 - Referenced issue numbers are closed: `gh issue view <dependency-issue-number> --json state`
 
 **Output to user**:
 Present your selection clearly:
+
 ```markdown
 ## Selected Issue: #<N> - <Title>
 
@@ -89,6 +96,7 @@ Present your selection clearly:
 ```
 
 **Selection criteria validation checklist**:
+
 - [ ] Follows priority order (P0 → P1 → P2)
 - [ ] All dependency issues are closed
 - [ ] Previous phase issues complete (if applicable)
@@ -103,12 +111,14 @@ Present your selection clearly:
 **Step-by-step instructions**:
 
 **Step 1** - Read the entire issue description, including:
+
 - Description section (what and why)
 - Tasks checklist (specific actions)
 - Acceptance Criteria (definition of done)
 - Files Changed section (scope)
 
 **Step 2** - Read the corresponding section in `docs/REFACTORING_PLAN.md`:
+
 ```bash
 grep -A 50 "Issue <issue-number>" docs/REFACTORING_PLAN.md
 ```
@@ -116,6 +126,7 @@ grep -A 50 "Issue <issue-number>" docs/REFACTORING_PLAN.md
 **Step 3** - Identify all files that will be modified, created, or deleted.
 
 **Step 4** - Assess risk level:
+
 - **Low**: Schema additions (optional fields), documentation updates
 - **Medium**: File renames, data migrations with rollback
 - **High**: Required schema changes, folder restructuring
@@ -124,6 +135,7 @@ grep -A 50 "Issue <issue-number>" docs/REFACTORING_PLAN.md
 
 **Output to user**:
 Present a clear execution plan:
+
 ```markdown
 ## Working on Issue #<N>: <Title>
 
@@ -133,23 +145,27 @@ Present a clear execution plan:
 **Files to Change**: <count> (<list critical ones>)
 
 **Execution Plan**:
+
 1. [<duration>] <specific action with file/command>
 2. [<duration>] <specific action with file/command>
 3. [<duration>] <specific action with file/command>
-...
+   ...
 
 **Risk Mitigation**:
+
 - <backup strategy if Medium/High risk>
 - <rollback procedure if needed>
 - <validation approach>
 
 **Success Criteria** (from Acceptance Criteria):
+
 - [ ] <criterion 1>
 - [ ] <criterion 2>
-...
+      ...
 ```
 
 **Preparation checklist**:
+
 - [ ] Issue description fully understood
 - [ ] Relevant plan section reviewed
 - [ ] All files identified
@@ -165,32 +181,41 @@ Present a clear execution plan:
 **Step-by-step instructions**:
 
 **Step 1** - Verify you are on the correct branch:
+
 ```bash
 git branch --show-current
 ```
+
 Expected output: `refactor/content-architecture`
 
 **Step 2** - Ensure working directory is clean:
+
 ```bash
 git status --short
 ```
+
 Expected output: Empty (no uncommitted changes)
 If not empty: Either commit work in progress or stash: `git stash push -m "WIP: Issue #<N>"`
 
 **Step 3** - Pull latest changes from remote:
+
 ```bash
 git pull origin refactor/content-architecture
 ```
+
 If conflicts: Resolve before proceeding. Do not continue with conflicts.
 
 **Step 4** - Count files before changes (for data migrations):
+
 ```bash
 find knowledge-base -name "*.md" -type f | wc -l
 find apps/web/src/content/pages -name "*.md" -type f | wc -l
 ```
+
 Note these counts for later validation.
 
 **Step 5** - Create backup if working with data:
+
 ```bash
 # Only for issues involving data migration (Medium/High risk)
 cp -r knowledge-base knowledge-base.backup.$(date +%Y%m%d_%H%M%S)
@@ -200,6 +225,7 @@ echo "Backup created: knowledge-base.backup.$(date +%Y%m%d_%H%M%S)"
 
 **Output to user**:
 Confirm readiness:
+
 ```markdown
 ## Pre-Flight Checks Complete
 
@@ -213,6 +239,7 @@ Confirm readiness:
 ```
 
 **Pre-flight checklist**:
+
 - [ ] On correct branch (refactor/content-architecture)
 - [ ] No uncommitted changes
 - [ ] Latest changes pulled
@@ -228,6 +255,7 @@ Confirm readiness:
 **General step-by-step approach**:
 
 **Step 1** - If task requires a script, create it first with error handling:
+
 ```bash
 # Create script file in scripts/ directory
 touch scripts/<descriptive-name>.js
@@ -239,22 +267,28 @@ touch scripts/<descriptive-name>.js
 ```
 
 **Step 2** - Test on sample data (2-3 files) using dry-run mode:
+
 ```bash
 node scripts/<script-name>.js --dry-run --files="<file1>,<file2>,<file3>"
 ```
+
 Review output carefully. Check for:
+
 - Correct transformations
 - No data loss
 - Edge cases handled
 - Expected output format
 
 **Step 3** - If dry-run succeeds, run on full dataset with logging:
+
 ```bash
 node scripts/<script-name>.js --verbose 2>&1 | tee migration-<issue-number>.log
 ```
+
 Monitor output for errors. If errors occur, stop and investigate.
 
 **Step 4** - Review changed files manually:
+
 ```bash
 # Check statistics
 git diff --stat
@@ -267,6 +301,7 @@ head -30 <changed-file>
 ```
 
 **Step 5** - Verify file integrity:
+
 ```bash
 # Count files after changes
 find knowledge-base -name "*.md" -type f | wc -l
@@ -277,6 +312,7 @@ find apps/web/src/content/pages -name "*.md" -type f | wc -l
 **For different task types, follow these specific patterns**:
 
 **Pattern A: Schema Changes**
+
 ```bash
 # 1. Edit schema file
 vim knowledge-base/config.ts  # or apps/web/src/content/config.ts
@@ -307,6 +343,7 @@ rm test-new-schema.md
 ```
 
 **Pattern B: File Renaming**
+
 ```bash
 # 1. Create rename mapping file
 cat > rename-map-issue-<N>.json <<EOF
@@ -346,6 +383,7 @@ done
 ```
 
 **Pattern C: Data Migration**
+
 ```bash
 # 1. Create migration script with backup check
 cat > scripts/migrate-issue-<N>.js <<'EOF'
@@ -397,6 +435,7 @@ git diff knowledge-base/ | head -100
 
 **Output to user** (during implementation):
 Provide progress updates:
+
 ```markdown
 ## Implementation Progress
 
@@ -410,6 +449,7 @@ Provide progress updates:
 ```
 
 **Implementation checklist**:
+
 - [ ] Script created with dry-run mode (if applicable)
 - [ ] Tested on 2-3 sample files first
 - [ ] Dry-run output reviewed and correct
@@ -428,6 +468,7 @@ Provide progress updates:
 **Step-by-step instructions**:
 
 **Step 1** - Run schema validation for affected files:
+
 ```bash
 # For KnB changes
 cd knowledge-base
@@ -441,12 +482,14 @@ npm run build 2>&1 | tee build-issue-<N>.log
 ```
 
 If validation fails:
+
 - Read error messages carefully
 - Identify which files are failing: `grep -i error validation-issue-<N>.log`
 - Fix issues and re-run validation
 - If stuck after 3 attempts, restore backup and reassess approach
 
 **Step 2** - Check for broken internal links:
+
 ```bash
 # Find all markdown links
 grep -rn "](.*\.md)" knowledge-base/ apps/web/src/content/ > links-issue-<N>.txt
@@ -461,10 +504,12 @@ done < links-issue-<N>.txt
 ```
 
 If broken links found:
+
 - Update links to new file paths
 - Or create redirect metadata if files were intentionally removed
 
 **Step 3** - Verify frontmatter structure in changed files:
+
 ```bash
 # Check frontmatter in sample of changed files
 git diff --name-only | head -10 | while read file; do
@@ -475,6 +520,7 @@ done
 ```
 
 Verify:
+
 - Opening and closing `---` present
 - Required fields present (title, slug, etc.)
 - New fields added correctly
@@ -482,6 +528,7 @@ Verify:
 - No YAML syntax errors
 
 **Step 4** - Review git changes comprehensively:
+
 ```bash
 # Get statistics
 git diff --stat
@@ -495,12 +542,14 @@ git diff --name-only | grep "\.md$" | head -5 | xargs git diff
 ```
 
 Check for:
+
 - No accidental changes to unrelated files
 - No sensitive data exposed
 - No debug code left in
 - Changes match issue requirements
 
 **Step 5** - Verify file counts and data integrity:
+
 ```bash
 # Compare file counts to pre-flight
 echo "KnB files: $(find knowledge-base -name '*.md' -type f | wc -l)"
@@ -513,29 +562,35 @@ head -30 knowledge-base/articles/*.md | grep -c "title:"
 
 **Output to user**:
 Report validation results:
+
 ```markdown
 ## Validation Results
 
 ### Schema Validation
+
 ✅ Knowledge Base: All <N> files pass validation
 ✅ Web Content: Build succeeds without errors
 
 ### Link Integrity
+
 ✅ No broken internal links found
 <or>
 ⚠️ Found <N> broken links - fixed in <files>
 
 ### Frontmatter Structure
+
 ✅ Spot-checked 10 files - all have valid YAML frontmatter
 ✅ Required fields present in all checked files
 ✅ New fields added correctly
 
 ### Git Changes Review
+
 ✅ <N> files changed
 ✅ All changes intentional and match issue scope
 ✅ No unrelated files modified
 
 ### Data Integrity
+
 ✅ File counts: KnB=<before> → <after> (expected: <reason if different>)
 ✅ No data loss detected in sample check
 
@@ -543,6 +598,7 @@ Report validation results:
 ```
 
 **Validation checklist**:
+
 - [ ] Schema validation passes (npm run validate)
 - [ ] Build succeeds (npm run build)
 - [ ] No broken internal links
@@ -561,6 +617,7 @@ Report validation results:
 **Step-by-step instructions**:
 
 **Step 1** - Create or update changelog entry:
+
 ```bash
 # Create changelog if it doesn't exist
 if [[ ! -f docs/REFACTORING_CHANGELOG.md ]]; then
@@ -612,6 +669,7 @@ EOF
 ```
 
 **Step 2** - Update tracking document with progress:
+
 ```bash
 # Update .github/REFACTORING_TRACKING.md
 # Mark issue as complete in the phase list
@@ -619,6 +677,7 @@ sed -i "s/- #<N> - /<strike>- #<N> -<\/strike> ✅ /" .github/REFACTORING_TRACKI
 ```
 
 **Step 3** - Document any new scripts created:
+
 ```bash
 # If you created scripts, document them
 if [[ -f scripts/<script-name>.js ]]; then
@@ -639,6 +698,7 @@ fi
 ```
 
 **Step 4** - Update relevant README files if schema changed:
+
 ```bash
 # If schema was modified, document new fields
 if git diff --name-only | grep -q "config.ts"; then
@@ -648,6 +708,7 @@ fi
 ```
 
 **Step 5** - Prepare issue closure comment:
+
 ```bash
 # Draft closure comment (will be posted in Phase 7)
 cat > issue-<N>-closure-comment.txt <<EOF
@@ -677,6 +738,7 @@ EOF
 ```
 
 **Output to user**:
+
 ```markdown
 ## Documentation Updated
 
@@ -690,6 +752,7 @@ EOF
 ```
 
 **Documentation checklist**:
+
 - [ ] Changelog entry created with all details
 - [ ] Tracking document updated (issue marked complete)
 - [ ] New scripts documented in scripts/README.md
@@ -706,17 +769,20 @@ EOF
 **Step-by-step instructions**:
 
 **Step 1** - Stage all changes:
+
 ```bash
 git add -A
 ```
 
 **Step 2** - Verify what will be committed:
+
 ```bash
 git status
 # Review the list - ensure no unintended files included
 ```
 
 **Step 3** - Create commit message following conventional commit format:
+
 ```bash
 git commit -m "<type>(<scope>): <short description (max 72 chars)>
 
@@ -733,6 +799,7 @@ Closes #<issue-number>"
 **Commit message template breakdown**:
 
 **Type** (choose one):
+
 - `feat`: New feature added (e.g., new schema fields, registry)
 - `refactor`: Code/structure changed without changing functionality (e.g., file renames, folder moves)
 - `fix`: Bug fix
@@ -740,6 +807,7 @@ Closes #<issue-number>"
 - `chore`: Tooling, build scripts, etc.
 
 **Scope** (choose one):
+
 - `knb`: Knowledge Base files
 - `web`: Web content files
 - `schema`: Schema definitions
@@ -748,7 +816,7 @@ Closes #<issue-number>"
 
 **Examples of good commit messages**:
 
-```
+```text
 feat(schema): Add bidirectional KnB linking fields
 
 Implement used_in_pages and knowledge_base_sources fields to enable
@@ -763,7 +831,7 @@ traceability between Knowledge Base and web content.
 Closes #30
 ```
 
-```
+```text
 refactor(knb): Migrate to new source attribution schema
 
 Automated migration of 39 Knowledge Base files to comply with new
@@ -781,23 +849,27 @@ Closes #31
 ```
 
 **Step 4** - Verify commit was created correctly:
+
 ```bash
 git log -1 --pretty=format:"%h %s%n%n%b"
 # Review commit message
 ```
 
 **Step 5** - Push to remote branch:
+
 ```bash
 git push origin refactor/content-architecture
 ```
 
 Verify push succeeded:
+
 ```bash
 # Should show "refactor/content-architecture" tracking remote
 git branch -vv
 ```
 
 **Step 6** - Get commit hash for documentation:
+
 ```bash
 COMMIT_HASH=$(git rev-parse HEAD)
 echo "Commit hash: $COMMIT_HASH"
@@ -815,6 +887,7 @@ git push origin refactor/content-architecture --force-with-lease
 ```
 
 **Output to user**:
+
 ```markdown
 ## Changes Committed and Pushed
 
@@ -831,6 +904,7 @@ https://github.com/mitselek/zuga.ee/commit/<hash>
 ```
 
 **Commit checklist**:
+
 - [ ] All changes staged (git add -A)
 - [ ] Commit message follows conventional format
 - [ ] Type and scope correct
@@ -850,22 +924,26 @@ https://github.com/mitselek/zuga.ee/commit/<hash>
 **Step-by-step instructions**:
 
 **Step 1** - Post closure comment with full context:
+
 ```bash
 gh issue comment <issue-number> --body-file issue-<N>-closure-comment.txt
 ```
 
 **Step 2** - Close the issue:
+
 ```bash
 gh issue close <issue-number> --reason completed
 ```
 
 **Step 3** - Verify issue closed:
+
 ```bash
 gh issue view <issue-number> --json state,closedAt --jq '{state, closedAt}'
 # Expected: {"state": "CLOSED", "closedAt": "<timestamp>"}
 ```
 
 **Step 4** - Update epic issue (#29) to check off completed issue:
+
 ```bash
 # Get current epic body
 gh issue view 29 --json body --jq '.body' > epic-body-temp.txt
@@ -881,12 +959,14 @@ rm epic-body-temp.txt issue-<N>-closure-comment.txt
 ```
 
 **Step 5** - Check milestone progress:
+
 ```bash
 gh api repos/mitselek/zuga.ee/milestones/1 | \
   jq '{open: .open_issues, closed: .closed_issues, percent_complete: ((.closed_issues | tonumber) / ((.open_issues | tonumber) + (.closed_issues | tonumber)) * 100 | floor)}'
 ```
 
 **Output to user**:
+
 ```markdown
 ## Issue #<N> Closed ✅
 
@@ -896,6 +976,7 @@ gh api repos/mitselek/zuga.ee/milestones/1 | \
 **Epic Updated**: #29 checkbox marked complete
 
 **Milestone Progress**:
+
 - Open issues: <count>
 - Closed issues: <count>
 - Progress: <percentage>%
@@ -904,6 +985,7 @@ gh api repos/mitselek/zuga.ee/milestones/1 | \
 ```
 
 **Closure checklist**:
+
 - [ ] Closure comment posted with full details
 - [ ] Issue closed with "completed" reason
 - [ ] Issue state verified as CLOSED
@@ -919,6 +1001,7 @@ gh api repos/mitselek/zuga.ee/milestones/1 | \
 **Step-by-step instructions**:
 
 **Step 1** - Compare actual effort to estimate:
+
 ```markdown
 **Estimated**: <X-Y hours>
 **Actual**: <Z hours>
@@ -926,35 +1009,43 @@ gh api repos/mitselek/zuga.ee/milestones/1 | \
 ```
 
 **Step 2** - Document unexpected blockers or discoveries:
+
 ```markdown
 **Blockers Encountered**:
+
 - <blocker 1 and how resolved>
 - <blocker 2 and how resolved>
-<or "None">
+  <or "None">
 
 **Discoveries**:
+
 - <unexpected finding 1>
 - <unexpected finding 2>
-<or "Work proceeded as planned">
+  <or "Work proceeded as planned">
 ```
 
 **Step 3** - Assess if plan needs updating:
+
 ```markdown
 **Plan Updates Needed**:
+
 - <update to docs/REFACTORING_PLAN.md>
 - <new issue to create for discovered work>
-<or "No updates needed">
+  <or "No updates needed">
 ```
 
 **Step 4** - Capture learnings for future issues:
+
 ```markdown
 **Learnings**:
+
 - <what worked well>
 - <what could be improved>
 - <tip for next similar task>
 ```
 
 **Step 5** - Identify next issue:
+
 ```bash
 # List remaining open issues
 gh issue list --milestone "Content Architecture Refactoring" --state open --json number,title,labels | \
@@ -966,25 +1057,31 @@ gh issue view <next-candidate-number> --json body | jq -r '.body' | grep "Depend
 
 **Output to user**:
 Present retrospective and next steps:
+
 ```markdown
 ## Retrospective: Issue #<N>
 
 ### Effort Analysis
+
 - **Estimated**: <X-Y hours>
 - **Actual**: <Z hours>
 - **Variance**: <±N hours> - <explanation>
 
 ### Blockers & Discoveries
+
 <list or "None - work proceeded as planned">
 
 ### Plan Updates
+
 <list or "No updates needed to master plan">
 
 ### Learnings
+
 - <key learning 1>
 - <key learning 2>
 
 ### Overall Assessment
+
 <1-2 sentences: success factors, what went well, what to watch for next time>
 
 ---
@@ -1003,6 +1100,7 @@ Present retrospective and next steps:
 ```
 
 **Retrospective checklist**:
+
 - [ ] Effort variance analyzed
 - [ ] Blockers and discoveries documented
 - [ ] Plan updates identified (if any)
@@ -1024,39 +1122,52 @@ Use these detailed patterns when implementing common refactoring tasks.
 **Detailed steps**:
 
 1. Locate schema file:
+
    - Knowledge Base: `knowledge-base/config.ts`
    - Web Content: `apps/web/src/content/config.ts`
 
 2. Add new fields using Zod syntax:
+
 ```typescript
 // Example: Adding optional array field
 export const articleSchema = z.object({
   // ... existing fields ...
 
   // NEW: Track where this content is used
-  used_in_pages: z.array(z.string()).optional().describe(
-    'List of web content pages that reference this KnB article. ' +
-    'Format: "et/etendused-noorele-publikule-ilma.md"'
-  ),
+  used_in_pages: z
+    .array(z.string())
+    .optional()
+    .describe(
+      "List of web content pages that reference this KnB article. " +
+        'Format: "et/etendused-noorele-publikule-ilma.md"'
+    ),
 
   // NEW: Related content cross-references
-  related_knb: z.object({
-    performances: z.array(z.string()).optional()
-      .describe('Performance IDs from registry'),
-    persons: z.array(z.string()).optional()
-      .describe('Person file slugs'),
-    articles: z.array(z.string()).optional()
-      .describe('Related article file slugs'),
-  }).optional().describe('Cross-references to related KnB content'),
+  related_knb: z
+    .object({
+      performances: z
+        .array(z.string())
+        .optional()
+        .describe("Performance IDs from registry"),
+      persons: z.array(z.string()).optional().describe("Person file slugs"),
+      articles: z
+        .array(z.string())
+        .optional()
+        .describe("Related article file slugs"),
+    })
+    .optional()
+    .describe("Cross-references to related KnB content"),
 });
 ```
 
 3. Export type for TypeScript usage:
+
 ```typescript
 export type Article = z.infer<typeof articleSchema>;
 ```
 
 4. Test new schema with validation:
+
 ```bash
 # Create test file
 cat > /tmp/test-schema.md <<EOF
@@ -1087,6 +1198,7 @@ rm /tmp/test-schema.md
 ```
 
 5. Update documentation:
+
    - Add new fields to `knowledge-base/README.md` schema documentation
    - Update `knowledge-base/CONTENT_STANDARDS.md` with usage guidelines
    - Add examples showing correct usage
@@ -1096,6 +1208,7 @@ rm /tmp/test-schema.md
    - Add new fields to examples
 
 **Validation for schema changes**:
+
 - [ ] New fields added with `.optional()` (non-breaking)
 - [ ] Descriptions provided for all new fields
 - [ ] Test file validates successfully
@@ -1110,22 +1223,29 @@ rm /tmp/test-schema.md
 **Detailed steps**:
 
 1. Create robust migration script with safety checks and rollback:
+
 ```javascript
 // scripts/migrate-knb-fields-issue-31.js
-const fs = require('fs');
-const path = require('path');
-const glob = require('glob');
+const fs = require("fs");
+const path = require("path");
+const glob = require("glob");
 
 // Configuration
-const DRY_RUN = process.argv.includes('--dry-run');
-const VERBOSE = process.argv.includes('--verbose');
-const BACKUP_DIR = process.argv.find(arg => arg.startsWith('--backup='))?.split('=')[1];
+const DRY_RUN = process.argv.includes("--dry-run");
+const VERBOSE = process.argv.includes("--verbose");
+const BACKUP_DIR = process.argv
+  .find((arg) => arg.startsWith("--backup="))
+  ?.split("=")[1];
 
 // Safety check: Verify backup exists
 if (!BACKUP_DIR) {
-  const backups = fs.readdirSync('.').filter(d => d.startsWith('knowledge-base.backup'));
+  const backups = fs
+    .readdirSync(".")
+    .filter((d) => d.startsWith("knowledge-base.backup"));
   if (backups.length === 0) {
-    console.error('❌ ERROR: No backup found. Create backup before running migration.');
+    console.error(
+      "❌ ERROR: No backup found. Create backup before running migration."
+    );
     process.exit(1);
   }
   console.log(`✅ Backup found: ${backups[0]}`);
@@ -1133,16 +1253,16 @@ if (!BACKUP_DIR) {
 
 // Field mapping configuration
 const fieldMappings = {
-  'url': 'source_url',
-  'publication': 'source_publication',
-  'author': 'source_author',
-  'date': 'source_date',  // for articles
+  url: "source_url",
+  publication: "source_publication",
+  author: "source_author",
+  date: "source_date", // for articles
 };
 
 // Enum fixes
 const enumFixes = {
-  'preview-article': 'preview',
-  'press-release': 'press_release',
+  "preview-article": "preview",
+  "press-release": "press_release",
 };
 
 // Date format fixes (YYYY-MM to YYYY-MM-01)
@@ -1154,16 +1274,16 @@ const fixDateFormat = (dateStr) => {
 };
 
 // Process files
-const files = glob.sync('knowledge-base/**/*.md');
+const files = glob.sync("knowledge-base/**/*.md");
 let stats = {
   total: files.length,
   changed: 0,
   errors: [],
 };
 
-files.forEach(file => {
+files.forEach((file) => {
   try {
-    let content = fs.readFileSync(file, 'utf8');
+    let content = fs.readFileSync(file, "utf8");
     const original = content;
 
     // Extract frontmatter
@@ -1178,7 +1298,7 @@ files.forEach(file => {
 
     // Apply field mappings
     Object.entries(fieldMappings).forEach(([oldField, newField]) => {
-      const regex = new RegExp(`^${oldField}:`, 'gm');
+      const regex = new RegExp(`^${oldField}:`, "gm");
       if (regex.test(frontmatter)) {
         frontmatter = frontmatter.replace(regex, `${newField}:`);
         if (VERBOSE) console.log(`  Renamed: ${oldField} → ${newField}`);
@@ -1187,7 +1307,7 @@ files.forEach(file => {
 
     // Fix enum values
     Object.entries(enumFixes).forEach(([oldValue, newValue]) => {
-      const regex = new RegExp(`type: ${oldValue}`, 'g');
+      const regex = new RegExp(`type: ${oldValue}`, "g");
       if (regex.test(frontmatter)) {
         frontmatter = frontmatter.replace(regex, `type: ${newValue}`);
         if (VERBOSE) console.log(`  Fixed enum: ${oldValue} → ${newValue}`);
@@ -1195,8 +1315,10 @@ files.forEach(file => {
     });
 
     // Fix date formats
-    frontmatter = frontmatter.replace(/^(source_date|issued_date): (\d{4}-\d{2})$/gm,
-      (match, field, date) => `${field}: ${fixDateFormat(date)}`);
+    frontmatter = frontmatter.replace(
+      /^(source_date|issued_date): (\d{4}-\d{2})$/gm,
+      (match, field, date) => `${field}: ${fixDateFormat(date)}`
+    );
 
     // Add archived_date if missing
     if (!/^archived_date:/m.test(frontmatter)) {
@@ -1205,7 +1327,7 @@ files.forEach(file => {
     }
 
     // Add issued_by for press releases
-    if (file.includes('/press/') && !/^issued_by:/m.test(frontmatter)) {
+    if (file.includes("/press/") && !/^issued_by:/m.test(frontmatter)) {
       frontmatter += `\nissued_by: ZUGA`;
       if (VERBOSE) console.log(`  Added: issued_by (press release)`);
     }
@@ -1224,7 +1346,7 @@ files.forEach(file => {
       }
     }
   } catch (error) {
-    stats.errors.push({file, error: error.message});
+    stats.errors.push({ file, error: error.message });
     console.error(`❌ Error processing ${file}: ${error.message}`);
   }
 });
@@ -1232,32 +1354,38 @@ files.forEach(file => {
 // Report
 console.log(`\n📊 Migration Summary:`);
 console.log(`   Total files: ${stats.total}`);
-console.log(`   ${DRY_RUN ? 'Would change' : 'Changed'}: ${stats.changed}`);
+console.log(`   ${DRY_RUN ? "Would change" : "Changed"}: ${stats.changed}`);
 console.log(`   Errors: ${stats.errors.length}`);
 if (stats.errors.length > 0) {
   console.log(`\n❌ Errors:`);
-  stats.errors.forEach(({file, error}) => console.log(`   - ${file}: ${error}`));
+  stats.errors.forEach(({ file, error }) =>
+    console.log(`   - ${file}: ${error}`)
+  );
   process.exit(1);
 }
 ```
 
 2. Test on sample files with dry-run:
+
 ```bash
 # Test on 3 sample files from different collections
 node scripts/migrate-knb-fields-issue-31.js --dry-run --verbose
 ```
 
 3. If dry-run succeeds, run full migration:
+
 ```bash
 node scripts/migrate-knb-fields-issue-31.js --verbose 2>&1 | tee migration-31.log
 ```
 
 4. Validate all migrated files:
+
 ```bash
 cd knowledge-base && npm run validate
 ```
 
 **Rollback procedure if migration fails**:
+
 ```bash
 # Restore from backup
 rm -rf knowledge-base
@@ -1272,6 +1400,7 @@ echo "Restored from backup"
 **Detailed steps**:
 
 1. Generate rename mapping from naming pattern:
+
 ```bash
 # For EN file naming standardization
 cat > generate-rename-map-33.sh <<'EOF'
@@ -1299,6 +1428,7 @@ bash generate-rename-map-33.sh > rename-map-33.json
 ```
 
 2. Validate rename mapping:
+
 ```bash
 # Check for conflicts
 jq -r 'values[]' rename-map-33.json | sort | uniq -d
@@ -1311,6 +1441,7 @@ done
 ```
 
 3. Execute rename with git mv:
+
 ```bash
 jq -r 'to_entries[] | "\(.key)\t\(.value)"' rename-map-33.json | \
 while IFS=$'\t' read -r old new; do
@@ -1320,6 +1451,7 @@ done
 ```
 
 4. Update slug fields in renamed files:
+
 ```bash
 jq -r 'values[]' rename-map-33.json | while read file; do
   slug=$(basename "$file" .md)
@@ -1329,6 +1461,7 @@ done
 ```
 
 5. Update translated field cross-references:
+
 ```bash
 # For each renamed EN file, update its ET counterpart's translated field
 jq -r 'to_entries[] | "\(.key)\t\(.value)"' rename-map-33.json | \
@@ -1357,6 +1490,7 @@ done
 ```
 
 6. Update any KnB used_in_pages references:
+
 ```bash
 # Search KnB files for old filenames
 jq -r 'keys[]' rename-map-33.json | while read old_path; do
@@ -1373,6 +1507,7 @@ done
 ```
 
 7. Validate build:
+
 ```bash
 cd apps/web && npm run build
 ```
@@ -1388,16 +1523,19 @@ cd apps/web && npm run build
 **Step-by-step recovery**:
 
 **Step 1** - Capture full error output:
+
 ```bash
 npm run validate 2>&1 | tee validation-errors.log
 ```
 
 **Step 2** - Parse errors to identify failing files:
+
 ```bash
 grep -i "error" validation-errors.log | awk '{print $1}' | sort | uniq > failing-files.txt
 ```
 
 **Step 3** - For each failing file, identify the specific issue:
+
 ```bash
 while read file; do
   echo "=== $file ==="
@@ -1407,12 +1545,14 @@ done < failing-files.txt
 ```
 
 **Step 4** - Common issues and fixes:
+
 - **Missing required field**: Add the field with appropriate value
 - **Invalid enum value**: Check schema for valid values, update file
 - **Wrong type**: Check if array when should be string, or vice versa
 - **Invalid date format**: Ensure YYYY-MM-DD format
 
 **Step 5** - Fix issues and re-validate:
+
 ```bash
 # Fix files manually or with script
 vim <failing-file>
@@ -1422,6 +1562,7 @@ npm run validate
 ```
 
 **Step 6** - If stuck after 3 attempts, restore backup:
+
 ```bash
 echo "⚠️  Too many errors, restoring backup"
 rm -rf knowledge-base
@@ -1436,29 +1577,34 @@ echo "✅ Restored from backup - reassessing approach"
 **Step-by-step recovery**:
 
 **Step 1** - Capture build error:
+
 ```bash
 npm run build 2>&1 | tee build-error.log
 tail -50 build-error.log  # Review last 50 lines
 ```
 
 **Step 2** - Identify error category:
+
 - **Type error**: Schema type mismatch, need to update types
 - **Import error**: Missing import, file moved without updating imports
 - **Syntax error**: Invalid JavaScript/TypeScript syntax
 - **Missing file**: Referenced file doesn't exist
 
 **Step 3** - For type errors, regenerate types:
+
 ```bash
 cd knowledge-base && npm run build
 cd ../apps/web && npm run build
 ```
 
 **Step 4** - For import errors, check imports:
+
 ```bash
 grep -rn "import.*from.*<missing-module>" apps/web/src/
 ```
 
 **Step 5** - If error persists, isolate the issue:
+
 ```bash
 # Comment out recent changes
 # Try building again
@@ -1466,6 +1612,7 @@ grep -rn "import.*from.*<missing-module>" apps/web/src/
 ```
 
 **Step 6** - Create issue if blocked:
+
 ```bash
 gh issue create \
   --title "[Blocker] Build fails in Issue #<N>" \
@@ -1480,23 +1627,28 @@ gh issue create \
 **Step-by-step recovery**:
 
 **Step 1** - Check for uncommitted changes:
+
 ```bash
 git status --short
 ```
+
 If there are uncommitted changes, alert user and stop. User must commit or discard first.
 
 **Step 2** - Pull latest changes:
+
 ```bash
 git pull origin refactor/content-architecture
 ```
 
 **Step 3** - If conflicts occur, identify conflicting files:
+
 ```bash
 git status | grep "both modified"
 ```
 
 **Step 4** - Alert user and request resolution:
-```
+
+```text
 ⚠️ Merge conflicts detected in the following files:
 - <list conflicting files>
 
@@ -1509,19 +1661,23 @@ Please resolve these conflicts. Would you like me to:
 1. Show the conflicts in each file so we can resolve them together
 2. Abort the merge (git merge --abort) and investigate the divergence
 ```
+
 **Wait for user decision - do not attempt to auto-resolve conflicts.**
 
 **Step 5** - After user resolves conflicts, mark as resolved:
+
 ```bash
 git add <resolved-file>
 ```
 
 **Step 6** - Verify everything works:
+
 ```bash
 npm run validate  # or npm run build
 ```
 
 **Step 7** - Commit the merge:
+
 ```bash
 git commit -m "Merge latest changes from refactor/content-architecture
 
@@ -1539,12 +1695,14 @@ Resolved conflicts in:
 Before closing any issue, verify ALL of these:
 
 **Functional Criteria**:
+
 - [ ] All tasks in issue checklist completed
 - [ ] All acceptance criteria met
 - [ ] Changes match issue scope (no scope creep)
 - [ ] Edge cases identified and handled
 
 **Technical Criteria**:
+
 - [ ] Schema validation passes: `npm run validate` exit code 0
 - [ ] Build succeeds: `npm run build` exit code 0
 - [ ] No broken internal links
@@ -1552,12 +1710,14 @@ Before closing any issue, verify ALL of these:
 - [ ] No unintended file changes in git diff
 
 **Quality Criteria**:
+
 - [ ] Code/content follows existing patterns
 - [ ] No debug code or TODO comments left in
 - [ ] No sensitive data exposed
 - [ ] Performance acceptable (build time, file sizes)
 
 **Documentation Criteria**:
+
 - [ ] Changelog entry complete with details
 - [ ] Tracking document updated
 - [ ] New scripts documented (if applicable)
@@ -1565,6 +1725,7 @@ Before closing any issue, verify ALL of these:
 - [ ] Issue closure comment prepared
 
 **Process Criteria**:
+
 - [ ] Backup created before data changes
 - [ ] Dry-run tested on samples before full execution
 - [ ] Rollback procedure documented
@@ -1574,12 +1735,14 @@ Before closing any issue, verify ALL of these:
 ### Per-Phase Success Criteria
 
 **Phase 1 (P0 Critical) Complete When**:
+
 - [ ] Issues #30, #31, #32 all closed
 - [ ] All KnB files validate against new schema
 - [ ] Schema documentation updated
 - [ ] No build failures
 
 **Phase 2 (P1 High) Complete When**:
+
 - [ ] Issues #33, #34, #35, #40, #41 all closed
 - [ ] All EN files renamed consistently
 - [ ] Folder structure implemented
@@ -1587,6 +1750,7 @@ Before closing any issue, verify ALL of these:
 - [ ] Prompts updated for new fields
 
 **Phase 3 (P2 Medium) Complete When**:
+
 - [ ] Issues #36, #37, #38, #39 all closed
 - [ ] Bidirectional links implemented both directions
 - [ ] Duplicate files consolidated
@@ -1595,6 +1759,7 @@ Before closing any issue, verify ALL of these:
 ### Overall Refactoring Success Criteria
 
 **Complete When**:
+
 - [ ] All 12 issues closed
 - [ ] Milestone 100% complete
 - [ ] Full system validation passes
@@ -1604,6 +1769,7 @@ Before closing any issue, verify ALL of these:
 - [ ] Pull request created and ready for review
 
 **Quality Gates**:
+
 - [ ] Zero schema validation errors
 - [ ] Zero build errors
 - [ ] Zero broken links
@@ -1616,17 +1782,18 @@ Before closing any issue, verify ALL of these:
 
 **To begin working on the refactoring project, the user should invoke**:
 
-```
+```text
 /refactor-workflow Issue #30
 ```
 
 or
 
-```
+```text
 /refactor-workflow next issue
 ```
 
 **The agent will then**:
+
 1. Execute Phase 0 (Issue Selection) if issue not specified
 2. Execute Phases 1-8 sequentially for the selected issue
 3. Report completion and recommend next issue
@@ -1634,19 +1801,19 @@ or
 
 **Example complete session flow**:
 
-```
+```text
 User: "/refactor-workflow Issue #30"
 
 Agent:
-[Phase 0] ✅ Issue #30 selected - no blockers
-[Phase 1] 📋 Execution plan created
-[Phase 2] ✅ Pre-flight checks passed
-[Phase 3] 🛠️  Implementation complete
-[Phase 4] ✅ Validation passed
-[Phase 5] 📝 Documentation updated
-[Phase 6] 💾 Committed and pushed
-[Phase 7] ✅ Issue closed
-[Phase 8] 🎯 Retrospective complete
+[Phase 0] Issue #30 selected - no blockers
+[Phase 1] Execution plan created
+[Phase 2] Pre-flight checks passed
+[Phase 3] Implementation complete
+[Phase 4] Validation passed
+[Phase 5] Documentation updated
+[Phase 6] Committed and pushed
+[Phase 7] Issue closed
+[Phase 8] Retrospective complete
 
 Next recommended: Issue #31
 
@@ -1725,7 +1892,7 @@ gh api repos/mitselek/zuga.ee/milestones/1 | jq '.open_issues, .closed_issues'
 
 **Example Session**:
 
-```
+```text
 User: "/refactor-workflow Issue #30"
 Agent:
   - Executes Phase 1 (reads issue, creates plan)
