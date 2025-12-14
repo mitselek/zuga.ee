@@ -391,7 +391,7 @@ researchSchema = z.object({
   https://kultuur.err.ee/article2
   /path/to/images/
 
-  ```
+  ```text
 
   **What I'll do**:
 
@@ -1079,7 +1079,7 @@ Before creating frontmatter, perform these steps:
        ```markdown
        ## Schema Conflict Detected
 
-       **File**: `knowledge-base/articles/2024-10-err-ilma-review.md`
+       **File**: `knowledge-base/articles/YYYY-MM-publication-slug.md`
 
        **Error**: `type: Invalid enum value. Expected 'article' | 'review' | 'interview' | 'preview' | 'news' | 'radio-interview' | 'radio' | 'television-program', received 'feature-article'`
 
@@ -1177,7 +1177,7 @@ For each new article:
 ```markdown
 ## Cross-Linking Plan
 
-**New content**: `knowledge-base/articles/2024-10-err-ilma-review.md`
+**New content**: `knowledge-base/articles/2024-10-err-kultuur-paar-parenson-ilma.md`
 
 **Forward references** (in new article):
 
@@ -1189,11 +1189,11 @@ For each new article:
 1. `apps/web/src/content/pages/et/etendused-noorele-publikule-ilma.md`
 
    - Add to "## Meediakajastus" section
-   - Link: `- [ERR kultuur: Review](../../knowledge-base/articles/2024-10-err-ilma-review.md) - 2024-10-24`
+   - Link: `- [ERR kultuur: Päär Pärenson intervjuu](../../knowledge-base/articles/2024-10-err-kultuur-paar-parenson-ilma.md) - 2024-10-24`
 
 2. `knowledge-base/persons/paar-parenson.md`
    - Add to "## Allikad" section
-   - Link: `- knowledge-base/articles/2024-10-err-ilma-review.md (mention)`
+   - Link: `- knowledge-base/articles/2024-10-err-kultuur-paar-parenson-ilma.md (mention)`
 
 **Total changes**: 3 files modified
 
@@ -1648,7 +1648,6 @@ tags:
   - choreography
 ---
 ```
-````
 
 **Schema validation**: ✓ Passed (all required fields present, enums match, registry IDs validated)
 
@@ -1699,7 +1698,7 @@ process and climate change themes in "Ilma" performance.
 
 Source: https://kultuur.err.ee/1609501726/paar-parenson-lavastusest-ilma
 
-```
+```text
 
 **Approve? (yes)**
 
@@ -1707,7 +1706,7 @@ Source: https://kultuur.err.ee/1609501726/paar-parenson-lavastusest-ilma
 
 **Commit 2 of 2**
 
-```
+```text
 
 content: Add ERR interview to Ilma press coverage
 
@@ -1721,7 +1720,7 @@ Bidirectional cross-references created between article and related entities.
 
 Related: knowledge-base commit (abc1234)
 
-```
+```text
 
 **Approve? (yes)**
 
@@ -1769,14 +1768,14 @@ Created **2 commits**:
 
 **Proceed to final commit? (yes)**
 
-````
+````text
 
 **Phase 6: Final Commit**
 
 ```markdown
 ## 📝 Final Commit
 
-````
+````text
 
 content(homepage): Add ERR Ilma interview to news section
 
@@ -1786,7 +1785,7 @@ into choreographic process and climate change themes.
 
 Related commits: abc1234, def5678
 
-```
+```text
 
 **Push to origin/main? (yes)**
 
@@ -1840,7 +1839,7 @@ Pushed to remote. Netlify deployment triggered.
 
 **User Input**:
 
-```
+```text
 /harvest-content https://kultuur.err.ee/article-url https://youtube.com/watch?v=abc123 /Users/michele/Downloads/ilma-photos/
 ```
 
@@ -2003,7 +2002,7 @@ Created **3 commits**:
 
 **User Input**:
 
-```
+```text
 /harvest-content https://example.com/article-404 https://valid-url.com/article
 ```
 

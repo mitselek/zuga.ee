@@ -76,7 +76,7 @@ Before proceeding, check if content has KnB backing:
 
 **Found in KnB**:
 
-- ✓ `knowledge-base/articles/2024-10-err-ilma-review.md` (press coverage)
+- ✓ `knowledge-base/articles/2024-10-err-kultuur-paar-parenson-ilma.md` (press coverage)
 - ✓ `knowledge-base/persons/paar-parenson.md` (choreographer info)
 - ✓ `knowledge-base/research/awards-2024.md` (award nominations)
 
@@ -153,7 +153,7 @@ background_color: string (CSS color value)
 // NEW: Bidirectional linking to Knowledge Base (REQUIRED for content based on KnB)
 knowledge_base_sources: {
   articles?: string[]    // KnB article file paths relative to knowledge-base root
-                         // Example: "articles/2024-10-err-kultuur-ilma.md"
+                         // Example: "articles/2024-10-err-kultuur-paar-parenson-ilma.md"
   persons?: string[]     // KnB person file paths
                          // Example: "persons/paar-parenson.md"
   press?: string[]       // KnB press release file paths
@@ -175,7 +175,7 @@ Before creating any web content page:
 2. **Populate `knowledge_base_sources`**:
 
    - List all KnB files that support the claims made on the web page
-   - Format: Relative paths from `knowledge-base/` root (e.g., `"articles/2024-10-err-kultuur-ilma.md"`)
+   - Format: Relative paths from `knowledge-base/` root (e.g., `"articles/2024-10-err-kultuur-paar-parenson-ilma.md"`)
    - Include articles for press coverage claims
    - Include person files for team member information
    - Include press releases for official announcements
@@ -226,9 +226,9 @@ Use this workflow when creating NEW content files based on Knowledge Base inform
 
 **Articles found** ([N]):
 
-- 2024-10-err-kultuur-ilma-review.md (review, ERR kultuur)
-- 2024-10-epl-ilma-preview.md (preview, Eesti Päevaleht)
-- 2024-11-criticaldance-ilma.md (review, CriticalDance)
+- 2024-10-err-kultuur-paar-parenson-ilma.md (interview, ERR kultuur)
+- 2024-10-err-vikerraadio-okoskoop-ilma.md (radio, ERR Vikerraadio)
+- 2025-04-criticaldance-ilma-review.md (review, CriticalDance)
 
 **Key information extracted**:
 
@@ -314,6 +314,7 @@ Use this workflow when creating NEW content files based on Knowledge Base inform
    - If slug exists, suggest alternative: `{slug}-2`, `{slug}-uus`, etc.
 
 3. **Validate required fields checklist**:
+
    ```markdown
    ✓ title: [Value]
    ✓ slug: [Value] (lowercase, alphanumeric, hyphens only)
@@ -375,8 +376,8 @@ Use this workflow when creating NEW content files based on Knowledge Base inform
    # NEW: Knowledge Base sources (REQUIRED for content based on KnB)
    knowledge_base_sources:
      articles:
-       - "articles/2024-10-err-kultuur-ilma.md" # Press coverage articles
-       - "articles/2024-11-criticaldance-ilma.md"
+       - "articles/2024-10-err-kultuur-paar-parenson-ilma.md" # Press coverage articles
+       - "articles/2025-04-criticaldance-ilma-review.md"
      persons:
        - "persons/paar-parenson.md" # Team members mentioned
        - "persons/kart-tonisson.md"
@@ -462,6 +463,7 @@ Use this workflow when creating NEW content files based on Knowledge Base inform
    - Translate title, description, body content
    - Keep same slug (or adjust for language conventions)
    - Link files via `translated` field:
+
      ```yaml
      translated:
        - language: en
@@ -507,7 +509,7 @@ Use this workflow when creating NEW content files based on Knowledge Base inform
 
 **User input**:
 
-```
+```text
 Create an Estonian page for the "Ilma" performance based on KnB content
 ```
 
@@ -520,9 +522,9 @@ Create an Estonian page for the "Ilma" performance based on KnB content
 
 **Articles** (3):
 
-- knowledge-base/articles/2024-10-err-kultuur-ilma.md
-- knowledge-base/articles/2024-10-epl-ilma-preview.md
-- knowledge-base/articles/2024-11-criticaldance-ilma.md
+- knowledge-base/articles/2024-10-err-kultuur-paar-parenson-ilma.md
+- knowledge-base/articles/2024-10-err-vikerraadio-okoskoop-ilma.md
+- knowledge-base/articles/2025-04-criticaldance-ilma-review.md
 
 **Persons** (2):
 
@@ -564,9 +566,9 @@ hero_image: /images/performances/etendused-noorele-publikule-ilma/hero.jpg
 # Knowledge Base sources (REQUIRED - validates all claims on this page)
 knowledge_base_sources:
   articles:
-    - "articles/2024-10-err-kultuur-ilma.md"
-    - "articles/2024-10-epl-ilma-preview.md"
-    - "articles/2024-11-criticaldance-ilma.md"
+    - "articles/2024-10-err-kultuur-paar-parenson-ilma.md"
+    - "articles/2024-10-err-vikerraadio-okoskoop-ilma.md"
+    - "articles/2025-04-criticaldance-ilma-review.md"
   persons:
     - "persons/paar-parenson.md"
     - "persons/kart-tonisson.md"
@@ -587,9 +589,9 @@ Liikumisteatri ZUGA uus lavastus "Ilma" uurib kliimamuutusi läbi tundliku liiku
 
 ## Meediakajastus
 
-- [ERR kultuur: "Tundlik lähenemine kliimakriisile"](../../../knowledge-base/articles/2024-10-err-kultuur-ilma.md) - 2024-10-24
-- [Eesti Päevaleht: "Ilma liigutab ja paneb mõtlema"](../../../knowledge-base/articles/2024-10-epl-ilma-preview.md) - 2024-10-18
-- [CriticalDance review](../../../knowledge-base/articles/2024-11-criticaldance-ilma.md) - 2024-11-05
+- [ERR kultuur: "Päär Pärenson lavastusest 'Ilma'"](../../../knowledge-base/articles/2024-10-err-kultuur-paar-parenson-ilma.md) - 2024-10-24
+- [ERR Vikerraadio: "Ökoskoop - Ilma"](../../../knowledge-base/articles/2024-10-err-vikerraadio-okoskoop-ilma.md) - 2024-10-18
+- [CriticalDance review](../../../knowledge-base/articles/2025-04-criticaldance-ilma-review.md) - 2025-04-15
 
 ## Auhinnad
 
@@ -604,7 +606,7 @@ Liikumisteatri ZUGA uus lavastus "Ilma" uurib kliimamuutusi läbi tundliku liiku
 
 **User input**:
 
-```
+```text
 Add new ERR article about Hool/Care to the performance page
 ```
 
@@ -645,7 +647,7 @@ Add new ERR article about Hool/Care to the performance page
 
 1. **Invoke the prompt** with content input:
 
-   ```
+   ```text
    @workspace /add-content [paste your content here]
    ```
 
@@ -706,7 +708,7 @@ Add new ERR article about Hool/Care to the performance page
 
 **Example decision flow**:
 
-```
+```text
 User: "Create page for Ilma performance"
     ↓
 Check: Does knowledge-base/ have Ilma content?
@@ -1018,7 +1020,7 @@ Use this workflow when modifying EXISTING content files.
 
 ## Decision Tree: Create vs Update
 
-```
+```text
 User provides content
     ↓
 Parse user intent
