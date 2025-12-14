@@ -1223,7 +1223,7 @@ Create logical, atomic commits following conventional commits format:
 
 **Commit message format**:
 
-```
+```text
 <type>(<scope>): <subject>
 
 <body>
