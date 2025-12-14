@@ -148,15 +148,22 @@ const isEstonian = page.data.language === 'et';
                       {subsection.data.title}
                     </h3>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                      {subsectionItems.map(item => (
-                        <ContentCard
-                          title={item.data.title}
-                          description={item.data.description}
-                          href={`/${page.data.language}/${item.data.category}/${item.id.replace(/^(en|et)\//, '').replace(/\.md$/, '')}`}
-                          subcategory={subsection.data.title}
-                          image={item.data.hero_image}
-                        />
-                      ))}
+                      {subsectionItems.map(item => {
+                        let slug = item.id.replace(/^(en|et)\//, '').replace(/\.md$/, '');
+                        // Extract just filename if nested in folders
+                        if (slug.includes('/')) {
+                          slug = slug.split('/').pop() || slug;
+                        }
+                        return (
+                          <ContentCard
+                            title={item.data.title}
+                            description={item.data.description}
+                            href={`/${page.data.language}/${item.data.category}/${slug}`}
+                            subcategory={subsection.data.title}
+                            image={item.data.hero_image}
+                          />
+                        );
+                      })}
                     </div>
                   </div>
                 </div>
@@ -166,14 +173,21 @@ const isEstonian = page.data.language === 'et';
         ) : (
           // Render regular detail items in grid
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {detailItems.map(item => (
-              <ContentCard
-                title={item.data.title}
-                description={item.data.description}
-                href={`/${page.data.language}/${item.data.category}/${item.id.replace(/^(en|et)\//, '').replace(/\.md$/, '')}`}
-                image={item.data.hero_image}
-              />
-            ))}
+            {detailItems.map(item => {
+              let slug = item.id.replace(/^(en|et)\//, '').replace(/\.md$/, '');
+              // Extract just filename if nested in folders
+              if (slug.includes('/')) {
+                slug = slug.split('/').pop() || slug;
+              }
+              return (
+                <ContentCard
+                  title={item.data.title}
+                  description={item.data.description}
+                  href={`/${page.data.language}/${item.data.category}/${slug}`}
+                  image={item.data.hero_image}
+                />
+              );
+            })}
           </div>
         )}
       </HomeSection>
