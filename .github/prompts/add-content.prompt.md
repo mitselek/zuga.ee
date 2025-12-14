@@ -585,9 +585,9 @@ Liikumisteatri ZUGA uus lavastus "Ilma" uurib kliimamuutusi läbi tundliku liiku
 
 ## Meediakajastus
 
-- [ERR kultuur: "Tundlik lähenemine kliimakriisile"](../../../knowledge-base/articles/2024-10-err-kultuur-ilma.md) - 2024-10-24
-- [Eesti Päevaleht: "Ilma liigutab ja paneb mõtlema"](../../../knowledge-base/articles/2024-10-epl-ilma-preview.md) - 2024-10-18
-- [CriticalDance review](../../../knowledge-base/articles/2024-11-criticaldance-ilma.md) - 2024-11-05
+- ERR kultuur: "Päär Pärenson lavastusest 'Ilma'" (link: `knowledge-base/articles/2024-10-err-kultuur-paar-parenson-ilma.md`) - 2024-10-24
+- ERR Vikerraadio: "Ökoskoop" (link: `knowledge-base/articles/2024-10-err-vikerraadio-okoskoop-ilma.md`) - 2024-10-18
+- CriticalDance review (link: `knowledge-base/articles/2025-04-criticaldance-ilma-review.md`) - 2025-04-15
 
 ## Auhinnad
 
@@ -632,7 +632,7 @@ Add new ERR article about Hool/Care to the performance page
 
 **Added to "## Meediakajastus" section**:
 
-- [ERR kultuur: "ZUGA uus lavastus 'Hool' uurib hooldamise teemat"](../../../knowledge-base/articles/2024-12-err-hool-care.md) - 2024-12-10
+- ERR kultuur: "ZUGA uus lavastus 'Hool' uurib hooldamise teemat" (link: `knowledge-base/articles/YYYY-MM-publication-slug.md`) - 2024-12-10
 
 **No other changes made**
 

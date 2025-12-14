@@ -1062,11 +1062,11 @@ For each new article:
 1. `apps/web/src/content/pages/et/etendused-noorele-publikule-ilma.md`
 
    - Add to "## Meediakajastus" section
-   - Link: `- [ERR kultuur: Review](../../knowledge-base/articles/2024-10-err-ilma-review.md) - 2024-10-24`
+   - Link: ERR kultuur: Päär Pärenson intervjuu (link: `knowledge-base/articles/2024-10-err-kultuur-paar-parenson-ilma.md`) - 2024-10-24
 
 2. `knowledge-base/persons/paar-parenson.md`
    - Add to "## Allikad" section
-   - Link: `- knowledge-base/articles/2024-10-err-ilma-review.md (mention)`
+   - Link: ERR kultuur intervjuu mention (link: `knowledge-base/articles/2024-10-err-kultuur-paar-parenson-ilma.md`)
 
 **Total changes**: 3 files modified
 
@@ -1543,11 +1543,11 @@ tags:
 1. `apps/web/src/content/pages/et/etendused-noorele-publikule-ilma.md`
 
    - Section: "## Meediakajastus"
-   - Add: `- [ERR kultuur: Päär Pärenson intervjuu](../../../knowledge-base/articles/2024-10-err-kultuur-paar-parenson-ilma.md) - 2024-10-24`
+   - Add: ERR kultuur: Päär Pärenson intervjuu (link: `knowledge-base/articles/2024-10-err-kultuur-paar-parenson-ilma.md`) - 2024-10-24
 
 2. `knowledge-base/persons/paar-parenson.md`
    - Section: "## Allikad"
-   - Add: `- [ERR kultuur intervjuu (2024-10)](../articles/2024-10-err-kultuur-paar-parenson-ilma.md)`
+   - Add: ERR kultuur intervjuu (2024-10) (link: `knowledge-base/articles/2024-10-err-kultuur-paar-parenson-ilma.md`)
 
 **Apply cross-links? (yes)**
 ```
