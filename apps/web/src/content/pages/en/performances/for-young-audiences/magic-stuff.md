@@ -1,6 +1,6 @@
 ---
 title: Magic Stuff
-slug: performances-for-young-audiences-magic-stuff
+slug: magic-stuff
 language: en
 description: Dance piece for children about a wonder world, magic and game. 4-7 year olds.
 type: detail

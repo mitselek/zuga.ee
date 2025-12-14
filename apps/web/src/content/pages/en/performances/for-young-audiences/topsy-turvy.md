@@ -1,6 +1,6 @@
 ---
 title: Topsy-Turvy
-slug: performances-for-young-audiences-topsy-turvy
+slug: topsy-turvy
 language: en
 type: detail
 category: etendused

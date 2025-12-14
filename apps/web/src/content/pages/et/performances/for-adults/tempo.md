@@ -1,6 +1,6 @@
 ---
 title: Tempo
-slug: etendused-suurtele-tempo
+slug: tempo
 language: et
 description: Tantsulavastus täiskasvanutele
 type: detail
@@ -12,7 +12,7 @@ premiere_date: 2018-03-16
 venue: Sõltumatu Tantsu Lava
 translated:
 - language: en
-  slug: performances-for-adults-tempo
+  slug: tempo
 hero_image: /images/tempo-hero.jpg
 gallery:
 - url: /images/tempo-hero.jpg

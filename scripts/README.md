@@ -157,3 +157,59 @@ node scripts/validate-registry.js --verbose
 **Related Issue**: #35
 
 **Date**: 2025-12-14
+
+## move-performances-34a.js
+
+**Purpose**: Move performance files from flat directory structure into hierarchical folders.
+
+**Usage**:
+```bash
+# Dry-run mode (show what would be moved)
+node scripts/move-performances-34a.js --dry-run [--verbose]
+
+# Execute migration
+node scripts/move-performances-34a.js [--verbose]
+```
+
+**Options**:
+- `--dry-run`: Show changes without applying them
+- `--verbose`: Print detailed progress for each file
+
+**What it does**:
+- Moves ~30 performance files into folder structure:
+  - ET: `etendused-suurtele-*.md` → `et/performances/for-adults/*.md`
+  - ET: `etendused-noorele-publikule-*.md` → `et/performances/for-young-audiences/*.md`
+  - EN: `performances-for-adults-*.md` → `en/performances/for-adults/*.md`
+  - EN: `performances-for-young-audiences-*.md` → `en/performances/for-young-audiences/*.md`
+- Moves section index files to `index.md` in respective folders
+- Uses `git mv` to preserve file history
+- Updates `slug` fields to use just performance name (e.g., "shame" not "performances-for-adults-shame")
+- Updates `translated` field slugs to match new structure
+
+**Safety Features**:
+- Uses `git mv` to preserve history
+- Dry-run mode for testing
+- Detailed logging
+- Backup recommended before running
+
+**Related Issue**: #46
+
+**Date**: 2025-12-14
+
+## fix-performance-slugs-46.js
+
+**Purpose**: Fix slug and translated fields in moved performance files after folder migration.
+
+**Usage**:
+```bash
+node scripts/fix-performance-slugs-46.js
+```
+
+**What it fixes**:
+- Removes duplicate `slug` fields
+- Updates `slug` to use just performance name (filename)
+- Updates `translated` field slugs to match new folder structure
+
+**Related Issue**: #46
+
+**Date**: 2025-12-14

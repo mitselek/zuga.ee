@@ -1,6 +1,6 @@
 ---
 title: The Passage
-slug: performances-for-young-audiences-thepassage
+slug: thepassage
 language: en
 description: Dance performance for children
 type: detail

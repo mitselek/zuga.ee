@@ -1,6 +1,6 @@
 ---
 title: Shame
-slug: performances-for-adults-shame
+slug: shame
 language: en
 description: Zuga performance 'Shame' photo gallery
 type: detail
@@ -10,7 +10,7 @@ original_url: https://www.zuga.ee/en/english-shame
 page_type: performance
 translated:
 - language: et
-  slug: etendused-suurtele-habi
+  slug: habi
 hero_image: /images/etendused-suurtele-habi-hero.jpg
 gallery:
 - url: https://lh4.googleusercontent.com/zAG_7dQ9ctOWgapMIimu30Tjrugto9ndwjDyxOaacOQKB4vH3EwnXEsJd1k6zS0puQEuYYBLtBvUa8yd01YSh8VTXwlkKAza5qe4OJZTBVo_CMg1t1jFku0MSUk8kBOfkA=w1280

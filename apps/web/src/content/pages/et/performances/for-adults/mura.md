@@ -1,6 +1,6 @@
 ---
 title: Müra
-slug: etendused-suurtele-mura
+slug: mura
 language: et
 type: detail
 category: etendused
@@ -10,7 +10,7 @@ original_url: https://www.zuga.ee/et/etendused-suurtele-mura
 page_type: performance
 translated:
 - language: en
-  slug: performances-for-adults-noise
+  slug: noise
 hero_image: /images/etendused-mura-proovist.jpg
 gallery:
 - url: /images/etendused-mura-etendus.jpg

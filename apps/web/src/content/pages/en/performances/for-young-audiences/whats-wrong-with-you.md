@@ -1,6 +1,6 @@
 ---
 title: What's wrong with you?!
-slug: performances-for-young-audiences-whats-wrong-with-you
+slug: whats-wrong-with-you
 language: en
 description: A performance about mental health and noticing each other (collaboration with Peaasi.ee)
 type: detail

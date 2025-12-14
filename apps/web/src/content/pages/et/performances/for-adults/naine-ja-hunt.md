@@ -1,6 +1,6 @@
 ---
 title: Naine ja Hunt
-slug: etendused-suurtele-naine-ja-hunt
+slug: naine-ja-hunt
 language: et
 description: Tantsulavastus kultuuride erinevustest ja kohtumisest. Kaja Kann ja Bush Hartshorn.
 type: detail

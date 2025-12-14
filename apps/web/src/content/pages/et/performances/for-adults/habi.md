@@ -1,6 +1,6 @@
 ---
 title: Häbi
-slug: etendused-suurtele-habi
+slug: habi
 language: et
 type: detail
 category: etendused
@@ -10,7 +10,7 @@ original_url: https://www.zuga.ee/et/etendused-suurtele-habi
 page_type: performance
 translated:
 - language: en
-  slug: performances-for-adults-shame
+  slug: shame
 hero_image: /images/etendused-suurtele-habi-hero.jpg
 gallery:
 - url: https://lh6.googleusercontent.com/eYtRjbVrbUHsbpG_S7LWlbHD-KzNOaYrixrKuDrkiYHpSMotOa_Eo8q36rARlmjCPSIK4wEvOSJi0jfzHmn-AEAT_z89ZSVw9CJayo_u6sRZWPlIP36T0pSY2Aek3rv_hA=w1280

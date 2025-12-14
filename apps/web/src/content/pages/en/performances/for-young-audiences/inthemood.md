@@ -1,6 +1,6 @@
 ---
 title: In The Mood
-slug: performances-for-young-audiences-inthemood
+slug: inthemood
 language: en
 description: Zuga performance 'In The Mood' photo gallery
 type: detail

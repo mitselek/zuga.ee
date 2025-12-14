@@ -1,6 +1,6 @@
 ---
 title: Zuga zuug zuh-zuh-zuh
-slug: etendused-noorele-publikule-zugazuugzuh-zuh-zuh
+slug: zugazuugzuh-zuh-zuh
 language: et
 description: Zuga etendus 'Zuga zuug zuh-zuh-zuh' fotogalerii
 type: detail

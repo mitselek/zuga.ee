@@ -15,7 +15,14 @@ export async function getStaticPaths() {
   const paths = [];
 
   for (const page of allPages) {
-    const slug = page.id.replace(/^(en|et)\//, '').replace(/\.md$/, '');
+    // Skip files in nested folders - they're handled by [lang]/[category]/[slug].astro
+    // Files in folders have page.id like "en/performances/for-adults/shame"
+    const pathAfterLang = page.id.replace(/^(en|et)\//, '').replace(/\.md$/, '');
+    if (pathAfterLang.includes('/')) {
+      continue; // Skip nested files
+    }
+
+    const slug = pathAfterLang;
 
     // For detail pages, create redirect to new hierarchical URL
     if (page.data.type === 'detail') {

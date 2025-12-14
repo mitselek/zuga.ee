@@ -1,6 +1,6 @@
 ---
 title: Uperpall
-slug: etendused-noorele-publikule-uperpall
+slug: uperpall
 language: et
 type: detail
 category: etendused
@@ -9,7 +9,7 @@ status: published
 hero_image: /images/etendused-uperpall-hero.jpg
 translated:
 - language: en
-  slug: performances-for-young-audiences-topsy-turvy
+  slug: topsy-turvy
 gallery:
 - url: /images/etendused-uperpall-1.jpg
   width: 1500

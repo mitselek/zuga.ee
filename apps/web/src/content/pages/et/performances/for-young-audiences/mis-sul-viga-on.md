@@ -1,6 +1,6 @@
 ---
 title: Mis Sul viga on?!
-slug: etendused-noorele-publikule-mis-sul-viga-on
+slug: mis-sul-viga-on
 language: et
 description: Lavastus vaimse tervise ja üksteise märkamise teemal (koostöös Peaasi.ee-ga)
 type: detail
@@ -17,7 +17,7 @@ credits:
   company: Zuga Ühendatud Tantsijad
 translated:
 - language: en
-  slug: performances-for-young-audiences-whats-wrong-with-you
+  slug: whats-wrong-with-you
 hero_image: https://fienta.com/cf/img/?width=1070&dpr=1&format=webp&v=1764153816&gcs=true&file=/uploads/2025/11/157610/157610-et-251126124336.png
 ---
 

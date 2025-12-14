@@ -1,6 +1,6 @@
 ---
 title: The Great Unknown
-slug: performances-for-adults-the-great-unknown
+slug: the-great-unknown
 language: en
 description: Zuga performance 'The Great Unknown' photo gallery
 type: detail
@@ -13,7 +13,7 @@ venue: Independent Dance Stage
 duration: 60
 translated:
 - language: et
-  slug: etendused-suurtele-suur-teadmatus
+  slug: suur-teadmatus
 hero_image: /images/etendused-suur-teadmatus-hero.jpg
 gallery:
 - url: /images/etendused-suur-teadmatus-1.jpg

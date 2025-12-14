@@ -1,6 +1,6 @@
 ---
 title: Noise
-slug: performances-for-adults-noise
+slug: noise
 language: en
 description: Zuga performance 'Noise' photo gallery
 type: detail
@@ -10,7 +10,7 @@ original_url: https://www.zuga.ee/en/english-noise
 page_type: performance
 translated:
 - language: et
-  slug: etendused-suurtele-mura
+  slug: mura
 hero_image: /images/etendused-mura-proovist.jpg
 gallery:
 - url: /images/etendused-mura-etendus.jpg

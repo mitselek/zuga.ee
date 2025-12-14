@@ -1,6 +1,6 @@
 ---
 title: Tempo
-slug: performances-for-adults-tempo
+slug: tempo
 language: en
 description: Dance performance for adults
 type: detail
@@ -11,7 +11,7 @@ premiere_date: 2018-03-16
 venue: Independent Dance Stage
 translated:
 - language: et
-  slug: etendused-suurtele-tempo
+  slug: tempo
 hero_image: /images/tempo-hero.jpg
 gallery:
 - url: /images/tempo-hero.jpg

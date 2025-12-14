@@ -1,6 +1,6 @@
 ---
 title: Suur Teadmatus
-slug: etendused-suurtele-suur-teadmatus
+slug: suur-teadmatus
 language: et
 type: detail
 category: etendused
@@ -13,7 +13,7 @@ venue: Sõltumatu Tantsu Lava
 duration: 60
 translated:
 - language: en
-  slug: performances-for-adults-the-great-unknown
+  slug: the-great-unknown
 hero_image: /images/etendused-suur-teadmatus-hero.jpg
 gallery:
 - url: /images/etendused-suur-teadmatus-1.jpg

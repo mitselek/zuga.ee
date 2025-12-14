@@ -113,3 +113,4 @@ temp/
 
 # Archive sources (symlinks to local backups)
 archive/
+apps/web/src/content/pages.backup.*/

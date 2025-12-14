@@ -1,6 +1,6 @@
 ---
 title: meeleKolu
-slug: etendused-noorele-publikule-meelekolu
+slug: meelekolu
 language: et
 description: Vaguratele mürsikutele ja avastavatele kainikutele ning nende peredele
 type: detail

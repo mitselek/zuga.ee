@@ -1,6 +1,6 @@
 ---
 title: Ilma
-slug: etendused-noorele-publikule-ilma
+slug: ilma
 language: et
 description: Mänguline tantsulavastus kliima- ja keskkonnateemal. Positiivne aktivism kõigile lastele ja vanematele alates 10. eluaastast.
 type: detail
@@ -20,7 +20,7 @@ videos:
     description: ERR uudised, 24.10.2024
 translated:
   - language: en
-    slug: performances-for-young-audiences-weather-or-not
+    slug: weather-or-not
 ---
 
 # Ilma

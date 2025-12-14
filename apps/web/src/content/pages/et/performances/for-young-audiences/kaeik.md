@@ -1,6 +1,6 @@
 ---
 title: Käik
-slug: etendused-noorele-publikule-kaeik
+slug: kaeik
 language: et
 description: Tantsuetendus lastele
 type: detail
@@ -17,7 +17,7 @@ awards:
   - Etenduskunstide auhind 2015
 translated:
 - language: en
-  slug: performances-for-young-audiences-thepassage
+  slug: thepassage
 hero_image: /images/kaik-web-14.jpg
 gallery:
 - url: /images/kaik-web-2.jpg

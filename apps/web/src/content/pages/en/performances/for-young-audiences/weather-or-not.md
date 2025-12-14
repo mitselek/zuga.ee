@@ -1,6 +1,6 @@
 ---
 title: Weather or Not
-slug: performances-for-young-audiences-weather-or-not
+slug: weather-or-not
 language: en
 description: Playful dance performance about climate and environment. Positive activism for all children and parents aged 10 and up.
 type: detail

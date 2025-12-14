@@ -1,6 +1,6 @@
 ---
 title: Võluvärk
-slug: etendused-noorele-publikule-voluvaerk
+slug: voluvaerk
 language: et
 description: Tantsuetendus lastele võluilmast, nõidusest ja mängust. 4-7-aastastele.
 type: detail
@@ -16,7 +16,7 @@ duration: 40
 hero_image: /images/voluvark-hero.jpg
 translated:
 - language: en
-  slug: performances-for-young-audiences-magic-stuff
+  slug: magic-stuff
 videos:
 - platform: vimeo
   video_id: "61138564"

@@ -1,6 +1,6 @@
 ---
 title: Care
-slug: performances-for-adults-care
+slug: care
 language: en
 type: detail
 category: etendused
@@ -9,7 +9,7 @@ status: published
 hero_image: /images/etendused-hool-hero.png
 translated:
 - language: et
-  slug: etendused-suurtele-hool
+  slug: hool
 gallery:
 - url: /images/etendused-hool-1.jpg
   width: 1024

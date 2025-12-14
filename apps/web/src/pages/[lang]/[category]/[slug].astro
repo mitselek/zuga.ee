@@ -15,7 +15,24 @@ export async function getStaticPaths() {
   });
 
   return pages.map(page => {
-    const slug = page.id.replace(/^(en|et)\//, '').replace(/\.md$/, '');
+    // Extract slug from page.id (file path)
+    // Handle both flat structure (en/file.md) and nested structure (en/folder/file.md)
+    let slug = page.id.replace(/^(en|et)\//, '').replace(/\.md$/, '');
+
+    // If file is in nested folder, extract just the filename
+    // e.g., "performances/for-adults/shame" -> "shame"
+    if (slug.includes('/')) {
+      slug = slug.split('/').pop() || slug;
+    }
+
+    // Use frontmatter slug if available (it's the canonical source)
+    const frontmatterSlug = page.data.slug;
+    if (frontmatterSlug) {
+      // Extract filename from frontmatter slug if it contains path separators
+      slug = frontmatterSlug.includes('/')
+        ? frontmatterSlug.split('/').pop()
+        : frontmatterSlug;
+    }
 
     return {
       params: {
@@ -30,7 +47,14 @@ export async function getStaticPaths() {
 
 const { page } = Astro.props;
 const { Content } = await page.render();
-const currentSlug = page.id.replace(/^(en|et)\//, '').replace(/\.md$/, '');
+// Extract slug for LanguageSwitcher - use filename from path or frontmatter
+let currentSlug = page.id.replace(/^(en|et)\//, '').replace(/\.md$/, '');
+if (currentSlug.includes('/')) {
+  currentSlug = currentSlug.split('/').pop() || currentSlug;
+}
+if (page.data.slug) {
+  currentSlug = page.data.slug.split('/').pop() || page.data.slug;
+}
 
 // Section titles based on language
 const sectionTitles = {
