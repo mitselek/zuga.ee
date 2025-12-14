@@ -28,8 +28,10 @@
 ### Phase 2: File Organization (P1 High)
 
 - ~~#33 - Standardize EN file naming (6-8h)~~ ✅
-- #34 - Implement folder-based organization (10-12h) (broken down into #45+)
-  - #45 - [#34a] Create folder structure for performances (3-4h)
+- ~~#34 - Implement folder-based organization (10-12h)~~ (superseded by #46, #47, #48)
+  - #46 - [#34a] Folder structure: Performances (3-4h)
+  - #47 - [#34b] Folder structure: Workshops & About (2-3h)
+  - #48 - [#34c] Folder structure: Gallery, Contact, News & Indexes (2-3h)
 - ~~#35 - Create performance & workshop registry (4-6h)~~ ✅
 
 ### Phase 3: Bidirectional Linking (P2 Medium)
