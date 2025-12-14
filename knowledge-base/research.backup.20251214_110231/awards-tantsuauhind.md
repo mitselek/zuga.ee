@@ -9,11 +9,9 @@ recipients:
 organization: Tantsutrupp ZUGA
 performance: ZUGA teeb suure linna
 year: 2005
-source_url: https://www.teatriliit.ee/auhinnad/laureaadid-auhindade-jargi/tantsuauhind
+source: https://www.teatriliit.ee/auhinnad/laureaadid-auhindade-jargi/tantsuauhind
 type: award
-source_type: award_announcement
 status: archived
-archived_date: 2025-12-14
 ---
 
 # Tantsuauhind 2005
