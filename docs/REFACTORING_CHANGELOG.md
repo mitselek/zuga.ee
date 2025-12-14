@@ -108,7 +108,7 @@ The script reports warnings (not errors) for:
 
 ### Commit
 
-- Commit hash: [to be added]
+- Commit hash: 903405fe1f4a7ebe0946cfa9d2c3b6e7d13159b4
 - Branch: refactor/content-architecture
 
 ---
