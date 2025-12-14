@@ -40,7 +40,35 @@ export const articleSchema = z.object({
     errorMap: () => ({ message: 'Language must be "en" or "et"' }),
   }),
 
-  // Publication metadata
+  // Source attribution (REQUIRED per CONTENT_STANDARDS.md)
+  source_url: z.string().url('Original source URL is required'), // Original URL where content was found
+  source_type: z.enum([
+    'article',
+    'press_release',
+    'interview',
+    'review',
+    'preview',
+    'news',
+    'photo',
+    'video',
+    'social_media',
+    'radio',
+    'television',
+    'podcast',
+  ], {
+    errorMap: () => ({ message: 'Source type is required' }),
+  }),
+  source_publication: z.string().min(1, 'Source publication is required'), // Publication name - ERR, EPL, etc.
+  source_date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, 'Source date must be YYYY-MM-DD format'), // Original publication date
+  archived_date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, 'Archived date must be YYYY-MM-DD format'), // Date added to KnB
+
+  // Optional source metadata
+  source_language: z.enum(['en', 'et', 'other']).optional(), // Language of original source
+  source_author: z.string().optional(), // Author if available
+  retrieved_via: z.enum(['web', 'email', 'pdf', 'screenshot', 'physical_copy']).optional(),
+  archive_location: z.string().optional(), // For physical copies
+
+  // Publication metadata (legacy/optional)
   publication: z.string().optional(), // e.g., "ERR Kultuuriportaal", "CriticalDance"
   author: z.string().optional(), // Author name
   url: z.string().url().optional(), // Original article URL
@@ -79,6 +107,17 @@ export const personSchema = z.object({
   name: z.string().min(1, 'Name is required'),
   role: z.string().min(1, 'Role is required'), // e.g., "Tantsija, koreograaf"
 
+  // Source attribution (REQUIRED per CONTENT_STANDARDS.md)
+  source_url: z.string().url('Original source URL is required'), // Where bio/info came from
+  source_type: z.enum(['bio', 'press_release', 'article', 'interview', 'website'], {
+    errorMap: () => ({ message: 'Source type is required' }),
+  }),
+  archived_date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, 'Archived date must be YYYY-MM-DD format'),
+
+  // Optional source metadata
+  source_date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, 'Source date must be YYYY-MM-DD').optional(),
+  retrieved_via: z.enum(['web', 'email', 'pdf', 'screenshot', 'physical_copy']).optional(),
+
   // Membership
   member_since: z.union([
     z.number().int().positive(),
@@ -116,7 +155,19 @@ export const pressSchema = z.object({
     errorMap: () => ({ message: 'Language must be "en" or "et"' }),
   }),
 
-  // Source metadata
+  // Source attribution (REQUIRED per CONTENT_STANDARDS.md)
+  source_type: z.enum(['press_release', 'announcement', 'media_kit', 'promotional'], {
+    errorMap: () => ({ message: 'Source type matches press type' }),
+  }), // Matches the main type field
+  issued_by: z.string().min(1, 'Issuing organization required').default('ZUGA'), // Usually ZUGA
+  issued_date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, 'Issue date must be YYYY-MM-DD format'), // When press release was issued
+  archived_date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, 'Archived date must be YYYY-MM-DD format'),
+
+  // Optional source metadata
+  source_url: z.string().url().optional(), // If published online
+  distribution: z.enum(['public', 'media_only', 'internal']).optional(),
+
+  // Legacy source metadata
   source: z.string().optional(), // Original URL or publication name
   publication: z.string().optional(), // Publication name (alternative to source)
 
@@ -157,6 +208,18 @@ export const researchSchema = z.object({
     z.string().regex(/^\d{4}$/, 'Date must be YYYY format'),
   ]).optional(),
 
+  // Source attribution (REQUIRED per CONTENT_STANDARDS.md)
+  source_url: z.string().url('Original source URL is required'), // Where information came from
+  source_type: z.enum(['award_announcement', 'grant_info', 'production_notes', 'interview', 'article', 'document'], {
+    errorMap: () => ({ message: 'Source type is required' }),
+  }),
+  archived_date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, 'Archived date must be YYYY-MM-DD format'),
+
+  // Optional source metadata
+  source_date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, 'Source date must be YYYY-MM-DD').optional(),
+  source_publication: z.string().optional(),
+  retrieved_via: z.enum(['web', 'email', 'pdf', 'screenshot', 'physical_copy']).optional(),
+
   // Award-specific fields
   award: z.string().optional(), // e.g., "Tantsuauhind"
   awarded_by: z.string().optional(), // e.g., "Eesti Teatriliit"
@@ -168,8 +231,8 @@ export const researchSchema = z.object({
     z.string().regex(/^\d{4}$/, 'Year must be YYYY format'),
   ]).optional(),
 
-  // Source
-  source: z.string().url().optional(), // Source URL
+  // Legacy source field (deprecated - use source_url instead)
+  source: z.string().url().optional(), // Source URL (deprecated)
 
   // Status
   status: z.enum(['active', 'archived'], {
