@@ -1,10 +1,8 @@
 ---
 date: 2016-09
-issued_date: 2016-09-01
-source_url: https://kuukiri.tantsuliit.ee/uudis/zuga-uhendatud-tantsijate-uus-lastelavastus-vaguratele-mursikutele-ja-avastavatele-kainikutele/
+source: https://kuukiri.tantsuliit.ee/uudis/zuga-uhendatud-tantsijate-uus-lastelavastus-vaguratele-mursikutele-ja-avastavatele-kainikutele/
 publication: Tantsukuukiri
 type: press-release
-source_type: press_release
 related_performances:
   - meeleKolu (2016)
 language: et
@@ -14,8 +12,6 @@ tags:
   - children's theatre
   - Sõltumatu Tantsu Lava
   - contemporary dance
-issued_by: ZUGA
-archived_date: 2025-12-14
 ---
 
 # ZUGA ühendatud tantsijate uus lastelavastus väguratele mürsikutele ja avastavatele käinikutele
