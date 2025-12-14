@@ -89,6 +89,41 @@ export const articleSchema = z.object({
   director: z.string().optional(), // For TV programs
   awards: z.array(z.string()).optional(), // Awards mentioned
 
+  // Bidirectional linking fields
+  used_in_pages: z
+    .array(z.string())
+    .optional()
+    .describe(
+      'List of web content pages that reference this KnB article. ' +
+        'Format: "et/etendused-noorele-publikule-ilma.md" or ' +
+        '"en/performances-for-young-audiences-weather-or-not.md"'
+    ),
+  related_knb: z
+    .object({
+      performances: z
+        .array(z.string())
+        .optional()
+        .describe('Performance IDs from registry (e.g., "ilma", "habi")'),
+      persons: z
+        .array(z.string())
+        .optional()
+        .describe('Person file slugs (e.g., "paar-parenson", "kart-tonisson")'),
+      articles: z
+        .array(z.string())
+        .optional()
+        .describe('Related article file slugs (e.g., "2024-10-err-kultuur-ilma")'),
+      press: z
+        .array(z.string())
+        .optional()
+        .describe('Related press release file slugs'),
+      research: z
+        .array(z.string())
+        .optional()
+        .describe('Related research file slugs'),
+    })
+    .optional()
+    .describe('Cross-references to related KnB content'),
+
   // Status
   status: z.enum(['active', 'archived', 'review-pending', 'ready-to-publish'], {
     errorMap: () => ({ message: 'Status must be "active", "archived", "review-pending", or "ready-to-publish"' }),
@@ -124,6 +159,42 @@ export const personSchema = z.object({
     z.string().regex(/^\d{4}$/, 'Member since must be a year (YYYY)'),
   ]).optional(),
   founding_member: z.boolean().optional(), // true if founding member
+
+  // Bidirectional linking fields
+  used_in_pages: z
+    .array(z.string())
+    .optional()
+    .describe(
+      'List of web content pages that reference this person profile. ' +
+        'Format: "et/etendused-noorele-publikule-ilma.md" or ' +
+        '"en/performances-for-young-audiences-weather-or-not.md"'
+    ),
+  related_knb: z
+    .object({
+      performances: z
+        .array(z.string())
+        .optional()
+        .describe('Performance IDs from registry where this person was involved'),
+      persons: z
+        .array(z.string())
+        .optional()
+        .describe('Related person file slugs (collaborators, team members)'),
+      articles: z
+        .array(z.string())
+        .optional()
+        .describe('Articles mentioning this person'),
+      press: z
+        .array(z.string())
+        .optional()
+        .describe('Press releases mentioning this person'),
+      research: z
+        .array(z.string())
+        .optional()
+        .describe('Research/awards related to this person'),
+    })
+    .optional()
+    .describe('Cross-references to related KnB content'),
+
   status: z.enum(['active', 'inactive', 'former'], {
     errorMap: () => ({ message: 'Status must be "active", "inactive", or "former"' }),
   }).optional().default('active'),
@@ -175,6 +246,41 @@ export const pressSchema = z.object({
   performance: z.string().optional(), // Performance name with year, e.g., "Mis Sul viga on?! (2026)"
   related_performances: z.array(z.string()).optional(), // Performance slugs/names
   tags: z.array(z.string()).optional(),
+
+  // Bidirectional linking fields
+  used_in_pages: z
+    .array(z.string())
+    .optional()
+    .describe(
+      'List of web content pages that reference this press release. ' +
+        'Format: "et/etendused-noorele-publikule-ilma.md" or ' +
+        '"en/performances-for-young-audiences-weather-or-not.md"'
+    ),
+  related_knb: z
+    .object({
+      performances: z
+        .array(z.string())
+        .optional()
+        .describe('Performance IDs from registry related to this press release'),
+      persons: z
+        .array(z.string())
+        .optional()
+        .describe('Person file slugs mentioned in this press release'),
+      articles: z
+        .array(z.string())
+        .optional()
+        .describe('Related articles covering the same topic'),
+      press: z
+        .array(z.string())
+        .optional()
+        .describe('Related press releases'),
+      research: z
+        .array(z.string())
+        .optional()
+        .describe('Related research/awards'),
+    })
+    .optional()
+    .describe('Cross-references to related KnB content'),
 
   // Status
   status: z.enum(['active', 'archived', 'upcoming', 'draft'], {
@@ -233,6 +339,40 @@ export const researchSchema = z.object({
 
   // Legacy source field (deprecated - use source_url instead)
   source: z.string().url().optional(), // Source URL (deprecated)
+
+  // Bidirectional linking fields
+  used_in_pages: z
+    .array(z.string())
+    .optional()
+    .describe(
+      'List of web content pages that reference this research document. ' +
+        'Format: "et/about.md" or "en/about.md"'
+    ),
+  related_knb: z
+    .object({
+      performances: z
+        .array(z.string())
+        .optional()
+        .describe('Performance IDs from registry related to this research'),
+      persons: z
+        .array(z.string())
+        .optional()
+        .describe('Person file slugs related to this research'),
+      articles: z
+        .array(z.string())
+        .optional()
+        .describe('Articles related to this research'),
+      press: z
+        .array(z.string())
+        .optional()
+        .describe('Press releases related to this research'),
+      research: z
+        .array(z.string())
+        .optional()
+        .describe('Related research documents'),
+    })
+    .optional()
+    .describe('Cross-references to related KnB content'),
 
   // Status
   status: z.enum(['active', 'archived'], {

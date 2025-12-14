@@ -1,10 +1,12 @@
 ---
 date: 2007-06-04
-source: https://epl.delfi.ee/artikkel/51089440/zuga-naine-ja-hunt-sai-taas-preemia
-publication: Eesti Päevaleht
-author: Tiiu Laks
+source_date: 2007-06-04
+source_url: https://epl.delfi.ee/artikkel/51089440/zuga-naine-ja-hunt-sai-taas-preemia
+source_publication: Eesti Päevaleht
+source_author: Tiiu Laks
 title: "ZUGA 'Naine ja hunt' sai taas preemia"
 type: news
+source_type: news
 related_performances:
   - Naine ja hunt (2006)
   - Hea kuudis (2007)
@@ -15,6 +17,10 @@ tags:
   - Philip Morris dance award
   - recognition
   - contemporary dance
+archived_date: 2025-12-14
+used_in_pages:
+  - et/performances/for-adults/naine-ja-hunt.md
+
 ---
 
 # ZUGA "Naine ja hunt" sai taas preemia

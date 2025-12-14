@@ -1,8 +1,10 @@
 ---
 date: 2025-12
-source: https://fienta.com/et/zuga-uhendatud-tantsijate-uuslavastus-157610
+issued_date: 2025-12-01
+source_url: https://fienta.com/et/zuga-uhendatud-tantsijate-uuslavastus-157610
 performance: Mis Sul viga on?! (2026)
 type: announcement
+source_type: announcement
 language: et
 status: archived
 tags:
@@ -11,6 +13,8 @@ tags:
   - collaboration
   - Peaasi.ee
   - premiere announcement
+issued_by: ZUGA
+archived_date: 2025-12-14
 ---
 
 # Zuga Ühendatud Tantsijate uuslavastus (2026)

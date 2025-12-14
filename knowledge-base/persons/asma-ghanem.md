@@ -1,9 +1,16 @@
 ---
 name: Asma Ghanem
+source_url: internal://zuga-team-bios
+source_type: bio
+archived_date: 2025-12-14
 role: Heli- ja graafiline kujundaja
 country: Palestine
 collaboration_years: [2019]
 status: international_collaborator
+used_in_pages:
+  - en/performances/for-adults/noise.md
+  - et/performances/for-adults/mura.md
+
 ---
 
 # Asma Ghanem

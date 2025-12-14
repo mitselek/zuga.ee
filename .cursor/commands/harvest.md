@@ -8,6 +8,18 @@ description: Automated content harvesting workflow for ZUGA knowledge base with 
 
 You are an expert content curator and data migration specialist for the ZUGA dance theater knowledge base. You excel at extracting structured data from diverse sources (web articles, media streams, local files, ticket portals), validating against TypeScript/Zod schemas, establishing bidirectional cross-references, and maintaining git workflow hygiene through atomic commits.
 
+**CRITICAL: Knowledge Base Content Standards**
+
+All content added to the Knowledge Base MUST adhere to strict factual standards documented in `knowledge-base/CONTENT_STANDARDS.md`:
+
+1. **Verbatim text only** - Copy text exactly as it appears in the source. NO paraphrasing, rewording, or embellishments.
+2. **No translation** - Preserve original language (Estonian articles stay Estonian, English stays English).
+3. **No gap filling** - If information is missing from source, leave it empty. Do NOT infer or add from other sources.
+4. **Source attribution required** - Every file MUST include `source_url`, `source_type`, `source_date`, `archived_date` in frontmatter.
+5. **One source per file** - Each source gets its own file. Do NOT combine multiple articles into one file.
+
+**Rationale**: The Knowledge Base is a factual archive. Homepage content creation (via `/add-content`) synthesizes from KnB sources, but KnB itself must remain pristine and traceable.
+
 ## User Input (Sources to Harvest)
 
 $ARGUMENTS
@@ -92,43 +104,183 @@ Before processing content, understand the knowledge base schemas:
 articleSchema = z.object({
   title: z.string().min(1),
   date: z.string(), // ISO 8601 format (YYYY-MM-DD)
-  type: z.enum(['article', 'review', 'interview', 'preview', 'news',
-                'radio-interview', 'radio', 'television-program']),
-  language: z.enum(['et', 'en']),
+  type: z.enum([
+    "article",
+    "review",
+    "interview",
+    "preview",
+    "news",
+    "radio-interview",
+    "radio",
+    "television-program",
+  ]),
+  language: z.enum(["et", "en"]),
   publication: z.string().optional(), // ERR, Eesti Päevaleht, etc.
   author: z.string().optional(),
   url: z.string().url().optional(),
   related_performances: z.array(z.string()).optional(), // Performance slugs
-  tags: z.array(z.string()).optional()
-})
+
+  // NEW: Bidirectional linking fields
+  used_in_pages: z
+    .array(z.string())
+    .optional()
+    .describe(
+      "List of web content pages that reference this KnB article. " +
+        'Format: "et/etendused-noorele-publikule-ilma.md" or ' +
+        '"en/performances-for-young-audiences-weather-or-not.md"'
+    ),
+  related_knb: z
+    .object({
+      performances: z
+        .array(z.string())
+        .optional()
+        .describe('Performance IDs from registry (e.g., "ilma", "habi")'),
+      persons: z
+        .array(z.string())
+        .optional()
+        .describe('Person file slugs (e.g., "paar-parenson", "kart-tonisson")'),
+      articles: z
+        .array(z.string())
+        .optional()
+        .describe("Related article file slugs"),
+      press: z
+        .array(z.string())
+        .optional()
+        .describe("Related press release file slugs"),
+      research: z
+        .array(z.string())
+        .optional()
+        .describe("Related research file slugs"),
+    })
+    .optional()
+    .describe("Cross-references to related KnB content"),
+
+  tags: z.array(z.string()).optional(),
+});
 
 // Person Schema (collaborators, performers, designers)
 personSchema = z.object({
   name: z.string().min(1),
-  role: z.enum(['performer', 'choreographer', 'director', 'designer',
-                'composer', 'dramaturge', 'photographer', 'critic']),
-  member_since: z.string().optional(), // Year (YYYY)
-  founding_member: z.boolean().optional(),
-  status: z.enum(['active', 'alumni', 'guest']).optional(),
-  bio: z.string().optional(),
-  awards: z.array(z.string()).optional(),
-  productions: z.array(z.string()).optional() // Performance slugs
-})
+  role: z.string().min(1), // Free text role description
+  // ... other fields ...
+
+  // NEW: Bidirectional linking fields
+  used_in_pages: z
+    .array(z.string())
+    .optional()
+    .describe(
+      "List of web content pages that reference this person profile. " +
+        'Format: "et/etendused-noorele-publikule-ilma.md"'
+    ),
+  related_knb: z
+    .object({
+      performances: z
+        .array(z.string())
+        .optional()
+        .describe(
+          "Performance IDs from registry where this person was involved"
+        ),
+      persons: z
+        .array(z.string())
+        .optional()
+        .describe("Related person file slugs (collaborators, team members)"),
+      articles: z
+        .array(z.string())
+        .optional()
+        .describe("Articles mentioning this person"),
+      press: z
+        .array(z.string())
+        .optional()
+        .describe("Press releases mentioning this person"),
+      research: z
+        .array(z.string())
+        .optional()
+        .describe("Research/awards related to this person"),
+    })
+    .optional(),
+});
 
 // Press Schema (official releases, media kits)
 pressSchema = z.object({
   date: z.string(),
-  type: z.enum(['press-release', 'media-kit', 'announcement']),
-  language: z.enum(['et', 'en']),
-  related_performance: z.string().optional()
-})
+  type: z.enum(["press-release", "announcement", "media-kit", "promotional"]),
+  language: z.enum(["et", "en"]),
+  related_performance: z.string().optional(),
+
+  // NEW: Bidirectional linking fields
+  used_in_pages: z
+    .array(z.string())
+    .optional()
+    .describe("List of web content pages that reference this press release."),
+  related_knb: z
+    .object({
+      performances: z
+        .array(z.string())
+        .optional()
+        .describe(
+          "Performance IDs from registry related to this press release"
+        ),
+      persons: z
+        .array(z.string())
+        .optional()
+        .describe("Person file slugs mentioned in this press release"),
+      articles: z
+        .array(z.string())
+        .optional()
+        .describe("Related articles covering the same topic"),
+      press: z.array(z.string()).optional().describe("Related press releases"),
+      research: z
+        .array(z.string())
+        .optional()
+        .describe("Related research/awards"),
+    })
+    .optional(),
+});
 
 // Research Schema (awards, production notes, background)
 researchSchema = z.object({
-  type: z.enum(['award', 'production-notes', 'background', 'funding']),
+  type: z.enum([
+    "award",
+    "research-notes",
+    "interview",
+    "production-notes",
+    "background",
+  ]),
   date: z.string().optional(),
-  related_performances: z.array(z.string()).optional()
-})
+  related_performances: z.array(z.string()).optional(),
+
+  // NEW: Bidirectional linking fields
+  used_in_pages: z
+    .array(z.string())
+    .optional()
+    .describe(
+      "List of web content pages that reference this research document."
+    ),
+  related_knb: z
+    .object({
+      performances: z
+        .array(z.string())
+        .optional()
+        .describe("Performance IDs from registry related to this research"),
+      persons: z
+        .array(z.string())
+        .optional()
+        .describe("Person file slugs related to this research"),
+      articles: z
+        .array(z.string())
+        .optional()
+        .describe("Articles related to this research"),
+      press: z
+        .array(z.string())
+        .optional()
+        .describe("Press releases related to this research"),
+      research: z
+        .array(z.string())
+        .optional()
+        .describe("Related research documents"),
+    })
+    .optional(),
+});
 ```
 
 **Validation Rules**:
@@ -136,8 +288,62 @@ researchSchema = z.object({
 - All enum values are case-sensitive and must match exactly
 - Dates must be ISO 8601 format (YYYY-MM-DD for full dates, YYYY for years)
 - URLs must include protocol (https:// or http://)
-- Performance slugs must reference existing performance files
+- **Performance names must be validated against registry**: Use `knowledge-base/registry/performances.yaml` to get canonical performance IDs
+- **Performance IDs in `related_knb.performances` must match registry IDs** (e.g., "ilma", "habi", not full slugs)
 - Arrays can be empty `[]` but should be omitted if not applicable
+- **`used_in_pages` field**: Required when content is referenced by web pages. Format: `"{lang}/{filename}.md"` (e.g., `"et/etendused-noorele-publikule-ilma.md"`)
+
+## Registry Integration
+
+**CRITICAL**: All performance references must use canonical IDs from the registry.
+
+**Registry Location**: `knowledge-base/registry/performances.yaml`
+
+**Before creating or updating KnB content**:
+
+1. **Load registry**:
+
+   ```bash
+   # Read registry file
+   cat knowledge-base/registry/performances.yaml
+   ```
+
+2. **Extract performance IDs**:
+
+   - Registry contains `id` field for each performance (e.g., `ilma`, `habi`, `mura`)
+   - Use these IDs in `related_knb.performances` array
+   - Do NOT use full slugs like `etendused-noorele-publikule-ilma` in registry references
+
+3. **Validate performance names**:
+
+   - When article mentions "Ilma", check registry for `id: ilma`
+   - When article mentions "Weather or Not", check registry for English title mapping to `id: ilma`
+   - If performance not found in registry, warn user: "Performance '[name]' not found in registry. Should I add it or use different name?"
+
+4. **Example registry lookup**:
+
+   ```yaml
+   # From registry:
+   - id: ilma
+     title:
+       et: Ilma
+       en: Weather or Not
+     full_slug:
+       et: etendused-noorele-publikule-ilma
+       en: performances-for-young-audiences-weather-or-not
+
+   # In article frontmatter:
+   related_knb:
+     performances:
+       - ilma  # ✅ Use registry ID, not full slug
+   ```
+
+5. **Auto-populate `related_knb`**:
+   - When article mentions performance names, automatically:
+     - Look up performance in registry
+     - Add registry ID to `related_knb.performances`
+     - If persons mentioned, add person slugs to `related_knb.persons`
+     - If related articles/press/research found, add to respective arrays
 
 ## Workflow Phases
 
@@ -179,11 +385,12 @@ researchSchema = z.object({
   - https://vimeo.com/video-id
 
   **Multiple sources** (space or newline separated):
-
   ```
+
   https://kultuur.err.ee/article1
   https://kultuur.err.ee/article2
   /path/to/images/
+
   ```
 
   **What I'll do**:
@@ -201,6 +408,7 @@ researchSchema = z.object({
 **Step 0.2: Parse and categorize input** (if not empty)
 
 1. **Split multiple sources**:
+
    - Parse by whitespace, newlines, or commas
    - Handle both single and multiple sources
    - Example: `"url1 url2 /path"` → `[url1, url2, /path]`
@@ -208,17 +416,20 @@ researchSchema = z.object({
 2. **Categorize each source**:
 
    **Web URLs**:
+
    - Contains `http://` or `https://`
    - Domain patterns: `err.ee`, `delfi.ee`, `criticaldance.com`, `youtube.com`, `vimeo.com`, `fienta.com`, `piletilevi.ee`
    - Purpose: Article extraction, media metadata, ticket information
 
    **Local paths**:
+
    - Absolute paths: `/home/`, `/Users/`, `C:\`
    - Relative paths: `./`, `../`, filename only
    - Directory vs file: ends with `/` or has extension
    - Purpose: Image import, document processing
 
    **Ambiguous input**:
+
    - Plain text without URL or path indicators
    - Could be: article title, performance name, person name
    - Action: Ask user to clarify intent
@@ -271,11 +482,13 @@ researchSchema = z.object({
 Before proceeding to extraction:
 
 1. **For web URLs**: Check if reachable (send HEAD request or quick GET)
+
    - If 404/403/500 → Warn user, ask to skip or provide alternative
    - If timeout → Warn about network issues
    - If success → Proceed
 
 2. **For local paths**: Check if exists and readable
+
    - If not found → Error with exact path attempted
    - If permission denied → Error with permission suggestion
    - If exists → Proceed
@@ -313,6 +526,7 @@ For each source provided:
 **Extraction tactics**:
 
 1. **Fetch HTML content**:
+
    - Use `fetch_webpage` tool or equivalent
    - Follow redirects (max 3 hops)
    - Set User-Agent header to identify as content harvester
@@ -321,12 +535,14 @@ For each source provided:
 2. **Extract metadata systematically**:
 
    **Title detection** (try in order):
+
    - `<meta property="og:title">` (Open Graph)
    - `<title>` tag content
    - First `<h1>` element
    - URL slug as fallback
 
    **Date detection** (try in order):
+
    - `<meta property="article:published_time">`
    - `<time datetime="...">` attribute
    - URL patterns: `/2024/12/13/`, `/20241213/`
@@ -334,27 +550,40 @@ For each source provided:
    - Creation date from HTML meta tags
 
    **Author detection**:
+
    - `<meta name="author">`
    - `<meta property="article:author">`
    - Byline elements: `.author`, `.byline`, `.writer`
    - Text patterns: "Autor:", "By:", "Kirjutas:"
 
    **Publication name**:
+
    - Domain analysis: `err.ee` → "ERR"
    - `<meta property="og:site_name">`
    - Logo alt text
    - Header site name
 
    **Content extraction**:
+
    - Article body: `<article>`, `.article-body`, `main` element
    - Remove: navigation, ads, footers, comments
    - Preserve: paragraphs, headings, lists, blockquotes
    - Strip: HTML tags, inline styles, scripts
    - Normalize: excessive whitespace, line breaks
 
+   **CRITICAL: Verbatim Content Rule**:
+
+   - Copy text EXACTLY as published - no paraphrasing, rewording, or summarizing
+   - Preserve original language - do NOT translate (Estonian stays Estonian, English stays English)
+   - Keep original punctuation, capitalization, even spelling errors from source
+   - Do NOT add context, fill gaps, or embellish
+   - If source has quotes, copy them exactly with quotation marks intact
+   - Rationale: KnB is factual archive, not interpretation
+
 3. **Detect language automatically**:
 
    **Estonian indicators**:
+
    - HTML `lang="et"` or `lang="et-EE"`
    - URL domain `.ee`
    - Special characters: õ, ä, ö, ü (high frequency)
@@ -362,53 +591,63 @@ For each source provided:
    - Verb patterns: "-tud", "-nud", "-mata" endings
 
    **English indicators**:
+
    - HTML `lang="en"`
    - URL domain `.com`, `.org`, `.co.uk`
    - Common words: "the", "and", "is", "are", "was", "were", "been"
    - No Estonian special characters
 
    **Set language**:
+
    - `language: 'et'` if Estonian detected
    - `language: 'en'` if English detected or default
 
 4. **Identify related entities**:
 
    **Performance names** (case-insensitive search):
+
    - Known ZUGA productions: "Ilma", "Häbi", "Müra", "Suur Teadmatus", "Meelekolu", "Käik", "Võluvärk"
    - Variations: "Weather or Not" (Ilma), "Shame" (Häbi), "Noise" (Müra)
    - Search in: title, body text, meta description
 
    **Person names**:
+
    - Known ZUGA members: scan `knowledge-base/persons/*.md` for names
    - Match full names: "Päär Pärenson", "Helen Reitsnik", "Kaja Kann"
    - Match last names only if preceded by title: "Pärenson", "Reitsnik"
    - Context clues: "choreographer", "performer", "designer"
 
    **Venue names**:
+
    - Common venues: "Kanuti Gildi SAAL", "Sõltumatu Tantsu Lava", "Vaba Lava"
    - Abbreviations: "KGS", "STL"
 
    **Award mentions**:
+
    - "Tantsuauhind", "Dance Award", "Aasta lavastus", "Best Performance"
    - Years: 2005, 2007, 2024 (ZUGA award years)
 
 5. **Classify article type**:
 
    **Review indicators**:
+
    - Title contains: "Review", "Arvustus", "Recension"
    - Critical language: "successful", "compelling", "weak", "powerful"
    - Star ratings, scores
 
    **Interview indicators**:
+
    - Q&A format in body
    - Title contains: "Interview", "Intervjuu", "Q&A"
    - Direct quotes with attribution
 
    **Preview indicators**:
+
    - Future tense language: "will perform", "opening soon", "premieres"
    - Ticket information, dates
 
    **News indicators**:
+
    - Announcement language: "announces", "teatatakse", "uudis"
    - Short form (< 500 words)
 
@@ -449,12 +688,14 @@ For each source provided:
 1. **List and categorize files**:
 
    **If directory path provided**:
+
    - Recursively list all files
    - Filter by extensions: `.jpg`, `.jpeg`, `.png`, `.pdf`, `.txt`, `.md`, `.docx`
    - Group by type: images, documents, text files
    - Report: "[N] files found: [N] images, [N] documents, [N] text files"
 
    **If single file provided**:
+
    - Verify file exists and is readable
    - Check file size (warn if > 10MB for images, > 5MB for PDFs)
    - Determine type from extension
@@ -462,6 +703,7 @@ For each source provided:
 2. **Extract image metadata** (for `.jpg`, `.jpeg`, `.png`):
 
    **EXIF data extraction**:
+
    - Creation date: `DateTimeOriginal`, `CreateDate`
    - Photographer: `Artist`, `Creator`, `Copyright`
    - Location: `GPSLatitude`, `GPSLongitude` (if present)
@@ -469,43 +711,51 @@ For each source provided:
    - Dimensions: `ImageWidth`, `ImageHeight`
 
    **Filename pattern analysis**:
+
    - Date patterns: `2024-10-24-`, `20241024-`, `241024-`
    - Performance patterns: `ilma-`, `habi-`, `mura-`
    - Person patterns: `paar-parenson-`, `helen-reitsnik-`
    - Context patterns: `-promo`, `-rehearsal`, `-performance`, `-backstage`
 
    **Example**:
+
    - Filename: `2024-10-ilma-performance-scene-01.jpg`
    - Parsed: Date=2024-10, Performance=Ilma, Context=performance, Sequence=01
 
 3. **Determine destination paths**:
 
    **Performance images**:
+
    - Destination: `apps/web/public/images/performances/[slug]/`
    - Slug from filename or performance detection
    - Naming: `[original-name].jpg` or `scene-[N].jpg`
 
    **Press photos**:
+
    - Destination: `apps/web/public/images/press/`
    - Naming: `[date]-[context].jpg`
 
    **Person photos**:
+
    - Destination: `apps/web/public/images/persons/`
    - Naming: `[firstname-lastname].jpg`
 
    **Generic/media**:
+
    - Destination: `knowledge-base/media/images/`
    - Preserve original filename
 
 4. **Extract PDF metadata**:
 
    **PDF properties**:
+
    - Title: From PDF metadata
    - Author: From PDF metadata
    - Creation date: From PDF metadata
    - Subject/Keywords: From PDF metadata
 
    **Text extraction** (for press releases, articles):
+
    - Extract full text using PDF parser
    - Detect language (same as web articles)
    - Identify structure: headings, sections, contact info
@@ -513,6 +763,7 @@ For each source provided:
 5. **Extract text file content**:
 
    **For `.md`, `.txt`, `.docx` files**:
+
    - Read full content
    - Detect format: Markdown, plain text, Word doc
    - Preserve formatting if Markdown
@@ -522,16 +773,19 @@ For each source provided:
 6. **Identify relationships**:
 
    **Performance association**:
+
    - Filename contains performance name
    - EXIF keywords mention performance
    - File in directory named after performance
 
    **Person association**:
+
    - Filename contains person name
    - EXIF Artist/Creator field
    - File in directory named after person
 
    **Event association**:
+
    - Date in filename matches performance premiere
    - Location in EXIF matches venue coordinates
 
@@ -706,36 +960,110 @@ Wait for user confirmation before Phase 2.
 
 For each extracted item, determine destination and validate schema:
 
+**CRITICAL: Source Attribution Requirements**
+
+Every file created MUST include complete source attribution in frontmatter:
+
+```yaml
+---
+# REQUIRED source attribution fields:
+source_url: [Original URL where content was found]
+source_type:
+  [article|press_release|interview|review|preview|news|photo|video|social_media]
+source_publication: [Publication name - ERR, EPL, Postimees, etc.]
+source_date: [YYYY-MM-DD - original publication date]
+archived_date: [YYYY-MM-DD - today's date when added to KnB]
+
+# OPTIONAL but recommended:
+source_language: [et|en|other]
+source_author: [Author name if available]
+retrieved_via: [web|email|pdf|screenshot|physical_copy]
+---
+```
+
+**Source URL is mandatory** - If source URL cannot be determined:
+
+- For web content: Use archive.org or similar to create permanent URL
+- For email/PDF: Note as `retrieved_via: email` and describe source
+- For physical materials: Document location in `archive_location` field
+- **Never harvest without source attribution** - if source unknown, do not proceed
+
+**CRITICAL: Registry Validation and Bidirectional Linking**
+
+Before creating frontmatter, perform these steps:
+
+1. **Load performance registry**:
+
+   ```bash
+   # Read registry to get canonical performance IDs
+   cat knowledge-base/registry/performances.yaml
+   ```
+
+2. **Validate performance names against registry**:
+
+   - Extract all performance names mentioned in content
+   - For each name, look up in registry by:
+     - Title (ET or EN): Match `title.et` or `title.en`
+     - ID: Match `id` field directly
+   - If performance found: Use registry `id` (e.g., `ilma`, `habi`)
+   - If NOT found: Warn user: "Performance '[name]' not in registry. Add to registry first or verify name spelling."
+
+3. **Populate `related_knb.performances`**:
+
+   - Use registry IDs, NOT full slugs
+   - Example: Article mentions "Ilma" → Registry lookup → `id: ilma` → Add `"ilma"` to array
+   - Example: Article mentions "Weather or Not" → Registry lookup → Maps to `id: ilma` → Add `"ilma"` to array
+
+4. **Populate `related_knb.persons`**:
+
+   - Extract person names mentioned in content
+   - Check if person files exist in `knowledge-base/persons/`
+   - Add person slugs (filename without .md) to array
+   - Example: Mentions "Päär Pärenson" → File exists: `paar-parenson.md` → Add `"paar-parenson"` to array
+
+5. **Populate `used_in_pages`** (if applicable):
+   - Check if any web pages reference this KnB content
+   - Search `apps/web/src/content/pages/` for references to this article/person/press/research
+   - Format: `"{lang}/{filename}.md"` (e.g., `"et/etendused-noorele-publikule-ilma.md"`)
+   - If article is about a performance, check if performance page exists and references this article
+   - **Note**: This field may be empty initially and populated later when web pages are created/updated
+
 **Classification rules**:
 
 - **Articles collection** (`knowledge-base/articles/`):
 
   - Web articles, reviews, interviews, previews about ZUGA
-  - Naming: `YYYY-MM-publication-slug.md`
+  - Naming: `YYYY-MM-DD-publication-slug.md` (date from source_date)
   - Schema: `articleSchema` from `knowledge-base/config.ts`
-  - Required fields: `title`, `date`, `type`, `language`
-  - Optional: `publication`, `author`, `url`, `related_performances`
+  - Required fields: `title`, `date`, `type`, `language`, **`source_url`**, **`source_type`**, **`source_publication`**, **`source_date`**, **`archived_date`**
+  - **NEW**: `related_knb.performances` (if performance mentioned) - use registry IDs, not full slugs
+  - Optional: `publication`, `author`, `url`, `related_performances`, `used_in_pages`, `related_knb.persons/articles/press/research`
 
 - **Persons collection** (`knowledge-base/persons/`):
 
   - If content mentions NEW person not in existing `persons/` directory
   - Naming: `firstname-lastname.md`
   - Schema: `personSchema`
-  - Required fields: `name`, `role`
-  - Optional: `member_since`, `founding_member`, `status`
+  - Required fields: `name`, `role`, **`source_url`**, **`source_type`**, **`archived_date`**
+  - **NEW**: `related_knb.performances` (if person involved in performances) - use registry IDs
+  - Optional: `member_since`, `founding_member`, `status`, `used_in_pages`, `related_knb.persons/articles/press/research`
 
 - **Press collection** (`knowledge-base/press/`):
 
   - Official press releases, announcements, media kits
   - Naming: `YYYY-MM-performance-slug.md`
   - Schema: `pressSchema`
-  - Required: `date`, `type`, `language`
+  - Required: `date`, `type`, `language`, **`source_type`**, **`issued_by`**, **`issued_date`**, **`archived_date`**
+  - **NEW**: `related_knb.performances` (if press release about performance) - use registry IDs
+  - Optional: `related_performance`, `used_in_pages`, `related_knb.persons/articles/press/research`
 
 - **Research collection** (`knowledge-base/research/`):
   - Award information, production notes, background research
   - Naming: `topic-slug.md`
   - Schema: `researchSchema`
-  - Required: `type`
+  - Required: `type`, **`source_url`**, **`source_type`**, **`archived_date`**
+  - **NEW**: `related_knb.performances` (if research related to performance) - use registry IDs
+  - Optional: `date`, `used_in_pages`, `related_knb.persons/articles/press/research`
 
 **Validation process**:
 
@@ -820,7 +1148,7 @@ Build bidirectional references between new and existing content:
 
 **Cross-linking algorithm**:
 
-```
+```text
 For each new article:
   1. Extract all performance names mentioned
   2. For each performance:
@@ -940,8 +1268,7 @@ Create logical, atomic commits following conventional commits format:
    - https://vikerraadio.err.ee/...
    - https://epl.delfi.ee/...
 
-   ```
-
+   ```text
    **Approve? (yes/no/edit)**
    ```
 
@@ -1078,7 +1405,7 @@ After homepage updates applied:
 
 2. **Stage and commit homepage updates**:
 
-   ```
+   ```text
    content: Update homepage with recent Ilma press coverage
 
    Applied proposals:
@@ -1175,7 +1502,7 @@ After homepage updates applied:
 
 If user wants to undo:
 
-```
+```text
 git reset --soft HEAD~[N]  # Undo last N commits, keep changes staged
 git reset --hard HEAD~[N]  # Undo last N commits, discard changes
 ```
@@ -1227,7 +1554,7 @@ Before finalizing output:
 
 **User Input**:
 
-```
+```text
 /harvest-content https://kultuur.err.ee/1609501726/paar-parenson-lavastusest-ilma
 ```
 
@@ -1267,7 +1594,7 @@ Processed **1 source** successfully:
 
 **Phase 2: Classification and Validation**
 
-```markdown
+````markdown
 ## ✅ Validation Results
 
 **Classification**:
@@ -1287,8 +1614,33 @@ language: et
 publication: "ERR kultuur"
 author: "Mari Laaniste"
 url: "https://kultuur.err.ee/1609501726/paar-parenson-lavastusest-ilma"
+
+# Source attribution (REQUIRED)
+source_url: "https://kultuur.err.ee/1609501726/paar-parenson-lavastusest-ilma"
+source_type: interview
+source_publication: "ERR kultuur"
+source_date: "2024-10-24"
+archived_date: "2024-12-14"
+
+# Legacy performance reference (optional, kept for compatibility)
 related_performances:
   - etendused-noorele-publikule-ilma
+
+# NEW: Bidirectional linking fields
+used_in_pages:
+  - "et/etendused-noorele-publikule-ilma.md"
+  # Populated when web pages reference this article
+
+related_knb:
+  performances:
+    - ilma # ✅ Registry ID from performances.yaml (not full slug)
+  persons:
+    - paar-parenson # Person slug from knowledge-base/persons/
+    - kart-tonisson
+  articles: [] # Related articles (if any)
+  press: [] # Related press releases (if any)
+  research: [] # Related research (if any)
+
 tags:
   - ilma
   - climate-change
@@ -1296,11 +1648,13 @@ tags:
   - choreography
 ---
 ```
+````
 
-**Schema validation**: ✓ Passed (all required fields present, enums match)
+**Schema validation**: ✓ Passed (all required fields present, enums match, registry IDs validated)
 
 **Proceed to cross-linking? (yes)**
-```
+
+````
 
 **Phase 3: Cross-Linking Plan**
 
@@ -1324,7 +1678,7 @@ tags:
    - Add: `- [ERR kultuur intervjuu (2024-10)](../articles/2024-10-err-kultuur-paar-parenson-ilma.md)`
 
 **Apply cross-links? (yes)**
-```
+````
 
 **Phase 4: Commit Changes**
 
@@ -1332,7 +1686,6 @@ tags:
 ## 📦 Proposed Commit
 
 **Commit 1 of 2**
-
 ```
 
 knowledge-base: Add ERR kultuur interview about Ilma performance
@@ -1388,7 +1741,7 @@ Created **2 commits**:
 
 **Phase 5: Homepage Proposals**
 
-```markdown
+````markdown
 ## 🏠 Homepage Update Proposals
 
 ### Proposal 1: Add Recent Press to Homepage News
@@ -1404,6 +1757,7 @@ Created **2 commits**:
 
 [Loe intervjuud](https://kultuur.err.ee/1609501726/...) | 24. oktoober 2024
 ```
+````
 
 **Reasoning**: Recent interview (< 1 month old) about current performance. Prominent publication (ERR). Provides choreographer's perspective on timely topic (climate change).
 
@@ -1414,14 +1768,15 @@ Created **2 commits**:
 **Selected**: 1 proposal
 
 **Proceed to final commit? (yes)**
-```
+
+````
 
 **Phase 6: Final Commit**
 
 ```markdown
 ## 📝 Final Commit
 
-```
+````
 
 content(homepage): Add ERR Ilma interview to news section
 
@@ -1552,6 +1907,7 @@ Processed **3 sources** successfully:
 **Images** (12):
 
 1. **alana-proosa-01.jpg** - 4000x6000px, 3.2MB
+
    - Date: 2024-10-15 (EXIF)
    - Photographer: Alana Proosa
    - Related: Ilma (from filename)

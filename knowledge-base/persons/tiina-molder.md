@@ -1,9 +1,34 @@
 ---
 name: Tiina Mölder
+source_url: internal://zuga-team-bios
+source_type: bio
+archived_date: 2025-12-14
 role: Tantsukunstnik, koreograaf
 founding_member: true
 member_since: 1999
 status: active
+used_in_pages:
+  - en/performances/for-adults/care.md
+  - en/performances/for-adults/noise.md
+  - en/performances/for-adults/the-great-unknown.md
+  - en/performances/for-young-audiences/2-2-22.md
+  - en/performances/for-young-audiences/magic-stuff.md
+  - en/performances/for-young-audiences/thepassage.md
+  - en/performances/for-young-audiences/topsy-turvy.md
+  - en/performances/for-young-audiences/weather-or-not.md
+  - et/performances/for-adults/hool.md
+  - et/performances/for-adults/mura.md
+  - et/performances/for-adults/naine-ja-hunt.md
+  - et/performances/for-adults/suur-teadmatus.md
+  - et/performances/for-young-audiences/2-2-22.md
+  - et/performances/for-young-audiences/ilma.md
+  - et/performances/for-young-audiences/kaeik.md
+  - et/performances/for-young-audiences/meelekolu.md
+  - et/performances/for-young-audiences/uperpall.md
+  - et/performances/for-young-audiences/voluvaerk.md
+  - et/workshops/zuga-heliliikumistootoad.md
+  - et/workshops/zuga-liikumispausid.md
+
 ---
 
 # Tiina Mölder

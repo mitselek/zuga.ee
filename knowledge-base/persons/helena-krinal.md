@@ -1,10 +1,19 @@
 ---
 name: Helena Krinal
+source_url: internal://zuga-team-bios
+source_type: bio
+archived_date: 2025-12-14
 role: Koreograaf, lavastaja
 company: krinal | mansour
 country: Estonia/Palestine
 collaboration_years: [2019, 2024]
 status: guest_artist
+used_in_pages:
+  - en/performances/for-adults/care.md
+  - en/performances/for-adults/noise.md
+  - et/performances/for-adults/hool.md
+  - et/performances/for-adults/mura.md
+
 ---
 
 # Helena Krinal
@@ -60,5 +69,5 @@ Palestiina-Eesti taustaga koreograafina töötab Helena nii Lähis-Idas kui Euro
 ## Allikad
 
 - apps/web/src/content/pages/et/etendused-suurtele-mura.md
-- apps/web/src/content/pages/en/english-care.md
+- apps/web/src/content/pages/en/performances-for-adults-care.md
 - Performance documentation 2019-2024

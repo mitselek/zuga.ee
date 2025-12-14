@@ -1,8 +1,15 @@
 ---
 name: Liis Ring
+source_url: internal://zuga-team-bios
+source_type: bio
+archived_date: 2025-12-14
 role: Helilooja
 collaboration_years: [2024]
 status: collaborator
+used_in_pages:
+  - en/performances/for-adults/care.md
+  - et/performances/for-adults/hool.md
+
 ---
 
 # Liis Ring
@@ -32,4 +39,4 @@ Liis Ring lõi muusika, mis toetab lavastuse teemasid hoolitsusest ja inimsuhete
 
 ## Allikad
 
-- apps/web/src/content/pages/en/english-care.md
+- apps/web/src/content/pages/en/performances-for-adults-care.md

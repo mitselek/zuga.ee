@@ -1,10 +1,12 @@
 ---
 title: "ARVUSTUS | Zuga tantsijate ilma tegev lavastus"
 date: 2024-11-13
-publication: Eesti Päevaleht
-author: Eleriin Miilman
-url: https://epl.delfi.ee/artikkel/120336005/arvustus-zuga-tantsijate-ilma-tegev-lavastus
+source_date: 2024-11-13
+source_publication: Eesti Päevaleht
+source_author: Eleriin Miilman
+source_url: https://epl.delfi.ee/artikkel/120336005/arvustus-zuga-tantsijate-ilma-tegev-lavastus
 type: review
+source_type: review
 language: et
 tags:
   - ilma
@@ -14,6 +16,11 @@ tags:
   - 2024
 related_performances:
   - ilma
+archived_date: 2025-12-14
+used_in_pages:
+  - en/performances/for-young-audiences/weather-or-not.md
+  - et/performances/for-young-audiences/ilma.md
+
 ---
 
 # ARVUSTUS | Zuga tantsijate ilma tegev lavastus

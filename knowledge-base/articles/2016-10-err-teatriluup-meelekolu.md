@@ -1,10 +1,12 @@
 ---
 date: 2016-10-18
-source: https://arhiiv.err.ee/audio/vaata/teatriluup-212800
-publication: ERR Vikerraadio
+source_date: 2016-10-18
+source_url: https://arhiiv.err.ee/audio/vaata/teatriluup-212800
+source_publication: ERR Vikerraadio
 program: Teatriluup
 title: "Teatriluup: meeleKolu"
 type: radio
+source_type: radio
 related_performances:
   - meeleKolu (2016)
 interviewees:
@@ -18,6 +20,10 @@ tags:
   - children's performance
   - dance theatre
   - creative process
+archived_date: 2025-12-14
+used_in_pages:
+  - et/performances/for-young-audiences/meelekolu.md
+
 ---
 
 # Teatriluup: meeleKolu

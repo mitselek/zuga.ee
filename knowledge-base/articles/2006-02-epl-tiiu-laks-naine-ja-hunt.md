@@ -1,10 +1,12 @@
 ---
 date: 2006-02-26
-source: https://epl.delfi.ee/artikkel/51033163/zuga-naine-ja-hunt-uurib-kultuuride-erinevusi
-publication: Eesti Päevaleht
-author: Tiiu Laks
+source_date: 2006-02-26
+source_url: https://epl.delfi.ee/artikkel/51033163/zuga-naine-ja-hunt-uurib-kultuuride-erinevusi
+source_publication: Eesti Päevaleht
+source_author: Tiiu Laks
 title: "ZUGA 'Naine ja Hunt' uurib kultuuride erinevusi"
 type: review
+source_type: review
 related_performances:
   - Naine ja hunt (2006)
 language: et
@@ -15,6 +17,12 @@ tags:
   - contemporary dance
   - multimedia
   - international collaboration
+archived_date: 2025-12-14
+used_in_pages:
+  - et/performances/for-adults/hool.md
+  - et/performances/for-adults/naine-ja-hunt.md
+  - et/performances/for-young-audiences/2-2-22.md
+
 ---
 
 # ZUGA "Naine ja Hunt" uurib kultuuride erinevusi

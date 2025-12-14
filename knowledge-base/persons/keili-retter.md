@@ -1,9 +1,21 @@
 ---
 name: Keili Retter
+source_url: internal://zuga-team-bios
+source_type: bio
+archived_date: 2025-12-14
 role: Kunstnik
 specialization: [costume_design, set_design]
 collaboration_years: [2016, 2019, 2022]
 status: regular_collaborator
+used_in_pages:
+  - en/performances/for-adults/noise.md
+  - en/performances/for-adults/the-great-unknown.md
+  - en/performances/for-young-audiences/2-2-22.md
+  - et/performances/for-adults/mura.md
+  - et/performances/for-adults/suur-teadmatus.md
+  - et/performances/for-young-audiences/2-2-22.md
+  - et/performances/for-young-audiences/meelekolu.md
+
 ---
 
 # Keili Retter

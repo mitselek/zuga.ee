@@ -1,9 +1,20 @@
 ---
 name: Kalle Tikas
+source_url: internal://zuga-team-bios
+source_type: bio
+archived_date: 2025-12-14
 role: Helikunstnik, muusik, kunstnik
 specialization: [sound_design, composition, set_design, lighting_design]
 collaboration_years: [2006, 2014, 2016, 2024]
 status: regular_collaborator
+used_in_pages:
+  - en/performances/for-young-audiences/thepassage.md
+  - en/performances/for-young-audiences/weather-or-not.md
+  - et/performances/for-adults/naine-ja-hunt.md
+  - et/performances/for-young-audiences/ilma.md
+  - et/performances/for-young-audiences/kaeik.md
+  - et/performances/for-young-audiences/meelekolu.md
+
 ---
 
 # Kalle Tikas

@@ -1,9 +1,15 @@
 ---
 name: Bush Hartshorn
+source_url: internal://zuga-team-bios
+source_type: bio
+archived_date: 2025-12-14
 role: Tantsija, lavastaja, kuraator
 country: United Kingdom
 collaboration_year: 2006
 status: guest_artist
+used_in_pages:
+  - et/performances/for-adults/naine-ja-hunt.md
+
 ---
 
 # Bush Hartshorn

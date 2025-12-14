@@ -1,0 +1,305 @@
+version: "1.0"
+last_updated: "2025-12-14"
+
+performances:
+  # Performances for Adults
+  - id: habi
+    title:
+      et: Häbi
+      en: Shame
+    slug:
+      et: habi
+      en: shame
+    full_slug:
+      et: etendused-suurtele-habi
+      en: performances-for-adults-shame
+    premiere: null
+    venue: null
+    duration: null
+    target_audience: adults
+    age_recommendation: null
+    status: active
+    categories:
+      - etendused
+      - suurtele
+
+  - id: hool
+    title:
+      et: Hool
+      en: Care
+    slug:
+      et: hool
+      en: care
+    full_slug:
+      et: etendused-suurtele-hool
+      en: performances-for-adults-care
+    premiere: "2024-09-21"
+    venue: Eesti Tantsuagentuuri teatrisaal
+    duration: 50
+    target_audience: adults
+    age_recommendation: 12+
+    status: active
+    categories:
+      - etendused
+      - suurtele
+
+  - id: mura
+    title:
+      et: Müra
+      en: Noise
+    slug:
+      et: mura
+      en: noise
+    full_slug:
+      et: etendused-suurtele-mura
+      en: performances-for-adults-noise
+    premiere: "2019-06-06"
+    venue: Sõltumatu Tantsu Lava
+    duration: null
+    target_audience: adults
+    age_recommendation: null
+    status: active
+    categories:
+      - etendused
+      - suurtele
+
+  - id: tempo
+    title:
+      et: Tempo
+      en: Tempo
+    slug:
+      et: tempo
+      en: tempo
+    full_slug:
+      et: etendused-suurtele-tempo
+      en: performances-for-adults-tempo
+    premiere: "2018-03-16"
+    venue: Sõltumatu Tantsu Lava
+    duration: null
+    target_audience: adults
+    age_recommendation: null
+    status: active
+    categories:
+      - etendused
+      - suurtele
+
+  - id: suur-teadmatus
+    title:
+      et: Suur Teadmatus
+      en: The Great Unknown
+    slug:
+      et: suur-teadmatus
+      en: the-great-unknown
+    full_slug:
+      et: etendused-suurtele-suur-teadmatus
+      en: performances-for-adults-the-great-unknown
+    premiere: "2022-03-10"
+    venue: Sõltumatu Tantsu Lava
+    duration: 60
+    target_audience: adults
+    age_recommendation: null
+    status: active
+    categories:
+      - etendused
+      - suurtele
+
+  - id: naine-ja-hunt
+    title:
+      et: Naine ja Hunt
+      en: null
+    slug:
+      et: naine-ja-hunt
+      en: null
+    full_slug:
+      et: etendused-suurtele-naine-ja-hunt
+      en: null
+    premiere: null
+    venue: null
+    duration: null
+    target_audience: adults
+    age_recommendation: null
+    status: archived
+    categories:
+      - etendused
+      - suurtele
+
+  # Performances for Young Audiences
+  - id: ilma
+    title:
+      et: Ilma
+      en: Weather or Not
+    slug:
+      et: ilma
+      en: weather-or-not
+    full_slug:
+      et: etendused-noorele-publikule-ilma
+      en: performances-for-young-audiences-weather-or-not
+    premiere: "2024-10-26"
+    venue: Sõltumatu Tantsu Lava
+    duration: 60
+    target_audience: young_audiences
+    age_recommendation: 10+
+    status: active
+    categories:
+      - etendused
+      - noorele-publikule
+
+  - id: "2-2-22"
+    title:
+      et: "2+2=22"
+      en: "2+2=22"
+    slug:
+      et: "2-2-22"
+      en: "2-2-22"
+    full_slug:
+      et: etendused-noorele-publikule-2-2-22
+      en: performances-for-young-audiences-2-2-22
+    premiere: "2019-10-30"
+    venue: Sõltumatu Tantsu Lava
+    duration: 55
+    target_audience: young_audiences
+    age_recommendation: 6-13
+    status: active
+    categories:
+      - etendused
+      - noorele-publikule
+
+  - id: mis-sul-viga-on
+    title:
+      et: Mis Sul viga on?!
+      en: What's wrong with you?!
+    slug:
+      et: mis-sul-viga-on
+      en: whats-wrong-with-you
+    full_slug:
+      et: etendused-noorele-publikule-mis-sul-viga-on
+      en: performances-for-young-audiences-whats-wrong-with-you
+    premiere: null
+    venue: Sõltumatu Tantsu Lava
+    duration: null
+    target_audience: young_audiences
+    age_recommendation: null
+    status: active
+    categories:
+      - etendused
+      - noorele-publikule
+
+  - id: kaeik
+    title:
+      et: Käik
+      en: The Passage
+    slug:
+      et: kaeik
+      en: thepassage
+    full_slug:
+      et: etendused-noorele-publikule-kaeik
+      en: performances-for-young-audiences-thepassage
+    premiere: "2014-11-21"
+    venue: Sõltumatu Tantsu Lava
+    duration: null
+    target_audience: young_audiences
+    age_recommendation: 6-10
+    status: active
+    categories:
+      - etendused
+      - noorele-publikule
+
+  - id: voluvaerk
+    title:
+      et: Võluvärk
+      en: Magic Stuff
+    slug:
+      et: voluvaerk
+      en: magic-stuff
+    full_slug:
+      et: etendused-noorele-publikule-voluvaerk
+      en: performances-for-young-audiences-magic-stuff
+    premiere: null
+    venue: Kanuti Gildi SAAL
+    duration: 40
+    target_audience: young_audiences
+    age_recommendation: null
+    status: active
+    categories:
+      - etendused
+      - noorele-publikule
+
+  - id: meelekolu
+    title:
+      et: meeleKolu
+      en: null
+    slug:
+      et: meelekolu
+      en: null
+    full_slug:
+      et: etendused-noorele-publikule-meelekolu
+      en: null
+    premiere: null
+    venue: null
+    duration: null
+    target_audience: young_audiences
+    age_recommendation: null
+    status: archived
+    categories:
+      - etendused
+      - noorele-publikule
+
+  - id: uperpall
+    title:
+      et: Uperpall
+      en: Topsy-Turvy
+    slug:
+      et: uperpall
+      en: topsy-turvy
+    full_slug:
+      et: etendused-noorele-publikule-uperpall
+      en: performances-for-young-audiences-topsy-turvy
+    premiere: null
+    venue: null
+    duration: null
+    target_audience: young_audiences
+    age_recommendation: null
+    status: active
+    categories:
+      - etendused
+      - noorele-publikule
+
+  - id: inthemood
+    title:
+      et: null
+      en: In The Mood
+    slug:
+      et: null
+      en: inthemood
+    full_slug:
+      et: null
+      en: performances-for-young-audiences-inthemood
+    premiere: null
+    venue: null
+    duration: null
+    target_audience: young_audiences
+    age_recommendation: null
+    status: active
+    categories:
+      - etendused
+      - noorele-publikule
+
+  - id: zugazuugzuh-zuh-zuh
+    title:
+      et: Zuga zuug zuh-zuh-zuh
+      en: null
+    slug:
+      et: zugazuugzuh-zuh-zuh
+      en: null
+    full_slug:
+      et: etendused-noorele-publikule-zugazuugzuh-zuh-zuh
+      en: null
+    premiere: null
+    venue: null
+    duration: null
+    target_audience: young_audiences
+    age_recommendation: null
+    status: archived
+    categories:
+      - etendused
+      - noorele-publikule
