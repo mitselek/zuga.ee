@@ -1,6 +1,5 @@
 ---
 title: Zuga
-slug: index
 language: et
 description: Ühendatud Tantsijad
 type: home
