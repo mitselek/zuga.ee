@@ -1,8 +1,5 @@
 ---
 name: Helena Krinal
-source_url: internal://zuga-team-bios
-source_type: bio
-archived_date: 2025-12-14
 role: Koreograaf, lavastaja
 company: krinal | mansour
 country: Estonia/Palestine

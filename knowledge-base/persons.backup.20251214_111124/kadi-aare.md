@@ -1,8 +1,5 @@
 ---
 name: Kadi Aare
-source_url: internal://zuga-team-bios
-source_type: bio
-archived_date: 2025-12-14
 role: Graafiline disainer, fotograaf, videograaf
 specialization: [graphic_design, photography, videography]
 collaboration_years: [2024]

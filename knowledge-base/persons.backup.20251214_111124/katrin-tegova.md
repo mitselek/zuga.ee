@@ -1,8 +1,5 @@
 ---
 name: Katrin Tegova
-source_url: internal://zuga-team-bios
-source_type: bio
-archived_date: 2025-12-14
 role: Dramaturg
 collaboration_years: [2019]
 status: collaborator

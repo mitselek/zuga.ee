@@ -1,8 +1,5 @@
 ---
 name: Päär Pärenson
-source_url: internal://zuga-team-bios
-source_type: bio
-archived_date: 2025-12-14
 aka: MC J.O.C
 role: Tantsija, koreograaf, näitleja, räppar
 member_since: 2014

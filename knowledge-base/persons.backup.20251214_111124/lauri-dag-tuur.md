@@ -1,8 +1,5 @@
 ---
 name: Lauri-Dag Tüür
-source_url: internal://zuga-team-bios
-source_type: bio
-archived_date: 2025-12-14
 role: Helilooja
 collaboration_years: [2019, 2022]
 status: regular_collaborator

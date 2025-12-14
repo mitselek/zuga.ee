@@ -1,8 +1,5 @@
 ---
 name: Tiina Mölder
-source_url: internal://zuga-team-bios
-source_type: bio
-archived_date: 2025-12-14
 role: Tantsukunstnik, koreograaf
 founding_member: true
 member_since: 1999

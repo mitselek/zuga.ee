@@ -1,8 +1,5 @@
 ---
 name: Marta Konovalov
-source_url: internal://zuga-team-bios
-source_type: bio
-archived_date: 2025-12-14
 role: Kunstnik
 specialization: [costume_design, set_design]
 collaboration_years: [2024]

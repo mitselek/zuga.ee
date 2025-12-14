@@ -1,8 +1,5 @@
 ---
 name: Kalle Tikas
-source_url: internal://zuga-team-bios
-source_type: bio
-archived_date: 2025-12-14
 role: Helikunstnik, muusik, kunstnik
 specialization: [sound_design, composition, set_design, lighting_design]
 collaboration_years: [2006, 2014, 2016, 2024]

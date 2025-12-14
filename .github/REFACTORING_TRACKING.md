@@ -23,7 +23,7 @@
   - ~~#42 - [#31a] Migrate articles collection (14 files, 4-5h)~~ ✅
   - ~~#43 - [#31b] Migrate press collection (2 files, 1-2h)~~ ✅
   - ~~#44 - [#31c] Migrate research collection (1 file, 30min)~~ ✅
-- #32 - Add source attribution to person profiles (4-6h)
+- ~~#32 - Add source attribution to person profiles (4-6h)~~ ✅
 
 ### Phase 2: File Organization (P1 High)
 

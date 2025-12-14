@@ -1,8 +1,5 @@
 ---
 name: Kärt Tõnisson
-source_url: internal://zuga-team-bios
-source_type: bio
-archived_date: 2025-12-14
 role: Tantsija, koreograaf, tantsuõpetaja, loovliikumise koolitaja
 member_since: 2011
 status: active

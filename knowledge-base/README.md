@@ -63,9 +63,15 @@ Each file should include YAML frontmatter with validated fields. See `config.ts`
 - **role** (required): Role description
 - **member_since**: Year joined (YYYY or number)
 - **founding_member**: Boolean for founding members
+- **source_url** (required): Source of bio information. For team member bios, use `internal://zuga-team-bios`
+- **source_type** (required): Type of source - `bio`, `press_release`, `article`, `interview`, or `website`
+- **archived_date** (required): Date when bio was added to knowledge base (YYYY-MM-DD format)
+- **retrieved_via** (optional): How information was obtained - `web`, `email`, `pdf`, `screenshot`, or `physical_copy`
 - **used_in_pages** (optional): List of web content pages referencing this person profile
 - **related_knb** (optional): Cross-references to related KnB content (performances, persons, articles, press, research)
 - **status**: active (default), inactive, former
+
+**Source Attribution Policy**: Person profiles use `source_url: internal://zuga-team-bios` to indicate that bios are compiled from internal ZUGA team records and documentation. If a bio was retrieved from a website, add `retrieved_via: web` as well.
 
 ### Press
 

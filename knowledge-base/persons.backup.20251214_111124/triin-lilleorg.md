@@ -1,8 +1,5 @@
 ---
 name: Triin Lilleorg
-source_url: internal://zuga-team-bios
-source_type: bio
-archived_date: 2025-12-14
 role: Tantsija, koreograaf
 member_since: 2006
 member_until: 2016
