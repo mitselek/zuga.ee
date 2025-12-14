@@ -88,6 +88,7 @@ All new fields are optional (non-breaking change). Existing files continue to va
 ### Rollback Procedure
 
 If rollback needed:
+
 ```bash
 rm -rf knowledge-base/articles
 cp -r knowledge-base/articles.backup.20251214_105357 knowledge-base/articles
