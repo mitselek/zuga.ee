@@ -1,6 +1,6 @@
 ---
 title: Future Movers
-slug: workshops-future-movers
+slug: future-movers
 language: en
 description: Kumu and Zuga United Dancers collaboration educational visit
 type: detail

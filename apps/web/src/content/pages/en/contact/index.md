@@ -1,8 +1,8 @@
 ---
-title: Kontakt
-slug: kontakt
-language: et
-description: Võta meiega ühendust
+title: Contact
+slug: index
+language: en
+description: Get in touch with us
 type: section
 category: contact
 order: 103
@@ -10,6 +10,6 @@ status: published
 page_type: landing
 ---
 
-# Kontakt
+# Contact
 
 info@zuga.ee

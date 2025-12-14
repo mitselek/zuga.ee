@@ -1,6 +1,6 @@
 ---
 title: ZUGA Heliliikumistöötoad
-slug: workshopid-zuga-heliliikumistootoad
+slug: zuga-heliliikumistootoad
 language: et
 description: Mängulist liikumisvõimalust pakkuvad audiojuhendiga töötoad
 type: detail

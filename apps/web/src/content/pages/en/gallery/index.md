@@ -1,6 +1,6 @@
 ---
 title: Gallery
-slug: gallery-section
+slug: index
 language: en
 description: Photos from our performances and creative process
 type: section

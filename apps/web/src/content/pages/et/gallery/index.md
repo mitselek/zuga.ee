@@ -1,6 +1,6 @@
 ---
 title: Galerii
-slug: galerii
+slug: index
 language: et
 description: Zuga fotogalerii
 type: detail

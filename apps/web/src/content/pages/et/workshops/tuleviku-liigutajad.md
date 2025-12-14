@@ -1,6 +1,6 @@
 ---
 title: Tuleviku Liigutajad
-slug: workshopid-tuleviku-liigutajad
+slug: tuleviku-liigutajad
 language: et
 description: Kumu ja Zuga Ühendatud Tantsijate koostöö õppekäik
 type: detail

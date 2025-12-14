@@ -1,6 +1,6 @@
 ---
 title: ZUGA Liikumispausid
-slug: workshopid-zuga-liikumispausid
+slug: zuga-liikumispausid
 language: et
 description: 5-10 minuti pikkused helijuhendid istuva töö- või koolipäeva vahepaladeks
 type: detail

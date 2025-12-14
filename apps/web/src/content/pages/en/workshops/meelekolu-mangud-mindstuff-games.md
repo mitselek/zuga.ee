@@ -1,6 +1,6 @@
 ---
 title: mindStuff games
-slug: workshopid-meelekolu-mangud-mindstuff-games-en
+slug: meelekolu-mangud-mindstuff-games
 language: en
 description: Movement workshop for children - playing and dancing through different feelings
 type: detail

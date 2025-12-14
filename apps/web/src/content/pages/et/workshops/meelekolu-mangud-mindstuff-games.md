@@ -1,6 +1,6 @@
 ---
 title: meeleKolu mängud
-slug: workshopid-meelekolu-mangud-mindstuff-games
+slug: meelekolu-mangud-mindstuff-games
 language: et
 description: Liikumise töötuba lastele - koos olemine, kus mängitakse ja tantsitakse läbi erinevaid tundeid
 type: detail

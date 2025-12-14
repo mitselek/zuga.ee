@@ -1,6 +1,6 @@
 ---
 title: Liikumise töötuba peredele
-slug: workshopid-zuga-liikumise-tootuba-peredele-zugas-movement-workshop-for-families
+slug: zuga-liikumise-tootuba-peredele-zugas-movement-workshop-for-families
 language: et
 description: Mänguline koosolemise töötuba kogu perele, kus liikumise abil saab jutustada loo oma rõõmudest ja sellest, mis vahel kurvaks teeb
 type: detail
