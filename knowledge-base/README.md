@@ -133,6 +133,7 @@ node scripts/validate-all.js [--verbose]
 ```
 
 **Options**:
+
 - `--verbose`: Print detailed validation output
 - `--knb-only`: Only validate KnB files
 - `--web-only`: Only validate web content files
@@ -149,6 +150,7 @@ node scripts/validate-all.js [--verbose]
 - ⚠️ **Unsupported Claims**: Web pages without KnB source attribution
 
 **Exit codes**:
+
 - `0`: All validations passed
 - `1`: Validation errors found
 

@@ -21,6 +21,18 @@ audio:
   url: https://arhiiv.err.ee/audio/vaata/paevakaja-paevakaja-nr-16373-kl-18?t=691
   source: ERR Päevakaja
   date: "2006-02-26"
+knowledge_base_sources:
+  articles:
+    - articles/2007-06-epl-tiiu-laks-naine-ja-hunt-preemia.md
+    - articles/2006-02-epl-tiiu-laks-naine-ja-hunt.md
+    - articles/2006-03-err-tour-de-danse-naine-ja-hunt.md
+    - articles/2006-02-err-paevakaja-naine-ja-hunt.md
+  persons:
+    - persons/bush-hartshorn.md
+    - persons/kaja-kann.md
+    - persons/kalle-tikas.md
+    - persons/tiina-molder.md
+
 ---
 # Naine ja Hunt
 

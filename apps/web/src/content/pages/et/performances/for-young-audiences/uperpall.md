@@ -33,6 +33,15 @@ videos:
   url: https://www.youtube.com/embed/xpzHq-wDCNE
   title: Uperpall
 description: Koguperelavastus pallidega ja pallidest – sellest, et kuitahes uperpallis asjad ka ei oleks, saab need alati teistpidi põrkama panna.
+knowledge_base_sources:
+  persons:
+    - persons/ajjar-ausma.md
+    - persons/helen-reitsnik.md
+    - persons/kart-tonisson.md
+    - persons/lauri-dag-tuur.md
+    - persons/paar-parenson.md
+    - persons/tiina-molder.md
+
 ---
 
 # Uperpall

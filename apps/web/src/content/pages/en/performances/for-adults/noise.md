@@ -30,6 +30,20 @@ videos:
   video_id: Nj_JGAGBt28
   title: NOISE (MÜRA) - Helena Krinal/ZUGA
   url: https://www.youtube.com/embed/Nj_JGAGBt28
+knowledge_base_sources:
+  articles:
+    - articles/2006-02-err-paevakaja-naine-ja-hunt.md
+    - articles/2019-10-postimees-2-2-22-esietendus.md
+  persons:
+    - persons/ajjar-ausma.md
+    - persons/asma-ghanem.md
+    - persons/helen-reitsnik.md
+    - persons/helena-krinal.md
+    - persons/katrin-tegova.md
+    - persons/keili-retter.md
+    - persons/oliver-kulpsoo.md
+    - persons/tiina-molder.md
+
 ---
 
 ## Dance performance NOISE (MÜRA)

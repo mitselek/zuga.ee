@@ -41,6 +41,13 @@ videos:
     video_id: rPxJ8u2dqpo
     title: Liikumise töötuba peredele
     url: https://www.youtube.com/embed/rPxJ8u2dqpo
+knowledge_base_sources:
+  persons:
+    - persons/ajjar-ausma.md
+    - persons/kart-tonisson.md
+    - persons/paar-parenson.md
+    - persons/tiina-molder.md
+
 ---
 
 ## ZUGA Heliliikumistöötoad

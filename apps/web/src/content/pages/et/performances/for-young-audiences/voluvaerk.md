@@ -28,6 +28,15 @@ audio:
   url: https://vod.err.ee/hls/arhiiv/AUDIO/a_49258_RMARHIIV.m4a/index-a1.m3u8
   source: ERR Vikerraadio
   date: "2011-11-22"
+knowledge_base_sources:
+  articles:
+    - articles/2011-11-err-laste-lood-voluvaerk.md
+  persons:
+    - persons/helen-reitsnik.md
+    - persons/kart-tonisson.md
+    - persons/tiina-molder.md
+    - persons/triin-lilleorg.md
+
 ---
 
 ## Tantsuetendus lastele "Võluvärk"

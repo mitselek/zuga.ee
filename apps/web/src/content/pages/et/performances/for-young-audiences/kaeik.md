@@ -46,6 +46,16 @@ videos:
   video_id: qp22v58UQnw
   title: ZUGA videotervitus
   url: https://www.youtube.com/embed/qp22v58UQnw
+knowledge_base_sources:
+  persons:
+    - persons/ajjar-ausma.md
+    - persons/helen-reitsnik.md
+    - persons/jarmo-karing.md
+    - persons/kaja-kann.md
+    - persons/kalle-tikas.md
+    - persons/paar-parenson.md
+    - persons/tiina-molder.md
+
 ---
 
 ## Tantsulavastus lastele "Käik"

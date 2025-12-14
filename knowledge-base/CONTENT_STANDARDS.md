@@ -316,11 +316,12 @@ node scripts/validate-all.js --registry-only
 ```
 
 **Validation checks**:
-- ✅ Schema compliance (all required fields present, correct types)
-- ✅ Registry references (performance/workshop IDs exist in registry)
-- ✅ Bidirectional linking integrity (links are consistent)
-- ⚠️ Orphaned content detection (KnB files not referenced)
-- ⚠️ Unsupported claims detection (web pages without KnB sources)
+
+- Schema compliance (all required fields present, correct types)
+- Registry references (performance/workshop IDs exist in registry)
+- Bidirectional linking integrity (links are consistent)
+- Orphaned content detection (KnB files not referenced)
+- Unsupported claims detection (web pages without KnB sources)
 
 ## Content Types and Standards
 

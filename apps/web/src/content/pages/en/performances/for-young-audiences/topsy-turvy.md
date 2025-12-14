@@ -33,6 +33,15 @@ videos:
   url: https://www.youtube.com/embed/xpzHq-wDCNE
   title: Topsy-Turvy
 description: A family performance about balls and with balls – about how no matter how topsy-turvy things get, you can always bounce them the other way.
+knowledge_base_sources:
+  persons:
+    - persons/ajjar-ausma.md
+    - persons/helen-reitsnik.md
+    - persons/kart-tonisson.md
+    - persons/lauri-dag-tuur.md
+    - persons/paar-parenson.md
+    - persons/tiina-molder.md
+
 ---
 
 # Topsy-Turvy

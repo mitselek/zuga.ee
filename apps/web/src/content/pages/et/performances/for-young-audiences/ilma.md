@@ -21,6 +21,23 @@ videos:
 translated:
   - language: en
     slug: weather-or-not
+knowledge_base_sources:
+  articles:
+    - articles/2025-04-criticaldance-ilma-review.md
+    - articles/2024-11-epl-eleriin-miilman-ilma-arvustus.md
+    - articles/2024-11-err-kultuur-kart-tonisson-ilma.md
+    - articles/2024-10-err-vikerraadio-okoskoop-ilma.md
+    - articles/2024-10-err-kultuur-paar-parenson-ilma.md
+  persons:
+    - persons/ajjar-ausma.md
+    - persons/helen-reitsnik.md
+    - persons/kalle-tikas.md
+    - persons/kart-tonisson.md
+    - persons/marta-konovalov.md
+    - persons/oliver-kulpsoo.md
+    - persons/paar-parenson.md
+    - persons/tiina-molder.md
+
 ---
 
 # Ilma

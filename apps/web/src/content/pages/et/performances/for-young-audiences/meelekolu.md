@@ -38,6 +38,20 @@ gallery:
 - url: /images/etendused-meelekolu-6.jpg
   width: 1365
   description: Etendusest meeleKolu
+knowledge_base_sources:
+  articles:
+    - articles/2016-10-err-teatriluup-meelekolu.md
+  persons:
+    - persons/ajjar-ausma.md
+    - persons/helen-reitsnik.md
+    - persons/kalle-tikas.md
+    - persons/kart-tonisson.md
+    - persons/keili-retter.md
+    - persons/oliver-kulpsoo.md
+    - persons/paar-parenson.md
+    - persons/tiina-molder.md
+    - persons/triin-lilleorg.md
+
 ---
 
 "meeleKolu" on ZUGA Ühendatud Tantsijate lavastus vaguratele mürsikutele ja avastavatele kainikutele ja nende peredele.

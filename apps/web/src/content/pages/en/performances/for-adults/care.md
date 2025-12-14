@@ -39,6 +39,19 @@ gallery:
   width: 1024
   height: 683
   description: From the performance "Care"
+knowledge_base_sources:
+  articles:
+    - articles/2006-02-err-paevakaja-naine-ja-hunt.md
+  persons:
+    - persons/ajjar-ausma.md
+    - persons/helen-reitsnik.md
+    - persons/helena-krinal.md
+    - persons/kadi-aare.md
+    - persons/liis-ring.md
+    - persons/marta-konovalov.md
+    - persons/reelika-palk.md
+    - persons/tiina-molder.md
+
 ---
 
 ## Dance Performance "Care"

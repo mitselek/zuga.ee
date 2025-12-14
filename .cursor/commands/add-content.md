@@ -168,10 +168,12 @@ knowledge_base_sources: {
 Before creating any web content page:
 
 1. **Verify KnB backing exists**:
+
    - Search `knowledge-base/` for articles, persons, press, or research related to the content
    - If no KnB content found, inform user: "No Knowledge Base content found. Use `/harvest-content` to import sources first."
 
 2. **Populate `knowledge_base_sources`**:
+
    - List all KnB files that support the claims made on the web page
    - Format: Relative paths from `knowledge-base/` root (e.g., `"articles/2024-10-err-kultuur-ilma.md"`)
    - Include articles for press coverage claims
@@ -373,15 +375,15 @@ Use this workflow when creating NEW content files based on Knowledge Base inform
    # NEW: Knowledge Base sources (REQUIRED for content based on KnB)
    knowledge_base_sources:
      articles:
-       - "articles/2024-10-err-kultuur-ilma.md"  # Press coverage articles
+       - "articles/2024-10-err-kultuur-ilma.md" # Press coverage articles
        - "articles/2024-11-criticaldance-ilma.md"
      persons:
-       - "persons/paar-parenson.md"  # Team members mentioned
+       - "persons/paar-parenson.md" # Team members mentioned
        - "persons/kart-tonisson.md"
      press:
-       - "press/2024-10-ilma-announcement.md"  # Official press releases
+       - "press/2024-10-ilma-announcement.md" # Official press releases
      research:
-       - "research/awards-tantsuauhind.md"  # Awards, background research
+       - "research/awards-tantsuauhind.md" # Awards, background research
    ---
    ```
 
@@ -1001,6 +1003,7 @@ Use this workflow when modifying EXISTING content files.
    - If translation not updated: "Consider updating {language} translation for consistency"
 
 3. **Show diff summary** (optional but helpful):
+
    ```markdown
    **Changed lines**:
 
@@ -1062,7 +1065,7 @@ Similar file exists?
 
 **User input**:
 
-```
+```text
 Update the Häbi performance page - set status to published and add hero image habi-hero.jpg
 ```
 
@@ -1081,7 +1084,7 @@ Update the Häbi performance page - set status to published and add hero image h
 
 **User input**:
 
-```
+```text
 Add a "Cast" section to the Häbi page with the following:
 - Director: Mari Mätas
 - Performers: Ann Reimann, Tiina Tauraite
@@ -1108,7 +1111,7 @@ Add a "Cast" section to the Häbi page with the following:
 
 **User input**:
 
-```
+```text
 Change the YouTube video for Häbi to the new trailer: https://youtube.com/watch?v=newtrailer123
 ```
 
@@ -1118,6 +1121,7 @@ Change the YouTube video for Häbi to the new trailer: https://youtube.com/watch
 2. Check `videos` array in frontmatter
 3. Propose: Replace video_id "abc123xyz" → "newtrailer123"
 4. Update frontmatter:
+
    ```yaml
    videos:
      - platform: youtube
@@ -1125,6 +1129,7 @@ Change the YouTube video for Häbi to the new trailer: https://youtube.com/watch
        title: Zuga etendus "Häbi"
        url: https://www.youtube.com/embed/newtrailer123
    ```
+
 5. Write updated file
 6. Report: "✅ Updated YouTube video ID"
 
@@ -1145,6 +1150,7 @@ Add these photos to the Häbi gallery:
 2. Check existing `gallery` array (2 images already)
 3. Propose: Append 3 new images to gallery
 4. Update frontmatter:
+
    ```yaml
    gallery:
      - url: /images/habi-promo.jpg
@@ -1158,5 +1164,6 @@ Add these photos to the Häbi gallery:
      - url: /images/habi-backstage.jpg
        description: Kulissidetagused
    ```
+
 5. Write updated file
 6. Report: "✅ Added 3 images to gallery (now 5 total)"

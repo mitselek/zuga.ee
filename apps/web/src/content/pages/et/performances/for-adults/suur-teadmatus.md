@@ -38,6 +38,24 @@ gallery:
   width: 1920
   height: 1080
   description: Etendusest "Suur Teadmatus"
+knowledge_base_sources:
+  articles:
+    - articles/2019-10-postimees-2-2-22-esietendus.md
+    - articles/2006-02-err-paevakaja-naine-ja-hunt.md
+    - articles/2024-10-err-vikerraadio-okoskoop-ilma.md
+  persons:
+    - persons/ajjar-ausma.md
+    - persons/alan-proosa.md
+    - persons/andri-luup.md
+    - persons/helen-reitsnik.md
+    - persons/kaja-kann.md
+    - persons/kart-tonisson.md
+    - persons/keili-retter.md
+    - persons/lauri-dag-tuur.md
+    - persons/oliver-kulpsoo.md
+    - persons/paar-parenson.md
+    - persons/tiina-molder.md
+
 ---
 
 ## Tantsuetendus "Suur Teadmatus"
