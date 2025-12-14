@@ -37,6 +37,7 @@ Background research, interviews, production notes, and other reference materials
 Canonical registry files for performances and workshops. These YAML files serve as the single source of truth for performance/workshop metadata, enabling validation and cross-referencing across the Knowledge Base.
 
 **Files**:
+
 - `performances.yaml` - All ZUGA performances (historical and current)
 - `workshops.yaml` - All ZUGA workshops
 
@@ -84,6 +85,7 @@ Each registry file contains:
 ```
 
 **Fields**:
+
 - **id** (required): Unique identifier (used in `related_knb.performances`)
 - **title** (required): Bilingual titles (`et`, `en` - at least one required)
 - **slug** (required): Short slugs (`et`, `en` - at least one required)
@@ -129,6 +131,7 @@ node scripts/validate-registry.js [--verbose]
 ```
 
 The script validates:
+
 - YAML syntax
 - Schema compliance (Zod schemas in `registry/schema.ts`)
 - Required fields
