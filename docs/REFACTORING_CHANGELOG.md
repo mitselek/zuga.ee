@@ -269,3 +269,51 @@ Registry IDs can be used in KnB files' `related_knb.performances` fields (e.g., 
 - Branch: refactor/content-architecture
 
 ---
+
+## Issue #46: Folder structure: Performances (2025-12-14)
+
+**Type**: refactor
+**Scope**: web-content, migration
+**Effort**: 3.5 hours
+**Risk**: Medium
+
+### Changes Made
+
+- Moved 30 performance files from flat structure into hierarchical folders
+- Updated Astro routing to handle nested folder structure
+- Created migration script `scripts/move-performances-34a.js`
+- Created fix script `scripts/fix-performance-slugs-46.js`
+- Updated slug fields to use performance name only (e.g., "shame" not "performances-for-adults-shame")
+- Updated translated field slugs for bidirectional linking
+
+**Files moved**:
+- 5 EN adult performances → `en/performances/for-adults/`
+- 7 EN young audience performances → `en/performances/for-young-audiences/`
+- 6 ET adult performances → `et/performances/for-adults/`
+- 8 ET young audience performances → `et/performances/for-young-audiences/`
+- 4 section index files → respective folders as `index.md`
+
+### Files Affected
+
+- Total files changed: 35
+- Files moved: 30 (using git mv to preserve history)
+- Files created: 2 (migration scripts)
+- Files modified: 3 (routing files)
+
+### Validation
+
+- Schema validation: ✅ N/A (no schema changes)
+- Build: ✅ Passed (101 pages built successfully)
+- URLs: ✅ Stable (`/{lang}/etendused/{performance-name}`)
+- Git history: ✅ Preserved (`git log --follow` works)
+
+### Notes
+
+Routing updated to extract filename-only slug from nested paths. URLs remain stable using category from frontmatter (`etendused`) and performance name from slug field. This enables folder-based organization while maintaining URL structure.
+
+### Commit
+
+- Commit hash: 150472046f1596e9100f00ec23f8557e9c045e08
+- Branch: refactor/content-architecture
+
+---
