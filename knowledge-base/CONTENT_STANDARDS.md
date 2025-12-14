@@ -56,7 +56,8 @@ ZUGA movement theater's innovative new work "Weather or Not" examines climate ch
 ```yaml
 ---
 source_url: [Original URL where content was found]
-source_type: [article|press_release|interview|review|preview|news|photo|video|social_media]
+source_type:
+  [article|press_release|interview|review|preview|news|photo|video|social_media]
 source_publication: [Publication name - ERR, EPL, Postimees, etc.]
 source_date: [YYYY-MM-DD - date of original publication]
 source_author: [Author name if available]
@@ -96,7 +97,6 @@ premiere_date: [not mentioned in source]
 venue: Kanuti Gildi SAAL
 performers: [not mentioned in source]
 ---
-
 Etendus oli muljetavaldav. Liikumiskeel oli väga tundlik.
 ```
 
@@ -146,7 +146,7 @@ Liikumiskeel oli väga tundlik ja emotsionaalne. # ❌ Added "emotsionaalne"
 
 **Example structure**:
 
-```
+```text
 knowledge-base/articles/
   2024-10-15-err-ilma-review.md        # ERR review
   2024-10-18-epl-ilma-preview.md       # EPL preview
@@ -177,9 +177,9 @@ team_members: [Only names mentioned in THIS source]
 Source text: "ZUGA etendus Kanuti Gildis kestab 45 minutit"
 
 ```yaml
-venue: Kanuti Gildi SAAL  # ✓ Mentioned
-duration: 45  # ✓ Mentioned
-premiere_date:  # ✗ Not mentioned - leave empty
+venue: Kanuti Gildi SAAL # ✓ Mentioned
+duration: 45 # ✓ Mentioned
+premiere_date: # ✗ Not mentioned - leave empty
 ```
 
 **Example - INCORRECT**:
@@ -187,8 +187,8 @@ premiere_date:  # ✗ Not mentioned - leave empty
 ```yaml
 venue: Kanuti Gildi SAAL
 duration: 45
-premiere_date: 2024-10-15  # ❌ Not in this source, found elsewhere
-choreographer: Päär Pärenson  # ❌ Not mentioned in this article
+premiere_date: 2024-10-15 # ❌ Not in this source, found elsewhere
+choreographer: Päär Pärenson # ❌ Not mentioned in this article
 ```
 
 ## Content Types and Standards
@@ -206,7 +206,7 @@ choreographer: Päär Pärenson  # ❌ Not mentioned in this article
 title: [Original headline]
 slug: [Generated from date-publication-title]
 source_url: [Original article URL]
-source_type: article  # or review, interview, preview, news
+source_type: article # or review, interview, preview, news
 source_publication: [Publication name]
 source_date: YYYY-MM-DD
 archived_date: YYYY-MM-DD
@@ -449,7 +449,6 @@ source_date: 2024-10-15
 archived_date: 2024-12-14
 source_language: et
 ---
-
 [Verbatim text from EPL preview article]
 ```
 
@@ -505,10 +504,9 @@ source_type: article
 source_date: 2024-10-20
 archived_date: 2024-12-14
 performance_title: Ilma
-premiere_date:  # Not mentioned in article
-venue:  # Not mentioned in article
+premiere_date: # Not mentioned in article
+venue: # Not mentioned in article
 ---
-
 Uus etendus "Ilma" räägib loodusest. Lavastaja sõnul on tegemist tundliku käsitlusega.
 ```
 
@@ -548,14 +546,14 @@ Uus etendus "Ilma" räägib loodusest. Lavastaja sõnul on tegemist tundliku kä
 
 ## Summary
 
-| Aspect | KnB Standard | Homepage Content |
-|--------|--------------|------------------|
-| **Text** | Verbatim only | Can synthesize/rewrite |
-| **Language** | Original preserved | Translated as needed |
-| **Sources** | One per file | Multiple sources combined |
-| **Gaps** | Left empty | Can be filled with context |
-| **Attribution** | Required in frontmatter | Links to KnB articles |
-| **Purpose** | Factual archive | User presentation |
+| Aspect          | KnB Standard            | Homepage Content           |
+| --------------- | ----------------------- | -------------------------- |
+| **Text**        | Verbatim only           | Can synthesize/rewrite     |
+| **Language**    | Original preserved      | Translated as needed       |
+| **Sources**     | One per file            | Multiple sources combined  |
+| **Gaps**        | Left empty              | Can be filled with context |
+| **Attribution** | Required in frontmatter | Links to KnB articles      |
+| **Purpose**     | Factual archive         | User presentation          |
 
 ## Questions?
 
@@ -571,4 +569,4 @@ If unsure whether something violates these standards, ask:
 
 ---
 
-*Last updated: 2025-12-14*
+_Last updated: 2025-12-14_
