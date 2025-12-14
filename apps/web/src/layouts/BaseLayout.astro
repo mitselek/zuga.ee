@@ -87,10 +87,10 @@ const defaultOgImage = `${siteUrl}/og-image.jpg`;
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div class="text-center">
           <p class="text-gray-300 mb-2">
-            © {new Date().getFullYear()} {language === 'et' ? 'ZUGA Ühendatud Tantsijad' : 'United Dancers of ZUGA'}
+            {language === 'et' ? 'Kaasaegne teater lastele ja täiskasvanutele' : 'Contemporary theatre for children and adults'}
           </p>
           <p class="text-gray-400 text-sm">
-            {language === 'et' ? 'Kaasaegne teater lastele ja täiskasvanutele' : 'Contemporary theatre for children and adults'}
+            @ {new Date().toISOString().split('T')[0]}
           </p>
         </div>
       </div>
