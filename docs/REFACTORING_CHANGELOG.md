@@ -85,7 +85,7 @@ Prompts now enforce bidirectional linking requirements established in Issue #30.
 
 ### Commit
 
-- Commit hash: ac31d0db9a4819078de0e78fa9eb08fa40e8fa67
+- Commit hash: 805e592fbe08d364a5bed65de522f68c1d196e81
 - Branch: refactor/content-architecture
 
 ---
