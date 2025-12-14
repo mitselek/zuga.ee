@@ -19,7 +19,10 @@
 ### Phase 1: Schema & Compliance (P0 Critical)
 
 - ~~#30 - Add bidirectional KnB linking schema fields (4-6h)~~ ✅
-- #31 - KnB compliance migration - automated (8-12h)
+- ~~#31 - KnB compliance migration - automated (8-12h)~~ (superseded by #42, #43, #44)
+  - #42 - [#31a] Migrate articles collection (14 files, 4-5h)
+  - #43 - [#31b] Migrate press collection (2 files, 1-2h)
+  - #44 - [#31c] Migrate research collection (1 file, 30min)
 - #32 - Add source attribution to person profiles (4-6h)
 
 ### Phase 2: File Organization (P1 High)
