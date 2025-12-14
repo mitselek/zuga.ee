@@ -954,11 +954,32 @@ sed -i "s/- \[ \] #<N> /- [x] #<N> /" epic-body-temp.txt
 # Update epic with new body
 gh issue edit 29 --body-file epic-body-temp.txt
 
-# Clean up
-rm epic-body-temp.txt issue-<N>-closure-comment.txt
+# Clean up temp files
+rm epic-body-temp.txt
 ```
 
-**Step 5** - Check milestone progress:
+**Step 5** - Clean up all temporary files created during workflow:
+
+```bash
+# Remove issue closure comment draft
+rm -f issue-<N>-closure-comment.txt
+
+# Remove any migration logs
+rm -f migration-<N>.log validation-issue-<N>.log build-issue-<N>.log
+
+# Remove any rename mappings
+rm -f rename-map-<N>.json generate-rename-map-<N>.sh
+
+# Verify no uncommitted changes remain
+git status --short
+# Expected: Empty output
+
+# If any files remain uncommitted, review and either:
+# - Commit them if they're needed: git add <file> && git commit -m "..."
+# - Or remove them if they're temp files: rm <file>
+```
+
+**Step 6** - Check milestone progress:
 
 ```bash
 gh api repos/mitselek/zuga.ee/milestones/1 | \
