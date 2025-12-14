@@ -6,6 +6,11 @@ archived_date: 2025-12-14
 role: Dramaturg
 collaboration_years: [2019]
 status: collaborator
+used_in_pages:
+  - en/performances/for-adults/noise.md
+  - et/performances/for-adults/mura.md
+  - et/performances/for-young-audiences/2-2-22.md
+
 ---
 
 # Katrin Tegova

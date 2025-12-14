@@ -8,6 +8,12 @@ company: krinal | mansour
 country: Estonia/Palestine
 collaboration_years: [2019, 2024]
 status: guest_artist
+used_in_pages:
+  - en/performances/for-adults/care.md
+  - en/performances/for-adults/noise.md
+  - et/performances/for-adults/hool.md
+  - et/performances/for-adults/mura.md
+
 ---
 
 # Helena Krinal

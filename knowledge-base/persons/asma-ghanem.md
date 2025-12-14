@@ -7,6 +7,10 @@ role: Heli- ja graafiline kujundaja
 country: Palestine
 collaboration_years: [2019]
 status: international_collaborator
+used_in_pages:
+  - en/performances/for-adults/noise.md
+  - et/performances/for-adults/mura.md
+
 ---
 
 # Asma Ghanem

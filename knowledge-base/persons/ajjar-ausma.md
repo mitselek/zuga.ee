@@ -7,6 +7,24 @@ role: Tantsija, koreograaf, liikumisõpetaja
 member_since: 2014
 image: /images/zuga-heliliikumistootoad-hero.jpg
 status: active
+used_in_pages:
+  - en/performances/for-adults/care.md
+  - en/performances/for-adults/noise.md
+  - en/performances/for-adults/the-great-unknown.md
+  - en/performances/for-young-audiences/2-2-22.md
+  - en/performances/for-young-audiences/thepassage.md
+  - en/performances/for-young-audiences/topsy-turvy.md
+  - en/performances/for-young-audiences/weather-or-not.md
+  - et/performances/for-adults/hool.md
+  - et/performances/for-adults/mura.md
+  - et/performances/for-adults/suur-teadmatus.md
+  - et/performances/for-young-audiences/2-2-22.md
+  - et/performances/for-young-audiences/ilma.md
+  - et/performances/for-young-audiences/kaeik.md
+  - et/performances/for-young-audiences/meelekolu.md
+  - et/performances/for-young-audiences/uperpall.md
+  - et/workshops/zuga-heliliikumistootoad.md
+
 ---
 
 # Ajjar Ausma

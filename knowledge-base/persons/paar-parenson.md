@@ -7,6 +7,20 @@ aka: MC J.O.C
 role: Tantsija, koreograaf, näitleja, räppar
 member_since: 2014
 status: active
+used_in_pages:
+  - en/performances/for-adults/the-great-unknown.md
+  - en/performances/for-young-audiences/2-2-22.md
+  - en/performances/for-young-audiences/thepassage.md
+  - en/performances/for-young-audiences/topsy-turvy.md
+  - en/performances/for-young-audiences/weather-or-not.md
+  - et/performances/for-adults/suur-teadmatus.md
+  - et/performances/for-young-audiences/2-2-22.md
+  - et/performances/for-young-audiences/ilma.md
+  - et/performances/for-young-audiences/kaeik.md
+  - et/performances/for-young-audiences/meelekolu.md
+  - et/performances/for-young-audiences/uperpall.md
+  - et/workshops/zuga-heliliikumistootoad.md
+
 ---
 
 # Päär Pärenson

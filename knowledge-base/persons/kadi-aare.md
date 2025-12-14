@@ -7,6 +7,10 @@ role: Graafiline disainer, fotograaf, videograaf
 specialization: [graphic_design, photography, videography]
 collaboration_years: [2024]
 status: collaborator
+used_in_pages:
+  - en/performances/for-adults/care.md
+  - et/performances/for-adults/hool.md
+
 ---
 
 # Kadi Aare

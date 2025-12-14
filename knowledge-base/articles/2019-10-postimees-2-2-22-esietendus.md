@@ -18,6 +18,12 @@ tags:
   - Sõltumatu Tantsu Lava
   - rules and freedom
 archived_date: 2025-12-14
+used_in_pages:
+  - en/performances/for-adults/noise.md
+  - en/performances/for-adults/the-great-unknown.md
+  - et/performances/for-adults/mura.md
+  - et/performances/for-adults/suur-teadmatus.md
+
 ---
 
 # Sõltumatu Tantsu Laval esietendub ZUGA lavastus "2+2=22"

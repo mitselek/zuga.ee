@@ -6,6 +6,10 @@ archived_date: 2025-12-14
 role: Valguskunstnik
 collaboration_years: [2024]
 status: collaborator
+used_in_pages:
+  - en/performances/for-adults/care.md
+  - et/performances/for-adults/hool.md
+
 ---
 
 # Reelika Palk

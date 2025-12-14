@@ -18,6 +18,10 @@ related_performances:
   - ilma
   - suur-teadmatus
 archived_date: 2025-12-14
+used_in_pages:
+  - en/performances/for-young-audiences/weather-or-not.md
+  - et/performances/for-young-audiences/ilma.md
+
 ---
 
 # Kärt Tõnisson lavastusest "Ilma": selles on õudselt palju paradokse, mida peame paremaks eluks

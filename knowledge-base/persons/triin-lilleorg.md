@@ -7,6 +7,11 @@ role: Tantsija, koreograaf
 member_since: 2006
 member_until: 2016
 status: former_member
+used_in_pages:
+  - en/performances/for-young-audiences/magic-stuff.md
+  - et/performances/for-young-audiences/meelekolu.md
+  - et/performances/for-young-audiences/voluvaerk.md
+
 ---
 
 # Triin Lilleorg

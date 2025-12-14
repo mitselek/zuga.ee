@@ -25,6 +25,12 @@ tags:
 related_performances:
   - ilma
 archived_date: 2025-12-14
+used_in_pages:
+  - en/performances/for-adults/the-great-unknown.md
+  - en/performances/for-young-audiences/weather-or-not.md
+  - et/performances/for-adults/suur-teadmatus.md
+  - et/performances/for-young-audiences/ilma.md
+
 ---
 
 # Ökoskoop: Kliimast kõnelev lavastus "Ilma" ja päikesepaneelid

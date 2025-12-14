@@ -7,6 +7,11 @@ role: Tantsija, koreograaf
 founding_member: true
 member_since: 1999
 status: founding_member
+used_in_pages:
+  - en/performances/for-young-audiences/2-2-22.md
+  - en/performances/for-young-audiences/thepassage.md
+  - et/performances/for-young-audiences/kaeik.md
+
 ---
 
 # Jarmo Karing

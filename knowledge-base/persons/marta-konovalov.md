@@ -7,6 +7,12 @@ role: Kunstnik
 specialization: [costume_design, set_design]
 collaboration_years: [2024]
 status: current_collaborator
+used_in_pages:
+  - en/performances/for-adults/care.md
+  - en/performances/for-young-audiences/weather-or-not.md
+  - et/performances/for-adults/hool.md
+  - et/performances/for-young-audiences/ilma.md
+
 ---
 
 # Marta Konovalov

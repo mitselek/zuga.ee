@@ -512,18 +512,24 @@ function checkLinkingIntegrity() {
 
   // Check: If web page references KnB file, does KnB file reference back?
   for (const [webPath, sources] of webPages.entries()) {
+    // Normalize web path (ensure it has .md extension for comparison)
+    const normalizedWebPath = webPath.endsWith('.md') ? webPath : `${webPath}.md`;
+
     for (const [type, paths] of Object.entries(sources)) {
       if (!paths) continue;
       for (const knbPath of paths) {
-        const knbFile = knbFiles.get(knbPath);
-        if (knbFile && !knbFile.includes(webPath)) {
-          console.error(`⚠️  Bidirectional link missing: ${webPath} references ${knbPath}, but ${knbPath} doesn't reference back`);
+        // Normalize KnB path (remove leading slash if present)
+        const normalizedKnbPath = knbPath.startsWith('/') ? knbPath.slice(1) : knbPath;
+        const knbFile = knbFiles.get(normalizedKnbPath);
+
+        if (knbFile && !knbFile.includes(normalizedWebPath)) {
+          console.error(`⚠️  Bidirectional link missing: ${normalizedWebPath} references ${normalizedKnbPath}, but ${normalizedKnbPath} doesn't reference back`);
           errors++;
         }
         // Check if KnB file exists
-        const fullKnbPath = path.join(knowledgeBasePath, knbPath);
+        const fullKnbPath = path.join(knowledgeBasePath, normalizedKnbPath);
         if (!fs.existsSync(fullKnbPath)) {
-          console.error(`❌ Web page ${webPath} references non-existent KnB file: ${knbPath}`);
+          console.error(`❌ Web page ${normalizedWebPath} references non-existent KnB file: ${normalizedKnbPath}`);
           errors++;
         }
       }
@@ -532,20 +538,32 @@ function checkLinkingIntegrity() {
 
   // Check: If KnB file references web page, does web page reference back?
   for (const [knbPath, webPaths] of knbFiles.entries()) {
-    for (const webPath of webPaths) {
-      const sources = webPages.get(webPath);
-      const knbType = knbPath.split('/')[0];
-      const knbFile = knbPath.substring(knbType.length + 1);
+    // Normalize KnB path
+    const normalizedKnbPath = knbPath.startsWith('/') ? knbPath.slice(1) : knbPath;
+    const knbType = normalizedKnbPath.split('/')[0];
 
-      if (!sources || !sources[knbType] || !sources[knbType].includes(knbFile)) {
-        console.error(`⚠️  Bidirectional link missing: ${knbPath} references ${webPath}, but ${webPath} doesn't reference back`);
+    for (const webPath of webPaths) {
+      // Normalize web path
+      const normalizedWebPath = webPath.endsWith('.md') ? webPath : `${webPath}.md`;
+      const sources = webPages.get(normalizedWebPath);
+
+      // Check if web page references this KnB file
+      // sources[knbType] contains full paths like "articles/file.md"
+      const knbFileInSources = sources && sources[knbType] &&
+        sources[knbType].some(p => {
+          const normalized = p.startsWith('/') ? p.slice(1) : p;
+          return normalized === normalizedKnbPath;
+        });
+
+      if (!knbFileInSources) {
+        console.error(`⚠️  Bidirectional link missing: ${normalizedKnbPath} references ${normalizedWebPath}, but ${normalizedWebPath} doesn't reference back`);
         errors++;
       }
 
       // Check if web page exists
-      const fullWebPath = path.join(webContentDir, webPath);
+      const fullWebPath = path.join(webContentDir, normalizedWebPath);
       if (!fs.existsSync(fullWebPath)) {
-        console.error(`❌ KnB file ${knbPath} references non-existent web page: ${webPath}`);
+        console.error(`❌ KnB file ${normalizedKnbPath} references non-existent web page: ${normalizedWebPath}`);
         errors++;
       }
     }

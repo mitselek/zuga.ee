@@ -18,6 +18,11 @@ tags:
   - multimedia
   - international collaboration
 archived_date: 2025-12-14
+used_in_pages:
+  - et/performances/for-adults/hool.md
+  - et/performances/for-adults/naine-ja-hunt.md
+  - et/performances/for-young-audiences/2-2-22.md
+
 ---
 
 # ZUGA "Naine ja Hunt" uurib kultuuride erinevusi
