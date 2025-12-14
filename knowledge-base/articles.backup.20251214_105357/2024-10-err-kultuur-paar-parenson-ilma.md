@@ -1,12 +1,10 @@
 ---
 title: "Päär Pärenson lavastusest 'Ilma': on tantsu, on ruumis liikumist ja näpuotsaga laulu"
 date: 2024-10-24
-source_date: 2024-10-24
-source_publication: ERR Kultuuriportaal
-source_author: ERR
-source_url: https://kultuur.err.ee/1609501726/paar-parenson-lavastusest-ilma-on-tantsu-on-ruumis-liikumist-ja-napuotsaga-laulu
-type: preview
-source_type: preview
+publication: ERR Kultuuriportaal
+author: ERR
+url: https://kultuur.err.ee/1609501726/paar-parenson-lavastusest-ilma-on-tantsu-on-ruumis-liikumist-ja-napuotsaga-laulu
+type: preview-article
 language: et
 tags:
   - ilma
@@ -16,7 +14,6 @@ tags:
   - 2024
 related_performances:
   - ilma
-archived_date: 2025-12-14
 ---
 
 # Päär Pärenson lavastusest "Ilma": on tantsu, on ruumis liikumist ja näpuotsaga laulu

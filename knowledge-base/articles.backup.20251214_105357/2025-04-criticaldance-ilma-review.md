@@ -1,12 +1,10 @@
 ---
 title: "Zuga: Ilma / Weather or Not"
 date: 2025-04-01
-source_date: 2025-04-01
-source_publication: CriticalDance
-source_author: Stuart Sweeney
-source_url: https://criticaldance.org/zuga-ilan-weather-or-not/
+publication: CriticalDance
+author: Stuart Sweeney
+url: https://criticaldance.org/zuga-ilan-weather-or-not/
 type: review
-source_type: review
 language: en
 tags:
   - ilma
@@ -19,7 +17,6 @@ related_performances:
   - ilma
 performance_date: 2025-03-30
 venue: Sõltumatu Tantsu Lava (STL), Tallinn, Estonia
-archived_date: 2025-12-14
 ---
 
 # Zuga: Ilma / Weather or Not

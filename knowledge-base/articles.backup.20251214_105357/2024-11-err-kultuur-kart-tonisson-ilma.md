@@ -1,12 +1,10 @@
 ---
 title: "Kärt Tõnisson lavastusest 'Ilma': selles on õudselt palju paradokse, mida peame paremaks eluks"
 date: 2024-11-05
-source_date: 2024-11-05
-source_publication: ERR Kultuuriportaal
-source_author: Sanna Kartau
-source_url: https://kultuur.err.ee/1609512760/kart-tonisson-lavastusest-ilma-selles-on-oudselt-palju-paradokse-mida-peame-paremaks-eluks
+publication: ERR Kultuuriportaal
+author: Sanna Kartau
+url: https://kultuur.err.ee/1609512760/kart-tonisson-lavastusest-ilma-selles-on-oudselt-palju-paradokse-mida-peame-paremaks-eluks
 type: interview
-source_type: interview
 language: et
 tags:
   - ilma
@@ -17,7 +15,6 @@ tags:
 related_performances:
   - ilma
   - suur-teadmatus
-archived_date: 2025-12-14
 ---
 
 # Kärt Tõnisson lavastusest "Ilma": selles on õudselt palju paradokse, mida peame paremaks eluks

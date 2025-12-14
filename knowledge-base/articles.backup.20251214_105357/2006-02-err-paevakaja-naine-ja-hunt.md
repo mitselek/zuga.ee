@@ -1,13 +1,11 @@
 ---
 date: 2006-02-26
-source_date: 2006-02-26
-source_url: https://arhiiv.err.ee/audio/vaata/paevakaja-paevakaja-nr-16373-kl-18?t=691
-source_publication: ERR
+source: https://arhiiv.err.ee/audio/vaata/paevakaja-paevakaja-nr-16373-kl-18?t=691
+publication: ERR
 program: Päevakaja
 episode: "NR 16373 kl 18"
 title: "Päevakaja: ZUGA esietendus 'Naine ja hunt'"
 type: radio
-source_type: radio
 related_performances:
   - Naine ja hunt (2006)
 interviewees:
@@ -21,7 +19,6 @@ tags:
   - news coverage
   - contemporary dance
   - modern dance
-archived_date: 2025-12-14
 ---
 
 # Päevakaja: ZUGA esietendus "Naine ja hunt"

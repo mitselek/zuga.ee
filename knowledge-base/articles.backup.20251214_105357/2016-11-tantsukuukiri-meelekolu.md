@@ -1,13 +1,11 @@
 ---
 date: 2016-11
-source_date: 2016-11-01
-source_url: https://kuukiri.tantsuliit.ee/artikkel/zuga-puuab-ohjata-meelekolusid/
-source_publication: Tantsukuukiri
+source: https://kuukiri.tantsuliit.ee/artikkel/zuga-puuab-ohjata-meelekolusid/
+publication: Tantsukuukiri
 issue: "NR 61"
-source_author: Marie Pullerits
+author: Marie Pullerits
 title: "ZUGA püüab ohjata meele(k)olusid"
 type: interview
-source_type: interview
 related_performances:
   - meeleKolu (2016)
   - Zuga zuug zuh-zuh-zuh (2009)
@@ -22,7 +20,6 @@ tags:
 interviewees:
   - Kärt Tõnisson
   - Tiina Mölder
-archived_date: 2025-12-14
 ---
 
 # ZUGA püüab ohjata meele(k)olusid

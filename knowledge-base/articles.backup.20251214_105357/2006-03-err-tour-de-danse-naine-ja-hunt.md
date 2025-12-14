@@ -1,13 +1,11 @@
 ---
 date: 2006-03-09
-source_date: 2006-03-09
-source_url: https://arhiiv.err.ee/video/vaata/tour-de-danse-soduri-lugu-undiin-naine-ja-hunt-dr-todva-ja-prof-sule-susteem-fame-kaie-korbi-raamatu-esitlus
-source_publication: ERR
+source: https://arhiiv.err.ee/video/vaata/tour-de-danse-soduri-lugu-undiin-naine-ja-hunt-dr-todva-ja-prof-sule-susteem-fame-kaie-korbi-raamatu-esitlus
+publication: ERR
 program: Tour de danse
 episode: "75"
 title: "Tour de danse: Sõduri lugu, Undiin, Naine ja hunt, Dr Tõdva ja Prof Sule süsteem, Fame, Kaie Kõrbi raamatu esitlus"
 type: television
-source_type: television
 related_performances:
   - Naine ja hunt (2006)
   - Undiin (2006)
@@ -23,7 +21,6 @@ tags:
   - contemporary dance
   - dance coverage
   - multi-performance episode
-archived_date: 2025-12-14
 ---
 
 # Tour de danse: Naine ja hunt (Episode 75)

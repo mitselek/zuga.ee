@@ -1,12 +1,10 @@
 ---
 date: 2011-11-22
-source_date: 2011-11-22
-source_url: https://arhiiv.err.ee/audio/vaata/laste-lood-voluvark
-source_publication: ERR Vikerraadio
+source: https://arhiiv.err.ee/audio/vaata/laste-lood-voluvark
+publication: ERR Vikerraadio
 program: Laste lood
 title: "Laste lood: Võluvärk"
 type: radio
-source_type: radio
 related_performances:
   - Võluvärk (2011)
 interviewees:
@@ -20,7 +18,6 @@ tags:
   - performance review
   - children's feedback
   - audience participation
-archived_date: 2025-12-14
 ---
 
 # Laste lood: Võluvärk

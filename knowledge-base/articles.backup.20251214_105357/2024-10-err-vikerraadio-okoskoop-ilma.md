@@ -1,8 +1,7 @@
 ---
 title: "Ökoskoop: Kliimast kõnelev lavastus 'Ilma' ja päikesepaneelid"
 date: 2024-10-28
-source_date: 2024-10-28
-source_publication: ERR Vikerraadio
+publication: ERR Vikerraadio
 program: Ökoskoop
 hosts:
   - Krista Taim
@@ -11,9 +10,8 @@ guests:
   - Marta Konovalov
   - Kärt Tõnisson
   - Krista Takkis
-source_url: https://vikerraadio.err.ee/1609490843/okoskoop-kliimast-konelev-lavastus-ilma-ja-paikesepaneelid
+url: https://vikerraadio.err.ee/1609490843/okoskoop-kliimast-konelev-lavastus-ilma-ja-paikesepaneelid
 type: radio-interview
-source_type: radio
 language: et
 tags:
   - ilma
@@ -24,7 +22,6 @@ tags:
   - 2024
 related_performances:
   - ilma
-archived_date: 2025-12-14
 ---
 
 # Ökoskoop: Kliimast kõnelev lavastus "Ilma" ja päikesepaneelid

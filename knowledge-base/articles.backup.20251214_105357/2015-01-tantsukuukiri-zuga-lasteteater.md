@@ -1,13 +1,11 @@
 ---
 date: 2015-01
-source_date: 2015-01-01
-source_url: https://kuukiri.tantsuliit.ee/artikkel/zuga-lasteteater-vaatamine-hobe-kaasategemine-kuld/
-source_publication: Tantsukuukiri
+source: https://kuukiri.tantsuliit.ee/artikkel/zuga-lasteteater-vaatamine-hobe-kaasategemine-kuld/
+publication: Tantsukuukiri
 issue: "NR 43"
-source_author: Eva-Liisa Linder
+author: Eva-Liisa Linder
 title: "ZUGA LASTETEATER: VAATAMINE HÕBE, KAASATEGEMINE KULD"
 type: article
-source_type: article
 related_performances:
   - Käik (2014)
   - Võluvärk (2011)
@@ -21,7 +19,6 @@ tags:
   - contemporary dance
   - dance education
   - theatre criticism
-archived_date: 2025-12-14
 ---
 
 # ZUGA LASTETEATER: VAATAMINE HÕBE, KAASATEGEMINE KULD

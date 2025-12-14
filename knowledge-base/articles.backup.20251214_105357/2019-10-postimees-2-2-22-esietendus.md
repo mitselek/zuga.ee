@@ -1,12 +1,10 @@
 ---
 date: 2019-10-25
-source_date: 2019-10-25
-source_url: https://kultuur.postimees.ee/6810228/soltumatu-tantsu-laval-esietendub-zuga-lavastus-2-2-22
-source_publication: Postimees Kultuur
-source_author: Kultuuritoimetus
+source: https://kultuur.postimees.ee/6810228/soltumatu-tantsu-laval-esietendub-zuga-lavastus-2-2-22
+publication: Postimees Kultuur
+author: Kultuuritoimetus
 title: "Sõltumatu Tantsu Laval esietendub ZUGA lavastus '2+2=22'"
 type: article
-source_type: article
 related_performances:
   - 2+2=22 (2019)
 language: et
@@ -17,7 +15,6 @@ tags:
   - contemporary dance
   - Sõltumatu Tantsu Lava
   - rules and freedom
-archived_date: 2025-12-14
 ---
 
 # Sõltumatu Tantsu Laval esietendub ZUGA lavastus "2+2=22"
