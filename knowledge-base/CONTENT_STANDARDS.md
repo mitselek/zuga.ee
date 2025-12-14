@@ -191,6 +191,107 @@ premiere_date: 2024-10-15 # ❌ Not in this source, found elsewhere
 choreographer: Päär Pärenson # ❌ Not mentioned in this article
 ```
 
+## Bidirectional Linking
+
+**Rule**: Use bidirectional linking fields to establish traceability between Knowledge Base content and web pages.
+
+### KnB → Web Pages (`used_in_pages`)
+
+Track which web pages reference each KnB file. This enables:
+
+- **Update cascade**: When KnB content is updated, identify all web pages that need review
+- **Content audit**: Find orphaned KnB content or unsupported web claims
+- **AI prompt validation**: `/add-content` prompt can verify KnB backing
+
+**Format**:
+
+```yaml
+---
+used_in_pages:
+  - et/etendused-noorele-publikule-ilma.md
+  - en/performances-for-young-audiences-weather-or-not.md
+---
+```
+
+**Path format**: Relative paths from `apps/web/src/content/pages/` directory, including language prefix (`et/` or `en/`).
+
+**When to populate**:
+
+- Manually when creating/updating web pages that reference KnB content
+- Automatically via linking scripts (see Issue #36, #37)
+
+### KnB → KnB (`related_knb`)
+
+Cross-reference related content within the Knowledge Base to build a knowledge graph.
+
+**Format**:
+
+```yaml
+---
+related_knb:
+  performances:
+    - ilma
+    - habi
+  persons:
+    - paar-parenson
+    - kart-tonisson
+  articles:
+    - 2024-10-err-kultuur-ilma-review
+  press:
+    - 2024-10-ilma-announcement
+  research:
+    - awards-tantsuauhind
+---
+```
+
+**Field formats**:
+
+- **performances**: Performance IDs from registry (slug format, e.g., `"ilma"`)
+- **persons**: Person file slugs without extension (e.g., `"paar-parenson"`)
+- **articles**: Article file slugs without extension (e.g., `"2024-10-err-kultuur-ilma-review"`)
+- **press**: Press release file slugs without extension
+- **research**: Research file slugs without extension
+
+**When to populate**:
+
+- When KnB content explicitly mentions other KnB entities
+- When articles reference specific performances or persons
+- When press releases announce performances with known team members
+
+### Web Pages → KnB (`knowledge_base_sources`)
+
+Web content pages should reference their KnB sources to enable validation and traceability.
+
+**Format** (in web page frontmatter):
+
+```yaml
+---
+knowledge_base_sources:
+  articles:
+    - articles/2024-10-err-kultuur-ilma-review.md
+  persons:
+    - persons/paar-parenson.md
+  press:
+    - press/2024-10-ilma-announcement.md
+  research:
+    - research/awards-tantsuauhind.md
+---
+```
+
+**Path format**: Relative paths from `knowledge-base/` root directory.
+
+**When to populate**:
+
+- When creating web pages using `/add-content` prompt
+- When web page content makes claims that should be backed by KnB sources
+- For performance pages: link to press coverage, reviews, team member profiles
+
+**Best practices**:
+
+- Link to ALL KnB sources that support claims on the web page
+- Keep links bidirectional: if web page links to KnB, KnB should list web page in `used_in_pages`
+- Update links when content changes or new sources are added
+
 ## Content Types and Standards
 
 ### Articles (Press Coverage)

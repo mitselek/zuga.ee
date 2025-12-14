@@ -94,6 +94,44 @@ const pagesCollection = defineCollection({
       language: z.string(),
       slug: z.string(),
     })).optional(),
+
+    // Bidirectional linking to Knowledge Base
+    knowledge_base_sources: z
+      .object({
+        articles: z
+          .array(z.string())
+          .optional()
+          .describe(
+            'KnB article file paths relative to knowledge-base root. ' +
+              'Example: "articles/2024-10-err-kultuur-ilma.md"'
+          ),
+        persons: z
+          .array(z.string())
+          .optional()
+          .describe(
+            'KnB person file paths relative to knowledge-base root. ' +
+              'Example: "persons/paar-parenson.md"'
+          ),
+        press: z
+          .array(z.string())
+          .optional()
+          .describe(
+            'KnB press release file paths relative to knowledge-base root. ' +
+              'Example: "press/2024-10-ilma-announcement.md"'
+          ),
+        research: z
+          .array(z.string())
+          .optional()
+          .describe(
+            'KnB research file paths relative to knowledge-base root. ' +
+              'Example: "research/awards-tantsuauhind.md"'
+          ),
+      })
+      .optional()
+      .describe(
+        'Knowledge Base sources that support the content on this page. ' +
+          'Enables traceability and validation of claims made on web pages.'
+      ),
   }),
 });
 

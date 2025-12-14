@@ -1,0 +1,26 @@
+Completed Issue #30.
+
+**Acceptance Criteria**: All met ✅
+- [x] Schema validation passes for new fields
+- [x] TypeScript types generated correctly
+- [x] Example files validate successfully (builds pass)
+- [x] Documentation updated
+
+**Changes Summary**:
+- Added `used_in_pages` array to all KnB schemas (articles, persons, press, research)
+- Added `related_knb` object to all KnB schemas for cross-referencing related content
+- Added `knowledge_base_sources` object to web pages schema
+- Updated README.md with bidirectional linking documentation
+- Updated CONTENT_STANDARDS.md with usage guidelines and best practices
+
+**Validation**:
+- Schema validation: ✅ Passed (TypeScript compilation successful)
+- Build: ✅ Succeeded (Astro build completed successfully)
+- Manual review: ✅ Complete
+
+**Files Changed**: 4
+**Actual Effort**: 2 hours
+
+**Commit**: f1350e55ee31457a18a8ed520139c036dd8a071e
+
+See `docs/REFACTORING_CHANGELOG.md` for full details.
