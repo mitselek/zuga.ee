@@ -99,3 +99,56 @@ cp -r knowledge-base/articles.backup.20251214_105357 knowledge-base/articles
 - Branch: refactor/content-architecture
 
 ---
+
+## Issue #32: Add source attribution to person profiles (2025-12-14)
+
+**Type**: feat
+**Scope**: knb, migration
+**Effort**: 2 hours
+**Risk**: Low
+
+### Changes Made
+
+- Decided source attribution policy: Option A - Internal docs (`source_url: internal://zuga-team-bios`)
+- Documented policy in `knowledge-base/README.md`
+- Created migration script `scripts/migrate-persons-32.js` for automated field addition
+- Migrated 22 person profile files to add required source attribution:
+  - Added `source_url: internal://zuga-team-bios` to all files
+  - Added `source_type: bio` to all files
+  - Added `archived_date: 2025-12-14` to all files
+
+### Files Affected
+
+- Total files changed: 23
+- New files created: 1 (`scripts/migrate-persons-32.js`)
+- Files deleted: 0
+- Files renamed: 0
+- Migration script: `scripts/migrate-persons-32.js`
+
+### Validation
+
+- Schema validation: ✅ Passed (all 22 files validate successfully)
+- Build: ✅ Succeeded (TypeScript compilation successful)
+- Tests: N/A
+
+### Notes
+
+- Backup created before migration: `knowledge-base/persons.backup.20251214_111124`
+- All original data preserved - only new fields added
+- Source policy documented: Person profiles use `internal://zuga-team-bios` protocol
+- Consistent format across all 22 profiles
+
+### Rollback Procedure
+
+If rollback needed:
+```bash
+rm -rf knowledge-base/persons
+cp -r knowledge-base/persons.backup.20251214_111124 knowledge-base/persons
+```
+
+### Commit
+
+- Commit hash: 0e47c15
+- Branch: refactor/content-architecture
+
+---
