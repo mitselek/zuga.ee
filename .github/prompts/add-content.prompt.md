@@ -149,7 +149,40 @@ subcategory: string (for grouping within category)
 order: number (for manual ordering)
 hero_image: string (path like /images/filename.jpg)
 background_color: string (CSS color value)
+
+// NEW: Bidirectional linking to Knowledge Base (REQUIRED for content based on KnB)
+knowledge_base_sources: {
+  articles?: string[]    // KnB article file paths relative to knowledge-base root
+                         // Example: "articles/2024-10-err-kultuur-ilma.md"
+  persons?: string[]     // KnB person file paths
+                         // Example: "persons/paar-parenson.md"
+  press?: string[]       // KnB press release file paths
+                         // Example: "press/2024-10-ilma-announcement.md"
+  research?: string[]    // KnB research file paths
+                         // Example: "research/awards-tantsuauhind.md"
+}
 ```
+
+**CRITICAL: Knowledge Base Validation**
+
+Before creating any web content page:
+
+1. **Verify KnB backing exists**:
+   - Search `knowledge-base/` for articles, persons, press, or research related to the content
+   - If no KnB content found, inform user: "No Knowledge Base content found. Use `/harvest-content` to import sources first."
+
+2. **Populate `knowledge_base_sources`**:
+   - List all KnB files that support the claims made on the web page
+   - Format: Relative paths from `knowledge-base/` root (e.g., `"articles/2024-10-err-kultuur-ilma.md"`)
+   - Include articles for press coverage claims
+   - Include person files for team member information
+   - Include press releases for official announcements
+   - Include research files for awards or background information
+
+3. **Use registry for performance names**:
+   - Load `knowledge-base/registry/performances.yaml`
+   - Use canonical performance IDs when referencing performances
+   - Validate performance names against registry before creating content
 
 ## CREATE Workflow
 
@@ -336,6 +369,19 @@ Use this workflow when creating NEW content files based on Knowledge Base inform
        video_id: [extracted ID]
        title: [video title]
        url: [embed URL]
+
+   # NEW: Knowledge Base sources (REQUIRED for content based on KnB)
+   knowledge_base_sources:
+     articles:
+       - "articles/2024-10-err-kultuur-ilma.md"  # Press coverage articles
+       - "articles/2024-11-criticaldance-ilma.md"
+     persons:
+       - "persons/paar-parenson.md"  # Team members mentioned
+       - "persons/kart-tonisson.md"
+     press:
+       - "press/2024-10-ilma-announcement.md"  # Official press releases
+     research:
+       - "research/awards-tantsuauhind.md"  # Awards, background research
    ---
    ```
 
@@ -512,6 +558,18 @@ premiere_date: 2024-10-15
 venue: Kanuti Gildi SAAL
 duration: 45
 hero_image: /images/performances/etendused-noorele-publikule-ilma/hero.jpg
+
+# Knowledge Base sources (REQUIRED - validates all claims on this page)
+knowledge_base_sources:
+  articles:
+    - "articles/2024-10-err-kultuur-ilma.md"
+    - "articles/2024-10-epl-ilma-preview.md"
+    - "articles/2024-11-criticaldance-ilma.md"
+  persons:
+    - "persons/paar-parenson.md"
+    - "persons/kart-tonisson.md"
+  research:
+    - "research/awards-2024.md"
 ---
 
 # Ilma
@@ -665,8 +723,11 @@ Check: Does knowledge-base/ have Ilma content?
 - ✓ Slug format correct (lowercase, hyphens, no special characters)
 - ✓ Media URLs properly structured (videos array, gallery array)
 - ✓ Bilingual linking if translation exists (translated field)
+- ✓ **NEW**: `knowledge_base_sources` field populated with all KnB files supporting page content
+- ✓ **NEW**: All performance names validated against registry (`knowledge-base/registry/performances.yaml`)
 - ✓ All information sourced from Knowledge Base (not invented)
 - ✓ KnB references included in press coverage sections
+- ✓ All `knowledge_base_sources` file paths exist and are valid relative to `knowledge-base/` root
 
 ---
 

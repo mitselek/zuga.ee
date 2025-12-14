@@ -43,6 +43,53 @@ All new fields are optional (non-breaking change). Existing files continue to va
 
 ---
 
+## Issue #40: Update prompts for new schema fields (2025-12-14)
+
+**Type**: feat
+**Scope**: prompts
+**Effort**: 4 hours
+**Risk**: Low
+
+### Changes Made
+
+- Updated `/harvest-content` prompt to require `used_in_pages` field
+- Added registry integration instructions to `/harvest-content` prompt
+- Added auto-population of `related_knb` using registry for performance names
+- Added validation against registry for performance names in `/harvest-content`
+- Updated `/add-content` prompt to require `knowledge_base_sources` field
+- Added KnB backing validation to `/add-content` prompt
+- Added registry usage for canonical performance names in `/add-content`
+- Updated examples in both prompts to show new fields
+- Updated `.cursor/commands/` shortcuts to match updated prompts
+
+### Files Affected
+
+- Total files changed: 4
+  - `.github/prompts/harvest-content.prompt.md` (+220 lines)
+  - `.github/prompts/add-content.prompt.md` (+61 lines)
+  - `.cursor/commands/harvest.md` (copied from harvest-content)
+  - `.cursor/commands/add-content.md` (copied from add-content)
+- New files created: 0
+- Files deleted: 0
+- Files renamed: 0
+
+### Validation
+
+- Schema validation: ✅ Passed (prompts reference correct schema fields)
+- Build: ✅ Succeeded (no build impact - prompts are documentation)
+- Tests: N/A (manual testing of prompts required)
+
+### Notes
+
+Prompts now enforce bidirectional linking requirements established in Issue #30. Registry integration ensures performance names use canonical IDs from `knowledge-base/registry/performances.yaml`. Examples updated to demonstrate proper usage of new fields.
+
+### Commit
+
+- Commit hash: ac31d0db9a4819078de0e78fa9eb08fa40e8fa67
+- Branch: refactor/content-architecture
+
+---
+
 ## Issue #42: [#31a] Migrate articles collection to new schema (2025-12-14)
 
 **Type**: feat

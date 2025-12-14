@@ -149,7 +149,40 @@ subcategory: string (for grouping within category)
 order: number (for manual ordering)
 hero_image: string (path like /images/filename.jpg)
 background_color: string (CSS color value)
+
+// NEW: Bidirectional linking to Knowledge Base (REQUIRED for content based on KnB)
+knowledge_base_sources: {
+  articles?: string[]    // KnB article file paths relative to knowledge-base root
+                         // Example: "articles/2024-10-err-kultuur-ilma.md"
+  persons?: string[]     // KnB person file paths
+                         // Example: "persons/paar-parenson.md"
+  press?: string[]       // KnB press release file paths
+                         // Example: "press/2024-10-ilma-announcement.md"
+  research?: string[]    // KnB research file paths
+                         // Example: "research/awards-tantsuauhind.md"
+}
 ```
+
+**CRITICAL: Knowledge Base Validation**
+
+Before creating any web content page:
+
+1. **Verify KnB backing exists**:
+   - Search `knowledge-base/` for articles, persons, press, or research related to the content
+   - If no KnB content found, inform user: "No Knowledge Base content found. Use `/harvest-content` to import sources first."
+
+2. **Populate `knowledge_base_sources`**:
+   - List all KnB files that support the claims made on the web page
+   - Format: Relative paths from `knowledge-base/` root (e.g., `"articles/2024-10-err-kultuur-ilma.md"`)
+   - Include articles for press coverage claims
+   - Include person files for team member information
+   - Include press releases for official announcements
+   - Include research files for awards or background information
+
+3. **Use registry for performance names**:
+   - Load `knowledge-base/registry/performances.yaml`
+   - Use canonical performance IDs when referencing performances
+   - Validate performance names against registry before creating content
 
 ## CREATE Workflow
 
@@ -279,8 +312,7 @@ Use this workflow when creating NEW content files based on Knowledge Base inform
    - If slug exists, suggest alternative: `{slug}-2`, `{slug}-uus`, etc.
 
 3. **Validate required fields checklist**:
-
-   ```typescript
+   ```markdown
    ✓ title: [Value]
    ✓ slug: [Value] (lowercase, alphanumeric, hyphens only)
    ✓ language: [et/en]
@@ -337,6 +369,19 @@ Use this workflow when creating NEW content files based on Knowledge Base inform
        video_id: [extracted ID]
        title: [video title]
        url: [embed URL]
+
+   # NEW: Knowledge Base sources (REQUIRED for content based on KnB)
+   knowledge_base_sources:
+     articles:
+       - "articles/2024-10-err-kultuur-ilma.md"  # Press coverage articles
+       - "articles/2024-11-criticaldance-ilma.md"
+     persons:
+       - "persons/paar-parenson.md"  # Team members mentioned
+       - "persons/kart-tonisson.md"
+     press:
+       - "press/2024-10-ilma-announcement.md"  # Official press releases
+     research:
+       - "research/awards-tantsuauhind.md"  # Awards, background research
    ---
    ```
 
@@ -415,8 +460,7 @@ Use this workflow when creating NEW content files based on Knowledge Base inform
    - Translate title, description, body content
    - Keep same slug (or adjust for language conventions)
    - Link files via `translated` field:
-
-     ```typescript
+     ```yaml
      translated:
        - language: en
          slug: english-slug
@@ -461,7 +505,7 @@ Use this workflow when creating NEW content files based on Knowledge Base inform
 
 **User input**:
 
-```text
+```
 Create an Estonian page for the "Ilma" performance based on KnB content
 ```
 
@@ -514,6 +558,18 @@ premiere_date: 2024-10-15
 venue: Kanuti Gildi SAAL
 duration: 45
 hero_image: /images/performances/etendused-noorele-publikule-ilma/hero.jpg
+
+# Knowledge Base sources (REQUIRED - validates all claims on this page)
+knowledge_base_sources:
+  articles:
+    - "articles/2024-10-err-kultuur-ilma.md"
+    - "articles/2024-10-epl-ilma-preview.md"
+    - "articles/2024-11-criticaldance-ilma.md"
+  persons:
+    - "persons/paar-parenson.md"
+    - "persons/kart-tonisson.md"
+  research:
+    - "research/awards-2024.md"
 ---
 
 # Ilma
@@ -546,7 +602,7 @@ Liikumisteatri ZUGA uus lavastus "Ilma" uurib kliimamuutusi läbi tundliku liiku
 
 **User input**:
 
-```text
+```
 Add new ERR article about Hool/Care to the performance page
 ```
 
@@ -587,7 +643,7 @@ Add new ERR article about Hool/Care to the performance page
 
 1. **Invoke the prompt** with content input:
 
-   ```text
+   ```
    @workspace /add-content [paste your content here]
    ```
 
@@ -648,7 +704,7 @@ Add new ERR article about Hool/Care to the performance page
 
 **Example decision flow**:
 
-```text
+```
 User: "Create page for Ilma performance"
     ↓
 Check: Does knowledge-base/ have Ilma content?
@@ -667,8 +723,11 @@ Check: Does knowledge-base/ have Ilma content?
 - ✓ Slug format correct (lowercase, hyphens, no special characters)
 - ✓ Media URLs properly structured (videos array, gallery array)
 - ✓ Bilingual linking if translation exists (translated field)
+- ✓ **NEW**: `knowledge_base_sources` field populated with all KnB files supporting page content
+- ✓ **NEW**: All performance names validated against registry (`knowledge-base/registry/performances.yaml`)
 - ✓ All information sourced from Knowledge Base (not invented)
 - ✓ KnB references included in press coverage sections
+- ✓ All `knowledge_base_sources` file paths exist and are valid relative to `knowledge-base/` root
 
 ---
 
@@ -942,7 +1001,6 @@ Use this workflow when modifying EXISTING content files.
    - If translation not updated: "Consider updating {language} translation for consistency"
 
 3. **Show diff summary** (optional but helpful):
-
    ```markdown
    **Changed lines**:
 
@@ -957,7 +1015,7 @@ Use this workflow when modifying EXISTING content files.
 
 ## Decision Tree: Create vs Update
 
-```text
+```
 User provides content
     ↓
 Parse user intent
@@ -1004,7 +1062,7 @@ Similar file exists?
 
 **User input**:
 
-```text
+```
 Update the Häbi performance page - set status to published and add hero image habi-hero.jpg
 ```
 
@@ -1023,7 +1081,7 @@ Update the Häbi performance page - set status to published and add hero image h
 
 **User input**:
 
-```text
+```
 Add a "Cast" section to the Häbi page with the following:
 - Director: Mari Mätas
 - Performers: Ann Reimann, Tiina Tauraite
@@ -1050,7 +1108,7 @@ Add a "Cast" section to the Häbi page with the following:
 
 **User input**:
 
-```text
+```
 Change the YouTube video for Häbi to the new trailer: https://youtube.com/watch?v=newtrailer123
 ```
 
@@ -1060,7 +1118,6 @@ Change the YouTube video for Häbi to the new trailer: https://youtube.com/watch
 2. Check `videos` array in frontmatter
 3. Propose: Replace video_id "abc123xyz" → "newtrailer123"
 4. Update frontmatter:
-
    ```yaml
    videos:
      - platform: youtube
@@ -1068,7 +1125,6 @@ Change the YouTube video for Häbi to the new trailer: https://youtube.com/watch
        title: Zuga etendus "Häbi"
        url: https://www.youtube.com/embed/newtrailer123
    ```
-
 5. Write updated file
 6. Report: "✅ Updated YouTube video ID"
 
@@ -1089,7 +1145,6 @@ Add these photos to the Häbi gallery:
 2. Check existing `gallery` array (2 images already)
 3. Propose: Append 3 new images to gallery
 4. Update frontmatter:
-
    ```yaml
    gallery:
      - url: /images/habi-promo.jpg
@@ -1103,6 +1158,5 @@ Add these photos to the Häbi gallery:
      - url: /images/habi-backstage.jpg
        description: Kulissidetagused
    ```
-
 5. Write updated file
 6. Report: "✅ Added 3 images to gallery (now 5 total)"
