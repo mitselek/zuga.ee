@@ -96,6 +96,38 @@ const upcomingEventDates = allEvents
   .sort((a, b) => a.date.localeCompare(b.date))
   .slice(0, 5);
 
+// Get 5 most recent past events for homepage
+const pastEventDates = allEvents
+  .flatMap(event => {
+    const dates = [];
+    // Add premiere if exists
+    if (event.data.premiere?.date) {
+      dates.push({
+        date: event.data.premiere.date,
+        time: event.data.premiere.time,
+        venue_id: event.data.premiere.venue_id,
+        page: event,
+        type: 'premiere' as const,
+      });
+    }
+    // Add showings if exist
+    if (event.data.showings) {
+      for (const showing of event.data.showings) {
+        dates.push({
+          date: showing.date,
+          time: showing.time,
+          venue_id: showing.venue_id || event.data.premiere?.venue_id,
+          page: event,
+          type: 'showing' as const,
+        });
+      }
+    }
+    return dates;
+  })
+  .filter(e => e.date < todayStr)
+  .sort((a, b) => b.date.localeCompare(a.date)) // Descending - most recent first
+  .slice(0, 5);
+
 const isEstonian = page.data.language === 'et';
 ---
 
@@ -154,6 +186,31 @@ const isEstonian = page.data.language === 'et';
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {upcomingEventDates.map(event => (
+            <EventCard event={event} language={page.data.language} />
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Past Events Section -->
+  {pastEventDates.length > 0 && (
+    <section class="py-16 bg-white">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="flex justify-between items-center mb-12">
+          <h2 class="text-4xl font-bold text-slate-900">
+            {isEstonian ? 'Hiljuti olnud' : 'Recent Past'}
+          </h2>
+          <a
+            href={`/${page.data.language}/kalender/${isEstonian ? 'olnud' : 'past'}`}
+            class="text-blue-600 hover:text-blue-800 font-medium flex items-center gap-2"
+          >
+            {isEstonian ? 'Vaata kõiki' : 'View all'}
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {pastEventDates.map(event => (
             <EventCard event={event} language={page.data.language} />
           ))}
         </div>

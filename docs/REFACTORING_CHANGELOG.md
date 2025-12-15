@@ -292,6 +292,74 @@ Section appears between hero and main content sections, providing immediate visi
 
 ---
 
+## Issue #56b: Add Past Events Section to Homepage (2025-12-15)
+
+**Type**: feat
+**Scope**: homepage, ui
+**Effort**: 30 minutes
+**Risk**: Low
+
+### Changes Made
+
+- Added past events query logic to homepage (`index.astro`)
+- Created new "Hiljuti olnud" (ET) / "Recent Past" (EN) section below upcoming events
+- Query fetches all events with `premiere` or `showings`, filters for past dates < today
+- Displays 5 most recent past events sorted by date descending (most recent first)
+- Includes "View all" link to full past calendar page (`/kalender/olnud` or `/calendar/past`)
+- Responsive grid layout matching upcoming events section (1 column mobile, 2 tablet, 3 desktop)
+
+### Files Affected
+
+- Total files changed: 1
+- New files created: 0
+- Files deleted: 0
+- Files renamed: 0
+
+**Modified**:
+- `apps/web/src/pages/[lang]/index.astro` (+33 lines)
+
+### Implementation Details
+
+**Query logic**:
+- Reuses same event collection as upcoming events
+- Extracts dates from both `premiere` and `showings` arrays
+- Applies venue fallback logic
+- Filters for dates < today (Estonia timezone)
+- Sorts descending (most recent first)
+- Takes first 5 events
+
+**UI features**:
+- Section header with "Hiljuti olnud" (ET) / "Recent Past" (EN) title
+- "Vaata kõiki" (ET) / "View all" (EN) link to full past calendar
+- Reuses existing `EventCard` component
+- White background (`bg-white`) alternating with upcoming section (`bg-slate-50`)
+- Only renders if past events exist (conditional section)
+
+### Validation
+
+- Schema validation: ✅ N/A (no schema changes)
+- Build: ✅ Passed (52 pages, no errors)
+- Component reuse: ✅ EventCard works for past events
+- Responsive: ✅ Grid adapts to screen size
+- i18n: ✅ Bilingual labels and links
+
+### Notes
+
+Complements upcoming events section (Issue #56) by showcasing recent performances and workshops. Homepage now displays:
+1. Hero section
+2. Upcoming events (if any)
+3. Past events (if any)
+4. Main content sections
+
+Both event sections share same query logic with different date filters, ensuring consistency and code reuse.
+
+### Commit
+
+- Commit hash: TBD
+- Branch: feat/event-calendar-system
+
+---
+
 ## Issue #32: Add source attribution to person profiles (2025-12-14)
 
 **Type**: feat
