@@ -8,7 +8,7 @@ category: etendused
 subcategory: noorele-publikule
 status: published
 page_type: performance
-premiere_date: 2024-10-26
+premiere_date: 2024-10-26T00:00:00.000Z
 venue: Sõltumatu Tantsu Lava
 age_recommendation: 10+
 duration: 60
@@ -37,7 +37,9 @@ knowledge_base_sources:
     - persons/oliver-kulpsoo.md
     - persons/paar-parenson.md
     - persons/tiina-molder.md
-
+premiere:
+  date: '2024-10-26'
+  venue_id: stl
 ---
 
 # Ilma

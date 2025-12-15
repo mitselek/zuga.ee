@@ -8,7 +8,7 @@ category: etendused
 subcategory: noorele-publikule
 status: published
 page_type: performance
-premiere_date: 2026-03-21
+premiere_date: 2026-03-21T00:00:00.000Z
 venue: Sõltumatu Tantsu Lava
 working_title: true
 collaboration:
@@ -16,9 +16,12 @@ collaboration:
 credits:
   company: United Dancers of Zuga
 translated:
-- language: et
-  slug: etendused-noorele-publikule-mis-sul-viga-on
+  - language: et
+    slug: etendused-noorele-publikule-mis-sul-viga-on
 hero_image: https://fienta.com/cf/img/?width=1070&dpr=1&format=webp&v=1764153816&gcs=true&file=/uploads/2025/11/157610/157610-et-251126124336.png
+premiere:
+  date: '2026-03-21'
+  venue_id: stl
 ---
 
 # What's wrong with you?!

@@ -8,7 +8,7 @@ category: etendused
 subcategory: noorele-publikule
 status: published
 page_type: performance
-premiere_date: 2024-10-26
+premiere_date: 2024-10-26T00:00:00.000Z
 venue: Sõltumatu Tantsu Lava
 age_recommendation: 10+
 duration: 60
@@ -19,8 +19,8 @@ videos:
     title: Päär Pärenson about "Ilma"
     description: ERR news, 24.10.2024
 translated:
-- language: et
-  slug: etendused-noorele-publikule-ilma
+  - language: et
+    slug: etendused-noorele-publikule-ilma
 knowledge_base_sources:
   articles:
     - articles/2025-04-criticaldance-ilma-review.md
@@ -37,7 +37,9 @@ knowledge_base_sources:
     - persons/oliver-kulpsoo.md
     - persons/paar-parenson.md
     - persons/tiina-molder.md
-
+premiere:
+  date: '2024-10-26'
+  venue_id: stl
 ---
 
 # Weather or Not

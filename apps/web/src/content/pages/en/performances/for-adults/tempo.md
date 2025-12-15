@@ -7,15 +7,18 @@ type: detail
 category: etendused
 status: published
 page_type: performance
-premiere_date: 2018-03-16
+premiere_date: 2018-03-16T00:00:00.000Z
 venue: Independent Dance Stage
 translated:
-- language: et
-  slug: tempo
+  - language: et
+    slug: tempo
 hero_image: /images/tempo-hero.jpg
 gallery:
-- url: /images/tempo-hero.jpg
-  description: Performance photo
+  - url: /images/tempo-hero.jpg
+    description: Performance photo
+premiere:
+  date: '2018-03-16'
+  venue_id: stl
 ---
 
 ## Dance Performance "Tempo"

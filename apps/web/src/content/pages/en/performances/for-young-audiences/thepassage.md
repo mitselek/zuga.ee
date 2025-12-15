@@ -52,6 +52,9 @@ knowledge_base_sources:
     - persons/kalle-tikas.md
     - persons/paar-parenson.md
     - persons/tiina-molder.md
+premiere:
+  date: '2014-11-21'
+  venue_id: stl
 ---
 
 ## Dance Performance for Children "The Passage"
