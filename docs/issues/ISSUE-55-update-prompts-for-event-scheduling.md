@@ -245,7 +245,6 @@ booking:
 premiere_date: 2024-10-15
 venue: Kanuti Gildi SAAL
 ```
-````
 
 **NEW (preferred for calendar features)**:
 
@@ -437,7 +436,6 @@ knowledge_base_sources:
     - "persons/paar-parenson.md"
 ---
 ```
-
 ````
 
 ---
@@ -448,7 +446,7 @@ knowledge_base_sources:
 
 **Add section after "Content Type Classification"** (around line 500):
 
-```markdown
+````markdown
 ## Event Scheduling Data Extraction
 
 When harvesting content about performances or workshops, extract structured event scheduling data:
@@ -466,7 +464,7 @@ premiere:
   date: '2024-10-26'  # YYYY-MM-DD
   time: '19:00'       # HH:MM (if mentioned)
   venue_id: stl       # Look up from knowledge-base/venues/
-````
+```
 
 **Venue ID Lookup**:
 
@@ -625,7 +623,6 @@ special_events:
     description:
       et: "Kunstnikuvestlus koreograaf Päär Pärenson'iga"
 ```
-
 ````
 
 ---
@@ -633,6 +630,7 @@ special_events:
 #### 3. Update Mirror Prompts in `.cursor/commands/`
 
 **Files**:
+
 - `.cursor/commands/add-content.md`
 - `.cursor/commands/harvest.md`
 
@@ -646,7 +644,7 @@ special_events:
 
 **Both prompts** - Add to validation sections:
 
-```markdown
+````markdown
 ### Event Scheduling Validation
 
 - ✅ `premiere.date` uses YYYY-MM-DD format
@@ -692,7 +690,7 @@ Estimated **~15-20 example blocks** to update across both prompts.
 
 Add reference section:
 
-```markdown
+````markdown
 ## Venue Collection Reference
 
 Venues are centralized in `knowledge-base/venues/` with structured profiles.
@@ -715,7 +713,7 @@ Venues are centralized in `knowledge-base/venues/` with structured profiles.
 - `transit` - Public transit info
 
 **Adding new venues**: Create file in `knowledge-base/venues/` following schema.
-```
+````
 
 ---
 
@@ -723,7 +721,7 @@ Venues are centralized in `knowledge-base/venues/` with structured profiles.
 
 **Both prompts** - Update schema version comments:
 
-```typescript
+````typescript
 // apps/web/src/content/config.ts - Event Scheduling (Issue #54)
 
 // Legacy fields (deprecated):
@@ -736,7 +734,7 @@ showings: Array<{ date, time?, venue_id?, status?, notes? }> (optional)
 tickets: { on_sale?, platforms?, pricing? } (optional)
 special_events: Array<{ type, date, time?, duration?, free?, description? }> (optional)
 booking: string | { required, contact, requirements?, pricing? } (optional)
-```
+````
 
 ---
 
