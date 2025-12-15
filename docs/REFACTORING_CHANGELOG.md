@@ -53,6 +53,7 @@ All new fields are optional (non-breaking change). Existing files continue to va
 ### Changes Made
 
 - Created comprehensive validation script `scripts/validate-all.js`:
+
   - Validates all KnB files (articles, persons, press, research) against Zod schemas
   - Validates all web content files against schema
   - Validates performance/workshop registry files
@@ -63,11 +64,13 @@ All new fields are optional (non-breaking change). Existing files continue to va
   - Provides verbose output mode for detailed error messages
 
 - Updated `knowledge-base/README.md`:
+
   - Added comprehensive validation section with usage instructions
   - Documented all validation options and exit codes
   - Added registry validation documentation
 
 - Updated `knowledge-base/CONTENT_STANDARDS.md`:
+
   - Added registry validation rules section
   - Added validation requirements section with command examples
   - Documented validation checks (schema compliance, registry references, linking integrity)
@@ -97,12 +100,14 @@ All new fields are optional (non-breaking change). Existing files continue to va
 ### Notes
 
 The validation script handles edge cases:
+
 - Date objects from YAML parsing are converted to ISO date strings
 - Tag arrays may contain numbers (coerced to strings)
 - Person status enum includes additional values found in actual files
 - Article type enum includes 'television' variant
 
 The script reports warnings (not errors) for:
+
 - Orphaned KnB content (expected until linking issues #36, #37 are complete)
 - Unsupported web claims (expected until linking issues are complete)
 
@@ -259,6 +264,7 @@ cp -r knowledge-base/articles.backup.20251214_105357 knowledge-base/articles
 ### Rollback Procedure
 
 If rollback needed:
+
 ```bash
 rm -rf knowledge-base/persons
 cp -r knowledge-base/persons.backup.20251214_111124 knowledge-base/persons
@@ -317,6 +323,7 @@ cp -r knowledge-base/persons.backup.20251214_111124 knowledge-base/persons
 ### Rollback Procedure
 
 If rollback needed:
+
 ```bash
 # Restore from backup
 rm -rf apps/web/src/content/pages/en
@@ -374,6 +381,7 @@ git checkout HEAD~1 -- knowledge-base/persons/
 ### Notes
 
 Registry provides canonical data for all ZUGA performances and workshops, enabling:
+
 - Slug validation in articles and web content
 - Cross-referencing via `related_knb.performances` IDs
 - Single source of truth for bilingual titles
@@ -405,6 +413,7 @@ Registry IDs can be used in KnB files' `related_knb.performances` fields (e.g., 
 - Updated translated field slugs for bidirectional linking
 
 **Files moved**:
+
 - 5 EN adult performances → `en/performances/for-adults/`
 - 7 EN young audience performances → `en/performances/for-young-audiences/`
 - 6 ET adult performances → `et/performances/for-adults/`
@@ -451,21 +460,25 @@ Migrated video and audio embeds to URL-only strategy, removing redundant `video_
 ### Changes Made
 
 #### Component Updates
+
 - **VideoEmbed.astro**: Added `extractYouTubeId()` and `extractVimeoId()` functions to parse various URL formats
 - **VideoEmbed.astro**: Updated `getEmbedUrl()` to extract IDs from URLs with backward compatibility
 - **AudioEmbed.astro**: Added `extractSoundCloudId()` function (component already used URLs directly)
 
 #### Schema Updates
+
 - **config.ts**: Made `video_id` and `track_id` truly optional (removed `.min(1)` constraint)
 - Updated schema comments to indicate IDs are deprecated and extracted automatically
 
 #### Content Migration
+
 - Created `scripts/migrate-video-audio-url-only.js` migration script
 - Removed redundant `video_id` fields from 38 content files
 - Removed redundant `track_id` fields from audio embeds
 - URLs cleaned (tracking parameters removed where applicable)
 
 #### Documentation
+
 - Updated `.cursor/commands/add-content.md` with URL-only examples
 - Updated `.github/prompts/add-content.prompt.md` with URL-only examples
 - Removed references to `video_id`/`track_id` from examples

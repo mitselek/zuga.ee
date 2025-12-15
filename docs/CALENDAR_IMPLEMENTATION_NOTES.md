@@ -101,38 +101,44 @@
 **Examples:**
 
 1. **All showings at premiere venue (fallback used):**
+
    ```yaml
    premiere:
-     date: '2024-10-26'
+     date: "2024-10-26"
      venue_id: stl
    showings:
-     - date: '2024-11-02'
+     - date: "2024-11-02"
        # venue_id omitted → falls back to premiere.venue_id (stl)
-     - date: '2024-11-09'
+     - date: "2024-11-09"
        # venue_id omitted → falls back to premiere.venue_id (stl)
    ```
+
    Result: All events display venue "stl"
 
 2. **Tour showing at different venue (fallback bypassed):**
+
    ```yaml
    premiere:
-     date: '2024-10-26'
+     date: "2024-10-26"
      venue_id: stl
    showings:
-     - date: '2024-11-02'
-       venue_id: stl  # Same venue, explicit
-     - date: '2024-11-16'
-       venue_id: rakvere-teater  # Different venue, explicit
+     - date: "2024-11-02"
+       venue_id: stl # Same venue, explicit
+     - date: "2024-11-16"
+       venue_id: rakvere-teater # Different venue, explicit
    ```
+
    Result: First showing displays "stl", second displays "rakvere-teater"
 
 3. **Edge case: No premiere (fallback unavailable):**
+
    ```yaml
    # No premiere object
    showings:
-     - date: '2024-11-02'
+     - date: "2024-11-02"
        # venue_id omitted → no fallback available
-     - date: '2024-11-09'
-       venue_id: stl  # Explicit venue required
+     - date: "2024-11-09"
+       venue_id: stl # Explicit venue required
    ```
+
    Result: First showing displays no venue (or "unknown"), second displays "stl"

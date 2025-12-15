@@ -1,0 +1,88 @@
+---
+import VenueInfo from './VenueInfo.astro';
+
+interface EventDate {
+  date: string;
+  time?: string;
+  venue_id?: string;
+  page: any;
+  type: 'premiere' | 'showing';
+}
+
+interface Props {
+  event: EventDate;
+  language: 'et' | 'en';
+}
+
+const { event, language } = Astro.props;
+
+const eventDate = new Date(event.date + (event.time ? `T${event.time}` : 'T12:00:00'));
+const dateStr = eventDate.toLocaleDateString(
+  language === 'et' ? 'et-EE' : 'en-US',
+  {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  }
+);
+const timeStr = event.time
+  ? eventDate.toLocaleTimeString(
+      language === 'et' ? 'et-EE' : 'en-US',
+      { hour: '2-digit', minute: '2-digit' }
+    )
+  : null;
+
+// Get page slug for link
+const pageSlug = event.page.id
+  .replace(/^(en|et)\//, '')
+  .replace(/\.md$/, '')
+  .split('/')
+  .pop();
+
+// Get showing notes if applicable
+const showingNotes = event.type === 'showing' && event.page.data.showings?.find(
+  (s: any) => s.date === event.date
+)?.notes;
+---
+
+<article class="event-card border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
+  <div class="text-sm text-gray-600 mb-2">
+    {dateStr}
+    {timeStr && <span> • {timeStr}</span>}
+  </div>
+  <h3 class="text-xl font-semibold mb-2">
+    <a
+      href={`/${language}/${event.page.data.category}/${pageSlug}`}
+      class="hover:text-primary transition-colors"
+    >
+      {event.page.data.title}
+    </a>
+  </h3>
+  {event.venue_id && (
+    <div class="text-sm text-gray-600 mb-2">
+      {language === 'et' ? 'Asukoht' : 'Venue'}: <VenueInfo venueId={event.venue_id} language={language} />
+    </div>
+  )}
+  {showingNotes && (
+    <div class="text-sm italic text-gray-600 mb-2">
+      {showingNotes}
+    </div>
+  )}
+  {event.page.data.tickets?.on_sale && (
+    <div class="mt-3">
+      <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded">
+        {language === 'et' ? 'Piletid müügil' : 'Tickets on sale'}
+      </span>
+    </div>
+  )}
+</article>
+
+<style>
+  .event-card a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .event-card a:hover {
+    color: var(--color-primary, #0066cc);
+  }
+</style>

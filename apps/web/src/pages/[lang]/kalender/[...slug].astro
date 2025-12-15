@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import LanguageSwitcher from '../../../components/LanguageSwitcher.astro';
 import PageHero from '../../../components/PageHero.astro';
+import EventList from '../../../components/EventList.astro';
 
 export async function getStaticPaths() {
   const pages = await getCollection('pages', ({ data }) => {
@@ -197,23 +198,7 @@ if (slug === 'tulemas' || slug === 'upcoming') {
   filteredEvents.sort((a, b) => a.date.localeCompare(b.date));
 }
 
-// Group events by month/year
-const eventsByMonth = new Map<string, typeof filteredEvents>();
-for (const event of filteredEvents) {
-  const dateObj = new Date(event.date + 'T00:00:00');
-  const monthKey = dateObj.toLocaleDateString(currentLang === 'et' ? 'et-EE' : 'en-US', {
-    year: 'numeric',
-    month: 'long',
-  });
-
-  if (!eventsByMonth.has(monthKey)) {
-    eventsByMonth.set(monthKey, []);
-  }
-  eventsByMonth.get(monthKey)!.push(event);
-}
-
-// Get venue information from KnB (if needed in future)
-// For now, we'll just display venue_id
+// Events are now grouped by EventList component
 
 ---
 
@@ -234,76 +219,7 @@ for (const event of filteredEvents) {
     {pageContent && <pageContent />}
 
     {filteredEvents.length > 0 ? (
-      <div class="mt-12">
-        {Array.from(eventsByMonth.entries()).map(([month, events]) => (
-          <section class="mb-12">
-            <h2 class="text-3xl font-bold mb-6">{month}</h2>
-            <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {events.map((event) => {
-                const eventDate = new Date(event.date + (event.time ? `T${event.time}` : 'T12:00:00'));
-                const dateStr = eventDate.toLocaleDateString(
-                  currentLang === 'et' ? 'et-EE' : 'en-US',
-                  {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric',
-                  }
-                );
-                const timeStr = event.time
-                  ? eventDate.toLocaleTimeString(
-                      currentLang === 'et' ? 'et-EE' : 'en-US',
-                      { hour: '2-digit', minute: '2-digit' }
-                    )
-                  : null;
-
-                // Get page slug for link
-                const pageSlug = event.page.id
-                  .replace(/^(en|et)\//, '')
-                  .replace(/\.md$/, '')
-                  .split('/')
-                  .pop();
-
-                return (
-                  <article class="border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
-                    <div class="text-sm text-gray-600 mb-2">
-                      {dateStr}
-                      {timeStr && ` • ${timeStr}`}
-                    </div>
-                    <h3 class="text-xl font-semibold mb-2">
-                      <a
-                        href={`/${currentLang}/${event.page.data.category}/${pageSlug}`}
-                        class="hover:text-primary"
-                      >
-                        {event.page.data.title}
-                      </a>
-                    </h3>
-                    {event.venue_id && (
-                      <div class="text-sm text-gray-600 mb-2">
-                        {currentLang === 'et' ? 'Asukoht' : 'Venue'}: {event.venue_id}
-                        {/* TODO(Phase 5): Resolve venue_id to venue name from knowledge-base/venues/ */}
-                      </div>
-                    )}
-                    {event.type === 'showing' && event.page.data.showings?.find(
-                      (s: any) => s.date === event.date
-                    )?.notes && (
-                      <div class="text-sm italic text-gray-600">
-                        {event.page.data.showings.find((s: any) => s.date === event.date).notes}
-                      </div>
-                    )}
-                    {event.page.data.tickets?.on_sale && (
-                      <div class="mt-3">
-                        <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded">
-                          {currentLang === 'et' ? 'Piletid müügil' : 'Tickets on sale'}
-                        </span>
-                      </div>
-                    )}
-                  </article>
-                );
-              })}
-            </div>
-          </section>
-        ))}
-      </div>
+      <EventList events={filteredEvents} language={currentLang as 'et' | 'en'} groupByMonth={true} />
     ) : (
       <div class="mt-12 text-center text-gray-600 py-12">
         {isUpcomingPage ? (
