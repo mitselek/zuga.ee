@@ -174,12 +174,12 @@ performances:
     full_slug:
       et: etendused-noorele-publikule-mis-sul-viga-on
       en: performances-for-young-audiences-whats-wrong-with-you
-    premiere: null
+    premiere: "2026-03-20"
     venue: Sõltumatu Tantsu Lava
     duration: null
     target_audience: young_audiences
     age_recommendation: null
-    status: active
+    status: upcoming
     categories:
       - etendused
       - noorele-publikule
