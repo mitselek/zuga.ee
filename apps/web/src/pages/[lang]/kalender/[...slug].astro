@@ -170,17 +170,23 @@ const allEventDates = allEvents.flatMap(getEventDates);
 
 // Filter events based on slug
 let filteredEvents = allEventDates;
+let isUpcomingPage = false;
+let isPastPage = false;
 
 if (slug === 'tulemas' || slug === 'upcoming') {
   // Upcoming events: date >= today
+  // Include events with premiere in past but showings in future
   filteredEvents = allEventDates.filter(event => event.date >= todayStr);
   // Sort by date ascending (closest first)
   filteredEvents.sort((a, b) => a.date.localeCompare(b.date));
+  isUpcomingPage = true;
 } else if (slug === 'olnud' || slug === 'past') {
   // Past events: date < today
+  // Include events with premiere in past (even if they have future showings)
   filteredEvents = allEventDates.filter(event => event.date < todayStr);
   // Sort by date descending (most recent first)
   filteredEvents.sort((a, b) => b.date.localeCompare(a.date));
+  isPastPage = true;
 } else {
   // Main calendar page - show all events sorted by date
   filteredEvents.sort((a, b) => a.date.localeCompare(b.date));
@@ -269,6 +275,7 @@ for (const event of filteredEvents) {
                     {event.venue_id && (
                       <div class="text-sm text-gray-600 mb-2">
                         {currentLang === 'et' ? 'Asukoht' : 'Venue'}: {event.venue_id}
+                        {/* TODO(Phase 5): Resolve venue_id to venue name from knowledge-base/venues/ */}
                       </div>
                     )}
                     {event.type === 'showing' && event.page.data.showings?.find(
@@ -293,12 +300,40 @@ for (const event of filteredEvents) {
         ))}
       </div>
     ) : (
-      <div class="mt-12 text-center text-gray-600">
-        <p>
-          {currentLang === 'et'
-            ? 'Üritusi ei leitud.'
-            : 'No events found.'}
-        </p>
+      <div class="mt-12 text-center text-gray-600 py-12">
+        {isUpcomingPage ? (
+          <div>
+            <p class="text-lg mb-2">
+              {currentLang === 'et'
+                ? 'Tulevasi üritusi hetkel pole.'
+                : 'No upcoming events at the moment.'}
+            </p>
+            <p class="text-sm">
+              {currentLang === 'et'
+                ? 'Vaata tagasi varsti uute ürituste jaoks.'
+                : 'Check back soon for new events.'}
+            </p>
+          </div>
+        ) : isPastPage ? (
+          <div>
+            <p class="text-lg mb-2">
+              {currentLang === 'et'
+                ? 'Varasemaid üritusi ei leitud.'
+                : 'No past events found.'}
+            </p>
+            <p class="text-sm">
+              {currentLang === 'et'
+                ? 'ZUGA esimene etendus oli 2006. aastal.'
+                : 'ZUGA\'s first performance was in 2006.'}
+            </p>
+          </div>
+        ) : (
+          <p>
+            {currentLang === 'et'
+              ? 'Üritusi ei leitud.'
+              : 'No events found.'}
+          </p>
+        )}
       </div>
     )}
   </main>
