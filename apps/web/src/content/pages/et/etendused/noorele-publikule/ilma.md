@@ -9,16 +9,21 @@ subcategory: noorele-publikule
 order: 1
 status: published
 page_type: performance
-premiere_date: 2024-10-26T00:00:00.000Z
-venue: Sõltumatu Tantsu Lava
 age_recommendation: 10+
 duration: 60
-hero_image: https://lh5.googleusercontent.com/YmL-ZKflrTu0uUJnzvcMQ9812g16lIXAfb2u1wmCWwluKk_RwjfjV3T_td4mMmiTLHIhYBvy3l7we3cFw39C0c0=w16383
+hero_image: /images/performances/ilma/hero.jpg
+gallery:
+  - url: /images/performances/ilma/alana-proosa-23.jpg
+    description: "Foto: Alana Proosa"
+  - url: /images/performances/ilma/alana-proosa-31.jpg
+    description: "Foto: Alana Proosa"
+  - url: /images/performances/ilma/alana-proosa-111.jpg
+    description: "Foto: Alana Proosa"
 videos:
   - platform: err
     url: https://vod.err.ee/hls/uudised/f923793435785f60bf71e5bbd793ca9c/v/master.m3u8
-    title: Päär Pärenson lavastusest "Ilma"
-    description: ERR uudised, 24.10.2024
+    title: "Päär Pärenson lavastusest Ilma"
+    description: "ERR uudised, 24.10.2024"
 translated:
   - language: en
     slug: weather-or-not
@@ -39,7 +44,7 @@ knowledge_base_sources:
     - persons/paar-parenson.md
     - persons/tiina-molder.md
 premiere:
-  date: '2024-10-26'
+  date: "2024-10-26"
   venue_id: stl
 ---
 

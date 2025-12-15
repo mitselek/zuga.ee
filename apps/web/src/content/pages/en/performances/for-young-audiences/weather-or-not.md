@@ -8,19 +8,24 @@ category: etendused
 subcategory: noorele-publikule
 status: published
 page_type: performance
-premiere_date: 2024-10-26T00:00:00.000Z
-venue: Sõltumatu Tantsu Lava
 age_recommendation: 10+
 duration: 60
-hero_image: https://lh4.googleusercontent.com/DBxwueB6fPHRnLW2vhLTuUXqMXwXCvMQW-AliKEHn5c6X1O7ismAvtROvjQkbwGfsZsyzGcdc_-6lU_Ipmo1jg4=w16383
+hero_image: /images/performances/ilma/hero.jpg
+gallery:
+  - url: /images/performances/ilma/alana-proosa-23.jpg
+    description: "Photo: Alana Proosa"
+  - url: /images/performances/ilma/alana-proosa-31.jpg
+    description: "Photo: Alana Proosa"
+  - url: /images/performances/ilma/alana-proosa-111.jpg
+    description: "Photo: Alana Proosa"
 videos:
   - platform: err
     url: https://vod.err.ee/hls/uudised/f923793435785f60bf71e5bbd793ca9c/v/master.m3u8
     title: Päär Pärenson about "Ilma"
-    description: ERR news, 24.10.2024
+    description: "ERR news, 24.10.2024"
 translated:
   - language: et
-    slug: etendused-noorele-publikule-ilma
+    slug: ilma
 knowledge_base_sources:
   articles:
     - articles/2025-04-criticaldance-ilma-review.md
@@ -38,7 +43,7 @@ knowledge_base_sources:
     - persons/paar-parenson.md
     - persons/tiina-molder.md
 premiere:
-  date: '2024-10-26'
+  date: "2024-10-26"
   venue_id: stl
 ---
 
