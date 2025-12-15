@@ -6,7 +6,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "kill_port": "lsof -ti:4321 | xargs -r kill -9"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.5.0",
