@@ -518,6 +518,26 @@ Before proceeding to extraction:
 
 For each source provided:
 
+**⚠️ CRITICAL: Protected Image URLs**
+
+**Google Photos URLs** (`lh*.googleusercontent.com`):
+- **Cannot be downloaded directly** - requires authentication
+- Returns HTML error pages (403 Forbidden) instead of images
+- **Detection pattern**: URLs matching `https://lh[0-9]+.googleusercontent.com/`
+- **Action**: Skip automatic download, warn user:
+  ```markdown
+  ⚠️ Google Photos URL detected: [url]
+  - Cannot download directly (authentication required)
+  - Recommend: Manual download or alternative source
+  - Skipping: Will not save error page as image
+  ```
+
+**Other protected sources**:
+- Private Facebook/Instagram URLs (require login)
+- Paywalled content (subscription required)
+- API endpoints (require tokens)
+- **Always validate** downloaded content (see Step 2: Validate image files)
+
 **Web URLs** (articles, reviews, interviews):
 
 **Extraction tactics**:
@@ -697,7 +717,51 @@ For each source provided:
    - Check file size (warn if > 10MB for images, > 5MB for PDFs)
    - Determine type from extension
 
-2. **Extract image metadata** (for `.jpg`, `.jpeg`, `.png`):
+2. **Validate image files** (CRITICAL - prevents saving error pages as images):
+
+   **BEFORE extracting metadata, validate each image file**:
+
+   **File type validation**:
+   ```bash
+   # Use 'file' command to verify actual file type
+   file downloaded-image.jpg
+   # Expected: "JPEG image data" or "PNG image data"
+   # REJECT if: "HTML document", "ASCII text", "XML", "JSON"
+   ```
+
+   **Size validation**:
+   - Minimum size: 10KB (files < 10KB are likely error pages)
+   - Warning if > 10MB (may need compression)
+   - REJECT files < 5KB as definitely not real images
+
+   **Content header validation**:
+   - Check first 16 bytes for image magic numbers:
+     - JPEG: `FF D8 FF` (starts with these bytes)
+     - PNG: `89 50 4E 47` (PNG signature)
+     - GIF: `47 49 46 38` (GIF signature)
+   - REJECT if starts with `<!DOCTYPE`, `<html>`, `<?xml>`, `{` (JSON)
+
+   **Error page detection**:
+   - Scan first 200 bytes for common error markers:
+     - "Error 403", "Error 404", "Forbidden", "Access Denied"
+     - "<!DOCTYPE html>", "<html", "text/html"
+   - If detected: **REJECT and report as failed download**
+
+   **Validation failure handling**:
+   ```markdown
+   ❌ Image validation failed: [filename]
+   - URL: [source-url]
+   - File type detected: HTML document (expected: JPEG/PNG)
+   - File size: 2.2KB (suspiciously small)
+   - Content preview: "<!DOCTYPE html>...Error 403 (Forbidden)..."
+   - **Reason**: Protected URL or authentication required
+   - **Action**: Skipped - file NOT saved
+   - **Recommendation**: Manual download required or use alternative source
+   ```
+
+   **NEVER save HTML error pages, JSON responses, or XML documents as image files!**
+
+3. **Extract image metadata** (for validated `.jpg`, `.jpeg`, `.png` files only):
 
    **EXIF data extraction**:
 
