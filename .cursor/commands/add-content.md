@@ -242,10 +242,12 @@ knowledge_base_sources: {
 Before creating any web content page:
 
 1. **Verify KnB backing exists**:
+
    - Search `knowledge-base/` for articles, persons, press, or research related to the content
    - If no KnB content found, inform user: "No Knowledge Base content found. Use `/harvest-content` to import sources first."
 
 2. **Populate `knowledge_base_sources`**:
+
    - List all KnB files that support the claims made on the web page
    - Format: Relative paths from `knowledge-base/` root (e.g., `"articles/2024-10-err-kultuur-ilma.md"`)
    - Include articles for press coverage claims
@@ -386,6 +388,7 @@ Use this workflow when creating NEW content files based on Knowledge Base inform
    - If slug exists, suggest alternative: `{slug}-2`, `{slug}-uus`, etc.
 
 3. **Validate required fields checklist**:
+
    ```markdown
    ✓ title: [Value]
    ✓ slug: [Value] (lowercase, alphanumeric, hyphens only)
@@ -446,15 +449,15 @@ Use this workflow when creating NEW content files based on Knowledge Base inform
    # NEW: Knowledge Base sources (REQUIRED for content based on KnB)
    knowledge_base_sources:
      articles:
-       - "articles/2024-10-err-kultuur-ilma.md"  # Press coverage articles
+       - "articles/2024-10-err-kultuur-ilma.md" # Press coverage articles
        - "articles/2024-11-criticaldance-ilma.md"
      persons:
-       - "persons/paar-parenson.md"  # Team members mentioned
+       - "persons/paar-parenson.md" # Team members mentioned
        - "persons/kart-tonisson.md"
      press:
-       - "press/2024-10-ilma-announcement.md"  # Official press releases
+       - "press/2024-10-ilma-announcement.md" # Official press releases
      research:
-       - "research/awards-tantsuauhind.md"  # Awards, background research
+       - "research/awards-tantsuauhind.md" # Awards, background research
    ---
    ```
 
@@ -467,33 +470,39 @@ Use this workflow when creating NEW content files based on Knowledge Base inform
 3. **Add event scheduling fields** (for performances and workshops):
 
    **For premiere information**:
+
    - Extract premiere date from KnB articles or press releases
    - Extract premiere time if mentioned (e.g., "19:00", "kell 19")
    - Look up venue name → venue ID in `knowledge-base/venues/`
    - Create `premiere` object:
+
      ```yaml
      premiere:
-       date: "YYYY-MM-DD"  # From KnB source
-       time: "HH:MM"        # If available
-       venue_id: venue-id   # From knowledge-base/venues/
+       date: "YYYY-MM-DD" # From KnB source
+       time: "HH:MM" # If available
+       venue_id: venue-id # From knowledge-base/venues/
      ```
 
    **For multiple showings** (tour dates, repeat performances):
+
    - Extract all performance dates from articles
    - Group by venue (use venue fallback if same as premiere)
    - Create `showings` array:
+
      ```yaml
      showings:
        - date: "YYYY-MM-DD"
-         time: "HH:MM"      # If available
+         time: "HH:MM" # If available
          venue_id: venue-id # If different from premiere, otherwise omit
-         notes: "..."        # Optional: "Külalisetendus", "Sold out", etc.
+         notes: "..." # Optional: "Külalisetendus", "Sold out", etc.
      ```
 
    **For ticket information**:
+
    - Extract ticket platform URLs from articles (Fienta, Piletilevi, etc.)
    - Extract pricing if mentioned
    - Create `tickets` object:
+
      ```yaml
      tickets:
        on_sale: true/false
@@ -507,8 +516,10 @@ Use this workflow when creating NEW content files based on Knowledge Base inform
      ```
 
    **For special events** (artist talks, workshops, discussions):
+
    - Extract related events from articles
    - Create `special_events` array:
+
      ```yaml
      special_events:
        - type: artist-talk
@@ -518,6 +529,7 @@ Use this workflow when creating NEW content files based on Knowledge Base inform
      ```
 
    **For workshop booking** (workshops only):
+
    - Extract contact information from articles
    - Extract requirements (participants, space, equipment)
    - Create structured `booking` object or use legacy string format
@@ -591,6 +603,7 @@ Use this workflow when creating NEW content files based on Knowledge Base inform
    - Translate title, description, body content
    - Keep same slug (or adjust for language conventions)
    - Link files via `translated` field:
+
      ```yaml
      translated:
        - language: en
@@ -636,7 +649,7 @@ Use this workflow when creating NEW content files based on Knowledge Base inform
 
 **User input**:
 
-```
+```text
 Create an Estonian page for the "Ilma" performance based on KnB content
 ```
 
@@ -739,7 +752,7 @@ Liikumisteatri ZUGA uus lavastus "Ilma" uurib kliimamuutusi läbi tundliku liiku
 
 **User input**:
 
-```
+```text
 Create performance page for "Tempo" with premiere at STL and tour dates at Rakvere Teater
 ```
 
@@ -812,6 +825,7 @@ knowledge_base_sources:
 ```
 
 **Key points**:
+
 - Premiere uses structured `premiere` object with `venue_id`
 - Showings array includes multiple dates
 - Venue fallback: Second showing omits `venue_id` → uses `premiere.venue_id`
@@ -823,7 +837,7 @@ knowledge_base_sources:
 
 **User input**:
 
-```
+```text
 Add new ERR article about Hool/Care to the performance page
 ```
 
@@ -864,7 +878,7 @@ Add new ERR article about Hool/Care to the performance page
 
 1. **Invoke the prompt** with content input:
 
-   ```
+   ```text
    @workspace /add-content [paste your content here]
    ```
 
@@ -925,7 +939,7 @@ Add new ERR article about Hool/Care to the performance page
 
 **Example decision flow**:
 
-```
+```text
 User: "Create page for Ilma performance"
     ↓
 Check: Does knowledge-base/ have Ilma content?
@@ -1222,6 +1236,7 @@ Use this workflow when modifying EXISTING content files.
    - If translation not updated: "Consider updating {language} translation for consistency"
 
 3. **Show diff summary** (optional but helpful):
+
    ```markdown
    **Changed lines**:
 
@@ -1236,7 +1251,7 @@ Use this workflow when modifying EXISTING content files.
 
 ## Decision Tree: Create vs Update
 
-```
+```text
 User provides content
     ↓
 Parse user intent
@@ -1283,7 +1298,7 @@ Similar file exists?
 
 **User input**:
 
-```
+```text
 Update the Häbi performance page - set status to published and add hero image habi-hero.jpg
 ```
 
@@ -1302,7 +1317,7 @@ Update the Häbi performance page - set status to published and add hero image h
 
 **User input**:
 
-```
+```text
 Add a "Cast" section to the Häbi page with the following:
 - Director: Mari Mätas
 - Performers: Ann Reimann, Tiina Tauraite
@@ -1329,7 +1344,7 @@ Add a "Cast" section to the Häbi page with the following:
 
 **User input**:
 
-```
+```text
 Change the YouTube video for Häbi to the new trailer: https://youtube.com/watch?v=newtrailer123
 ```
 
@@ -1339,12 +1354,14 @@ Change the YouTube video for Häbi to the new trailer: https://youtube.com/watch
 2. Check `videos` array in frontmatter
 3. Update URL if needed (ID extracted automatically from URL)
 4. Update frontmatter:
+
    ```yaml
    videos:
      - platform: youtube
        title: Zuga etendus "Häbi"
        url: https://www.youtube.com/watch?v=newtrailer123
    ```
+
 5. Write updated file
 6. Report: "✅ Updated YouTube video ID"
 
@@ -1365,6 +1382,7 @@ Add these photos to the Häbi gallery:
 2. Check existing `gallery` array (2 images already)
 3. Propose: Append 3 new images to gallery
 4. Update frontmatter:
+
    ```yaml
    gallery:
      - url: /images/habi-promo.jpg
@@ -1378,5 +1396,6 @@ Add these photos to the Häbi gallery:
      - url: /images/habi-backstage.jpg
        description: Kulissidetagused
    ```
+
 5. Write updated file
 6. Report: "✅ Added 3 images to gallery (now 5 total)"

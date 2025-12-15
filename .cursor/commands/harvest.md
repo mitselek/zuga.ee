@@ -1810,7 +1810,7 @@ tags:
 
 **Proceed to cross-linking? (yes)**
 
-````
+````markdown
 
 **Phase 3: Cross-Linking Plan**
 
@@ -1832,6 +1832,7 @@ tags:
 2. `knowledge-base/persons/paar-parenson.md`
    - Section: "## Allikad"
    - Add: ERR kultuur intervjuu (2024-10) (link: `knowledge-base/articles/2024-10-err-kultuur-paar-parenson-ilma.md`)
+```
 
 **Apply cross-links? (yes)**
 ````
@@ -1839,7 +1840,7 @@ tags:
 **Phase 4: Commit Changes**
 
 ```markdown
-## 📦 Proposed Commit
+## Proposed Commit
 
 **Commit 1 of 2**
 ```
@@ -1855,14 +1856,12 @@ process and climate change themes in "Ilma" performance.
 
 Source: https://kultuur.err.ee/1609501726/paar-parenson-lavastusest-ilma
 
-```
-
+```markdown
 **Approve? (yes)**
 
 ---
 
 **Commit 2 of 2**
-
 ```
 
 content: Add ERR interview to Ilma press coverage
@@ -1877,14 +1876,14 @@ Bidirectional cross-references created between article and related entities.
 
 Related: knowledge-base commit (abc1234)
 
-```
-
+```markdown
 **Approve? (yes)**
 
 ---
 
 ## ✅ Commit Summary
 
+```markdown
 Created **2 commits**:
 
 - `knowledge-base: Add ERR kultuur interview...` (abc1234)
@@ -1898,7 +1897,7 @@ Created **2 commits**:
 **Phase 5: Homepage Proposals**
 
 ````markdown
-## 🏠 Homepage Update Proposals
+## Homepage Update Proposals
 
 ### Proposal 1: Add Recent Press to Homepage News
 
@@ -1911,8 +1910,8 @@ Created **2 commits**:
 > "Lavastus uurib kliimamuutusi läbi tundliku liikumiskeele ja isikliku lähenemise..."
 
 [Loe intervjuud](https://kultuur.err.ee/1609501726/...) | 24. oktoober 2024
-````
 
+````markdown
 **Reasoning**: Recent interview (< 1 month old) about current performance. Prominent publication (ERR). Provides choreographer's perspective on timely topic (climate change).
 
 **Apply this update? (yes/no/edit)**: _User selects yes_
@@ -1922,7 +1921,6 @@ Created **2 commits**:
 **Selected**: 1 proposal
 
 **Proceed to final commit? (yes)**
-
 ````
 
 **Phase 6: Final Commit**
@@ -1939,8 +1937,7 @@ into choreographic process and climate change themes.
 
 Related commits: abc1234, def5678
 
-```
-
+```markdown
 **Push to origin/main? (yes)**
 
 ---

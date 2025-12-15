@@ -248,11 +248,13 @@ cp -r knowledge-base/articles.backup.20251214_105357 knowledge-base/articles
 - Files renamed: 0
 
 **Modified**:
+
 - `apps/web/src/pages/[lang]/index.astro` (+58 lines)
 
 ### Implementation Details
 
 **Query logic**:
+
 - Fetches all published events in current language from `etendused` and `workshopid` categories
 - Extracts dates from both `premiere` and `showings` arrays
 - Applies venue fallback logic (showing inherits `premiere.venue_id` if not specified)
@@ -261,6 +263,7 @@ cp -r knowledge-base/articles.backup.20251214_105357 knowledge-base/articles
 - Takes first 5 events
 
 **UI features**:
+
 - Section header with "Tulemas" (ET) / "Upcoming" (EN) title
 - "Vaata kõiki" (ET) / "View all" (EN) link to full calendar
 - Reuses existing `EventCard` component (displays date, time, venue, title, ticket badge)
@@ -278,6 +281,7 @@ cp -r knowledge-base/articles.backup.20251214_105357 knowledge-base/articles
 ### Notes
 
 Feature leverages existing event calendar infrastructure from Issue #54:
+
 - Venue resolution via `VenueInfo` component
 - Date filtering and sorting logic
 - Event card display component
@@ -316,11 +320,13 @@ Section appears between hero and main content sections, providing immediate visi
 - Files renamed: 0
 
 **Modified**:
+
 - `apps/web/src/pages/[lang]/index.astro` (+33 lines)
 
 ### Implementation Details
 
 **Query logic**:
+
 - Reuses same event collection as upcoming events
 - Extracts dates from both `premiere` and `showings` arrays
 - Applies venue fallback logic
@@ -329,6 +335,7 @@ Section appears between hero and main content sections, providing immediate visi
 - Takes first 5 events
 
 **UI features**:
+
 - Section header with "Hiljuti olnud" (ET) / "Recent Past" (EN) title
 - "Vaata kõiki" (ET) / "View all" (EN) link to full past calendar
 - Reuses existing `EventCard` component
@@ -346,6 +353,7 @@ Section appears between hero and main content sections, providing immediate visi
 ### Notes
 
 Complements upcoming events section (Issue #56) by showcasing recent performances and workshops. Homepage now displays:
+
 1. Hero section
 2. Upcoming events (if any)
 3. Past events (if any)
