@@ -75,21 +75,6 @@ Zuga Ühendatud Tantsijate lavastus tööpealkirjaga "Mis Sul viga on?!" esieten
 
 **Peaasi.ee** - vaimse tervise platvorm
 
-## Etendused
-
-- **18. märts 2026, kell 11:00**
-- **18. märts 2026, kell 13:00**
-- **19. märts 2026, kell 11:00**
-- **19. märts 2026, kell 13:00**
-- **20. märts 2026, kell 19:00** (Esietendus)
-- **21. märts 2026, kell 19:00**
-- **20. mai 2026, kell 13:00**
-- **20. mai 2026, kell 19:00**
-- **21. mai 2026, kell 13:00**
-- **21. mai 2026, kell 19:00**
-- **22. mai 2026, kell 11:00**
-- **22. mai 2026, kell 13:00**
-
 **Asukoht:** Sõltumatu Tantsu Lava (STL), Telliskivi tänav 60a/9, 10412 Tallinn
 
 ---

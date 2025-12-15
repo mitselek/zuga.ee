@@ -1,0 +1,85 @@
+---
+import VenueInfo from './VenueInfo.astro';
+
+interface Showing {
+  date: string;
+  time?: string;
+  notes?: string;
+  venue_id?: string;
+}
+
+interface Props {
+  showings: Showing[];
+  language: 'et' | 'en';
+  premiereDate?: string;
+  defaultVenueId?: string;
+}
+
+const { showings, language, premiereDate, defaultVenueId } = Astro.props;
+
+const formatDate = (dateStr: string, timeStr?: string) => {
+  const date = new Date(dateStr + (timeStr ? `T${timeStr}` : 'T12:00:00'));
+  const formatted = date.toLocaleDateString(
+    language === 'et' ? 'et-EE' : 'en-US',
+    {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    }
+  );
+
+  if (timeStr) {
+    const time = date.toLocaleTimeString(
+      language === 'et' ? 'et-EE' : 'en-US',
+      { hour: '2-digit', minute: '2-digit' }
+    );
+    return `${formatted}, ${language === 'et' ? 'kell' : 'at'} ${time}`;
+  }
+
+  return formatted;
+};
+
+const isPremiereDate = (showingDate: string) => {
+  return premiereDate && showingDate === premiereDate;
+};
+---
+
+{showings && showings.length > 0 && (
+  <section class="max-w-4xl mx-auto mb-16 px-4">
+    <h2 class="text-3xl font-bold mb-6" style="font-family: var(--font-heading); color: var(--color-primary);">
+      {language === 'et' ? 'Etendused' : 'Performances'}
+    </h2>
+    <ul class="space-y-3">
+      {showings.map((showing) => (
+        <li class="flex items-start">
+          <span class="flex-shrink-0 w-2 h-2 bg-accent rounded-full mt-2 mr-3"></span>
+          <div>
+            <span class="font-semibold">
+              {formatDate(showing.date, showing.time)}
+            </span>
+            {isPremiereDate(showing.date) && (
+              <span class="ml-2 inline-block bg-accent/20 text-primary px-2 py-0.5 rounded text-sm font-medium">
+                {language === 'et' ? 'Esietendus' : 'Premiere'}
+              </span>
+            )}
+            {showing.notes && (
+              <span class="ml-2 text-gray-600 italic">
+                ({showing.notes})
+              </span>
+            )}
+            {showing.venue_id && showing.venue_id !== defaultVenueId && (
+              <div class="text-sm text-gray-600 mt-1">
+                <VenueInfo venueId={showing.venue_id} language={language} />
+              </div>
+            )}
+          </div>
+        </li>
+      ))}
+    </ul>
+    {defaultVenueId && (
+      <div class="mt-6 text-sm text-gray-600">
+        <strong>{language === 'et' ? 'Asukoht' : 'Venue'}:</strong> <VenueInfo venueId={defaultVenueId} language={language} />
+      </div>
+    )}
+  </section>
+)}
