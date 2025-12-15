@@ -11,28 +11,6 @@ page_type: workshop
 duration: 15-20
 age_recommendation: Sõltub töötoa valikust
 hero_image: /images/zuga-heliliikumistootoad-hero.jpg
-gallery:
-  - url: https://lh5.googleusercontent.com/LVe-GWoMHgTeRwxEPP4uf3WHWTjJ_JT7aRM8Er_vqNzSScAtFtke89O0lYsVhQQJe3RTdirHQ400hTM0aVQGyyTByHEGxxWD9SblYt6k5G3ezThh66CBLSmv3JmQ4u6LMg=w1280
-    width: 1280
-    description: "Töötoa foto"
-  - url: https://lh5.googleusercontent.com/vZAacHogCtjAcO-RjOtt8wP5y3grz3iYZsiXO4Ne6amHoK1Ebe_tkLb1_Ac6s1eGQFYUzY13k60NvH0XZVIr0BoDv2UvQ00cRUcGeG-19mc6SS2Muqjd8aQqb72q7qyy3Q=w1280
-    width: 1280
-    description: "Töötoa foto"
-  - url: https://lh3.googleusercontent.com/m_7vMqhZxj10O-DZyCHUC-fngUUU3ah22kA8XsmjTPSEHDfUJjUnXp7vkWN0pNtFGxZA-WtQlwwyFwE3HfW7Z8o=w1280
-    width: 1280
-    description: "Töötoa foto"
-  - url: https://lh6.googleusercontent.com/l17U8pWSvIqUd3xAhlhB0CahzNLyaBrr_sMpBpRfHRHsL3389YZas2lsCSnFZTEjKLSpSrLoJ1TcPTmqqusHg5uvr2WOC9dj94LZet4o4ImTGPJqbyzEA93pHhwVRRhYzg=w1280
-    width: 1280
-    description: "Töötoa foto"
-  - url: https://lh5.googleusercontent.com/55PP67F8epIQWSOTeBQM4deG1E0jRxHgXc0iEUWcxRboIpMXXVZR70rVj-l2WTbD=w1280
-    width: 1280
-    description: "Töötoa foto"
-  - url: https://lh6.googleusercontent.com/DEE_0FP1T9JmpZc0CKUajogjEm3pXMbVZ5PBf9J3XQNDWoMZ512kmYwgHytdfMtfkBBZtM1VFokXtbkIqWsLYjyHIwQdAuQCW5usti8YTwsXkNGy=w1280
-    width: 1280
-    description: "Töötoa foto"
-  - url: https://lh6.googleusercontent.com/pvK2vfq74KlLHTTVHMZfDGx3ndr5OmSBluXTSOCXvZm0bVuD0VMhDpoitn6jE-1I0Tw_KRSPodIbVek3lIoGx2h5Jlwk307X_6qPXCPE45--OGYIl7-pC2oykS_3-XJkgA=w1280
-    width: 1280
-    description: "Töötoa foto"
 tickets:
   on_sale: true
   platforms:
@@ -53,6 +31,9 @@ knowledge_base_sources:
     - persons/kart-tonisson.md
     - persons/paar-parenson.md
     - persons/tiina-molder.md
+translated:
+  - language: en
+    slug: zuga-sound-movement-workshops
 ---
 
 ## ZUGA Heliliikumistöötoad
