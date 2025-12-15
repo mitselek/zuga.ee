@@ -128,6 +128,11 @@ const allEvents = await getCollection('pages', ({ data }) => {
 /**
  * Extract event dates from a page
  * Returns array of { date, time, venue_id, page, type: 'premiere' | 'showing' }
+ *
+ * Handles edge cases:
+ * - Events with only premiere (no showings) → premiere date included
+ * - Events with only showings (no premiere) → showing dates included
+ * - Events with premiere in past but showings in future → both included (appears in both lists)
  */
 function getEventDates(eventPage: any) {
   const dates: Array<{
@@ -138,7 +143,7 @@ function getEventDates(eventPage: any) {
     type: 'premiere' | 'showing';
   }> = [];
 
-  // Add premiere date if exists
+  // Add premiere date if exists (even if showings also exist)
   if (eventPage.data.premiere?.date) {
     dates.push({
       date: eventPage.data.premiere.date,
@@ -149,13 +154,13 @@ function getEventDates(eventPage: any) {
     });
   }
 
-  // Add showing dates if exist
-  if (eventPage.data.showings) {
+  // Add showing dates if exist (even if premiere also exists)
+  if (eventPage.data.showings && eventPage.data.showings.length > 0) {
     for (const showing of eventPage.data.showings) {
       dates.push({
         date: showing.date,
         time: showing.time,
-        venue_id: showing.venue_id,
+        venue_id: showing.venue_id || eventPage.data.premiere?.venue_id, // Fallback to premiere venue
         page: eventPage,
         type: 'showing',
       });
