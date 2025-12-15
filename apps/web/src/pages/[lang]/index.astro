@@ -4,6 +4,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import LanguageSwitcher from '../../components/LanguageSwitcher.astro';
 import HomeSection from '../../components/HomeSection.astro';
 import ContentCard from '../../components/ContentCard.astro';
+import EventCard from '../../components/EventCard.astro';
 
 export async function getStaticPaths() {
   const pages = await getCollection('pages', ({ data }) => {
@@ -53,6 +54,48 @@ const getSubsections = (category: string) =>
       return (a.data.subcategory || '').localeCompare(b.data.subcategory || '');
     });
 
+// Get 5 upcoming events for homepage
+const allEvents = await getCollection('pages', ({ data }) => {
+  return (
+    data.status === 'published' &&
+    data.language === page.data.language &&
+    (data.category === 'etendused' || data.category === 'workshopid') &&
+    (data.premiere?.date || data.showings?.length > 0)
+  );
+});
+
+const todayStr = new Date().toISOString().split('T')[0];
+const upcomingEventDates = allEvents
+  .flatMap(event => {
+    const dates = [];
+    // Add premiere if exists and in future
+    if (event.data.premiere?.date) {
+      dates.push({
+        date: event.data.premiere.date,
+        time: event.data.premiere.time,
+        venue_id: event.data.premiere.venue_id,
+        page: event,
+        type: 'premiere' as const,
+      });
+    }
+    // Add showings if exist and in future
+    if (event.data.showings) {
+      for (const showing of event.data.showings) {
+        dates.push({
+          date: showing.date,
+          time: showing.time,
+          venue_id: showing.venue_id || event.data.premiere?.venue_id,
+          page: event,
+          type: 'showing' as const,
+        });
+      }
+    }
+    return dates;
+  })
+  .filter(e => e.date >= todayStr)
+  .sort((a, b) => a.date.localeCompare(b.date))
+  .slice(0, 5);
+
 const isEstonian = page.data.language === 'et';
 ---
 
@@ -92,6 +135,31 @@ const isEstonian = page.data.language === 'et';
       </div>
     </div>
   </section>
+
+  <!-- Upcoming Events Section -->
+  {upcomingEventDates.length > 0 && (
+    <section class="py-16 bg-slate-50">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="flex justify-between items-center mb-12">
+          <h2 class="text-4xl font-bold text-slate-900">
+            {isEstonian ? 'Tulemas' : 'Upcoming'}
+          </h2>
+          <a
+            href={`/${page.data.language}/kalender/${isEstonian ? 'tulemas' : 'upcoming'}`}
+            class="text-blue-600 hover:text-blue-800 font-medium flex items-center gap-2"
+          >
+            {isEstonian ? 'Vaata kõiki' : 'View all'}
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {upcomingEventDates.map(event => (
+            <EventCard event={event} language={page.data.language} />
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
 
   <!-- Dynamic Sections -->
   {sections.map(async (section, index) => {

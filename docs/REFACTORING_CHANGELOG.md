@@ -223,6 +223,75 @@ cp -r knowledge-base/articles.backup.20251214_105357 knowledge-base/articles
 
 ---
 
+## Issue #56: Add Upcoming Events Section to Homepage (2025-12-15)
+
+**Type**: feat
+**Scope**: homepage, ui
+**Effort**: 1.5 hours
+**Risk**: Low
+
+### Changes Made
+
+- Added upcoming events query logic to homepage (`index.astro`)
+- Imported `EventCard` component for event display
+- Created new "Upcoming Events" / "Tulemas" section above dynamic sections
+- Query fetches all events with `premiere` or `showings`, filters for future dates >= today
+- Displays 5 closest upcoming events sorted by date
+- Includes "View all" link to full calendar page (`/kalender/tulemas` or `/calendar/upcoming`)
+- Responsive grid layout (1 column mobile, 2 tablet, 3 desktop)
+
+### Files Affected
+
+- Total files changed: 1
+- New files created: 0
+- Files deleted: 0
+- Files renamed: 0
+
+**Modified**:
+- `apps/web/src/pages/[lang]/index.astro` (+58 lines)
+
+### Implementation Details
+
+**Query logic**:
+- Fetches all published events in current language from `etendused` and `workshopid` categories
+- Extracts dates from both `premiere` and `showings` arrays
+- Applies venue fallback logic (showing inherits `premiere.venue_id` if not specified)
+- Filters for dates >= today (Estonia timezone)
+- Sorts ascending (closest first)
+- Takes first 5 events
+
+**UI features**:
+- Section header with "Tulemas" (ET) / "Upcoming" (EN) title
+- "Vaata kõiki" (ET) / "View all" (EN) link to full calendar
+- Reuses existing `EventCard` component (displays date, time, venue, title, ticket badge)
+- Light slate background (`bg-slate-50`) to differentiate from other sections
+- Only renders if upcoming events exist (conditional section)
+
+### Validation
+
+- Schema validation: ✅ N/A (no schema changes)
+- Build: ✅ Passed (52 pages, no errors)
+- Component reuse: ✅ EventCard already tested in calendar pages
+- Responsive: ✅ Grid adapts to screen size
+- i18n: ✅ Bilingual labels and links
+
+### Notes
+
+Feature leverages existing event calendar infrastructure from Issue #54:
+- Venue resolution via `VenueInfo` component
+- Date filtering and sorting logic
+- Event card display component
+- Calendar page linking
+
+Section appears between hero and main content sections, providing immediate visibility of upcoming performances and workshops. Empty state handled gracefully - section doesn't render if no upcoming events.
+
+### Commit
+
+- Commit hash: TBD
+- Branch: feat/event-calendar-system
+
+---
+
 ## Issue #32: Add source attribution to person profiles (2025-12-14)
 
 **Type**: feat
