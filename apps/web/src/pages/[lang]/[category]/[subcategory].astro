@@ -5,8 +5,6 @@ import LanguageSwitcher from '../../../components/LanguageSwitcher.astro';
 import PageHero from '../../../components/PageHero.astro';
 import PerformanceGallery from '../../../components/PerformanceGallery.astro';
 import VideoEmbed from '../../../components/VideoEmbed.astro';
-import PerformanceList from '../../../components/PerformanceList.astro';
-import PerformanceCard from '../../../components/PerformanceCard.astro';
 
 export async function getStaticPaths() {
   // Category translation mapping for URLs
@@ -121,9 +119,49 @@ const currentSlug = page.data.slug || page.id.replace(/^(en|et)\//, '').replace(
         {page.data.language === 'et' ? 'Etendused' : 'Performances'}
       </h2>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {detailPages.map(performance => (
-          <PerformanceCard page={performance} />
-        ))}
+        {detailPages.map(performance => {
+          const performanceSlug = performance.id.replace(/^(en|et)\//, '').replace(/\.md$/, '');
+          // Extract just the filename for the URL
+          const slugParts = performanceSlug.split('/');
+          const slug = slugParts[slugParts.length - 1];
+
+          // Build category URL
+          const categoryUrlMap = {
+            etendused: {
+              en: 'performances',
+              et: 'etendused',
+            },
+            workshopid: {
+              en: 'workshops',
+              et: 'workshopid',
+            },
+          };
+          const categoryUrl = categoryUrlMap[performance.data.category]?.[performance.data.language] || performance.data.category;
+          const href = `/${performance.data.language}/${categoryUrl}/${slug}`;
+
+          return (
+            <a
+              href={href}
+              class="group block p-6 bg-white rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 border border-gray-200 hover:border-accent"
+            >
+              {performance.data.hero_image && (
+                <img
+                  src={performance.data.hero_image}
+                  alt={performance.data.title}
+                  class="w-full h-48 object-cover rounded-md mb-4"
+                />
+              )}
+              <h3 class="text-xl font-bold mb-2 group-hover:text-accent transition-colors" style="font-family: var(--font-heading); color: var(--color-primary);">
+                {performance.data.title}
+              </h3>
+              {performance.data.description && (
+                <p class="text-gray-600 text-sm line-clamp-3">
+                  {performance.data.description}
+                </p>
+              )}
+            </a>
+          );
+        })}
       </div>
     </section>
   )}
