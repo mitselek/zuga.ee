@@ -9,6 +9,33 @@ import AudioEmbed from '../../../components/AudioEmbed.astro';
 import PerformanceList from '../../../components/PerformanceList.astro';
 
 export async function getStaticPaths() {
+  // Category translation mapping for URLs
+  const categoryUrlMap = {
+    etendused: {
+      en: 'performances',
+      et: 'etendused',
+    },
+    workshopid: {
+      en: 'workshops',
+      et: 'workshopid',
+    },
+    about: {
+      en: 'about',
+      et: 'about',
+    },
+    gallery: {
+      en: 'gallery',
+      et: 'gallery',
+    },
+    contact: {
+      en: 'contact',
+      et: 'contact',
+    },
+    news: {
+      en: 'news',
+      et: 'news',
+    },
+  };
   const pages = await getCollection('pages', ({ data }) => {
     // Only generate routes for detail pages with published status
     return data.status === 'published' && data.type === 'detail';
@@ -34,10 +61,13 @@ export async function getStaticPaths() {
         : frontmatterSlug;
     }
 
+    // Translate category for URL based on language
+    const categoryUrl = categoryUrlMap[page.data.category]?.[page.data.language] || page.data.category;
+
     return {
       params: {
         lang: page.data.language,
-        category: page.data.category,
+        category: categoryUrl,
         slug: slug,
       },
       props: { page },
@@ -74,6 +104,7 @@ const sectionTitles = {
     currentLang={page.data.language}
     currentSlug={currentSlug}
     translations={page.data.translated}
+    category={page.data.category}
   />
 
   <PageHero

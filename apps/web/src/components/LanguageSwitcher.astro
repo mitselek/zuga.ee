@@ -4,9 +4,38 @@ interface Props {
   currentSlug: string;
   translations?: Array<{ language: string; slug: string }>;
   calendarPrefix?: string; // Optional: for calendar pages (kalender/calendar)
+  category?: string; // Optional: category for detail pages (etendused, workshopid, etc.)
 }
 
-const { currentLang, currentSlug, translations = [], calendarPrefix } = Astro.props;
+const { currentLang, currentSlug, translations = [], calendarPrefix, category } = Astro.props;
+
+// Category translation mapping
+const categoryTranslations: Record<string, Record<string, string>> = {
+  etendused: {
+    en: 'performances',
+    et: 'etendused',
+  },
+  workshopid: {
+    en: 'workshops',
+    et: 'workshopid',
+  },
+  about: {
+    en: 'about',
+    et: 'about',
+  },
+  gallery: {
+    en: 'gallery',
+    et: 'gallery',
+  },
+  contact: {
+    en: 'contact',
+    et: 'contact',
+  },
+  news: {
+    en: 'news',
+    et: 'news',
+  },
+};
 
 const languages = [
   { code: 'et', label: 'ET' },
@@ -23,7 +52,13 @@ const languages = [
 
     if (translation) {
       // Use explicit translation if available
-      href = `/${lang.code}/${translation.slug}`;
+      // For detail pages with category, include translated category in URL
+      if (category) {
+        const translatedCategory = categoryTranslations[category]?.[lang.code] || category;
+        href = `/${lang.code}/${translatedCategory}/${translation.slug}`;
+      } else {
+        href = `/${lang.code}/${translation.slug}`;
+      }
     } else if (calendarPrefix) {
       // For calendar pages, translate the calendar segment
       const targetCalendarSlug = lang.code === 'et' ? 'kalender' : 'calendar';

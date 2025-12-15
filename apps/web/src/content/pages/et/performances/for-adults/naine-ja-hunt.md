@@ -21,6 +21,9 @@ audio:
   url: https://arhiiv.err.ee/audio/vaata/paevakaja-paevakaja-nr-16373-kl-18?t=691
   source: ERR Päevakaja
   date: "2006-02-26"
+translated:
+  - language: en
+    slug: woman-and-wolf
 knowledge_base_sources:
   articles:
     - articles/2007-06-epl-tiiu-laks-naine-ja-hunt-preemia.md

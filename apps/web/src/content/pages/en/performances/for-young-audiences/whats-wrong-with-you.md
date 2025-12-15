@@ -2,7 +2,7 @@
 title: What's wrong with you?!
 slug: whats-wrong-with-you
 language: en
-description: A performance about mental health and noticing each other (collaboration with Peaasi.ee)
+description: Performance about mental health and noticing each other (in collaboration with Peaasi.ee)
 type: detail
 category: etendused
 subcategory: noorele-publikule
@@ -14,14 +14,17 @@ working_title: true
 collaboration:
   - Peaasi.ee
 credits:
-  company: United Dancers of Zuga
+  company: Zuga Ühendatud Tantsijad
 translated:
   - language: et
-    slug: etendused-noorele-publikule-mis-sul-viga-on
+    slug: mis-sul-viga-on
 hero_image: https://fienta.com/cf/img/?width=1070&dpr=1&format=webp&v=1764153816&gcs=true&file=/uploads/2025/11/157610/157610-et-251126124336.png
 premiere:
   date: '2026-03-21'
   venue_id: stl
+knowledge_base_sources:
+  press:
+    - press/2026-03-mis-sul-viga-on-announcement.md
 ---
 
 # What's wrong with you?!
@@ -33,11 +36,11 @@ premiere:
 
 ## About the Performance
 
-United Dancers of Zuga's performance with the working title "What's wrong with you?!" premieres in March 2026. The performance is created in collaboration with Peaasi.ee and focuses on mental health and the theme of noticing each other.
+Zuga United Dancers' performance with the working title "What's wrong with you?!" premieres in March 2026. The performance is created in collaboration with Peaasi.ee and explores themes of mental health and noticing each other.
 
 ---
 
-_Performance in development. More details coming soon._
+_Performance in development. More information coming soon._
 
 ## Tickets
 
