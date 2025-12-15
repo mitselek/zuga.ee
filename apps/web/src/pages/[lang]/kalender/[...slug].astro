@@ -207,12 +207,17 @@ if (slug === 'tulemas' || slug === 'upcoming') {
   description={pageData.data.description}
   language={pageData.data.language}
 >
-  <LanguageSwitcher currentSlug={slug || (pageData.data.slug === 'kalender' ? 'kalender' : 'calendar')} />
+  <LanguageSwitcher
+    slot="language-switcher"
+    currentLang={pageData.data.language}
+    currentSlug={slug || (pageData.data.slug === 'kalender' ? 'kalender' : 'calendar')}
+    translations={pageData.data.translated}
+  />
 
   <PageHero
     title={pageData.data.title}
-    description={pageData.data.description}
-    heroImage={pageData.data.hero_image}
+    subtitle={pageData.data.description}
+    imageUrl={pageData.data.hero_image}
   />
 
   <main class="container mx-auto px-4 py-8">
