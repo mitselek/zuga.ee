@@ -53,6 +53,7 @@ All new fields are optional (non-breaking change). Existing files continue to va
 ### Changes Made
 
 - Created comprehensive validation script `scripts/validate-all.js`:
+
   - Validates all KnB files (articles, persons, press, research) against Zod schemas
   - Validates all web content files against schema
   - Validates performance/workshop registry files
@@ -63,11 +64,13 @@ All new fields are optional (non-breaking change). Existing files continue to va
   - Provides verbose output mode for detailed error messages
 
 - Updated `knowledge-base/README.md`:
+
   - Added comprehensive validation section with usage instructions
   - Documented all validation options and exit codes
   - Added registry validation documentation
 
 - Updated `knowledge-base/CONTENT_STANDARDS.md`:
+
   - Added registry validation rules section
   - Added validation requirements section with command examples
   - Documented validation checks (schema compliance, registry references, linking integrity)
@@ -97,12 +100,14 @@ All new fields are optional (non-breaking change). Existing files continue to va
 ### Notes
 
 The validation script handles edge cases:
+
 - Date objects from YAML parsing are converted to ISO date strings
 - Tag arrays may contain numbers (coerced to strings)
 - Person status enum includes additional values found in actual files
 - Article type enum includes 'television' variant
 
 The script reports warnings (not errors) for:
+
 - Orphaned KnB content (expected until linking issues #36, #37 are complete)
 - Unsupported web claims (expected until linking issues are complete)
 
@@ -218,6 +223,151 @@ cp -r knowledge-base/articles.backup.20251214_105357 knowledge-base/articles
 
 ---
 
+## Issue #56: Add Upcoming Events Section to Homepage (2025-12-15)
+
+**Type**: feat
+**Scope**: homepage, ui
+**Effort**: 1.5 hours
+**Risk**: Low
+
+### Changes Made
+
+- Added upcoming events query logic to homepage (`index.astro`)
+- Imported `EventCard` component for event display
+- Created new "Upcoming Events" / "Tulemas" section above dynamic sections
+- Query fetches all events with `premiere` or `showings`, filters for future dates >= today
+- Displays 5 closest upcoming events sorted by date
+- Includes "View all" link to full calendar page (`/kalender/tulemas` or `/calendar/upcoming`)
+- Responsive grid layout (1 column mobile, 2 tablet, 3 desktop)
+
+### Files Affected
+
+- Total files changed: 1
+- New files created: 0
+- Files deleted: 0
+- Files renamed: 0
+
+**Modified**:
+
+- `apps/web/src/pages/[lang]/index.astro` (+58 lines)
+
+### Implementation Details
+
+**Query logic**:
+
+- Fetches all published events in current language from `etendused` and `workshopid` categories
+- Extracts dates from both `premiere` and `showings` arrays
+- Applies venue fallback logic (showing inherits `premiere.venue_id` if not specified)
+- Filters for dates >= today (Estonia timezone)
+- Sorts ascending (closest first)
+- Takes first 5 events
+
+**UI features**:
+
+- Section header with "Tulemas" (ET) / "Upcoming" (EN) title
+- "Vaata kõiki" (ET) / "View all" (EN) link to full calendar
+- Reuses existing `EventCard` component (displays date, time, venue, title, ticket badge)
+- Light slate background (`bg-slate-50`) to differentiate from other sections
+- Only renders if upcoming events exist (conditional section)
+
+### Validation
+
+- Schema validation: ✅ N/A (no schema changes)
+- Build: ✅ Passed (52 pages, no errors)
+- Component reuse: ✅ EventCard already tested in calendar pages
+- Responsive: ✅ Grid adapts to screen size
+- i18n: ✅ Bilingual labels and links
+
+### Notes
+
+Feature leverages existing event calendar infrastructure from Issue #54:
+
+- Venue resolution via `VenueInfo` component
+- Date filtering and sorting logic
+- Event card display component
+- Calendar page linking
+
+Section appears between hero and main content sections, providing immediate visibility of upcoming performances and workshops. Empty state handled gracefully - section doesn't render if no upcoming events.
+
+### Commit
+
+- Commit hash: TBD
+- Branch: feat/event-calendar-system
+
+---
+
+## Issue #56b: Add Past Events Section to Homepage (2025-12-15)
+
+**Type**: feat
+**Scope**: homepage, ui
+**Effort**: 30 minutes
+**Risk**: Low
+
+### Changes Made
+
+- Added past events query logic to homepage (`index.astro`)
+- Created new "Hiljuti olnud" (ET) / "Recent Past" (EN) section below upcoming events
+- Query fetches all events with `premiere` or `showings`, filters for past dates < today
+- Displays 5 most recent past events sorted by date descending (most recent first)
+- Includes "View all" link to full past calendar page (`/kalender/olnud` or `/calendar/past`)
+- Responsive grid layout matching upcoming events section (1 column mobile, 2 tablet, 3 desktop)
+
+### Files Affected
+
+- Total files changed: 1
+- New files created: 0
+- Files deleted: 0
+- Files renamed: 0
+
+**Modified**:
+
+- `apps/web/src/pages/[lang]/index.astro` (+33 lines)
+
+### Implementation Details
+
+**Query logic**:
+
+- Reuses same event collection as upcoming events
+- Extracts dates from both `premiere` and `showings` arrays
+- Applies venue fallback logic
+- Filters for dates < today (Estonia timezone)
+- Sorts descending (most recent first)
+- Takes first 5 events
+
+**UI features**:
+
+- Section header with "Hiljuti olnud" (ET) / "Recent Past" (EN) title
+- "Vaata kõiki" (ET) / "View all" (EN) link to full past calendar
+- Reuses existing `EventCard` component
+- White background (`bg-white`) alternating with upcoming section (`bg-slate-50`)
+- Only renders if past events exist (conditional section)
+
+### Validation
+
+- Schema validation: ✅ N/A (no schema changes)
+- Build: ✅ Passed (52 pages, no errors)
+- Component reuse: ✅ EventCard works for past events
+- Responsive: ✅ Grid adapts to screen size
+- i18n: ✅ Bilingual labels and links
+
+### Notes
+
+Complements upcoming events section (Issue #56) by showcasing recent performances and workshops. Homepage now displays:
+
+1. Hero section
+2. Upcoming events (if any)
+3. Past events (if any)
+4. Main content sections
+
+Both event sections share same query logic with different date filters, ensuring consistency and code reuse.
+
+### Commit
+
+- Commit hash: TBD
+- Branch: feat/event-calendar-system
+
+---
+
 ## Issue #32: Add source attribution to person profiles (2025-12-14)
 
 **Type**: feat
@@ -259,6 +409,7 @@ cp -r knowledge-base/articles.backup.20251214_105357 knowledge-base/articles
 ### Rollback Procedure
 
 If rollback needed:
+
 ```bash
 rm -rf knowledge-base/persons
 cp -r knowledge-base/persons.backup.20251214_111124 knowledge-base/persons
@@ -317,6 +468,7 @@ cp -r knowledge-base/persons.backup.20251214_111124 knowledge-base/persons
 ### Rollback Procedure
 
 If rollback needed:
+
 ```bash
 # Restore from backup
 rm -rf apps/web/src/content/pages/en
@@ -374,6 +526,7 @@ git checkout HEAD~1 -- knowledge-base/persons/
 ### Notes
 
 Registry provides canonical data for all ZUGA performances and workshops, enabling:
+
 - Slug validation in articles and web content
 - Cross-referencing via `related_knb.performances` IDs
 - Single source of truth for bilingual titles
@@ -405,6 +558,7 @@ Registry IDs can be used in KnB files' `related_knb.performances` fields (e.g., 
 - Updated translated field slugs for bidirectional linking
 
 **Files moved**:
+
 - 5 EN adult performances → `en/performances/for-adults/`
 - 7 EN young audience performances → `en/performances/for-young-audiences/`
 - 6 ET adult performances → `et/performances/for-adults/`
@@ -451,21 +605,25 @@ Migrated video and audio embeds to URL-only strategy, removing redundant `video_
 ### Changes Made
 
 #### Component Updates
+
 - **VideoEmbed.astro**: Added `extractYouTubeId()` and `extractVimeoId()` functions to parse various URL formats
 - **VideoEmbed.astro**: Updated `getEmbedUrl()` to extract IDs from URLs with backward compatibility
 - **AudioEmbed.astro**: Added `extractSoundCloudId()` function (component already used URLs directly)
 
 #### Schema Updates
+
 - **config.ts**: Made `video_id` and `track_id` truly optional (removed `.min(1)` constraint)
 - Updated schema comments to indicate IDs are deprecated and extracted automatically
 
 #### Content Migration
+
 - Created `scripts/migrate-video-audio-url-only.js` migration script
 - Removed redundant `video_id` fields from 38 content files
 - Removed redundant `track_id` fields from audio embeds
 - URLs cleaned (tracking parameters removed where applicable)
 
 #### Documentation
+
 - Updated `.cursor/commands/add-content.md` with URL-only examples
 - Updated `.github/prompts/add-content.prompt.md` with URL-only examples
 - Removed references to `video_id`/`track_id` from examples

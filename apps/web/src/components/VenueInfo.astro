@@ -1,0 +1,36 @@
+---
+import { getVenue, getVenueName, getVenueShortName } from '../utils/venues';
+
+interface Props {
+  venueId: string;
+  language?: 'et' | 'en';
+  short?: boolean;
+}
+
+const { venueId, language = 'et', short = false } = Astro.props;
+
+const venue = getVenue(venueId);
+const displayName = short
+  ? getVenueShortName(venueId, language)
+  : getVenueName(venueId, language);
+---
+
+{venue ? (
+  <span class="venue-info" title={venue.name[language] || venue.name.et}>
+    {displayName}
+  </span>
+) : (
+  <span class="venue-info venue-unknown" title={`Unknown venue: ${venueId}`}>
+    {venueId}
+  </span>
+)}
+
+<style>
+  .venue-info {
+    font-weight: 500;
+  }
+  .venue-unknown {
+    opacity: 0.7;
+    font-style: italic;
+  }
+</style>

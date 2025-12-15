@@ -263,13 +263,53 @@ const researchSchema = z.object({
   status: z.enum(['active', 'archived']).optional(),
 });
 
+const venueSchema = z.object({
+  id: z.string().min(1),
+  name: z.object({
+    et: z.string().min(1),
+    en: z.string().optional(),
+  }),
+  short_name: z.string().optional(),
+  address: z.object({
+    street: z.string().min(1),
+    city: z.string().min(1),
+    postal_code: z.string().optional(),
+    country: z.string().default('Estonia'),
+  }),
+  coordinates: z.object({
+    lat: z.number().min(-90).max(90),
+    lng: z.number().min(-180).max(180),
+  }).optional(),
+  capacity: z.number().positive().optional(),
+  accessibility: z.object({
+    wheelchair: z.boolean().optional(),
+    elevator: z.boolean().optional(),
+    hearing_loop: z.boolean().optional(),
+  }).optional(),
+  parking: z.object({
+    available: z.boolean(),
+    details: z.string().optional(),
+  }).optional(),
+  transit: z.object({
+    tram: z.array(z.string()).optional(),
+    bus: z.array(z.string()).optional(),
+    nearest_stop: z.string().optional(),
+  }).optional(),
+  website: z.string().url().optional(),
+  contact: z.object({
+    email: z.string().email().optional(),
+    phone: z.string().optional(),
+  }).optional(),
+  status: z.enum(['active', 'inactive', 'temporary']).default('active'),
+});
+
 // Web content schema (simplified - full schema is in apps/web/src/content/config.ts)
 const webPageSchema = z.object({
   title: z.string().min(1),
   slug: z.string().regex(/^[a-z0-9-]+$/).optional(),
   language: z.enum(['en', 'et']),
   type: z.enum(['home', 'section', 'detail']),
-  category: z.enum(['etendused', 'workshopid', 'about', 'gallery', 'contact', 'news']),
+  category: z.enum(['etendused', 'workshopid', 'about', 'gallery', 'contact', 'news', 'kalender']),
   subcategory: z.string().optional(),
   status: z.enum(['published', 'draft']),
   description: z.string().optional(),
@@ -309,6 +349,88 @@ const webPageSchema = z.object({
     press: z.array(z.string()).optional(),
     research: z.array(z.string()).optional(),
   }).optional(),
+
+  // Event Scheduling (Issue #54)
+  // Legacy fields - DEPRECATED: Use premiere.date and premiere.venue_id instead
+  premiere_date: z.union([
+    z.string(),
+    z.date().transform((d) => d.toISOString().split('T')[0]), // Convert Date to YYYY-MM-DD
+  ]).optional(),
+  venue: z.string().optional(), // DEPRECATED: Use premiere.venue_id instead
+
+  // NEW: Structured premiere information
+  premiere: z.object({
+    date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, 'Date must be YYYY-MM-DD format'),
+    time: z.string().regex(/^\d{2}:\d{2}$/, 'Time must be HH:MM format').optional(),
+    venue_id: z.string().optional(),
+  }).optional(),
+
+  // NEW: Multiple showings/tour dates
+  showings: z.array(z.object({
+    date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, 'Date must be YYYY-MM-DD format'),
+    time: z.string().regex(/^\d{2}:\d{2}$/, 'Time must be HH:MM format').optional(),
+    venue_id: z.string().optional(),
+    status: z.enum(['scheduled', 'sold-out', 'cancelled']).optional(),
+    notes: z.string().optional(),
+  })).optional(),
+
+  // NEW: Ticket sales information
+  tickets: z.object({
+    on_sale: z.boolean().optional(),
+    sale_start: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, 'Sale start date must be YYYY-MM-DD format').optional(),
+    sale_end: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, 'Sale end date must be YYYY-MM-DD format').optional(),
+    platforms: z.array(z.object({
+      name: z.string().min(1),
+      url: z.string().url(),
+    })).optional(),
+    pricing: z.array(z.object({
+      type: z.string().min(1),
+      price: z.number().positive(),
+      currency: z.string().default('EUR'),
+    })).optional(),
+  }).optional(),
+
+  // NEW: Special events tied to performance/workshop
+  special_events: z.array(z.object({
+    type: z.enum(['artist-talk', 'workshop', 'discussion', 'screening', 'masterclass']),
+    date: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, 'Date must be YYYY-MM-DD format'),
+    time: z.string().regex(/^\d{2}:\d{2}$/, 'Time must be HH:MM format').optional(),
+    duration: z.number().positive().optional(),
+    free: z.boolean().optional(),
+    registration_required: z.boolean().optional(),
+    description: z.object({
+      et: z.string().optional(),
+      en: z.string().optional(),
+    }).optional(),
+  })).optional(),
+
+  // NEW: Workshop booking information (workshops only)
+  // Supports both legacy string format and new structured object format
+  booking: z.union([
+    z.string(),
+    z.object({
+      required: z.boolean(),
+      contact: z.object({
+        name: z.string().min(1),
+        email: z.string().email(),
+        phone: z.string().optional(),
+      }),
+      requirements: z.object({
+        min_participants: z.number().positive().optional(),
+        max_participants: z.number().positive().optional(),
+        space: z.string().optional(),
+        equipment: z.string().optional(),
+      }).optional(),
+      pricing: z.object({
+        model: z.enum(['per-group', 'per-person']),
+        amount: z.number().positive(),
+        currency: z.string().default('EUR'),
+        outside_tallinn_fee: z.boolean().optional(),
+      }).optional(),
+      target_age: z.string().optional(),
+      duration: z.number().positive().optional(),
+    }),
+  ]).optional(),
 });
 
 /**
@@ -322,6 +444,7 @@ function validateKnBFiles() {
     persons: { schema: personSchema, dir: path.join(knowledgeBasePath, 'persons') },
     press: { schema: pressSchema, dir: path.join(knowledgeBasePath, 'press') },
     research: { schema: researchSchema, dir: path.join(knowledgeBasePath, 'research') },
+    venues: { schema: venueSchema, dir: path.join(knowledgeBasePath, 'venues') },
   };
 
   let totalErrors = 0;

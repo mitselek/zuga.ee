@@ -35,6 +35,9 @@ knowledge_base_sources:
     - persons/kart-tonisson.md
     - persons/tiina-molder.md
     - persons/triin-lilleorg.md
+premiere:
+  date: '2011-10-08'
+  venue_id: kanuti-gildi-saal
 ---
 
 ## Tantsuetendus lastele "Võluvärk"

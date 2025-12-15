@@ -32,6 +32,26 @@ Press releases, media kits, and promotional materials created by ZUGA.
 
 Background research, interviews, production notes, and other reference materials.
 
+### `/venues`
+
+Venue profiles for performance and event locations. Contains structured information about theaters, stages, and other spaces where ZUGA performs.
+
+**Fields**:
+
+- `id`: Short identifier (e.g., "stl", "kanuti-gildi-saal")
+- `name`: Bilingual venue name (`et`, `en`)
+- `address`: Full address with street, city, postal code, country
+- `coordinates`: GPS coordinates (lat/lng) for maps
+- `capacity`: Maximum audience capacity
+- `accessibility`: Accessibility features (wheelchair, elevator, hearing loop)
+- `parking`: Parking availability and details
+- `transit`: Public transit information (tram, bus lines, nearest stop)
+- `website`: Venue website URL
+- `contact`: Contact information (email, phone)
+- `status`: `active`, `inactive`, or `temporary`
+
+**Usage**: Reference venue IDs in event scheduling fields (`premiere.venue_id`, `showings[].venue_id`).
+
 ### `/registry`
 
 Canonical registry files for performances and workshops. These YAML files serve as the single source of truth for performance/workshop metadata, enabling validation and cross-referencing across the Knowledge Base.
@@ -193,6 +213,7 @@ Files should follow this pattern:
 - Articles: `YYYY-MM-publication-slug.md`
 - Press: `YYYY-MM-performance-slug.md`
 - Research: `performance-slug-topic.md`
+- Venues: `venue-slug.md` (e.g., `soltumatu-tantsu-lava.md`)
 
 ## Metadata
 
@@ -247,6 +268,21 @@ Each file should include YAML frontmatter with validated fields. See `config.ts`
 - **used_in_pages** (optional): List of web content pages referencing this research document
 - **related_knb** (optional): Cross-references to related KnB content (performances, persons, articles, press, research)
 - **status**: active (default), archived
+
+### Venues
+
+- **id** (required): Short identifier (e.g., "stl", "kanuti-gildi-saal")
+- **name** (required): Bilingual venue name (`et` required, `en` optional)
+- **short_name** (optional): Abbreviation (e.g., "STL")
+- **address** (required): Full address object (street, city, postal_code, country)
+- **coordinates** (optional): GPS coordinates (lat, lng) for maps
+- **capacity** (optional): Maximum audience capacity
+- **accessibility** (optional): Accessibility features (wheelchair, elevator, hearing_loop)
+- **parking** (optional): Parking information (available boolean, details string)
+- **transit** (optional): Public transit information (tram, bus arrays, nearest_stop)
+- **website** (optional): Venue website URL
+- **contact** (optional): Contact information (email, phone)
+- **status**: active (default), inactive, temporary
 
 ## Type-Safe Configuration
 

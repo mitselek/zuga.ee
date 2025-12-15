@@ -1,0 +1,57 @@
+---
+import EventCard from './EventCard.astro';
+
+interface EventDate {
+  date: string;
+  time?: string;
+  venue_id?: string;
+  page: any;
+  type: 'premiere' | 'showing';
+}
+
+interface Props {
+  events: EventDate[];
+  language: 'et' | 'en';
+  groupByMonth?: boolean;
+}
+
+const { events, language, groupByMonth = true } = Astro.props;
+
+if (events.length === 0) {
+  return null;
+}
+
+// Group events by month/year if requested
+let groupedEvents: Map<string, EventDate[]>;
+if (groupByMonth) {
+  groupedEvents = new Map();
+  for (const event of events) {
+    const dateObj = new Date(event.date + 'T00:00:00');
+    const monthKey = dateObj.toLocaleDateString(language === 'et' ? 'et-EE' : 'en-US', {
+      year: 'numeric',
+      month: 'long',
+    });
+
+    if (!groupedEvents.has(monthKey)) {
+      groupedEvents.set(monthKey, []);
+    }
+    groupedEvents.get(monthKey)!.push(event);
+  }
+} else {
+  // Single group with all events
+  groupedEvents = new Map([['', events]]);
+}
+---
+
+<div class="event-list mt-12">
+  {Array.from(groupedEvents.entries()).map(([month, monthEvents]) => (
+    <section class="mb-12">
+      {month && <h2 class="text-3xl font-bold mb-6">{month}</h2>}
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {monthEvents.map((event) => (
+          <EventCard event={event} language={language} />
+        ))}
+      </div>
+    </section>
+  ))}
+</div>

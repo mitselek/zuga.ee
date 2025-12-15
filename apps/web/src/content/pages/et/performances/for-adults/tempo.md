@@ -8,15 +8,18 @@ category: etendused
 subcategory: suurtele
 status: published
 page_type: performance
-premiere_date: 2018-03-16
+premiere_date: 2018-03-16T00:00:00.000Z
 venue: Sõltumatu Tantsu Lava
 translated:
-- language: en
-  slug: tempo
+  - language: en
+    slug: tempo
 hero_image: /images/tempo-hero.jpg
 gallery:
-- url: /images/tempo-hero.jpg
-  description: Etenduse foto
+  - url: /images/tempo-hero.jpg
+    description: Etenduse foto
+premiere:
+  date: '2018-03-16'
+  venue_id: stl
 ---
 
 ## Tantsulavastus "Tempo"

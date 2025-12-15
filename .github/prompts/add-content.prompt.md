@@ -129,13 +129,16 @@ Which would you prefer?
 Before proceeding, read and understand the content schema:
 
 ```typescript
-// apps/web/src/content/config.ts - Key requirements:
+// apps/web/src/content/config.ts - Event Scheduling (Issue #54)
+// Schema version: Updated 2025-12-15 for event calendar system
+
+// Key requirements:
 
 // Hierarchy levels
 type: 'home' | 'section' | 'detail'
 
 // Categories
-category: 'etendused' | 'workshopid' | 'about' | 'gallery' | 'contact' | 'news'
+category: 'etendused' | 'workshopid' | 'about' | 'gallery' | 'contact' | 'news' | 'kalender'
 
 // Required fields
 title: string (min 1 char)
@@ -147,6 +150,77 @@ status: 'published' | 'draft'
 description: string
 subcategory: string (for grouping within category)
 order: number (for manual ordering)
+
+// Event Scheduling (Issue #54) - NEW structured format
+// Legacy fields (deprecated but supported for backward compatibility):
+premiere_date: string | Date (optional) // DEPRECATED: Use premiere.date instead
+venue: string (optional) // DEPRECATED: Use premiere.venue_id instead
+
+// NEW structured fields:
+premiere: {
+  date: string (YYYY-MM-DD format, required)
+  time?: string (HH:MM format, optional)
+  venue_id?: string (venue ID from knowledge-base/venues/, optional)
+} (optional)
+
+showings: Array<{
+  date: string (YYYY-MM-DD format, required)
+  time?: string (HH:MM format, optional)
+  venue_id?: string (venue ID, optional - falls back to premiere.venue_id if omitted)
+  status?: 'scheduled' | 'sold-out' | 'cancelled' (optional)
+  notes?: string (optional, e.g., "Külalisetendus", "Sold out")
+}> (optional)
+
+tickets: {
+  on_sale?: boolean (optional)
+  sale_start?: string (YYYY-MM-DD format, optional)
+  sale_end?: string (YYYY-MM-DD format, optional)
+  platforms?: Array<{
+    name: string (e.g., "Fienta", "Piletilevi")
+    url: string (valid URL)
+  }> (optional)
+  pricing?: Array<{
+    type: string (e.g., "adult", "student", "child")
+    price: number (positive)
+    currency: string (default: "EUR")
+  }> (optional)
+} (optional)
+
+special_events: Array<{
+  type: 'artist-talk' | 'workshop' | 'discussion' | 'screening' | 'masterclass'
+  date: string (YYYY-MM-DD format, required)
+  time?: string (HH:MM format, optional)
+  duration?: number (minutes, optional)
+  free?: boolean (optional, default: false)
+  registration_required?: boolean (optional, default: false)
+  description?: {
+    et?: string
+    en?: string
+  } (optional)
+}> (optional)
+
+booking: string | {
+  required: boolean
+  contact: {
+    name: string
+    email: string (valid email)
+    phone?: string
+  }
+  requirements?: {
+    min_participants?: number
+    max_participants?: number
+    space?: string
+    equipment?: string
+  }
+  pricing?: {
+    model: 'per-group' | 'per-person'
+    amount: number (positive)
+    currency: string (default: "EUR")
+    outside_tallinn_fee?: boolean
+  }
+  target_age?: string
+  duration?: number (minutes)
+} (optional, workshops only)
 hero_image: string (path like /images/filename.jpg)
 background_color: string (CSS color value)
 
@@ -230,8 +304,8 @@ Use this workflow when creating NEW content files based on Knowledge Base inform
 
 **Key information extracted**:
 
-- Premiere: 2024-10-15 (from articles)
-- Venue: Kanuti Gildi SAAL (mentioned 3 times)
+- Premiere: 2024-10-15, 19:00 (from articles)
+- Venue: Kanuti Gildi SAAL → venue_id: kanuti-gildi-saal (from knowledge-base/venues/)
 - Choreographer: Pää Pärenson (from persons/paar-parenson.md)
 - Performers: Kärt Tõnisson (from persons/kart-tonisson.md)
 - Theme: Climate change, environmental awareness
@@ -390,7 +464,65 @@ Use this workflow when creating NEW content files based on Knowledge Base inform
    - If Vimeo link found: Add to `videos` array with `platform: vimeo`
    - If images mentioned: Add to `gallery` array or set as `hero_image`
 
-3. **Suggest enhancements**:
+3. **Add event scheduling fields** (for performances and workshops):
+
+   **For premiere information**:
+   - Extract premiere date from KnB articles or press releases
+   - Extract premiere time if mentioned (e.g., "19:00", "kell 19")
+   - Look up venue name → venue ID in `knowledge-base/venues/`
+   - Create `premiere` object:
+     ```yaml
+     premiere:
+       date: "YYYY-MM-DD"  # From KnB source
+       time: "HH:MM"        # If available
+       venue_id: venue-id   # From knowledge-base/venues/
+     ```
+
+   **For multiple showings** (tour dates, repeat performances):
+   - Extract all performance dates from articles
+   - Group by venue (use venue fallback if same as premiere)
+   - Create `showings` array:
+     ```yaml
+     showings:
+       - date: "YYYY-MM-DD"
+         time: "HH:MM"      # If available
+         venue_id: venue-id # If different from premiere, otherwise omit
+         notes: "..."        # Optional: "Külalisetendus", "Sold out", etc.
+     ```
+
+   **For ticket information**:
+   - Extract ticket platform URLs from articles (Fienta, Piletilevi, etc.)
+   - Extract pricing if mentioned
+   - Create `tickets` object:
+     ```yaml
+     tickets:
+       on_sale: true/false
+       platforms:
+         - name: "Platform Name"
+           url: "https://..."
+       pricing:
+         - type: "adult"
+           price: 15
+           currency: "EUR"
+     ```
+
+   **For special events** (artist talks, workshops, discussions):
+   - Extract related events from articles
+   - Create `special_events` array:
+     ```yaml
+     special_events:
+       - type: artist-talk
+         date: "YYYY-MM-DD"
+         time: "HH:MM"
+         free: true/false
+     ```
+
+   **For workshop booking** (workshops only):
+   - Extract contact information from articles
+   - Extract requirements (participants, space, equipment)
+   - Create structured `booking` object or use legacy string format
+
+4. **Suggest enhancements**:
    - No hero_image? "Recommend adding hero image at `/images/{slug}-bg.jpg`"
    - No description? "Recommend adding one-sentence description for SEO"
    - No order field for section? "Suggest order: [number] based on existing sections"
@@ -553,8 +685,14 @@ category: etendused
 subcategory: noorele-publikule
 status: published
 page_type: performance
-premiere_date: 2024-10-15
-venue: Kanuti Gildi SAAL
+# NEW: Structured premiere information (preferred format)
+premiere:
+  date: "2024-10-15"
+  time: "19:00"
+  venue_id: kanuti-gildi-saal  # Venue ID from knowledge-base/venues/
+# Legacy fields (deprecated but supported for backward compatibility):
+# premiere_date: 2024-10-15
+# venue: Kanuti Gildi SAAL
 duration: 45
 hero_image: /images/performances/etendused-noorele-publikule-ilma/hero.jpg
 
@@ -596,6 +734,90 @@ Liikumisteatri ZUGA uus lavastus "Ilma" uurib kliimamuutusi läbi tundliku liiku
 
 *Informatsioon kogutud ZUGA teadmusbaasist*
 ```
+
+### Example 1b: Complete Event Scheduling Example (Premiere + Showings + Tickets)
+
+**User input**:
+
+```
+Create performance page for "Tempo" with premiere at STL and tour dates at Rakvere Teater
+```
+
+**Generated frontmatter with complete event scheduling**:
+
+```yaml
+---
+title: Tempo
+slug: etendused-suurtele-tempo
+language: et
+type: detail
+category: etendused
+subcategory: suurtele
+status: published
+page_type: performance
+
+# NEW: Structured premiere
+premiere:
+  date: "2018-03-16"
+  time: "19:00"
+  venue_id: stl
+
+# NEW: Multiple showings (tour dates)
+showings:
+  - date: "2018-03-23"
+    time: "19:00"
+    # venue_id omitted → falls back to premiere.venue_id (stl)
+  - date: "2018-04-05"
+    time: "19:00"
+    venue_id: rakvere-teater
+    notes: "Külalisetendus"
+  - date: "2018-04-12"
+    time: "19:00"
+    # Same venue as premiere, venue_id omitted
+
+# NEW: Ticket information
+tickets:
+  on_sale: true
+  sale_start: "2018-02-01"
+  sale_end: "2018-04-12"
+  platforms:
+    - name: "Fienta"
+      url: "https://fienta.com/zuga-tempo"
+    - name: "Piletilevi"
+      url: "https://piletilevi.ee/zuga-tempo"
+  pricing:
+    - type: "adult"
+      price: 15
+      currency: "EUR"
+    - type: "student"
+      price: 10
+      currency: "EUR"
+
+# NEW: Special events
+special_events:
+  - type: artist-talk
+    date: "2018-03-17"
+    time: "18:00"
+    duration: 60
+    free: true
+    registration_required: false
+    description:
+      et: "Lavastajaga kohtumine pärast etendust"
+      en: "Meet the director after the performance"
+
+knowledge_base_sources:
+  articles:
+    - "articles/2018-03-epl-tempo-review.md"
+---
+```
+
+**Key points**:
+- Premiere uses structured `premiere` object with `venue_id`
+- Showings array includes multiple dates
+- Venue fallback: Second showing omits `venue_id` → uses `premiere.venue_id`
+- Tour date: Third showing has different venue (`rakvere-teater`)
+- Tickets object includes platforms and pricing
+- Special events array includes artist talk
 
 ### Example 2: Updating Page with KnB References
 

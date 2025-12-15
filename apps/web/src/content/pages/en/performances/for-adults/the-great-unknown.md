@@ -8,36 +8,36 @@ category: etendused
 status: published
 original_url: https://www.zuga.ee/en/english-the-great-unknown
 page_type: performance
-premiere_date: 2022-03-10
+premiere_date: 2022-03-10T00:00:00.000Z
 venue: Independent Dance Stage
 duration: 60
 translated:
-- language: et
-  slug: suur-teadmatus
+  - language: et
+    slug: suur-teadmatus
 hero_image: /images/etendused-suur-teadmatus-hero.jpg
 gallery:
-- url: /images/etendused-suur-teadmatus-1.jpg
-  width: 2048
-  description: From performance "The Great Unknown"
-- url: /images/etendused-suur-teadmatus-2.jpg
-  width: 2048
-  description: From performance "The Great Unknown"
-- url: /images/etendused-suur-teadmatus-3.jpg
-  width: 2048
-  description: From performance "The Great Unknown"
-- url: /images/etendused-suur-teadmatus-4.jpg
-  width: 2048
-  description: From performance "The Great Unknown"
-- url: /images/etendused-suur-teadmatus-5.jpg
-  width: 2048
-  description: From performance "The Great Unknown"
-- url: /images/etendused-suur-teadmatus-6.jpg
-  width: 2048
-  description: From performance "The Great Unknown"
-- url: /images/etendused-suur-teadmatus-postimees.jpg
-  width: 1920
-  height: 1080
-  description: From performance "The Great Unknown"
+  - url: /images/etendused-suur-teadmatus-1.jpg
+    width: 2048
+    description: From performance "The Great Unknown"
+  - url: /images/etendused-suur-teadmatus-2.jpg
+    width: 2048
+    description: From performance "The Great Unknown"
+  - url: /images/etendused-suur-teadmatus-3.jpg
+    width: 2048
+    description: From performance "The Great Unknown"
+  - url: /images/etendused-suur-teadmatus-4.jpg
+    width: 2048
+    description: From performance "The Great Unknown"
+  - url: /images/etendused-suur-teadmatus-5.jpg
+    width: 2048
+    description: From performance "The Great Unknown"
+  - url: /images/etendused-suur-teadmatus-6.jpg
+    width: 2048
+    description: From performance "The Great Unknown"
+  - url: /images/etendused-suur-teadmatus-postimees.jpg
+    width: 1920
+    height: 1080
+    description: From performance "The Great Unknown"
 knowledge_base_sources:
   articles:
     - articles/2019-10-postimees-2-2-22-esietendus.md
@@ -55,7 +55,9 @@ knowledge_base_sources:
     - persons/oliver-kulpsoo.md
     - persons/paar-parenson.md
     - persons/tiina-molder.md
-
+premiere:
+  date: '2022-03-10'
+  venue_id: stl
 ---
 
 ## Dance Performance "The Great Unknown"

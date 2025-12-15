@@ -13,7 +13,3 @@ videos:
     title: Zuga video tervitus
     url: https://www.youtube.com/embed/qp22v58UQnw
 ---
-
-# Zuga - Ühendatud Tantsijad
-
-Kaasaegne liikumisteater lastele ja täiskasvanutele.

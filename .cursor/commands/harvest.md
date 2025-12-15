@@ -67,7 +67,7 @@ Before starting, verify these requirements:
 **Schema Access**:
 
 - ✓ `knowledge-base/config.ts` exists with current Zod schema definitions
-- ✓ Schemas include: `articleSchema`, `personSchema`, `pressSchema`, `researchSchema`
+- ✓ Schemas include: `articleSchema`, `personSchema`, `pressSchema`, `researchSchema`, `venueSchema` (Issue #54)
 
 **Git Environment**:
 
@@ -99,6 +99,7 @@ Before processing content, understand the knowledge base schemas:
 
 ```typescript
 // knowledge-base/config.ts - Core schemas
+// Schema version: Updated 2025-12-15 for event calendar system (Issue #54)
 
 // Article Schema (press coverage, reviews, interviews)
 articleSchema = z.object({
@@ -357,7 +358,7 @@ researchSchema = z.object({
 - Present examples and request sources:
 
   ```markdown
-  ## 📥 Content Harvester - No Input Provided
+  ## Content Harvester - No Input Provided
 
   Please provide sources to harvest. I can process:
 
@@ -385,13 +386,11 @@ researchSchema = z.object({
   - https://vimeo.com/video-id
 
   **Multiple sources** (space or newline separated):
-  ```
 
   https://kultuur.err.ee/article1
   https://kultuur.err.ee/article2
   /path/to/images/
-
-  ```text
+  ```
 
   **What I'll do**:
 
@@ -401,9 +400,7 @@ researchSchema = z.object({
   4. Create cross-references with existing content
   5. Commit changes with conventional commits
   6. Propose homepage updates
-  ```
-
-  - **Do NOT proceed** with workflow - wait for user input
+  7. **Do NOT proceed** with workflow - wait for user input
 
 **Step 0.2: Parse and categorize input** (if not empty)
 
@@ -833,7 +830,8 @@ For each source provided:
    - Description/synopsis
    - Images
 2. Cross-reference with existing performance pages
-3. Suggest updates to performance frontmatter (venue, premiere_date, etc.)
+3. Extract event scheduling data (see "Event Scheduling Data Extraction" section below)
+4. Suggest updates to performance frontmatter using NEW structured format (`premiere`, `showings`, `tickets`)
 
 **Media streams** (YouTube, ERR, Vimeo):
 
@@ -955,6 +953,172 @@ Found [N] sources to process:
 ```
 
 Wait for user confirmation before Phase 2.
+
+### Phase 1.5: Extract Event Scheduling Data (NEW - Issue #54)
+
+**CRITICAL**: When harvesting content about performances or workshops, extract structured event scheduling information for calendar integration.
+
+#### Premiere Information Extraction
+
+**From articles, press releases, or ticket portals**:
+
+1. **Extract premiere date**:
+
+   - Look for: "premiere", "esietendus", "premiere", "opening", "avab"
+   - Parse dates: "15. oktoober 2024" → "2024-10-15"
+   - Format: YYYY-MM-DD (required)
+
+2. **Extract premiere time**:
+
+   - Look for: "kell 19", "19:00", "at 7 PM", "evening performance"
+   - Format: HH:MM (optional)
+
+3. **Extract venue name and map to venue ID**:
+
+   - Look for venue mentions: "Kanuti Gildi SAAL", "Sõltumatu Tantsu Lava", etc.
+   - Check `knowledge-base/venues/` for venue files
+   - Map venue names to IDs:
+     - "Sõltumatu Tantsu Lava" or "Independent Dance Stage" → `stl`
+     - "Kanuti Gildi SAAL" → `kanuti-gildi-saal`
+     - "Kumu Kunstimuuseum" or "Kumu Art Museum" → `kumu`
+     - "Rakvere Teater" or "Rakvere Theatre" → `rakvere-teater`
+   - If venue not found: Log warning and use venue name as fallback
+
+4. **Create premiere object**:
+
+   ```yaml
+   premiere:
+     date: "2024-10-15"
+     time: "19:00" # If available
+     venue_id: kanuti-gildi-saal # After venue lookup
+   ```
+
+#### Multiple Showings Extraction
+
+**From articles mentioning tour dates or repeat performances**:
+
+1. **Extract all performance dates**:
+
+   - Look for: "etendused", "showings", "performances", "tour dates"
+   - Parse date lists: "15., 22., 29. oktoober" → ["2024-10-15", "2024-10-22", "2024-10-29"]
+   - Extract venue for each date if different from premiere
+
+2. **Extract special notes**:
+
+   - "Külalisetendus" → notes: "Külalisetendus"
+   - "Sold out" → status: "sold-out"
+   - "Cancelled" → status: "cancelled"
+
+3. **Create showings array** (use venue fallback if same as premiere):
+
+   ```yaml
+   showings:
+     - date: "2024-11-02"
+       time: "19:00"
+       venue_id: stl # If different from premiere
+     - date: "2024-11-09"
+       time: "19:00"
+       # venue_id omitted → falls back to premiere.venue_id
+     - date: "2024-11-16"
+       venue_id: rakvere-teater
+       notes: "Külalisetendus"
+   ```
+
+#### Ticket Information Extraction
+
+**From ticket portals or articles**:
+
+1. **Extract ticket platforms**:
+
+   - Fienta URLs → platform: { name: "Fienta", url: "..." }
+   - Piletilevi URLs → platform: { name: "Piletilevi", url: "..." }
+   - Venue website → platform: { name: "Venue Website", url: "..." }
+
+2. **Extract pricing**:
+
+   - "15€ täispilet" → { type: "adult", price: 15, currency: "EUR" }
+   - "10€ õpilaspilet" → { type: "student", price: 10, currency: "EUR" }
+
+3. **Extract sale dates**:
+
+   - "Piletid müügil alates 1. septembrist" → sale_start: "2024-09-01"
+   - "Müük lõppeb 15. oktoobril" → sale_end: "2024-10-15"
+
+4. **Create tickets object**:
+
+   ```yaml
+   tickets:
+     on_sale: true
+     sale_start: "2024-09-01"
+     sale_end: "2024-10-15"
+     platforms:
+       - name: "Fienta"
+         url: "https://fienta.com/zuga-ilma"
+     pricing:
+       - type: "adult"
+         price: 15
+         currency: "EUR"
+   ```
+
+#### Special Events Extraction
+
+**From articles mentioning related events**:
+
+1. **Extract event types**:
+
+   - "Lavastajaga kohtumine" → type: "artist-talk"
+   - "Töötuba" → type: "workshop"
+   - "Arutelu" → type: "discussion"
+   - "Eelvaade" → type: "screening"
+
+2. **Extract event details**:
+
+   - Date, time, duration
+   - Free vs paid
+   - Registration requirements
+
+3. **Create special_events array**:
+
+   ```yaml
+   special_events:
+     - type: artist-talk
+       date: "2024-10-16"
+       time: "18:00"
+       duration: 60
+       free: true
+   ```
+
+#### Present Event Scheduling Summary
+
+After extraction, include in extraction summary:
+
+```markdown
+## 📅 Event Scheduling Data Extracted
+
+**Premiere**:
+
+- Date: 2024-10-15
+- Time: 19:00
+- Venue: Kanuti Gildi SAAL → venue_id: kanuti-gildi-saal ✓
+
+**Showings** (3 found):
+
+- 2024-11-02, 19:00 at STL
+- 2024-11-09, 19:00 (same venue as premiere)
+- 2024-11-16 at Rakvere Teater (Külalisetendus)
+
+**Tickets**:
+
+- Platforms: Fienta, Piletilevi
+- Pricing: Adult 15€, Student 10€
+- Sale period: 2024-09-01 to 2024-10-15
+
+**Special Events** (1 found):
+
+- Artist talk: 2024-10-16, 18:00 (free)
+```
+
+**Note**: This extracted data will be used to suggest updates to performance page frontmatter in Phase 5 (Propose Homepage Updates).
 
 ### Phase 2: Classify and Validate
 
@@ -1079,7 +1243,7 @@ Before creating frontmatter, perform these steps:
        ```markdown
        ## Schema Conflict Detected
 
-       **File**: `knowledge-base/articles/YYYY-MM-publication-slug.md`
+       **File**: `knowledge-base/articles/2024-10-err-ilma-review.md`
 
        **Error**: `type: Invalid enum value. Expected 'article' | 'review' | 'interview' | 'preview' | 'news' | 'radio-interview' | 'radio' | 'television-program', received 'feature-article'`
 
@@ -1131,8 +1295,9 @@ Build bidirectional references between new and existing content:
    - Performance names (check against all `apps/web/src/content/pages/*/etendused-*.md`)
    - Person names (check against `knowledge-base/persons/*.md`)
    - Award names (check against `knowledge-base/research/awards-*.md`)
-   - Venue names (common venues: Kanuti Gildi SAAL, Sõltumatu Tantsu Lava, etc.)
+   - Venue names → Map to venue IDs from `knowledge-base/venues/`
    - Date references (match to performance premiere dates)
+   - Event scheduling data (premiere, showings, tickets, special_events)
 
 2. **Create forward references**:
 
@@ -1177,7 +1342,7 @@ For each new article:
 ```markdown
 ## Cross-Linking Plan
 
-**New content**: `knowledge-base/articles/2024-10-err-kultuur-paar-parenson-ilma.md`
+**New content**: `knowledge-base/articles/2024-10-err-ilma-review.md`
 
 **Forward references** (in new article):
 
@@ -1189,11 +1354,11 @@ For each new article:
 1. `apps/web/src/content/pages/et/etendused-noorele-publikule-ilma.md`
 
    - Add to "## Meediakajastus" section
-   - Link: `- [ERR kultuur: Päär Pärenson intervjuu](../../knowledge-base/articles/2024-10-err-kultuur-paar-parenson-ilma.md) - 2024-10-24`
+   - Link: ERR kultuur: Päär Pärenson intervjuu (link: `knowledge-base/articles/2024-10-err-kultuur-paar-parenson-ilma.md`) - 2024-10-24
 
 2. `knowledge-base/persons/paar-parenson.md`
    - Add to "## Allikad" section
-   - Link: `- knowledge-base/articles/2024-10-err-kultuur-paar-parenson-ilma.md (mention)`
+   - Link: ERR kultuur intervjuu mention (link: `knowledge-base/articles/2024-10-err-kultuur-paar-parenson-ilma.md`)
 
 **Total changes**: 3 files modified
 
@@ -1335,14 +1500,11 @@ Based on newly harvested content, here are recommended updates:
 
 **Content**:
 
-\```markdown
-
 ### ERR kultuur: "Päär Pärenson lavastusest 'Ilma'"
 
 > "Lavastus uurib kliimamuutusi läbi tundliku liikumiskeele..."
 
 [Loe artiklit](https://kultuur.err.ee/...) | 24. oktoober 2024
-\```
 
 **Reasoning**: Recent press coverage (< 1 month old) for current performance. Prominent publication (ERR).
 
@@ -1370,14 +1532,11 @@ Based on newly harvested content, here are recommended updates:
 
 **Content**:
 
-\```markdown
-
 ### 2024 - Aasta lavastuse nomineering
 
 **"Ilma"** - Sõltumatu Tantsu Lava
 
 Nomineering parimat tantsulavastust aastal 2024.
-\```
 
 **Reasoning**: Award mention found in ERR article. Adds to ZUGA's recognition timeline.
 
@@ -1604,8 +1763,6 @@ Processed **1 source** successfully:
 - Schema: `articleSchema`
 
 **Frontmatter (validated)**:
-
-```yaml
 ---
 title: "Päär Pärenson lavastusest 'Ilma' - tundlik lähenemine kliimakriisile"
 date: "2024-10-24"
@@ -1647,13 +1804,13 @@ tags:
   - interview
   - choreography
 ---
-```
+````
 
 **Schema validation**: ✓ Passed (all required fields present, enums match, registry IDs validated)
 
 **Proceed to cross-linking? (yes)**
 
-````
+````markdown
 
 **Phase 3: Cross-Linking Plan**
 
@@ -1670,11 +1827,12 @@ tags:
 1. `apps/web/src/content/pages/et/etendused-noorele-publikule-ilma.md`
 
    - Section: "## Meediakajastus"
-   - Add: `- [ERR kultuur: Päär Pärenson intervjuu](../../../knowledge-base/articles/2024-10-err-kultuur-paar-parenson-ilma.md) - 2024-10-24`
+   - Add: ERR kultuur: Päär Pärenson intervjuu (link: `knowledge-base/articles/2024-10-err-kultuur-paar-parenson-ilma.md`) - 2024-10-24
 
 2. `knowledge-base/persons/paar-parenson.md`
    - Section: "## Allikad"
-   - Add: `- [ERR kultuur intervjuu (2024-10)](../articles/2024-10-err-kultuur-paar-parenson-ilma.md)`
+   - Add: ERR kultuur intervjuu (2024-10) (link: `knowledge-base/articles/2024-10-err-kultuur-paar-parenson-ilma.md`)
+```
 
 **Apply cross-links? (yes)**
 ````
@@ -1682,7 +1840,7 @@ tags:
 **Phase 4: Commit Changes**
 
 ```markdown
-## 📦 Proposed Commit
+## Proposed Commit
 
 **Commit 1 of 2**
 ```
@@ -1698,15 +1856,13 @@ process and climate change themes in "Ilma" performance.
 
 Source: https://kultuur.err.ee/1609501726/paar-parenson-lavastusest-ilma
 
-```text
-
+```markdown
 **Approve? (yes)**
 
 ---
 
 **Commit 2 of 2**
-
-```text
+```
 
 content: Add ERR interview to Ilma press coverage
 
@@ -1720,14 +1876,14 @@ Bidirectional cross-references created between article and related entities.
 
 Related: knowledge-base commit (abc1234)
 
-```text
-
+```markdown
 **Approve? (yes)**
 
 ---
 
 ## ✅ Commit Summary
 
+```markdown
 Created **2 commits**:
 
 - `knowledge-base: Add ERR kultuur interview...` (abc1234)
@@ -1741,7 +1897,7 @@ Created **2 commits**:
 **Phase 5: Homepage Proposals**
 
 ````markdown
-## 🏠 Homepage Update Proposals
+## Homepage Update Proposals
 
 ### Proposal 1: Add Recent Press to Homepage News
 
@@ -1749,15 +1905,13 @@ Created **2 commits**:
 
 **Content**:
 
-```markdown
 ### ERR kultuur: Päär Pärenson intervjuu lavastusest "Ilma"
 
 > "Lavastus uurib kliimamuutusi läbi tundliku liikumiskeele ja isikliku lähenemise..."
 
 [Loe intervjuud](https://kultuur.err.ee/1609501726/...) | 24. oktoober 2024
-```
-````
 
+````markdown
 **Reasoning**: Recent interview (< 1 month old) about current performance. Prominent publication (ERR). Provides choreographer's perspective on timely topic (climate change).
 
 **Apply this update? (yes/no/edit)**: _User selects yes_
@@ -1767,26 +1921,23 @@ Created **2 commits**:
 **Selected**: 1 proposal
 
 **Proceed to final commit? (yes)**
-
-````text
+````
 
 **Phase 6: Final Commit**
 
-```markdown
+````markdown
 ## 📝 Final Commit
-
-````text
 
 content(homepage): Add ERR Ilma interview to news section
 
 Added recent ERR kultuur interview with Päär Pärenson about "Ilma"
 performance to homepage news section. Interview provides insights
 into choreographic process and climate change themes.
+````
 
 Related commits: abc1234, def5678
 
-```text
-
+```markdown
 **Push to origin/main? (yes)**
 
 ---

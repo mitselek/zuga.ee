@@ -6,13 +6,16 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "kill_port": "lsof -ti:4321 | xargs -r kill -9"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.5.0",
     "@tailwindcss/typography": "^0.5.19",
     "@tailwindcss/vite": "^4.1.17",
+    "@types/js-yaml": "^4.0.9",
     "astro": "^5.16.4",
+    "js-yaml": "^4.1.1",
     "tailwindcss": "^4.1.17"
   }
 }
