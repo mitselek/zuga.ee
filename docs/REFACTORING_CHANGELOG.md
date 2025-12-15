@@ -435,3 +435,69 @@ Routing updated to extract filename-only slug from nested paths. URLs remain sta
 - Branch: refactor/content-architecture
 
 ---
+
+## Issue #53: Migrate Video/Audio Embeds to URL-Only Strategy
+
+**Type**: Enhancement
+**Scope**: Video/Audio Components, Content Migration
+**Effort**: 4-6 hours
+**Risk**: Medium-Low
+**Status**: ✅ Complete
+
+### Summary
+
+Migrated video and audio embeds to URL-only strategy, removing redundant `video_id`/`track_id` fields. Components now automatically extract IDs from URLs, simplifying content authoring and reducing frontmatter complexity.
+
+### Changes Made
+
+#### Component Updates
+- **VideoEmbed.astro**: Added `extractYouTubeId()` and `extractVimeoId()` functions to parse various URL formats
+- **VideoEmbed.astro**: Updated `getEmbedUrl()` to extract IDs from URLs with backward compatibility
+- **AudioEmbed.astro**: Added `extractSoundCloudId()` function (component already used URLs directly)
+
+#### Schema Updates
+- **config.ts**: Made `video_id` and `track_id` truly optional (removed `.min(1)` constraint)
+- Updated schema comments to indicate IDs are deprecated and extracted automatically
+
+#### Content Migration
+- Created `scripts/migrate-video-audio-url-only.js` migration script
+- Removed redundant `video_id` fields from 38 content files
+- Removed redundant `track_id` fields from audio embeds
+- URLs cleaned (tracking parameters removed where applicable)
+
+#### Documentation
+- Updated `.cursor/commands/add-content.md` with URL-only examples
+- Updated `.github/prompts/add-content.prompt.md` with URL-only examples
+- Removed references to `video_id`/`track_id` from examples
+
+### Files Affected
+
+- `apps/web/src/components/VideoEmbed.astro` - Added URL extraction logic
+- `apps/web/src/components/AudioEmbed.astro` - Added SoundCloud ID extraction
+- `apps/web/src/content/config.ts` - Schema updates
+- 38 content files - Removed redundant ID fields
+- `.cursor/commands/add-content.md` - Documentation updates
+- `.github/prompts/add-content.prompt.md` - Documentation updates
+- `scripts/migrate-video-audio-url-only.js` - New migration script
+
+### Validation
+
+- ✅ Build passes successfully (`npm run build`)
+- ✅ All 38 migrated files validated
+- ✅ Backward compatibility maintained (components support both old and new format)
+- ✅ URL extraction handles multiple formats (youtube.com/watch, youtu.be, embed URLs)
+
+### Benefits Achieved
+
+- ✅ Single source of truth (URL only)
+- ✅ Simpler content authoring (just paste URL)
+- ✅ Handles various URL formats automatically
+- ✅ Cleaner frontmatter
+- ✅ Easier content migration
+
+### Commit
+
+- Commit hash: fca3177
+- Branch: refactor/video-audio-url-only
+
+---
