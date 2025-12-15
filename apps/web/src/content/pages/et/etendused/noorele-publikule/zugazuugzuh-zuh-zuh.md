@@ -2,7 +2,7 @@
 title: Zuga zuug zuh-zuh-zuh
 slug: zugazuugzuh-zuh-zuh
 language: et
-description: Zuga etendus 'Zuga zuug zuh-zuh-zuh' fotogalerii
+description: Tantsuetendus 2-5aastastele. Tants saab kokku mänguga - rongisõit läbi liikumise, helide ja muusika.
 type: detail
 category: etendused
 subcategory: noorele-publikule
@@ -10,7 +10,7 @@ order: 1
 status: published
 original_url: https://www.zuga.ee/et/etendused-noorele-publikule-zugazuugzuh-zuh-zuh
 page_type: performance
-hero_image: https://lh3.googleusercontent.com/eGraYX6xBLk_CEVp_P2fET0uRNC_PV9lnqLRBLXMHTlvJmlCqHaR4qjUz5KZjX7j6Ok6eKRsxOdrGeNpj9s8fco=w16383
+hero_image: /images/performances/zugazuugzuh-zuh-zuh/poster.jpg
 videos:
   - platform: youtube
     title: ZUGA videotervitus
@@ -18,6 +18,39 @@ videos:
 translated:
   - language: en
     slug: zugazuugzuh-zuh-zuh
+knowledge_base_sources:
+  articles:
+    - "articles/2014-03-postimees-zugazuugzuh-zuh-zuh.md"
+    - "articles/2015-01-tantsukuukiri-zuga-lasteteater.md"
+  persons:
+    - "persons/tiina-molder.md"
+    - "persons/helen-reitsnik.md"
+    - "persons/triin-lilleorg.md"
+    - "persons/kart-tonisson.md"
 ---
 
 # Zuga zuug zuh-zuh-zuh
+
+Tantsuetendus 2-5aastastele!
+
+Tants saab kokku mänguga. Rongisõit läbi liikumise, helide, muusika. Järjest saavad tähelepanu erinevad kehaosad: jalad kõnnivad, jooksevad, hüppavad, kukuvad; käed silitavad, paitavad, lendlevad, haaravad kinni; pead noogutavad, pööravad; silmad pilguvad ja tantsivad. Toole ei ole, istutakse maas. Kes vaatab, see vaatab, kes julgeb, see lööb kaasa.
+
+## Meeskond
+
+- **Tants ja mäng**: Tiina Mölder, Helen Reitsnik, Triin Lilleorg, Kärt Tõnisson
+
+## Auhinnad
+
+2010. aastal pärjati see etendus nii sõltumatu tantsu auhinna kui ka Salme Reegi nimelise lastelavastuste auhinnaga.
+
+- **Eesti sõltumatu tantsu auhind** (2010)
+- **Salme Reegi nimeline lastelavastuste auhind** (2010)
+
+## Meediakajastus
+
+- Postimees: "Tantsuline lasteetendus 'Zuga zuug zuh-zuh-zuh'" (link: `knowledge-base/articles/2014-03-postimees-zugazuugzuh-zuh-zuh.md`) - 2014-03-13
+- Tantsukuukiri: "ZUGA LASTETEATER: VAATAMINE HÕBE, KAASATEGEMINE KULD" (link: `knowledge-base/articles/2015-01-tantsukuukiri-zuga-lasteteater.md`) - 2015-01
+
+---
+
+*Informatsioon kogutud ZUGA teadmusbaasist*
