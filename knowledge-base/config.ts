@@ -4,7 +4,7 @@ import { z } from 'zod';
  * Knowledge Base Collection Schemas
  *
  * Type-safe validation for all markdown files in the knowledge-base directory.
- * Organized by collection type: articles, persons, press, research
+ * Organized by collection type: articles, persons, press, research, venues
  *
  * Constitutional Compliance: §1 Type Safety First
  */
@@ -381,12 +381,79 @@ export const researchSchema = z.object({
 });
 
 /**
+ * Venues Collection Schema
+ *
+ * Validates venue profiles for performance and event locations.
+ * Files in: knowledge-base/venues/
+ * Naming: venue-slug.md (e.g., soltumatu-tantsu-lava.md)
+ */
+export const venueSchema = z.object({
+  // Required fields
+  id: z.string().min(1, 'Venue ID is required'), // Short identifier (e.g., "stl", "kanuti-gildi-saal")
+  name: z.object({
+    et: z.string().min(1, 'Estonian name is required'),
+    en: z.string().optional(), // English name if available
+  }),
+  short_name: z.string().optional(), // Abbreviation (e.g., "STL")
+
+  // Address information
+  address: z.object({
+    street: z.string().min(1, 'Street address is required'),
+    city: z.string().min(1, 'City is required'),
+    postal_code: z.string().optional(),
+    country: z.string().default('Estonia'),
+  }),
+
+  // Geographic coordinates (optional, for maps)
+  coordinates: z.object({
+    lat: z.number().min(-90).max(90),
+    lng: z.number().min(-180).max(180),
+  }).optional(),
+
+  // Venue capacity
+  capacity: z.number().positive().optional(),
+
+  // Accessibility information
+  accessibility: z.object({
+    wheelchair: z.boolean().optional(),
+    elevator: z.boolean().optional(),
+    hearing_loop: z.boolean().optional(),
+  }).optional(),
+
+  // Parking information
+  parking: z.object({
+    available: z.boolean(),
+    details: z.string().optional(), // e.g., "Street parking, Telliskivi parking lot nearby"
+  }).optional(),
+
+  // Public transit information
+  transit: z.object({
+    tram: z.array(z.string()).optional(), // Tram line numbers
+    bus: z.array(z.string()).optional(), // Bus line numbers
+    nearest_stop: z.string().optional(), // Name of nearest stop
+  }).optional(),
+
+  // Contact and website
+  website: z.string().url().optional(),
+  contact: z.object({
+    email: z.string().email().optional(),
+    phone: z.string().optional(),
+  }).optional(),
+
+  // Status
+  status: z.enum(['active', 'inactive', 'temporary'], {
+    errorMap: () => ({ message: 'Status must be "active", "inactive", or "temporary"' }),
+  }).default('active'),
+});
+
+/**
  * Collection type definitions for TypeScript
  */
 export type Article = z.infer<typeof articleSchema>;
 export type Person = z.infer<typeof personSchema>;
 export type Press = z.infer<typeof pressSchema>;
 export type Research = z.infer<typeof researchSchema>;
+export type Venue = z.infer<typeof venueSchema>;
 
 /**
  * Collection schemas map
@@ -397,4 +464,5 @@ export const collections = {
   persons: personSchema,
   press: pressSchema,
   research: researchSchema,
+  venues: venueSchema,
 } as const;

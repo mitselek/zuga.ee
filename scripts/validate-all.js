@@ -263,6 +263,46 @@ const researchSchema = z.object({
   status: z.enum(['active', 'archived']).optional(),
 });
 
+const venueSchema = z.object({
+  id: z.string().min(1),
+  name: z.object({
+    et: z.string().min(1),
+    en: z.string().optional(),
+  }),
+  short_name: z.string().optional(),
+  address: z.object({
+    street: z.string().min(1),
+    city: z.string().min(1),
+    postal_code: z.string().optional(),
+    country: z.string().default('Estonia'),
+  }),
+  coordinates: z.object({
+    lat: z.number().min(-90).max(90),
+    lng: z.number().min(-180).max(180),
+  }).optional(),
+  capacity: z.number().positive().optional(),
+  accessibility: z.object({
+    wheelchair: z.boolean().optional(),
+    elevator: z.boolean().optional(),
+    hearing_loop: z.boolean().optional(),
+  }).optional(),
+  parking: z.object({
+    available: z.boolean(),
+    details: z.string().optional(),
+  }).optional(),
+  transit: z.object({
+    tram: z.array(z.string()).optional(),
+    bus: z.array(z.string()).optional(),
+    nearest_stop: z.string().optional(),
+  }).optional(),
+  website: z.string().url().optional(),
+  contact: z.object({
+    email: z.string().email().optional(),
+    phone: z.string().optional(),
+  }).optional(),
+  status: z.enum(['active', 'inactive', 'temporary']).default('active'),
+});
+
 // Web content schema (simplified - full schema is in apps/web/src/content/config.ts)
 const webPageSchema = z.object({
   title: z.string().min(1),
@@ -322,6 +362,7 @@ function validateKnBFiles() {
     persons: { schema: personSchema, dir: path.join(knowledgeBasePath, 'persons') },
     press: { schema: pressSchema, dir: path.join(knowledgeBasePath, 'press') },
     research: { schema: researchSchema, dir: path.join(knowledgeBasePath, 'research') },
+    venues: { schema: venueSchema, dir: path.join(knowledgeBasePath, 'venues') },
   };
 
   let totalErrors = 0;
