@@ -76,7 +76,7 @@ Before proceeding, check if content has KnB backing:
 
 **Found in KnB**:
 
-- ✓ `knowledge-base/articles/2024-10-err-kultuur-paar-parenson-ilma.md` (press coverage)
+- ✓ `knowledge-base/articles/2024-10-err-ilma-review.md` (press coverage)
 - ✓ `knowledge-base/persons/paar-parenson.md` (choreographer info)
 - ✓ `knowledge-base/research/awards-2024.md` (award nominations)
 
@@ -135,7 +135,7 @@ Before proceeding, read and understand the content schema:
 type: 'home' | 'section' | 'detail'
 
 // Categories
-category: 'etendused' | 'workshopid' | 'about' | 'gallery' | 'contact' | 'news'
+category: 'etendused' | 'workshopid' | 'about' | 'gallery' | 'contact' | 'news' | 'kalender'
 
 // Required fields
 title: string (min 1 char)
@@ -147,13 +147,84 @@ status: 'published' | 'draft'
 description: string
 subcategory: string (for grouping within category)
 order: number (for manual ordering)
+
+// Event Scheduling (Issue #54) - NEW structured format
+// Legacy fields (deprecated but supported for backward compatibility):
+premiere_date: string | Date (optional) // DEPRECATED: Use premiere.date instead
+venue: string (optional) // DEPRECATED: Use premiere.venue_id instead
+
+// NEW structured fields:
+premiere: {
+  date: string (YYYY-MM-DD format, required)
+  time?: string (HH:MM format, optional)
+  venue_id?: string (venue ID from knowledge-base/venues/, optional)
+} (optional)
+
+showings: Array<{
+  date: string (YYYY-MM-DD format, required)
+  time?: string (HH:MM format, optional)
+  venue_id?: string (venue ID, optional - falls back to premiere.venue_id if omitted)
+  status?: 'scheduled' | 'sold-out' | 'cancelled' (optional)
+  notes?: string (optional, e.g., "Külalisetendus", "Sold out")
+}> (optional)
+
+tickets: {
+  on_sale?: boolean (optional)
+  sale_start?: string (YYYY-MM-DD format, optional)
+  sale_end?: string (YYYY-MM-DD format, optional)
+  platforms?: Array<{
+    name: string (e.g., "Fienta", "Piletilevi")
+    url: string (valid URL)
+  }> (optional)
+  pricing?: Array<{
+    type: string (e.g., "adult", "student", "child")
+    price: number (positive)
+    currency: string (default: "EUR")
+  }> (optional)
+} (optional)
+
+special_events: Array<{
+  type: 'artist-talk' | 'workshop' | 'discussion' | 'screening' | 'masterclass'
+  date: string (YYYY-MM-DD format, required)
+  time?: string (HH:MM format, optional)
+  duration?: number (minutes, optional)
+  free?: boolean (optional, default: false)
+  registration_required?: boolean (optional, default: false)
+  description?: {
+    et?: string
+    en?: string
+  } (optional)
+}> (optional)
+
+booking: string | {
+  required: boolean
+  contact: {
+    name: string
+    email: string (valid email)
+    phone?: string
+  }
+  requirements?: {
+    min_participants?: number
+    max_participants?: number
+    space?: string
+    equipment?: string
+  }
+  pricing?: {
+    model: 'per-group' | 'per-person'
+    amount: number (positive)
+    currency: string (default: "EUR")
+    outside_tallinn_fee?: boolean
+  }
+  target_age?: string
+  duration?: number (minutes)
+} (optional, workshops only)
 hero_image: string (path like /images/filename.jpg)
 background_color: string (CSS color value)
 
 // NEW: Bidirectional linking to Knowledge Base (REQUIRED for content based on KnB)
 knowledge_base_sources: {
   articles?: string[]    // KnB article file paths relative to knowledge-base root
-                         // Example: "articles/2024-10-err-kultuur-paar-parenson-ilma.md"
+                         // Example: "articles/2024-10-err-kultuur-ilma.md"
   persons?: string[]     // KnB person file paths
                          // Example: "persons/paar-parenson.md"
   press?: string[]       // KnB press release file paths
@@ -168,14 +239,12 @@ knowledge_base_sources: {
 Before creating any web content page:
 
 1. **Verify KnB backing exists**:
-
    - Search `knowledge-base/` for articles, persons, press, or research related to the content
    - If no KnB content found, inform user: "No Knowledge Base content found. Use `/harvest-content` to import sources first."
 
 2. **Populate `knowledge_base_sources`**:
-
    - List all KnB files that support the claims made on the web page
-   - Format: Relative paths from `knowledge-base/` root (e.g., `"articles/2024-10-err-kultuur-paar-parenson-ilma.md"`)
+   - Format: Relative paths from `knowledge-base/` root (e.g., `"articles/2024-10-err-kultuur-ilma.md"`)
    - Include articles for press coverage claims
    - Include person files for team member information
    - Include press releases for official announcements
@@ -226,14 +295,14 @@ Use this workflow when creating NEW content files based on Knowledge Base inform
 
 **Articles found** ([N]):
 
-- 2024-10-err-kultuur-paar-parenson-ilma.md (interview, ERR kultuur)
-- 2024-10-err-vikerraadio-okoskoop-ilma.md (radio, ERR Vikerraadio)
-- 2025-04-criticaldance-ilma-review.md (review, CriticalDance)
+- 2024-10-err-kultuur-ilma-review.md (review, ERR kultuur)
+- 2024-10-epl-ilma-preview.md (preview, Eesti Päevaleht)
+- 2024-11-criticaldance-ilma.md (review, CriticalDance)
 
 **Key information extracted**:
 
-- Premiere: 2024-10-15 (from articles)
-- Venue: Kanuti Gildi SAAL (mentioned 3 times)
+- Premiere: 2024-10-15, 19:00 (from articles)
+- Venue: Kanuti Gildi SAAL → venue_id: kanuti-gildi-saal (from knowledge-base/venues/)
 - Choreographer: Pää Pärenson (from persons/paar-parenson.md)
 - Performers: Kärt Tõnisson (from persons/kart-tonisson.md)
 - Theme: Climate change, environmental awareness
@@ -314,7 +383,6 @@ Use this workflow when creating NEW content files based on Knowledge Base inform
    - If slug exists, suggest alternative: `{slug}-2`, `{slug}-uus`, etc.
 
 3. **Validate required fields checklist**:
-
    ```markdown
    ✓ title: [Value]
    ✓ slug: [Value] (lowercase, alphanumeric, hyphens only)
@@ -375,15 +443,15 @@ Use this workflow when creating NEW content files based on Knowledge Base inform
    # NEW: Knowledge Base sources (REQUIRED for content based on KnB)
    knowledge_base_sources:
      articles:
-       - "articles/2024-10-err-kultuur-paar-parenson-ilma.md" # Press coverage articles
-       - "articles/2025-04-criticaldance-ilma-review.md"
+       - "articles/2024-10-err-kultuur-ilma.md"  # Press coverage articles
+       - "articles/2024-11-criticaldance-ilma.md"
      persons:
-       - "persons/paar-parenson.md" # Team members mentioned
+       - "persons/paar-parenson.md"  # Team members mentioned
        - "persons/kart-tonisson.md"
      press:
-       - "press/2024-10-ilma-announcement.md" # Official press releases
+       - "press/2024-10-ilma-announcement.md"  # Official press releases
      research:
-       - "research/awards-tantsuauhind.md" # Awards, background research
+       - "research/awards-tantsuauhind.md"  # Awards, background research
    ---
    ```
 
@@ -393,7 +461,65 @@ Use this workflow when creating NEW content files based on Knowledge Base inform
    - If Vimeo link found: Add to `videos` array with `platform: vimeo`
    - If images mentioned: Add to `gallery` array or set as `hero_image`
 
-3. **Suggest enhancements**:
+3. **Add event scheduling fields** (for performances and workshops):
+
+   **For premiere information**:
+   - Extract premiere date from KnB articles or press releases
+   - Extract premiere time if mentioned (e.g., "19:00", "kell 19")
+   - Look up venue name → venue ID in `knowledge-base/venues/`
+   - Create `premiere` object:
+     ```yaml
+     premiere:
+       date: "YYYY-MM-DD"  # From KnB source
+       time: "HH:MM"        # If available
+       venue_id: venue-id   # From knowledge-base/venues/
+     ```
+
+   **For multiple showings** (tour dates, repeat performances):
+   - Extract all performance dates from articles
+   - Group by venue (use venue fallback if same as premiere)
+   - Create `showings` array:
+     ```yaml
+     showings:
+       - date: "YYYY-MM-DD"
+         time: "HH:MM"      # If available
+         venue_id: venue-id # If different from premiere, otherwise omit
+         notes: "..."        # Optional: "Külalisetendus", "Sold out", etc.
+     ```
+
+   **For ticket information**:
+   - Extract ticket platform URLs from articles (Fienta, Piletilevi, etc.)
+   - Extract pricing if mentioned
+   - Create `tickets` object:
+     ```yaml
+     tickets:
+       on_sale: true/false
+       platforms:
+         - name: "Platform Name"
+           url: "https://..."
+       pricing:
+         - type: "adult"
+           price: 15
+           currency: "EUR"
+     ```
+
+   **For special events** (artist talks, workshops, discussions):
+   - Extract related events from articles
+   - Create `special_events` array:
+     ```yaml
+     special_events:
+       - type: artist-talk
+         date: "YYYY-MM-DD"
+         time: "HH:MM"
+         free: true/false
+     ```
+
+   **For workshop booking** (workshops only):
+   - Extract contact information from articles
+   - Extract requirements (participants, space, equipment)
+   - Create structured `booking` object or use legacy string format
+
+4. **Suggest enhancements**:
    - No hero_image? "Recommend adding hero image at `/images/{slug}-bg.jpg`"
    - No description? "Recommend adding one-sentence description for SEO"
    - No order field for section? "Suggest order: [number] based on existing sections"
@@ -462,7 +588,6 @@ Use this workflow when creating NEW content files based on Knowledge Base inform
    - Translate title, description, body content
    - Keep same slug (or adjust for language conventions)
    - Link files via `translated` field:
-
      ```yaml
      translated:
        - language: en
@@ -508,7 +633,7 @@ Use this workflow when creating NEW content files based on Knowledge Base inform
 
 **User input**:
 
-```text
+```
 Create an Estonian page for the "Ilma" performance based on KnB content
 ```
 
@@ -521,9 +646,9 @@ Create an Estonian page for the "Ilma" performance based on KnB content
 
 **Articles** (3):
 
-- knowledge-base/articles/2024-10-err-kultuur-paar-parenson-ilma.md
-- knowledge-base/articles/2024-10-err-vikerraadio-okoskoop-ilma.md
-- knowledge-base/articles/2025-04-criticaldance-ilma-review.md
+- knowledge-base/articles/2024-10-err-kultuur-ilma.md
+- knowledge-base/articles/2024-10-epl-ilma-preview.md
+- knowledge-base/articles/2024-11-criticaldance-ilma.md
 
 **Persons** (2):
 
@@ -557,17 +682,23 @@ category: etendused
 subcategory: noorele-publikule
 status: published
 page_type: performance
-premiere_date: 2024-10-15
-venue: Kanuti Gildi SAAL
+# NEW: Structured premiere information (preferred format)
+premiere:
+  date: "2024-10-15"
+  time: "19:00"
+  venue_id: kanuti-gildi-saal  # Venue ID from knowledge-base/venues/
+# Legacy fields (deprecated but supported for backward compatibility):
+# premiere_date: 2024-10-15
+# venue: Kanuti Gildi SAAL
 duration: 45
 hero_image: /images/performances/etendused-noorele-publikule-ilma/hero.jpg
 
 # Knowledge Base sources (REQUIRED - validates all claims on this page)
 knowledge_base_sources:
   articles:
-    - "articles/2024-10-err-kultuur-paar-parenson-ilma.md"
-    - "articles/2024-10-err-vikerraadio-okoskoop-ilma.md"
-    - "articles/2025-04-criticaldance-ilma-review.md"
+    - "articles/2024-10-err-kultuur-ilma.md"
+    - "articles/2024-10-epl-ilma-preview.md"
+    - "articles/2024-11-criticaldance-ilma.md"
   persons:
     - "persons/paar-parenson.md"
     - "persons/kart-tonisson.md"
@@ -588,9 +719,9 @@ Liikumisteatri ZUGA uus lavastus "Ilma" uurib kliimamuutusi läbi tundliku liiku
 
 ## Meediakajastus
 
-- [ERR kultuur: "Päär Pärenson lavastusest 'Ilma'"](../../../knowledge-base/articles/2024-10-err-kultuur-paar-parenson-ilma.md) - 2024-10-24
-- [ERR Vikerraadio: "Ökoskoop - Ilma"](../../../knowledge-base/articles/2024-10-err-vikerraadio-okoskoop-ilma.md) - 2024-10-18
-- [CriticalDance review](../../../knowledge-base/articles/2025-04-criticaldance-ilma-review.md) - 2025-04-15
+- ERR kultuur: "Päär Pärenson lavastusest 'Ilma'" (link: `knowledge-base/articles/2024-10-err-kultuur-paar-parenson-ilma.md`) - 2024-10-24
+- ERR Vikerraadio: "Ökoskoop" (link: `knowledge-base/articles/2024-10-err-vikerraadio-okoskoop-ilma.md`) - 2024-10-18
+- CriticalDance review (link: `knowledge-base/articles/2025-04-criticaldance-ilma-review.md`) - 2025-04-15
 
 ## Auhinnad
 
@@ -601,11 +732,95 @@ Liikumisteatri ZUGA uus lavastus "Ilma" uurib kliimamuutusi läbi tundliku liiku
 *Informatsioon kogutud ZUGA teadmusbaasist*
 ```
 
+### Example 1b: Complete Event Scheduling Example (Premiere + Showings + Tickets)
+
+**User input**:
+
+```
+Create performance page for "Tempo" with premiere at STL and tour dates at Rakvere Teater
+```
+
+**Generated frontmatter with complete event scheduling**:
+
+```yaml
+---
+title: Tempo
+slug: etendused-suurtele-tempo
+language: et
+type: detail
+category: etendused
+subcategory: suurtele
+status: published
+page_type: performance
+
+# NEW: Structured premiere
+premiere:
+  date: "2018-03-16"
+  time: "19:00"
+  venue_id: stl
+
+# NEW: Multiple showings (tour dates)
+showings:
+  - date: "2018-03-23"
+    time: "19:00"
+    # venue_id omitted → falls back to premiere.venue_id (stl)
+  - date: "2018-04-05"
+    time: "19:00"
+    venue_id: rakvere-teater
+    notes: "Külalisetendus"
+  - date: "2018-04-12"
+    time: "19:00"
+    # Same venue as premiere, venue_id omitted
+
+# NEW: Ticket information
+tickets:
+  on_sale: true
+  sale_start: "2018-02-01"
+  sale_end: "2018-04-12"
+  platforms:
+    - name: "Fienta"
+      url: "https://fienta.com/zuga-tempo"
+    - name: "Piletilevi"
+      url: "https://piletilevi.ee/zuga-tempo"
+  pricing:
+    - type: "adult"
+      price: 15
+      currency: "EUR"
+    - type: "student"
+      price: 10
+      currency: "EUR"
+
+# NEW: Special events
+special_events:
+  - type: artist-talk
+    date: "2018-03-17"
+    time: "18:00"
+    duration: 60
+    free: true
+    registration_required: false
+    description:
+      et: "Lavastajaga kohtumine pärast etendust"
+      en: "Meet the director after the performance"
+
+knowledge_base_sources:
+  articles:
+    - "articles/2018-03-epl-tempo-review.md"
+---
+```
+
+**Key points**:
+- Premiere uses structured `premiere` object with `venue_id`
+- Showings array includes multiple dates
+- Venue fallback: Second showing omits `venue_id` → uses `premiere.venue_id`
+- Tour date: Third showing has different venue (`rakvere-teater`)
+- Tickets object includes platforms and pricing
+- Special events array includes artist talk
+
 ### Example 2: Updating Page with KnB References
 
 **User input**:
 
-```text
+```
 Add new ERR article about Hool/Care to the performance page
 ```
 
@@ -635,7 +850,7 @@ Add new ERR article about Hool/Care to the performance page
 
 **Added to "## Meediakajastus" section**:
 
-- [ERR kultuur: "ZUGA uus lavastus 'Hool' uurib hooldamise teemat"](../../../knowledge-base/articles/2024-12-err-hool-care.md) - 2024-12-10
+- ERR kultuur: "ZUGA uus lavastus 'Hool' uurib hooldamise teemat" (link: `knowledge-base/articles/YYYY-MM-publication-slug.md`) - 2024-12-10
 
 **No other changes made**
 
@@ -646,7 +861,7 @@ Add new ERR article about Hool/Care to the performance page
 
 1. **Invoke the prompt** with content input:
 
-   ```text
+   ```
    @workspace /add-content [paste your content here]
    ```
 
@@ -707,7 +922,7 @@ Add new ERR article about Hool/Care to the performance page
 
 **Example decision flow**:
 
-```text
+```
 User: "Create page for Ilma performance"
     ↓
 Check: Does knowledge-base/ have Ilma content?
@@ -1004,7 +1219,6 @@ Use this workflow when modifying EXISTING content files.
    - If translation not updated: "Consider updating {language} translation for consistency"
 
 3. **Show diff summary** (optional but helpful):
-
    ```markdown
    **Changed lines**:
 
@@ -1019,7 +1233,7 @@ Use this workflow when modifying EXISTING content files.
 
 ## Decision Tree: Create vs Update
 
-```text
+```
 User provides content
     ↓
 Parse user intent
@@ -1066,7 +1280,7 @@ Similar file exists?
 
 **User input**:
 
-```text
+```
 Update the Häbi performance page - set status to published and add hero image habi-hero.jpg
 ```
 
@@ -1085,7 +1299,7 @@ Update the Häbi performance page - set status to published and add hero image h
 
 **User input**:
 
-```text
+```
 Add a "Cast" section to the Häbi page with the following:
 - Director: Mari Mätas
 - Performers: Ann Reimann, Tiina Tauraite
@@ -1112,7 +1326,7 @@ Add a "Cast" section to the Häbi page with the following:
 
 **User input**:
 
-```text
+```
 Change the YouTube video for Häbi to the new trailer: https://youtube.com/watch?v=newtrailer123
 ```
 
@@ -1122,14 +1336,12 @@ Change the YouTube video for Häbi to the new trailer: https://youtube.com/watch
 2. Check `videos` array in frontmatter
 3. Update URL if needed (ID extracted automatically from URL)
 4. Update frontmatter:
-
    ```yaml
    videos:
      - platform: youtube
        title: Zuga etendus "Häbi"
        url: https://www.youtube.com/watch?v=newtrailer123
    ```
-
 5. Write updated file
 6. Report: "✅ Updated YouTube video ID"
 
@@ -1150,7 +1362,6 @@ Add these photos to the Häbi gallery:
 2. Check existing `gallery` array (2 images already)
 3. Propose: Append 3 new images to gallery
 4. Update frontmatter:
-
    ```yaml
    gallery:
      - url: /images/habi-promo.jpg
@@ -1164,6 +1375,5 @@ Add these photos to the Häbi gallery:
      - url: /images/habi-backstage.jpg
        description: Kulissidetagused
    ```
-
 5. Write updated file
 6. Report: "✅ Added 3 images to gallery (now 5 total)"
