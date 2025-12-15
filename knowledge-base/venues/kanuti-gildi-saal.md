@@ -24,9 +24,9 @@ transit:
   tram: ["1", "2", "3"]
   bus: ["2", "3", "4"]
   nearest_stop: Vabaduse väljak
-website: https://kanutigild.ee
+website: https://saal.ee
 contact:
-  email: info@kanutigild.ee
+  email: info@saal.ee
   phone: "+372 6279080"
 status: active
 ---

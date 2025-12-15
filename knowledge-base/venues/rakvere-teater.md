@@ -5,9 +5,9 @@ name:
   en: Rakvere Theatre
 short_name: Rakvere Teater
 address:
-  street: Pikk 2
+  street: Kreutzwaldi 2a
   city: Rakvere
-  postal_code: "44307"
+  postal_code: "44314"
   country: Estonia
 coordinates:
   lat: 59.3464
@@ -25,8 +25,8 @@ transit:
   nearest_stop: Rakvere bussijaam
 website: https://rakvereteater.ee
 contact:
-  email: info@rakvereteater.ee
-  phone: "+372 3222000"
+  email: rakvereteater@rakvereteater.ee
+  phone: "+372 32 95 444"
 status: active
 ---
 

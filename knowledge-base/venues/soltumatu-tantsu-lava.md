@@ -5,7 +5,7 @@ name:
   en: Independent Dance Stage
 short_name: STL
 address:
-  street: Telliskivi 60a
+  street: Telliskivi 60a/9
   city: Tallinn
   postal_code: "10412"
   country: Estonia
