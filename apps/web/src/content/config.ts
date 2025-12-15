@@ -138,10 +138,10 @@ const pagesCollection = defineCollection({
     premiere_date: z
       .union([
         z.string(),
-        z.date().transform((d) => d.toISOString().split('T')[0]), // Convert Date to YYYY-MM-DD
+        z.date().transform((d) => d.toISOString().split('T')[0]), // Backward compat: Convert Date to YYYY-MM-DD
       ])
       .optional()
-      .describe('DEPRECATED: Use premiere.date instead'),
+      .describe('DEPRECATED: Use premiere.date instead. Files should use YYYY-MM-DD string format going forward.'),
     venue: z.string().optional().describe('DEPRECATED: Use premiere.venue_id instead'),
 
     // NEW: Structured premiere information

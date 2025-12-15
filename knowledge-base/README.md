@@ -37,6 +37,7 @@ Background research, interviews, production notes, and other reference materials
 Venue profiles for performance and event locations. Contains structured information about theaters, stages, and other spaces where ZUGA performs.
 
 **Fields**:
+
 - `id`: Short identifier (e.g., "stl", "kanuti-gildi-saal")
 - `name`: Bilingual venue name (`et`, `en`)
 - `address`: Full address with street, city, postal code, country
