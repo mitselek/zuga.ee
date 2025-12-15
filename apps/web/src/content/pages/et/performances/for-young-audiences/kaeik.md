@@ -9,43 +9,41 @@ subcategory: noorele-publikule
 status: published
 original_url: https://www.zuga.ee/et/etendused-noorele-publikule-kaeik
 page_type: performance
-premiere_date: 2014-11-21
+premiere_date: 2014-11-21T00:00:00.000Z
 venue: Sõltumatu Tantsu Lava
 age_recommendation: 6-10
 awards:
   - Salme Reegi nimeline auhind nominent 2014
   - Etenduskunstide auhind 2015
 translated:
-- language: en
-  slug: thepassage
+  - language: en
+    slug: thepassage
 hero_image: /images/kaik-web-14.jpg
 gallery:
-- url: /images/kaik-web-2.jpg
-  description: Etenduse foto
-- url: /images/kaik-web-6.jpg
-  description: Etenduse foto
-- url: /images/kaik-web-7.jpg
-  description: Etenduse foto
-- url: /images/kaik-web-12.jpg
-  description: Etenduse foto
-- url: /images/kaik-web-13.jpg
-  description: Etenduse foto
-- url: /images/kaik-web-14.jpg
-  description: Etenduse foto
-- url: /images/kaik-web-20.jpg
-  description: Etenduse foto
-- url: /images/kaik-web-21.jpg
-  description: Etenduse foto
+  - url: /images/kaik-web-2.jpg
+    description: Etenduse foto
+  - url: /images/kaik-web-6.jpg
+    description: Etenduse foto
+  - url: /images/kaik-web-7.jpg
+    description: Etenduse foto
+  - url: /images/kaik-web-12.jpg
+    description: Etenduse foto
+  - url: /images/kaik-web-13.jpg
+    description: Etenduse foto
+  - url: /images/kaik-web-14.jpg
+    description: Etenduse foto
+  - url: /images/kaik-web-20.jpg
+    description: Etenduse foto
+  - url: /images/kaik-web-21.jpg
+    description: Etenduse foto
 videos:
-- platform: err
-  video_id: 44f6a0bd41ebf3b9aa3fb68874b5a63c
-  title: KÄIK - tantsulavastus lastele
-  url: https://vod.err.ee/hls/vod/44f6a0bd41ebf3b9aa3fb68874b5a63c/v/master.m3u8
-  is_primary: true
-- platform: youtube
-  video_id: qp22v58UQnw
-  title: ZUGA videotervitus
-  url: https://www.youtube.com/embed/qp22v58UQnw
+  - platform: err
+    title: KÄIK - tantsulavastus lastele
+    url: https://vod.err.ee/hls/vod/44f6a0bd41ebf3b9aa3fb68874b5a63c/v/master.m3u8
+    is_primary: true
+  - platform: youtube
+    title: ZUGA videotervitus
+    url: https://www.youtube.com/embed/qp22v58UQnw
 knowledge_base_sources:
   persons:
     - persons/ajjar-ausma.md
@@ -55,7 +53,6 @@ knowledge_base_sources:
     - persons/kalle-tikas.md
     - persons/paar-parenson.md
     - persons/tiina-molder.md
-
 ---
 
 ## Tantsulavastus lastele "Käik"

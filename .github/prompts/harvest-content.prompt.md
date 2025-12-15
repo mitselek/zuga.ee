@@ -754,7 +754,7 @@ Processed **[N] sources** successfully:
 1. **"[Title]"** - [Platform], [Duration]
 
    - Platform: [youtube/vimeo/err]
-   - Video ID: [extracted ID]
+   - URL: [full video URL - ID extracted automatically]
    - Upload date: [date]
    - Related: [Performance name]
    - Action: Add to `videos` frontmatter array
@@ -1768,7 +1768,7 @@ Processed **3 sources** successfully:
 1. **"ZUGA - Ilma (trailer)"** - YouTube, 1:42
 
    - Platform: youtube
-   - Video ID: abc123
+   - URL: https://www.youtube.com/watch?v=abc123
    - Upload date: 2024-10-20
    - Related: Ilma
    - Action: Add to `videos` array

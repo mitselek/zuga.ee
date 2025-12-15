@@ -10,13 +10,12 @@ original_url: https://www.stl.ee/lisaprogramm/haridusprogramm/liikumise-tootuba-
 page_type: workshop
 hero_image: /images/workshopid-meelekolu-mangud-hero.jpg
 videos:
-- platform: youtube
-  video_id: Nzc7wsW8Qj4
-  title: meeleKolu mängud töötuba
-  url: https://www.youtube.com/embed/Nzc7wsW8Qj4
+  - platform: youtube
+    title: meeleKolu mängud töötuba
+    url: https://www.youtube.com/embed/Nzc7wsW8Qj4
 translated:
-- language: en
-  slug: workshopid-meelekolu-mangud-mindstuff-games-en
+  - language: en
+    slug: workshopid-meelekolu-mangud-mindstuff-games-en
 ---
 
 Liikumise töötuba lastele "meeleKolu mängud" on koos olemine, kus mängitakse ja tantsitakse läbi erinevaid tundeid. Enese väljendamisega tegeletakse läbi liikumise ja üksteise tunnetamise nii paaris kui grupis. Tund koosneb peamiselt liikumismängudest ja oma meeleolude ning tunnete füüsilisest väljendamisest. Koosolemine lõpeb ühiselt loodud meeleolude liikumiskavaga ja sellele järgneva vestlusega.

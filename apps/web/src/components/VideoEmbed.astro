@@ -14,11 +14,62 @@ interface Props {
 
 const { videos } = Astro.props;
 
+/**
+ * Extract YouTube video ID from various URL formats
+ * Supports:
+ * - https://www.youtube.com/watch?v=VIDEO_ID
+ * - https://youtu.be/VIDEO_ID
+ * - https://www.youtube.com/embed/VIDEO_ID
+ */
+function extractYouTubeId(url: string): string | null {
+  // youtube.com/watch?v=VIDEO_ID
+  const watchMatch = url.match(/[?&]v=([a-zA-Z0-9_-]{11})/);
+  if (watchMatch) return watchMatch[1];
+
+  // youtu.be/VIDEO_ID
+  const shortMatch = url.match(/youtu\.be\/([a-zA-Z0-9_-]{11})/);
+  if (shortMatch) return shortMatch[1];
+
+  // youtube.com/embed/VIDEO_ID
+  const embedMatch = url.match(/youtube\.com\/embed\/([a-zA-Z0-9_-]{11})/);
+  if (embedMatch) return embedMatch[1];
+
+  return null;
+}
+
+/**
+ * Extract Vimeo video ID from various URL formats
+ * Supports:
+ * - https://vimeo.com/VIDEO_ID
+ * - https://player.vimeo.com/video/VIDEO_ID
+ */
+function extractVimeoId(url: string): string | null {
+  // vimeo.com/VIDEO_ID or player.vimeo.com/video/VIDEO_ID
+  const match = url.match(/(?:vimeo\.com|player\.vimeo\.com\/video)\/(\d+)/);
+  return match ? match[1] : null;
+}
+
+/**
+ * Get embed URL for video, extracting ID from URL if video_id not provided
+ * Maintains backward compatibility with existing video_id fields
+ */
 function getEmbedUrl(video: VideoItem): string {
   if (video.platform === 'youtube') {
-    return `https://www.youtube-nocookie.com/embed/${video.video_id}`;
+    // Prefer video_id if present (backward compatibility)
+    const videoId = video.video_id || extractYouTubeId(video.url);
+    if (!videoId) {
+      console.warn(`Could not extract YouTube ID from URL: ${video.url}`);
+      return '';
+    }
+    return `https://www.youtube-nocookie.com/embed/${videoId}`;
   } else if (video.platform === 'vimeo') {
-    return `https://player.vimeo.com/video/${video.video_id}`;
+    // Prefer video_id if present (backward compatibility)
+    const videoId = video.video_id || extractVimeoId(video.url);
+    if (!videoId) {
+      console.warn(`Could not extract Vimeo ID from URL: ${video.url}`);
+      return '';
+    }
+    return `https://player.vimeo.com/video/${videoId}`;
   }
   return '';
 }

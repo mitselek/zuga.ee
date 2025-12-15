@@ -42,7 +42,6 @@ gallery:
     description: Workshop photo
 videos:
   - platform: youtube
-    video_id: qp22v58UQnw
     title: ZUGA video greeting
     url: https://www.youtube.com/embed/qp22v58UQnw
 ---

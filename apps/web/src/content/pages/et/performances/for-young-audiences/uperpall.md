@@ -8,30 +8,29 @@ subcategory: noorele-publikule
 status: published
 hero_image: /images/etendused-uperpall-hero.jpg
 translated:
-- language: en
-  slug: topsy-turvy
+  - language: en
+    slug: topsy-turvy
 gallery:
-- url: /images/etendused-uperpall-1.jpg
-  width: 1500
-  height: 1001
-  description: Lavastusest „Uperpall". Foto Sabine Burger
-- url: /images/etendused-uperpall-2.jpg
-  width: 1500
-  height: 1001
-  description: Lavastusest „Uperpall". Foto Sabine Burger
-- url: /images/etendused-uperpall-3.jpg
-  width: 1500
-  height: 1001
-  description: Lavastusest „Uperpall". Foto Sabine Burger
-- url: /images/etendused-uperpall-4.jpg
-  width: 1500
-  height: 1001
-  description: Lavastusest „Uperpall". Foto Sabine Burger
+  - url: /images/etendused-uperpall-1.jpg
+    width: 1500
+    height: 1001
+    description: Lavastusest „Uperpall". Foto Sabine Burger
+  - url: /images/etendused-uperpall-2.jpg
+    width: 1500
+    height: 1001
+    description: Lavastusest „Uperpall". Foto Sabine Burger
+  - url: /images/etendused-uperpall-3.jpg
+    width: 1500
+    height: 1001
+    description: Lavastusest „Uperpall". Foto Sabine Burger
+  - url: /images/etendused-uperpall-4.jpg
+    width: 1500
+    height: 1001
+    description: Lavastusest „Uperpall". Foto Sabine Burger
 videos:
-- platform: youtube
-  video_id: xpzHq-wDCNE
-  url: https://www.youtube.com/embed/xpzHq-wDCNE
-  title: Uperpall
+  - platform: youtube
+    url: https://www.youtube.com/embed/xpzHq-wDCNE
+    title: Uperpall
 description: Koguperelavastus pallidega ja pallidest – sellest, et kuitahes uperpallis asjad ka ei oleks, saab need alati teistpidi põrkama panna.
 knowledge_base_sources:
   persons:
@@ -41,7 +40,6 @@ knowledge_base_sources:
     - persons/lauri-dag-tuur.md
     - persons/paar-parenson.md
     - persons/tiina-molder.md
-
 ---
 
 # Uperpall

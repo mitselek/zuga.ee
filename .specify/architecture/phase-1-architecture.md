@@ -178,10 +178,12 @@ gallery?: Array<{              # Image gallery
   description?: string
 }>
 videos?: Array<{               # Embedded videos
-  platform: "youtube" | "vimeo"
-  video_id: string
+  platform: "youtube" | "vimeo" | "err"
+  video_id?: string           # Deprecated: ID extracted automatically from url
   title?: string
-  url: string
+  url: string                  # Required: Video URL (ID extracted automatically)
+  source?: string             # For ERR videos
+  date?: string               # For ERR videos
 }>
 ---
 ```
@@ -231,10 +233,12 @@ const pagesCollection = defineCollection({
     videos: z
       .array(
         z.object({
-          platform: z.enum(["youtube", "vimeo"]),
-          video_id: z.string(),
+          platform: z.enum(["youtube", "vimeo", "err"]),
+          video_id: z.string().optional(), // Deprecated: ID extracted from url automatically
           title: z.string().optional(),
-          url: z.string().url(),
+          url: z.string().url(), // Required: Video URL (ID extracted automatically)
+          source: z.string().optional(), // For ERR videos
+          date: z.string().optional(), // For ERR videos
         })
       )
       .optional(),
