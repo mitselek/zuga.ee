@@ -65,6 +65,7 @@ knowledge_base_sources:
 **Tööpealkiri**
 
 **Esietendus:** 20. märts 2026, kell 19:00, Sõltumatu Tantsu Lava
+
 **Koostöös:** Peaasi.ee
 
 ## Lavastusest
