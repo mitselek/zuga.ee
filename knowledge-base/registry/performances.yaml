@@ -294,11 +294,11 @@ performances:
     full_slug:
       et: etendused-noorele-publikule-zugazuugzuh-zuh-zuh
       en: null
-    premiere: null
-    venue: null
+    premiere: "2009-10-10"
+    venue: Kanuti Gildi SAAL stuudio
     duration: null
     target_audience: young_audiences
-    age_recommendation: null
+    age_recommendation: "2-5"
     status: archived
     categories:
       - etendused
