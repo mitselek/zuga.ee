@@ -47,6 +47,7 @@ const pagesCollection = defineCollection({
       'gallery',     // Photo galleries
       'contact',     // Contact pages
       'news',        // News/press
+      'kalender',    // Calendar/events
     ], {
       errorMap: () => ({ message: 'Invalid category' }),
     }),

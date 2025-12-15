@@ -309,7 +309,7 @@ const webPageSchema = z.object({
   slug: z.string().regex(/^[a-z0-9-]+$/).optional(),
   language: z.enum(['en', 'et']),
   type: z.enum(['home', 'section', 'detail']),
-  category: z.enum(['etendused', 'workshopid', 'about', 'gallery', 'contact', 'news']),
+  category: z.enum(['etendused', 'workshopid', 'about', 'gallery', 'contact', 'news', 'kalender']),
   subcategory: z.string().optional(),
   status: z.enum(['published', 'draft']),
   description: z.string().optional(),

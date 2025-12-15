@@ -22,6 +22,11 @@ export async function getStaticPaths() {
       continue; // Skip nested files
     }
 
+    // Skip calendar pages - they're handled by [lang]/kalender/[...slug].astro
+    if (page.data.category === 'kalender') {
+      continue;
+    }
+
     const slug = pathAfterLang;
 
     // For detail pages, create redirect to new hierarchical URL

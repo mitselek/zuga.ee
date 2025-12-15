@@ -1,0 +1,305 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import LanguageSwitcher from '../../../components/LanguageSwitcher.astro';
+import PageHero from '../../../components/PageHero.astro';
+
+export async function getStaticPaths() {
+  const pages = await getCollection('pages', ({ data }) => {
+    return data.status === 'published' && data.category === 'kalender';
+  });
+
+  const paths = [];
+
+  // Create routes for main calendar pages and sub-pages
+  for (const page of pages) {
+    // Main calendar page (kalender/calendar) - route should be /{lang}/kalender or /{lang}/calendar
+    // But we use catch-all route, so we need to handle the base route
+    if (page.data.slug === 'kalender' || page.data.slug === 'calendar') {
+      // For Estonian: /et/kalender (slug undefined)
+      // For English: /en/calendar (but route file is kalender, so we need to handle both)
+      paths.push({
+        params: {
+          lang: page.data.language,
+          slug: undefined, // Base route
+        },
+        props: { page },
+      });
+    } else {
+      // Sub-pages (tulemas/upcoming, olnud/past)
+      paths.push({
+        params: {
+          lang: page.data.language,
+          slug: page.data.slug,
+        },
+        props: { page },
+      });
+    }
+  }
+
+  // Also create routes for upcoming/past pages even if markdown files don't exist
+  // These are dynamic routes that query events
+  const languages = ['et', 'en'];
+  for (const lang of languages) {
+    // Upcoming page
+    paths.push({
+      params: {
+        lang,
+        slug: lang === 'et' ? 'tulemas' : 'upcoming',
+      },
+      props: {
+        page: null, // Will be handled in component
+        isDynamic: true,
+        pageType: 'upcoming',
+      },
+    });
+    // Past page
+    paths.push({
+      params: {
+        lang,
+        slug: lang === 'et' ? 'olnud' : 'past',
+      },
+      props: {
+        page: null,
+        isDynamic: true,
+        pageType: 'past',
+      },
+    });
+  }
+
+  return paths;
+}
+
+const { page, isDynamic, pageType } = Astro.props;
+const slug = Astro.params.slug || '';
+
+// Handle dynamic pages (upcoming/past) that don't have markdown files
+let pageData = page;
+let pageContent = null;
+
+if (isDynamic && !page) {
+  // Create virtual page data for dynamic routes
+  if (pageType === 'upcoming') {
+    pageData = {
+      data: {
+        title: Astro.params.lang === 'et' ? 'Tulemas' : 'Upcoming',
+        description: Astro.params.lang === 'et'
+          ? 'Tulevased ZUGA üritused'
+          : 'Upcoming ZUGA events',
+        language: Astro.params.lang,
+        category: 'kalender',
+      },
+    };
+  } else if (pageType === 'past') {
+    pageData = {
+      data: {
+        title: Astro.params.lang === 'et' ? 'Olnud' : 'Past',
+        description: Astro.params.lang === 'et'
+          ? 'Varasemad ZUGA üritused'
+          : 'Past ZUGA events',
+        language: Astro.params.lang,
+        category: 'kalender',
+      },
+    };
+  }
+} else if (page) {
+  const rendered = await page.render();
+  pageContent = rendered.Content;
+}
+
+// Get today's date in Estonia timezone (UTC+2/UTC+3)
+const today = new Date();
+const estoniaOffset = today.getTimezoneOffset() + 120; // UTC+2 in minutes
+const todayEstonia = new Date(today.getTime() + estoniaOffset * 60000);
+const todayStr = todayEstonia.toISOString().split('T')[0]; // YYYY-MM-DD
+
+const currentLang = pageData.data.language;
+
+// Get all events (performances and workshops) with premiere or showings
+const allEvents = await getCollection('pages', ({ data }) => {
+  return (
+    data.status === 'published' &&
+    data.language === currentLang &&
+    (data.category === 'etendused' || data.category === 'workshopid') &&
+    (data.premiere?.date || data.showings?.length > 0)
+  );
+});
+
+/**
+ * Extract event dates from a page
+ * Returns array of { date, time, venue_id, page, type: 'premiere' | 'showing' }
+ */
+function getEventDates(eventPage: any) {
+  const dates: Array<{
+    date: string;
+    time?: string;
+    venue_id?: string;
+    page: any;
+    type: 'premiere' | 'showing';
+  }> = [];
+
+  // Add premiere date if exists
+  if (eventPage.data.premiere?.date) {
+    dates.push({
+      date: eventPage.data.premiere.date,
+      time: eventPage.data.premiere.time,
+      venue_id: eventPage.data.premiere.venue_id,
+      page: eventPage,
+      type: 'premiere',
+    });
+  }
+
+  // Add showing dates if exist
+  if (eventPage.data.showings) {
+    for (const showing of eventPage.data.showings) {
+      dates.push({
+        date: showing.date,
+        time: showing.time,
+        venue_id: showing.venue_id,
+        page: eventPage,
+        type: 'showing',
+      });
+    }
+  }
+
+  return dates;
+}
+
+// Flatten all events into individual date entries
+const allEventDates = allEvents.flatMap(getEventDates);
+
+// Filter events based on slug
+let filteredEvents = allEventDates;
+
+if (slug === 'tulemas' || slug === 'upcoming') {
+  // Upcoming events: date >= today
+  filteredEvents = allEventDates.filter(event => event.date >= todayStr);
+  // Sort by date ascending (closest first)
+  filteredEvents.sort((a, b) => a.date.localeCompare(b.date));
+} else if (slug === 'olnud' || slug === 'past') {
+  // Past events: date < today
+  filteredEvents = allEventDates.filter(event => event.date < todayStr);
+  // Sort by date descending (most recent first)
+  filteredEvents.sort((a, b) => b.date.localeCompare(a.date));
+} else {
+  // Main calendar page - show all events sorted by date
+  filteredEvents.sort((a, b) => a.date.localeCompare(b.date));
+}
+
+// Group events by month/year
+const eventsByMonth = new Map<string, typeof filteredEvents>();
+for (const event of filteredEvents) {
+  const dateObj = new Date(event.date + 'T00:00:00');
+  const monthKey = dateObj.toLocaleDateString(currentLang === 'et' ? 'et-EE' : 'en-US', {
+    year: 'numeric',
+    month: 'long',
+  });
+
+  if (!eventsByMonth.has(monthKey)) {
+    eventsByMonth.set(monthKey, []);
+  }
+  eventsByMonth.get(monthKey)!.push(event);
+}
+
+// Get venue information from KnB (if needed in future)
+// For now, we'll just display venue_id
+
+---
+
+<BaseLayout
+  title={pageData.data.title}
+  description={pageData.data.description}
+  language={pageData.data.language}
+>
+  <LanguageSwitcher currentSlug={slug || (pageData.data.slug === 'kalender' ? 'kalender' : 'calendar')} />
+
+  <PageHero
+    title={pageData.data.title}
+    description={pageData.data.description}
+    heroImage={pageData.data.hero_image}
+  />
+
+  <main class="container mx-auto px-4 py-8">
+    {pageContent && <pageContent />}
+
+    {filteredEvents.length > 0 ? (
+      <div class="mt-12">
+        {Array.from(eventsByMonth.entries()).map(([month, events]) => (
+          <section class="mb-12">
+            <h2 class="text-3xl font-bold mb-6">{month}</h2>
+            <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {events.map((event) => {
+                const eventDate = new Date(event.date + (event.time ? `T${event.time}` : 'T12:00:00'));
+                const dateStr = eventDate.toLocaleDateString(
+                  currentLang === 'et' ? 'et-EE' : 'en-US',
+                  {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                  }
+                );
+                const timeStr = event.time
+                  ? eventDate.toLocaleTimeString(
+                      currentLang === 'et' ? 'et-EE' : 'en-US',
+                      { hour: '2-digit', minute: '2-digit' }
+                    )
+                  : null;
+
+                // Get page slug for link
+                const pageSlug = event.page.id
+                  .replace(/^(en|et)\//, '')
+                  .replace(/\.md$/, '')
+                  .split('/')
+                  .pop();
+
+                return (
+                  <article class="border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
+                    <div class="text-sm text-gray-600 mb-2">
+                      {dateStr}
+                      {timeStr && ` • ${timeStr}`}
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">
+                      <a
+                        href={`/${currentLang}/${event.page.data.category}/${pageSlug}`}
+                        class="hover:text-primary"
+                      >
+                        {event.page.data.title}
+                      </a>
+                    </h3>
+                    {event.venue_id && (
+                      <div class="text-sm text-gray-600 mb-2">
+                        {currentLang === 'et' ? 'Asukoht' : 'Venue'}: {event.venue_id}
+                      </div>
+                    )}
+                    {event.type === 'showing' && event.page.data.showings?.find(
+                      (s: any) => s.date === event.date
+                    )?.notes && (
+                      <div class="text-sm italic text-gray-600">
+                        {event.page.data.showings.find((s: any) => s.date === event.date).notes}
+                      </div>
+                    )}
+                    {event.page.data.tickets?.on_sale && (
+                      <div class="mt-3">
+                        <span class="inline-block bg-green-100 text-green-800 text-xs px-2 py-1 rounded">
+                          {currentLang === 'et' ? 'Piletid müügil' : 'Tickets on sale'}
+                        </span>
+                      </div>
+                    )}
+                  </article>
+                );
+              })}
+            </div>
+          </section>
+        ))}
+      </div>
+    ) : (
+      <div class="mt-12 text-center text-gray-600">
+        <p>
+          {currentLang === 'et'
+            ? 'Üritusi ei leitud.'
+            : 'No events found.'}
+        </p>
+      </div>
+    )}
+  </main>
+</BaseLayout>
