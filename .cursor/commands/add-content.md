@@ -32,7 +32,8 @@ Given user references to Knowledge Base content or performance/workshop details,
 - ✓ Updates existing pages with KnB references (press coverage, awards)
 - ✓ Adds team member information from `knowledge-base/persons/`
 - ✓ Structures content to match Astro/Zod schemas
-- ✓ Ensures bilingual consistency (ET/EN)
+- ✓ **Ensures bilingual consistency (ET/EN) - ALWAYS handle both languages**
+- ✓ Migrates deprecated schema fields to new structures
 
 **What this prompt does NOT do**:
 
@@ -40,6 +41,46 @@ Given user references to Knowledge Base content or performance/workshop details,
 - ✗ Download images or media files (use `/harvest-content` instead)
 - ✗ Create content without KnB references
 - ✗ Invent information not documented in KnB
+- ✗ **Update only one language version without asking about translation**
+
+## ⚠️ CRITICAL RULE: Bilingual Content Handling
+
+**ZUGA website is bilingual (Estonian/English). When updating content:**
+
+1. **ALWAYS check for translation** in opposite language folder
+2. **ALWAYS ask user** if translation should be updated/created
+3. **NEVER complete an update** without addressing translation status
+
+**Example workflow:**
+
+```text
+User: "Update zuga-heliliikumistootoad.md"
+    ↓
+You update: et/tootoad/zuga-heliliikumistootoad.md
+    ↓
+You check: Does en/workshops/[english-version].md exist?
+    ↓ NO
+You ask: "No English translation exists. Should I create it?"
+    ↓ User says YES
+You create: en/workshops/zuga-sound-movement-workshops.md
+    ↓
+You add bidirectional translated links to both files
+    ↓
+Done ✅
+```
+
+**Failure case (what Composer did wrong):**
+
+```text
+User: "Update zuga-heliliikumistootoad.md"
+    ↓
+Composer updated: et/tootoad/zuga-heliliikumistootoad.md
+    ↓
+Composer stopped ❌  (didn't check for/offer to create EN version)
+    ↓
+User expected: Both ET and EN versions updated
+Result: User disappointed, missing English version
+```
 
 ## Prerequisites
 
@@ -1108,10 +1149,82 @@ Use this workflow when modifying EXISTING content files.
    - What media needs to be added/updated? (videos, gallery images)
    - Should any frontmatter fields be added? (hero_image, order, background_color)
 
-2. **List proposed changes explicitly**:
+2. **Check for deprecated fields (schema migration)**:
+
+   **CRITICAL: Before making ANY changes, scan for deprecated fields:**
+
+   ```yaml
+   # DEPRECATED fields that should be migrated:
+   venue: "..." # → booking.requirements.space (workshops) OR premiere.venue_id (performances)
+   price: "..." # → tickets.platforms[{name, url}] OR booking.pricing
+   purchase_link: "..." # → tickets.platforms[0].url
+   premiere_date: "..." # → premiere.date
+   ```
+
+   **Migration decision tree:**
+
+   ```text
+   Found deprecated field?
+       ↓
+   User explicitly asked to migrate schema?
+       ↓ NO
+   Ask user: "I found deprecated fields (venue, price, purchase_link).
+             These should be migrated to new schema.
+             Should I:
+             a) Migrate to new schema (recommended)
+             b) Make your requested changes only
+             c) Do both (migrate + your changes)"
+       ↓ YES or user chose (a) or (c)
+   Proceed with migration
+   ```
+
+   **⚠️ NEVER migrate deprecated fields without explicit user consent or request**
+
+   **Exceptions (auto-migrate without asking):**
+
+   - User said "update schema" / "migrate to new format" / "fix deprecated fields"
+   - User specifically asked to add `tickets` or `booking` structures
+   - File is being created from scratch (no legacy fields to preserve)
+
+3. **Document video/media changes carefully**:
+
+   **CRITICAL: When removing media (videos, gallery items, audio), ALWAYS provide justification:**
+
+   ```markdown
+   📹 **Video Change Detected**
+
+   **Current video**:
+
+   - Platform: {platform}
+   - Title: "{title}"
+   - URL: {url}
+
+   **Reason for removal**: {explain why}
+
+   - ❓ Does video title match this page's content?
+   - ❓ Is this video used on other pages?
+   - ❓ Was it mistakenly copied from another workshop/performance?
+
+   **Recommendation**: {keep or remove with reasoning}
+   ```
+
+   **Checklist before removing media:**
+
+   - ✓ Search other files for same media URL
+   - ✓ Verify media title matches page content
+   - ✓ Check if media is referenced in Knowledge Base
+   - ✓ Ask user if uncertain
+
+4. **List proposed changes explicitly**:
 
    ```markdown
    📝 Proposed changes:
+
+   **Schema Migration** (if applicable):
+
+   - venue: "Kodus, õues" → booking.requirements.space: "Kodus, õues"
+   - price: "Pilet Fientas" → tickets.platforms[{name: "Fienta", url: "..."}]
+   - purchase_link: "https://..." → tickets.platforms[0].url
 
    **Frontmatter updates**:
 
@@ -1125,17 +1238,73 @@ Use this workflow when modifying EXISTING content files.
    - Update "## Video" section with new YouTube link
    - Add 3 new gallery images
 
+   **Media changes**:
+
+   - Remove video: "Liikumise töötuba peredele" (reason: belongs to different workshop)
+   - Add gallery image: hero-2024.jpg
+
    **No changes to**:
 
    - title, slug, language, type, category (preserved)
    ```
 
-3. **Ask for confirmation**:
+5. **Ask for confirmation**:
    - "These are the changes I'll make. Proceed? (yes/no/modify)"
    - If user says "modify", ask what to adjust
    - If user says "no", stop and clarify requirements
 
 ### Phase 3: Apply Updates Carefully
+
+**3.1 Schema Migration (if applicable)**
+
+If migrating deprecated fields, follow these patterns:
+
+**Pattern 1: Workshop venue → booking.requirements.space**
+
+```yaml
+# OLD:
+venue: "Kodus, õues, metsas, koolis"
+
+# NEW:
+booking:
+  required: true
+  contact:
+    name: "Sõltumatu Tantsu Lava" # Add from Knowledge Base or ask user
+    email: "info@stl.ee"
+  requirements:
+    space: "Kodus, õues, metsas, koolis"
+```
+
+**Pattern 2: Workshop price/purchase → tickets structure**
+
+```yaml
+# OLD:
+price: "Pilet Fientas"
+purchase_link: "https://fienta.com/et/event-slug"
+
+# NEW:
+tickets:
+  on_sale: true
+  platforms:
+    - name: "Fienta" # Extract from price text or URL
+      url: "https://fienta.com/et/event-slug"
+```
+
+**Pattern 3: Performance premiere_date → premiere structure**
+
+```yaml
+# OLD:
+premiere_date: "2024-10-15"
+venue: "Kanuti Gildi SAAL"
+
+# NEW:
+premiere:
+  date: "2024-10-15"
+  time: "19:00" # Add if known, otherwise omit
+  venue_id: "kanuti-gildi-saal" # Look up from knowledge-base/venues/
+```
+
+**3.2 Standard Frontmatter Updates**
 
 1. **Update frontmatter fields**:
 
@@ -1143,6 +1312,7 @@ Use this workflow when modifying EXISTING content files.
    - Add new optional fields if user provided them
    - Maintain YAML formatting and field order
    - Keep existing `translated` links unless updating both files
+   - **CRITICAL**: When adding structured objects (tickets, booking, premiere), ensure proper YAML indentation
 
 2. **Update body content**:
 
@@ -1156,8 +1326,15 @@ Use this workflow when modifying EXISTING content files.
    - **Videos**: Append to existing `videos` array or replace specific video
    - **Gallery**: Append new images to `gallery` array or replace entire gallery
    - **Hero image**: Update `hero_image` field, note if file needs to be added to `/public/images/`
+   - **CRITICAL**: Before removing ANY media, justify the removal (see Phase 2 checklist)
 
-4. **Preserve markdown formatting**:
+4. **Update media fields**:
+
+   - **Videos**: Append to existing `videos` array or replace specific video
+   - **Gallery**: Append new images to `gallery` array or replace entire gallery
+   - **Hero image**: Update `hero_image` field, note if file needs to be added to `/public/images/`
+
+5. **Preserve markdown formatting**:
    - Maintain consistent blank lines around headings, lists, code blocks
    - Keep existing heading level hierarchy
    - Preserve indentation and list formatting
@@ -1189,24 +1366,71 @@ Use this workflow when modifying EXISTING content files.
    - Overwrite existing file at same path
    - Preserve file permissions
 
-### Phase 5: Update Linked Translation (if applicable)
+### Phase 5: Handle Translation (REQUIRED)
+
+**⚠️ CRITICAL: Always handle both language versions when updating content**
 
 1. **Check for translation**:
 
-   - If frontmatter has `translated` field, translation exists
-   - Example: ET file has `translated: [{language: en, slug: english-slug}]`
+   - Look for `translated` field in frontmatter
+   - If missing, check if translation file exists anyway (search opposite language folder)
+   - Example: Updating `et/tootoad/workshop.md` → Check for `en/workshops/workshop.md`
 
-2. **Ask about translation update**:
+2. **Translation decision matrix**:
 
-   - "This page has an {opposite language} translation. Should I update it too?"
-   - If yes: Read translation file, apply equivalent changes
-   - If no: Proceed to summary
+   ```text
+   Translation exists?
+       ↓ YES
+   Ask: "This page has an {opposite language} translation. Should I update it too?"
+       ↓ YES → Go to step 3
+       ↓ NO → Warn: "Translation will be out of sync" → Proceed to summary
+       ↓
+   Translation does NOT exist?
+       ↓
+   **ALWAYS ASK**: "No {opposite language} translation exists. Should I create it?"
+       ↓ YES → Go to step 4 (create new translation)
+       ↓ NO → Warn: "Consider creating translation for consistency" → Proceed to summary
+   ```
 
-3. **Apply changes to translation**:
+3. **Update existing translation**:
+
+   - Read translation file completely
+   - Apply equivalent schema migrations (same structure, translated text)
    - Translate updated title/description if changed
    - Apply equivalent body content changes (translate new sections)
-   - Update media with same URLs (descriptions can be translated)
+   - Update media with same URLs (translate descriptions/titles)
    - Preserve translation's `translated` field pointing back to original
+   - **If schema migrated**: Apply same migration to translation
+
+4. **Create new translation** (if user wants it):
+
+   - Use CREATE workflow (Phase 1-6 from earlier)
+   - Translate all text content (title, description, body)
+   - Keep same media URLs (translate descriptions)
+   - Keep same structure (frontmatter fields, sections)
+   - Add bidirectional `translated` fields to both files
+   - **If schema migrated**: Use NEW schema in translation (don't create with deprecated fields)
+
+5. **Schema migration + translation special case**:
+
+   ```yaml
+   # If you migrated schema in ET version:
+   # ET (UPDATED):
+   tickets:
+     on_sale: true
+     platforms:
+       - name: "Fienta"
+         url: "..."
+
+   # EN (MUST ALSO MIGRATE, not create with old fields):
+   tickets:
+     on_sale: true
+     platforms:
+       - name: "Fienta"  # Keep same, it's a brand name
+         url: "..."      # Same URL
+   ```
+
+   **DO NOT create English version with deprecated fields if you just migrated them in Estonian version!**
 
 ### Phase 6: Summary & Validation
 
@@ -1228,14 +1452,52 @@ Use this workflow when modifying EXISTING content files.
    **Validation**: ✓ All fields valid, ✓ Markdown formatted correctly
    ```
 
-2. **Suggest next steps**:
+2. **Schema migration summary** (if applicable):
+
+   ```markdown
+   📊 **Schema Migration Report**
+
+   **Deprecated fields removed**:
+
+   - venue → booking.requirements.space
+   - price → tickets.platforms
+   - purchase_link → tickets.platforms[0].url
+
+   **New structured fields added**:
+   ✅ tickets.on_sale: true
+   ✅ tickets.platforms[0]: {name: "Fienta", url: "..."}
+   ✅ booking.required: true
+   ✅ booking.contact: {name, email}
+   ✅ booking.requirements.space: "..."
+
+   **Validation**: ✅ Passes schema validation
+   ```
+
+3. **Media change justification** (if media removed):
+
+   ```markdown
+   🎬 **Media Changes**
+
+   **Removed**:
+
+   - Video: "Liikumise töötuba peredele" (https://youtube.com/...)
+     **Reason**: Title indicates this video belongs to different workshop (zuga-liikumise-tootuba-peredele)
+     **Cross-check**: Same video URL found on correct workshop page
+     **Decision**: Removal justified ✅
+
+   **Added**:
+
+   - [List any added media]
+   ```
+
+4. **Suggest next steps**:
 
    - "Preview updated page at: http://localhost:4321/{language}/{category}/{slug}"
    - "Run `npm run build` to validate changes"
    - If hero_image added: "Add image file to `/apps/web/public/images/{filename}`"
    - If translation not updated: "Consider updating {language} translation for consistency"
 
-3. **Show diff summary** (optional but helpful):
+5. **Show diff summary** (optional but helpful):
 
    ```markdown
    **Changed lines**:
@@ -1507,3 +1769,186 @@ _Performance is in development. More info coming soon._
 - Add "kell" (Estonian) or "at" (English) before time
 - Include venue name in premiere mention
 - Keep collaboration partner below (with line break)
+
+---
+
+## Example 5: Schema Migration with Bilingual Update (COMPLETE WORKFLOW)
+
+**User input**:
+
+```text
+Update zuga-heliliikumistootoad.md to new schema
+```
+
+### Step 1: Read and Analyze
+
+```markdown
+📄 Found: `et/tootoad/zuga-heliliikumistootoad.md`
+
+**Deprecated fields detected**:
+- venue: "Kodus, õues, metsas, koolis"
+- price: "Pilet Fientas"
+- purchase_link: "https://fienta.com/et/zuga-helimuramistootuba"
+
+**Translation status**: ❌ No English version found
+
+**Proceeding with**:
+1. Migrate deprecated fields to new schema
+2. Ask about English translation
+```
+
+### Step 2: Propose Changes
+
+```markdown
+📝 Proposed changes for ET version:
+
+**Schema Migration**:
+- venue → booking.requirements.space: "Kodus, õues, metsas, koolis"
+- price + purchase_link → tickets.platforms[{name: "Fienta", url: "..."}]
+- Add booking.contact: {name: "Sõltumatu Tantsu Lava", email: "info@stl.ee"}
+
+**Media check**:
+- Video: "Liikumise töötuba peredele" → REMOVE (belongs to different workshop)
+
+Proceed? (yes/no)
+```
+
+### Step 3: Apply Migration
+
+```yaml
+# Updated ET frontmatter:
+tickets:
+  on_sale: true
+  platforms:
+    - name: "Fienta"
+      url: "https://fienta.com/et/zuga-helimuramistootuba"
+
+booking:
+  required: true
+  contact:
+    name: "Sõltumatu Tantsu Lava"
+    email: "info@stl.ee"
+  requirements:
+    space: "Kodus, õues, metsas, koolis"
+  target_age: "Sõltub töötoa valikust"
+  duration: 15
+```
+
+### Step 4: Handle Translation (CRITICAL)
+
+```markdown
+⚠️ **Translation Required**
+
+No English translation exists for this workshop.
+
+**Should I create English version?**
+
+If yes, I will:
+- Create: `en/workshops/zuga-sound-movement-workshops.md`
+- Translate all text content
+- Use NEW schema (not deprecated fields)
+- Add bidirectional translated links
+
+Proceed? (yes/no)
+```
+
+### Step 5: Create English Version (User said YES)
+
+```yaml
+---
+title: ZUGA Sound Movement Workshops
+slug: zuga-sound-movement-workshops
+language: en
+description: Audio-guided playful movement workshops
+type: detail
+category: workshopid
+status: published
+page_type: workshop
+duration: 15-20
+age_recommendation: Depends on workshop choice
+hero_image: /images/zuga-heliliikumistootoad-hero.jpg
+
+# NEW schema (not deprecated fields)
+tickets:
+  on_sale: true
+  platforms:
+    - name: "Fienta"
+      url: "https://fienta.com/et/zuga-helimuramistootuba"
+
+booking:
+  required: true
+  contact:
+    name: "Independent Dance Stage"
+    email: "info@stl.ee"
+  requirements:
+    space: "At home, outdoors, in the forest, at school"
+  target_age: "Depends on workshop choice"
+  duration: 15
+
+gallery:
+  # ... same images, translated descriptions
+
+knowledge_base_sources:
+  persons:
+    - persons/ajjar-ausma.md
+    - persons/kart-tonisson.md
+    - persons/paar-parenson.md
+    - persons/tiina-molder.md
+
+translated:
+  - language: et
+    slug: zuga-heliliikumistootoad
+---
+
+# ZUGA Sound Movement Workshops
+
+**Duration:** 15–20 minutes
+**Selection:** Four different workshops by four choreographers
+
+[Translated body content...]
+```
+
+### Step 6: Add Bidirectional Links
+
+Update ET version with translation link:
+
+```yaml
+# et/tootoad/zuga-heliliikumistootoad.md
+translated:
+  - language: en
+    slug: zuga-sound-movement-workshops
+```
+
+### Step 7: Final Report
+
+```markdown
+✅ **Update Complete!**
+
+**Files updated**:
+1. `et/tootoad/zuga-heliliikumistootoad.md` ✅
+   - Migrated to new schema
+   - Removed misplaced video
+   - Added translation link
+
+2. `en/workshops/zuga-sound-movement-workshops.md` ✅
+   - Created new English version
+   - Used NEW schema (no deprecated fields)
+   - Translated all content
+   - Added translation link
+
+**Schema Migration**:
+✅ venue → booking.requirements.space
+✅ price/purchase_link → tickets.platforms
+✅ Added booking.contact
+
+**Validation**: Both files pass schema validation ✅
+
+**Next steps**:
+- Preview ET: http://localhost:4321/et/workshopid/zuga-heliliikumistootoad
+- Preview EN: http://localhost:4321/en/workshops/zuga-sound-movement-workshops
+- Run: `npm run build` to validate
+```
+
+---
+
+**Key Takeaway**: This example shows the COMPLETE workflow that Composer should have followed - updating both language versions and ensuring schema consistency across translations.
