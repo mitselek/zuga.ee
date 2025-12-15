@@ -30,7 +30,6 @@ videos:
     url: https://www.youtube.com/embed/Nj_JGAGBt28
 knowledge_base_sources:
   articles:
-    - articles/2006-02-err-paevakaja-naine-ja-hunt.md
     - articles/2019-10-postimees-2-2-22-esietendus.md
   persons:
     - persons/ajjar-ausma.md

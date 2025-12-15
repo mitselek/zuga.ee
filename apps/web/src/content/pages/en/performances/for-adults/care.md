@@ -40,8 +40,6 @@ gallery:
   height: 683
   description: From the performance "Care"
 knowledge_base_sources:
-  articles:
-    - articles/2006-02-err-paevakaja-naine-ja-hunt.md
   persons:
     - persons/ajjar-ausma.md
     - persons/helen-reitsnik.md

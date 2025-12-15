@@ -39,10 +39,6 @@ gallery:
     height: 1080
     description: Etendusest "Suur Teadmatus"
 knowledge_base_sources:
-  articles:
-    - articles/2019-10-postimees-2-2-22-esietendus.md
-    - articles/2006-02-err-paevakaja-naine-ja-hunt.md
-    - articles/2024-10-err-vikerraadio-okoskoop-ilma.md
   persons:
     - persons/ajjar-ausma.md
     - persons/alan-proosa.md

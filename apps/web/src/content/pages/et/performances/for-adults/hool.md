@@ -40,8 +40,6 @@ gallery:
   height: 683
   description: Etendusest "Hool"
 knowledge_base_sources:
-  articles:
-    - articles/2006-02-epl-tiiu-laks-naine-ja-hunt.md
   persons:
     - persons/ajjar-ausma.md
     - persons/helen-reitsnik.md
