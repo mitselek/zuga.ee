@@ -9,10 +9,9 @@ status: published
 original_url: https://www.zuga.ee/et/kontakt-2
 page_type: about
 videos:
-- platform: youtube
-  video_id: qp22v58UQnw
-  title: Zuga video tervitus
-  url: https://www.youtube.com/embed/qp22v58UQnw?embed_config=%7B%22enc%22:%22AVPnqKsoVWOMDv_JRYWSbGsWazgAjSXWr72ptqxPKNEowxMSDhOktYWJqrkKY7FDLV88EO1usIwSGKONF2yITFcx2w73NMwEmnivKoDeVM5PJMW-xvfOloMdZ74j1MFEjTxjuwb7JEkJ1v3iRo4l07KUp2imZWuKHQTvVnGoLepyzQKP%22%7D
+  - platform: youtube
+    title: Zuga video tervitus
+    url: https://www.youtube.com/embed/qp22v58UQnw
 ---
 
 # Kontakt

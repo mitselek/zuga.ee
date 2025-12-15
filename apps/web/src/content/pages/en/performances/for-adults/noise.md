@@ -9,27 +9,25 @@ status: published
 original_url: https://www.zuga.ee/en/english-noise
 page_type: performance
 translated:
-- language: et
-  slug: mura
+  - language: et
+    slug: mura
 hero_image: /images/etendused-mura-proovist.jpg
 gallery:
-- url: /images/etendused-mura-etendus.jpg
-  width: 1200
-  height: 800
-  description: From performance "Noise"
-- url: /images/etendused-mura-postimees.jpg
-  width: 1920
-  height: 1080
-  description: From performance "Noise"
+  - url: /images/etendused-mura-etendus.jpg
+    width: 1200
+    height: 800
+    description: From performance "Noise"
+  - url: /images/etendused-mura-postimees.jpg
+    width: 1920
+    height: 1080
+    description: From performance "Noise"
 videos:
-- platform: vimeo
-  video_id: "359221287"
-  title: Dance performance NOISE (MÜRA)
-  url: https://vimeo.com/359221287
-- platform: youtube
-  video_id: Nj_JGAGBt28
-  title: NOISE (MÜRA) - Helena Krinal/ZUGA
-  url: https://www.youtube.com/embed/Nj_JGAGBt28
+  - platform: vimeo
+    title: Dance performance NOISE (MÜRA)
+    url: https://vimeo.com/359221287
+  - platform: youtube
+    title: NOISE (MÜRA) - Helena Krinal/ZUGA
+    url: https://www.youtube.com/embed/Nj_JGAGBt28
 knowledge_base_sources:
   articles:
     - articles/2006-02-err-paevakaja-naine-ja-hunt.md
@@ -43,7 +41,6 @@ knowledge_base_sources:
     - persons/keili-retter.md
     - persons/oliver-kulpsoo.md
     - persons/tiina-molder.md
-
 ---
 
 ## Dance performance NOISE (MÜRA)

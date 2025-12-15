@@ -11,10 +11,9 @@ original_url: https://www.zuga.ee/en/about
 page_type: landing
 hero_image: /images/meist-bg.jpg
 videos:
-- platform: youtube
-  video_id: qp22v58UQnw
-  title: Zuga video greeting
-  url: https://www.youtube.com/embed/qp22v58UQnw
+  - platform: youtube
+    title: Zuga video greeting
+    url: https://www.youtube.com/embed/qp22v58UQnw
 ---
 
 # About

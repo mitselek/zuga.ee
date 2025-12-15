@@ -10,50 +10,44 @@ original_url: https://www.zuga.ee/et/workshopid-zuga-liikumispausid
 page_type: workshop
 hero_image: /images/workshopid-zuga-liikumispausid-hero.jpg
 gallery:
-- url: /images/workshopid-zuga-liikumispausid-1.jpg
-  width: 2560
-  description: Liikumispauside läbiviimine
-- url: /images/workshopid-zuga-liikumispausid-2.jpg
-  width: 2560
-  description: Osalejad liikumispausil
-- url: /images/workshopid-zuga-liikumispausid-3.jpg
-  width: 2560
-  description: Grupp tegevuses
-- url: /images/workshopid-zuga-liikumispausid-4.jpg
-  width: 2560
-  description: Liikumisharjutused
-- url: /images/workshopid-zuga-liikumispausid-5.jpg
-  width: 2560
-  description: Osalejad sirutamas
-- url: /images/workshopid-zuga-liikumispausid-6.jpg
-  width: 2560
-  description: Liikumispauside hetk
+  - url: /images/workshopid-zuga-liikumispausid-1.jpg
+    width: 2560
+    description: Liikumispauside läbiviimine
+  - url: /images/workshopid-zuga-liikumispausid-2.jpg
+    width: 2560
+    description: Osalejad liikumispausil
+  - url: /images/workshopid-zuga-liikumispausid-3.jpg
+    width: 2560
+    description: Grupp tegevuses
+  - url: /images/workshopid-zuga-liikumispausid-4.jpg
+    width: 2560
+    description: Liikumisharjutused
+  - url: /images/workshopid-zuga-liikumispausid-5.jpg
+    width: 2560
+    description: Osalejad sirutamas
+  - url: /images/workshopid-zuga-liikumispausid-6.jpg
+    width: 2560
+    description: Liikumispauside hetk
 audio:
-- platform: soundcloud
-  track_id: "1024564312"
-  title: Zuga liikumispaus number 1
-  url: https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1024564312
-- platform: soundcloud
-  track_id: "1024564306"
-  title: Zuga liikumispaus number 2
-  url: https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1024564306
-- platform: soundcloud
-  track_id: "1024564300"
-  title: Zuga liikumispaus number 3
-  url: https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1024564300
-- platform: soundcloud
-  track_id: "1024564294"
-  title: Zuga liikumispaus number 4
-  url: https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1024564294
-- platform: soundcloud
-  track_id: "1024564288"
-  title: Zuga liikumispaus number 5
-  url: https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1024564288
+  - platform: soundcloud
+    title: Zuga liikumispaus number 1
+    url: https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1024564312
+  - platform: soundcloud
+    title: Zuga liikumispaus number 2
+    url: https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1024564306
+  - platform: soundcloud
+    title: Zuga liikumispaus number 3
+    url: https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1024564300
+  - platform: soundcloud
+    title: Zuga liikumispaus number 4
+    url: https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1024564294
+  - platform: soundcloud
+    title: Zuga liikumispaus number 5
+    url: https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1024564288
 knowledge_base_sources:
   persons:
     - persons/kart-tonisson.md
     - persons/tiina-molder.md
-
 ---
 
 

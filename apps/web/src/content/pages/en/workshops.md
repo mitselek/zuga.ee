@@ -11,10 +11,9 @@ original_url: https://www.zuga.ee/en/workshops
 page_type: landing
 hero_image: /images/workshopid-bg.png
 videos:
-- platform: youtube
-  video_id: qp22v58UQnw
-  title: Zuga video greeting
-  url: https://www.youtube.com/embed/qp22v58UQnw
+  - platform: youtube
+    title: Zuga video greeting
+    url: https://www.youtube.com/embed/qp22v58UQnw
 ---
 
 # Workshops

@@ -74,17 +74,17 @@ const pagesCollection = defineCollection({
     })).optional(),
     videos: z.array(z.object({
       platform: z.enum(['youtube', 'vimeo', 'err']),
-      video_id: z.string().min(1).optional(), // Required for youtube/vimeo, optional for err
+      video_id: z.string().optional(), // Deprecated: ID is now extracted from url automatically
       title: z.string().optional(),
-      url: z.string().url(),
+      url: z.string().url(), // Required: Video URL (ID extracted automatically for youtube/vimeo)
       source: z.string().optional(), // For ERR videos
       date: z.string().optional(), // For ERR videos
     })).optional(),
     audio: z.array(z.object({
       platform: z.enum(['soundcloud', 'err', 'custom']),
-      track_id: z.string().min(1).optional(), // Required for soundcloud, optional for others
+      track_id: z.string().optional(), // Deprecated: ID is now extracted from url automatically
       title: z.string().optional(),
-      url: z.string().url(),
+      url: z.string().url(), // Required: Audio URL (ID extracted automatically for soundcloud)
       source: z.string().optional(), // e.g., "ERR Vikerraadio"
       date: z.string().optional(), // Broadcast/publication date
     })).optional(),

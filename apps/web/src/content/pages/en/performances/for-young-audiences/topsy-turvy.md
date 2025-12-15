@@ -8,30 +8,29 @@ subcategory: noorele-publikule
 status: published
 hero_image: /images/etendused-uperpall-hero.jpg
 translated:
-- language: et
-  slug: etendused-noorele-publikule-uperpall
+  - language: et
+    slug: etendused-noorele-publikule-uperpall
 gallery:
-- url: /images/etendused-uperpall-1.jpg
-  width: 1500
-  height: 1001
-  description: From the performance "Topsy-Turvy". Photo by Sabine Burger
-- url: /images/etendused-uperpall-2.jpg
-  width: 1500
-  height: 1001
-  description: From the performance "Topsy-Turvy". Photo by Sabine Burger
-- url: /images/etendused-uperpall-3.jpg
-  width: 1500
-  height: 1001
-  description: From the performance "Topsy-Turvy". Photo by Sabine Burger
-- url: /images/etendused-uperpall-4.jpg
-  width: 1500
-  height: 1001
-  description: From the performance "Topsy-Turvy". Photo by Sabine Burger
+  - url: /images/etendused-uperpall-1.jpg
+    width: 1500
+    height: 1001
+    description: From the performance "Topsy-Turvy". Photo by Sabine Burger
+  - url: /images/etendused-uperpall-2.jpg
+    width: 1500
+    height: 1001
+    description: From the performance "Topsy-Turvy". Photo by Sabine Burger
+  - url: /images/etendused-uperpall-3.jpg
+    width: 1500
+    height: 1001
+    description: From the performance "Topsy-Turvy". Photo by Sabine Burger
+  - url: /images/etendused-uperpall-4.jpg
+    width: 1500
+    height: 1001
+    description: From the performance "Topsy-Turvy". Photo by Sabine Burger
 videos:
-- platform: youtube
-  video_id: xpzHq-wDCNE
-  url: https://www.youtube.com/embed/xpzHq-wDCNE
-  title: Topsy-Turvy
+  - platform: youtube
+    url: https://www.youtube.com/embed/xpzHq-wDCNE
+    title: Topsy-Turvy
 description: A family performance about balls and with balls – about how no matter how topsy-turvy things get, you can always bounce them the other way.
 knowledge_base_sources:
   persons:
@@ -41,7 +40,6 @@ knowledge_base_sources:
     - persons/lauri-dag-tuur.md
     - persons/paar-parenson.md
     - persons/tiina-molder.md
-
 ---
 
 # Topsy-Turvy

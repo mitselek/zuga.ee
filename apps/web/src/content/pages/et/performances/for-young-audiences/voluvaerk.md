@@ -9,25 +9,24 @@ subcategory: noorele-publikule
 status: published
 original_url: https://www.zuga.ee/et/etendused-noorele-publikule-voluvaerk
 page_type: performance
-premiere_date: 2011-10-08
+premiere_date: 2011-10-08T00:00:00.000Z
 venue: Kanuti Gildi SAAL
 age_recommendation: 4-7
 duration: 40
 hero_image: /images/voluvark-hero.jpg
 translated:
-- language: en
-  slug: magic-stuff
+  - language: en
+    slug: magic-stuff
 videos:
-- platform: vimeo
-  video_id: "61138564"
-  title: Võluvärk
-  url: https://player.vimeo.com/video/61138564
+  - platform: vimeo
+    title: Võluvärk
+    url: https://player.vimeo.com/video/61138564
 audio:
-- platform: err
-  title: Laste lood – Võluvärk
-  url: https://vod.err.ee/hls/arhiiv/AUDIO/a_49258_RMARHIIV.m4a/index-a1.m3u8
-  source: ERR Vikerraadio
-  date: "2011-11-22"
+  - platform: err
+    title: Laste lood – Võluvärk
+    url: https://vod.err.ee/hls/arhiiv/AUDIO/a_49258_RMARHIIV.m4a/index-a1.m3u8
+    source: ERR Vikerraadio
+    date: '2011-11-22'
 knowledge_base_sources:
   articles:
     - articles/2011-11-err-laste-lood-voluvaerk.md
@@ -36,7 +35,6 @@ knowledge_base_sources:
     - persons/kart-tonisson.md
     - persons/tiina-molder.md
     - persons/triin-lilleorg.md
-
 ---
 
 ## Tantsuetendus lastele "Võluvärk"

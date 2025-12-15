@@ -368,10 +368,9 @@ Use this workflow when creating NEW content files based on Knowledge Base inform
        width: [width in pixels]
        description: [image description]
    videos:
-     - platform: [youtube/vimeo]
-       video_id: [extracted ID]
+     - platform: [youtube/vimeo/err]
        title: [video title]
-       url: [embed URL]
+       url: [video URL - ID extracted automatically]
 
    # NEW: Knowledge Base sources (REQUIRED for content based on KnB)
    knowledge_base_sources:
@@ -1121,15 +1120,14 @@ Change the YouTube video for Häbi to the new trailer: https://youtube.com/watch
 
 1. Find and read file
 2. Check `videos` array in frontmatter
-3. Propose: Replace video_id "abc123xyz" → "newtrailer123"
+3. Update URL if needed (ID extracted automatically from URL)
 4. Update frontmatter:
 
    ```yaml
    videos:
      - platform: youtube
-       video_id: newtrailer123
        title: Zuga etendus "Häbi"
-       url: https://www.youtube.com/embed/newtrailer123
+       url: https://www.youtube.com/watch?v=newtrailer123
    ```
 
 5. Write updated file

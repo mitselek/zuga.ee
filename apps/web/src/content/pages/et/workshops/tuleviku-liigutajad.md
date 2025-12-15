@@ -43,7 +43,6 @@ gallery:
     description: Töötoa foto
 videos:
   - platform: youtube
-    video_id: qp22v58UQnw
     title: ZUGA videotervitus
     url: https://www.youtube.com/embed/qp22v58UQnw
 ---

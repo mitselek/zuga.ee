@@ -17,7 +17,6 @@ booking: Ettetellimisel
 group_size: Kuni 30 inimest
 videos:
   - platform: youtube
-    video_id: rPxJ8u2dqpo
     title: Liikumise töötuba peredele
     url: https://www.youtube.com/embed/rPxJ8u2dqpo
 ---
