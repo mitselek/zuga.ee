@@ -67,7 +67,7 @@ Before starting, verify these requirements:
 **Schema Access**:
 
 - ✓ `knowledge-base/config.ts` exists with current Zod schema definitions
-- ✓ Schemas include: `articleSchema`, `personSchema`, `pressSchema`, `researchSchema`
+- ✓ Schemas include: `articleSchema`, `personSchema`, `pressSchema`, `researchSchema`, `venueSchema` (Issue #54)
 
 **Git Environment**:
 
@@ -99,6 +99,7 @@ Before processing content, understand the knowledge base schemas:
 
 ```typescript
 // knowledge-base/config.ts - Core schemas
+// Schema version: Updated 2025-12-15 for event calendar system (Issue #54)
 
 // Article Schema (press coverage, reviews, interviews)
 articleSchema = z.object({

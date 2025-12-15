@@ -129,7 +129,10 @@ Which would you prefer?
 Before proceeding, read and understand the content schema:
 
 ```typescript
-// apps/web/src/content/config.ts - Key requirements:
+// apps/web/src/content/config.ts - Event Scheduling (Issue #54)
+// Schema version: Updated 2025-12-15 for event calendar system
+
+// Key requirements:
 
 // Hierarchy levels
 type: 'home' | 'section' | 'detail'

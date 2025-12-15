@@ -67,7 +67,7 @@ Before starting, verify these requirements:
 **Schema Access**:
 
 - ✓ `knowledge-base/config.ts` exists with current Zod schema definitions
-- ✓ Schemas include: `articleSchema`, `personSchema`, `pressSchema`, `researchSchema`
+- ✓ Schemas include: `articleSchema`, `personSchema`, `pressSchema`, `researchSchema`, `venueSchema` (Issue #54)
 
 **Git Environment**:
 
