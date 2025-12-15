@@ -6,6 +6,7 @@ description: Tantsuetendus lastele võluilmast, nõidusest ja mängust. 4-7-aast
 type: detail
 category: etendused
 subcategory: noorele-publikule
+order: 1
 status: published
 original_url: https://www.zuga.ee/et/etendused-noorele-publikule-voluvaerk
 page_type: performance

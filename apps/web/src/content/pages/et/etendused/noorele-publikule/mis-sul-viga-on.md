@@ -6,6 +6,7 @@ description: Lavastus vaimse tervise ja üksteise märkamise teemal (koostöös 
 type: detail
 category: etendused
 subcategory: noorele-publikule
+order: 1
 status: published
 page_type: performance
 premiere_date: 2026-03-21T00:00:00.000Z

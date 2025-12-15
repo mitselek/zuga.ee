@@ -6,6 +6,7 @@ description: Mänguline tantsulavastus kliima- ja keskkonnateemal. Positiivne ak
 type: detail
 category: etendused
 subcategory: noorele-publikule
+order: 1
 status: published
 page_type: performance
 premiere_date: 2024-10-26T00:00:00.000Z

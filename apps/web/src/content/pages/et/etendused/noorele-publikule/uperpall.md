@@ -5,6 +5,7 @@ language: et
 type: detail
 category: etendused
 subcategory: noorele-publikule
+order: 1
 status: published
 hero_image: /images/etendused-uperpall-hero.jpg
 translated:

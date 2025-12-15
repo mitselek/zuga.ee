@@ -5,6 +5,7 @@ language: en
 description: Dance performance for children
 type: detail
 category: etendused
+subcategory: noorele-publikule
 status: published
 original_url: https://www.zuga.ee/en/english-thepassage
 page_type: performance

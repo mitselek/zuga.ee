@@ -6,6 +6,7 @@ description: Vaguratele mürsikutele ja avastavatele kainikutele ning nende pere
 type: detail
 category: etendused
 subcategory: noorele-publikule
+order: 1
 status: published
 original_url: https://www.zuga.ee/et/etendused-noorele-publikule-meelekolu
 page_type: performance

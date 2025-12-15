@@ -6,6 +6,7 @@ description: Zuga etendus 'Zuga zuug zuh-zuh-zuh' fotogalerii
 type: detail
 category: etendused
 subcategory: noorele-publikule
+order: 1
 status: published
 original_url: https://www.zuga.ee/et/etendused-noorele-publikule-zugazuugzuh-zuh-zuh
 page_type: performance

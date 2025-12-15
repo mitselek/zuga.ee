@@ -5,6 +5,7 @@ language: en
 description: Dance performance for adults
 type: detail
 category: etendused
+subcategory: suurtele
 status: published
 page_type: performance
 premiere_date: 2018-03-16T00:00:00.000Z
