@@ -9,12 +9,26 @@ status: published
 original_url: https://www.zuga.ee/et/workshopid-zuga-liikumise-tootuba-peredele-zugas-movement-workshop-for-families
 page_type: workshop
 duration: 60
-venue: Saal, kus on ruumi liikuda
 age_recommendation: 4+
-price: 180 eurot grupile
-contact: Ingrid Kääramees, ingrid@stl.ee, tel. 53402617
-booking: Ettetellimisel
-group_size: Kuni 30 inimest
+hero_image: /images/zuga-liikumise-tootuba-peredele-hero.jpg
+booking:
+  required: true
+  contact:
+    name: "Ingrid Kääramees"
+    email: "ingrid@stl.ee"
+    phone: "53402617"
+  requirements:
+    space: "Saal, kus on ruumi liikuda"
+    equipment: "Kõlarid"
+    min_participants: 1
+    max_participants: 30
+  pricing:
+    model: "per-group"
+    amount: 180
+    currency: "EUR"
+    outside_tallinn_fee: true
+  target_age: "4+"
+  duration: 60
 videos:
   - platform: youtube
     title: Liikumise töötuba peredele

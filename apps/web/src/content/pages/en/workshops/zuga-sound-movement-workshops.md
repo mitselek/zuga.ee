@@ -26,6 +26,10 @@ booking:
   target_age: "Depends on workshop choice"
   duration: 15
 knowledge_base_sources:
+  articles:
+    - articles/2021-04-err-nova-heliliikumistootoad.md
+    - articles/2021-04-stl-zuga-heliliikumistootoad.md
+    - articles/2024-04-opleht-eleriin-miilman-tiina-molder-interview.md
   persons:
     - persons/ajjar-ausma.md
     - persons/kart-tonisson.md
