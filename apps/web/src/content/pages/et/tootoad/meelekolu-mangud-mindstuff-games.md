@@ -15,7 +15,7 @@ videos:
     url: https://www.youtube.com/embed/Nzc7wsW8Qj4
 translated:
   - language: en
-    slug: workshopid-meelekolu-mangud-mindstuff-games-en
+    slug: meelekolu-mangud-mindstuff-games
 ---
 
 Liikumise töötuba lastele "meeleKolu mängud" on koos olemine, kus mängitakse ja tantsitakse läbi erinevaid tundeid. Enese väljendamisega tegeletakse läbi liikumise ja üksteise tunnetamise nii paaris kui grupis. Tund koosneb peamiselt liikumismängudest ja oma meeleolude ning tunnete füüsilisest väljendamisest. Koosolemine lõpeb ühiselt loodud meeleolude liikumiskavaga ja sellele järgneva vestlusega.

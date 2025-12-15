@@ -15,11 +15,3 @@ videos:
     title: Zuga video tervitus
     url: https://www.youtube.com/embed/qp22v58UQnw
 ---
-
-# Workshopid
-
-## Gallery
-
-## Video
-
-Performance video available in frontmatter metadata.

@@ -6,8 +6,8 @@ description: Movement workshop for children - playing and dancing through differ
 type: detail
 category: workshopid
 status: published
-original_url: https://www.stl.ee/en/lisaprogramm/workshops/movement-workshop-kids
 page_type: workshop
+original_url: https://www.stl.ee/en/lisaprogramm/workshops/movement-workshop-kids
 hero_image: /images/workshopid-meelekolu-mangud-hero.jpg
 videos:
   - platform: youtube
@@ -15,7 +15,7 @@ videos:
     url: https://www.youtube.com/embed/Nzc7wsW8Qj4
 translated:
   - language: et
-    slug: workshopid-meelekolu-mangud-mindstuff-games
+    slug: meelekolu-mangud-mindstuff-games
 ---
 
 In mindStuff workshop, different feelings are played and danced through. Self expressing is carried out through movement and sensing each other both in pairs and in a group. The lesson consists of movement games and physical expression of one's state of mind and feelings. The lesson ends with a feelings-based movement routine created collectively that is succeeded by a discussion.

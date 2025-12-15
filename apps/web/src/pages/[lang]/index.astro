@@ -23,6 +23,38 @@ export async function getStaticPaths() {
 const { page } = Astro.props;
 const { Content } = await page.render();
 
+// Category translation mapping for URLs
+const categoryTranslations: Record<string, Record<string, string>> = {
+  etendused: {
+    en: 'performances',
+    et: 'etendused',
+  },
+  workshopid: {
+    en: 'workshops',
+    et: 'workshopid',
+  },
+  about: {
+    en: 'about',
+    et: 'about',
+  },
+  gallery: {
+    en: 'gallery',
+    et: 'gallery',
+  },
+  contact: {
+    en: 'contact',
+    et: 'contact',
+  },
+  news: {
+    en: 'news',
+    et: 'news',
+  },
+  kalender: {
+    en: 'calendar',
+    et: 'kalender',
+  },
+};
+
 // Get all published pages in current language
 const allPages = await getCollection('pages', ({ data }) => {
   return data.status === 'published' && data.language === page.data.language;
@@ -279,11 +311,13 @@ const isEstonian = page.data.language === 'et';
                         if (slug.includes('/')) {
                           slug = slug.split('/').pop() || slug;
                         }
+                        // Translate category for URL
+                        const translatedCategory = categoryTranslations[item.data.category]?.[page.data.language] || item.data.category;
                         return (
                           <ContentCard
                             title={item.data.title}
                             description={item.data.description}
-                            href={`/${page.data.language}/${item.data.category}/${slug}`}
+                            href={`/${page.data.language}/${translatedCategory}/${slug}`}
                             subcategory={subsection.data.title}
                             image={item.data.hero_image}
                           />
@@ -304,11 +338,13 @@ const isEstonian = page.data.language === 'et';
               if (slug.includes('/')) {
                 slug = slug.split('/').pop() || slug;
               }
+              // Translate category for URL
+              const translatedCategory = categoryTranslations[item.data.category]?.[page.data.language] || item.data.category;
               return (
                 <ContentCard
                   title={item.data.title}
                   description={item.data.description}
-                  href={`/${page.data.language}/${item.data.category}/${slug}`}
+                  href={`/${page.data.language}/${translatedCategory}/${slug}`}
                   image={item.data.hero_image}
                 />
               );

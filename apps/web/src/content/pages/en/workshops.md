@@ -2,7 +2,7 @@
 title: Workshops
 slug: workshops
 language: en
-description: Zuga workshops and movement classes
+description: Explore movement and creativity through our workshops and classes designed for all ages and skill levels.
 type: section
 category: workshopid
 order: 100
@@ -15,7 +15,3 @@ videos:
     title: Zuga video greeting
     url: https://www.youtube.com/embed/qp22v58UQnw
 ---
-
-# Workshops
-
-Explore movement and creativity through our workshops and classes designed for all ages and skill levels.
