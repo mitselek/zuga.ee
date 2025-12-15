@@ -14,14 +14,14 @@ export async function getStaticPaths() {
 
   // Create routes for main calendar pages and sub-pages
   for (const page of pages) {
+    const calendarSlug = page.data.language === 'et' ? 'kalender' : 'calendar';
+
     // Main calendar page (kalender/calendar) - route should be /{lang}/kalender or /{lang}/calendar
-    // But we use catch-all route, so we need to handle the base route
     if (page.data.slug === 'kalender' || page.data.slug === 'calendar') {
-      // For Estonian: /et/kalender (slug undefined)
-      // For English: /en/calendar (but route file is kalender, so we need to handle both)
       paths.push({
         params: {
           lang: page.data.language,
+          calendarSlug,
           slug: undefined, // Base route
         },
         props: { page },
@@ -31,6 +31,7 @@ export async function getStaticPaths() {
       paths.push({
         params: {
           lang: page.data.language,
+          calendarSlug,
           slug: page.data.slug,
         },
         props: { page },
@@ -42,10 +43,13 @@ export async function getStaticPaths() {
   // These are dynamic routes that query events
   const languages = ['et', 'en'];
   for (const lang of languages) {
+    const calendarSlug = lang === 'et' ? 'kalender' : 'calendar';
+
     // Upcoming page
     paths.push({
       params: {
         lang,
+        calendarSlug,
         slug: lang === 'et' ? 'tulemas' : 'upcoming',
       },
       props: {
@@ -58,6 +62,7 @@ export async function getStaticPaths() {
     paths.push({
       params: {
         lang,
+        calendarSlug,
         slug: lang === 'et' ? 'olnud' : 'past',
       },
       props: {
