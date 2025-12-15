@@ -63,9 +63,7 @@ knowledge_base_sources:
 # Mis Sul viga on?!
 
 **Tööpealkiri**
-
 **Esietendus:** 20. märts 2026, kell 19:00, Sõltumatu Tantsu Lava
-
 **Koostöös:** Peaasi.ee
 
 ## Lavastusest
@@ -75,7 +73,6 @@ Zuga Ühendatud Tantsijate lavastus tööpealkirjaga "Mis Sul viga on?!" esieten
 ## Koostöö
 
 **Peaasi.ee** - vaimse tervise platvorm
-
 **Asukoht:** Sõltumatu Tantsu Lava (STL), Telliskivi tänav 60a/9, 10412 Tallinn
 
 ---
