@@ -18,28 +18,6 @@ translated:
   - language: et
     slug: workshopid-tuleviku-liigutajad
 hero_image: /images/tuleviku-liigutajad-hero.jpg
-gallery:
-  - url: https://lh6.googleusercontent.com/mAjkZKLZ-TWLFDBJPHPhVtRcuX1fzLS9Mme3_YbjZeqPsDUFXasWmkF2QwJWYCjlCWItBCxCHldTK7Ymm9zUmYx-o8Xp_CEOHFUrxtJOEmIUzV5JTc9msn_7eQiFHiYO6Q=w1280
-    width: 1280
-    description: Workshop photo
-  - url: https://lh3.googleusercontent.com/7TKepRS-fhNEQRICxAR6IEEGIPU2yedBHVL1C5MxD1TZbVPOSWagcmFKbHI07tAuxf0M6eOvx1gg7s8NOfvUeUs5o10HkZ3B_q6Y-yuEBGqcpk84aKIAvOHral9SyV26Qg=w1280
-    width: 1280
-    description: Workshop photo
-  - url: https://lh5.googleusercontent.com/crKzLqv6lHNm2pq9YSw4B5v7F8vPJGGaAJbq3JsGFc1dNBSbQOZTIUxaDWDghGoiJJkZAXzMSdOvLj951KfsjVE=w1280
-    width: 1280
-    description: Workshop photo
-  - url: https://lh6.googleusercontent.com/mhyxSDRW0Nu-bhOm5WCrOY5cm5kL0XMzNmvdYzaZV07xGaUyprln8BVlxXoWCoh_QDLWicMCei4xmGgr3jeeREDLyVh_z9E27o2DjNkYPC1n1m6S1GS4dryfIT6TLB0kbQ=w1280
-    width: 1280
-    description: Workshop photo
-  - url: https://lh6.googleusercontent.com/Cnz2KsaT2hy97Sxkv7XYMtOy_KBScA9lvWLWC0oO0GDGqLr3eFJJbaRulgc6Ob6N=w1280
-    width: 1280
-    description: Workshop photo
-  - url: https://lh6.googleusercontent.com/CMS9Ihh7aKXjYowG1XRFt9A-I9U891i6glXYUgn2mTEs2bbT1s4fUVwgEvCmZ6j3luZVVKfCEO-NtgKlOMq_MVgnUENSQFGLfkkHRaOLCZgz2Jw6=w1280
-    width: 1280
-    description: Workshop photo
-  - url: https://lh3.googleusercontent.com/w0MkjZAMdo5oU7ZFe3CyP5a0kF8LC_DFp6AchZ6N1v-cHR_jsfJB5K_eCzXaAdd3kJuGbJEeDbJQo8-WgbVxBvjuy7CZhOa9i80wGKnhVpdRuVVrtIF_1HqyYchn-TEvww=w1280
-    width: 1280
-    description: Workshop photo
 videos:
   - platform: youtube
     title: ZUGA video greeting
