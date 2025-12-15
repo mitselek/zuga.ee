@@ -1380,3 +1380,105 @@ Add these photos to the Häbi gallery:
    ```
 5. Write updated file
 6. Report: "✅ Added 3 images to gallery (now 5 total)"
+
+---
+
+## CRITICAL: Performance Dates Best Practices
+
+**⚠️ NEVER duplicate dates in markdown body and frontmatter!**
+
+The site uses the `ShowingsList` component to automatically render performance dates from the frontmatter `showings` array. Follow these rules:
+
+### ✅ CORRECT Pattern (Single Source of Truth)
+
+**Frontmatter** (data):
+```yaml
+premiere:
+  date: "2026-03-20"
+  time: "19:00"
+  venue_id: stl
+
+showings:
+  - date: "2026-03-18"
+    time: "11:00"
+  - date: "2026-03-18"
+    time: "13:00"
+  - date: "2026-03-20"
+    time: "19:00"
+    notes: "Esietendus"
+  - date: "2026-03-21"
+    time: "19:00"
+```
+
+**Markdown body** (descriptive text only):
+```markdown
+# Performance Title
+
+**Working Title**
+**Premiere:** March 20, 2026, 7:00 PM, Independent Dance Stage
+**In collaboration with:** Partner Name
+
+## About the Performance
+
+Description goes here...
+
+## Collaboration
+
+**Partner Name** - brief description
+**Location:** Venue name and address
+
+---
+
+_Performance is in development. More info coming soon._
+
+## Tickets
+
+[Buy tickets](https://example.com)
+```
+
+**Key points**:
+- ✅ Dates live ONLY in frontmatter `showings` array
+- ✅ Premiere info can be mentioned in text for context
+- ✅ ShowingsList component automatically renders all dates after main content
+- ✅ Location shown once at bottom (rendered from venue_id)
+
+### ❌ WRONG Pattern (Data Duplication)
+
+**DO NOT do this:**
+```markdown
+## Performances
+
+- **March 18, 2026, 11:00 AM**
+- **March 18, 2026, 1:00 PM**
+- **March 19, 2026, 11:00 AM**
+- **March 20, 2026, 7:00 PM** (Premiere)
+```
+
+**Problems with manual date lists:**
+- ❌ Dates duplicated in frontmatter AND markdown
+- ❌ Hard to maintain (update in two places)
+- ❌ Inconsistent formatting
+- ❌ Can't be used by calendar features
+- ❌ No structured data for filtering/sorting
+
+### Format Guidelines
+
+**Estonian (et)**:
+```markdown
+**Esietendus:** 20. märts 2026, kell 19:00, Sõltumatu Tantsu Lava
+**Koostöös:** Peaasi.ee
+```
+
+**English (en)**:
+```markdown
+**Premiere:** March 20, 2026, at 7:00 PM, Independent Dance Stage
+**In collaboration with:** Peaasi.ee
+```
+
+**Note the formatting**:
+- Use double spaces (` ` + ` `) at end of line for line breaks
+- Add "kell" (Estonian) or "at" (English) before time
+- Include venue name in premiere mention
+- Keep collaboration partner below (with line break)
+
+---

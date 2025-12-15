@@ -69,6 +69,7 @@ premiere_date: 2009-10-10
 - **Külastatud välisriike kokku**: 1
 
 **Kokku**:
+
 - Etenduste arv: 1
 - Külastajaid: 58
 - Külastatud maakondi kokku: 3
