@@ -113,4 +113,9 @@ temp/
 
 # Archive sources (symlinks to local backups)
 archive/
+
+# Backup directories (timestamped backups created by migration scripts)
 apps/web/src/content/pages.backup.*/
+apps/web/src/content/pages/**/*.backup.*/
+knowledge-base.backup.*/
+knowledge-base/**/*.backup.*/
