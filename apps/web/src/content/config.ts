@@ -132,6 +132,165 @@ const pagesCollection = defineCollection({
         'Knowledge Base sources that support the content on this page. ' +
           'Enables traceability and validation of claims made on web pages.'
       ),
+
+    // Event Scheduling (Issue #54)
+    // Legacy fields - DEPRECATED: Use premiere.date and premiere.venue_id instead
+    premiere_date: z
+      .union([
+        z.string(),
+        z.date().transform((d) => d.toISOString().split('T')[0]), // Convert Date to YYYY-MM-DD
+      ])
+      .optional()
+      .describe('DEPRECATED: Use premiere.date instead'),
+    venue: z.string().optional().describe('DEPRECATED: Use premiere.venue_id instead'),
+
+    // NEW: Structured premiere information
+    premiere: z
+      .object({
+        date: z
+          .string()
+          .regex(/^\d{4}-\d{2}-\d{2}$/, 'Date must be YYYY-MM-DD format'),
+        time: z
+          .string()
+          .regex(/^\d{2}:\d{2}$/, 'Time must be HH:MM format')
+          .optional(),
+        venue_id: z
+          .string()
+          .optional()
+          .describe('Venue ID from knowledge-base/venues/ (e.g., "stl", "kanuti-gildi-saal")'),
+      })
+      .optional()
+      .describe('Premiere date, time, and venue information'),
+
+    // NEW: Multiple showings/tour dates
+    showings: z
+      .array(
+        z.object({
+          date: z
+            .string()
+            .regex(/^\d{4}-\d{2}-\d{2}$/, 'Date must be YYYY-MM-DD format'),
+          time: z
+            .string()
+            .regex(/^\d{2}:\d{2}$/, 'Time must be HH:MM format')
+            .optional(),
+          venue_id: z
+            .string()
+            .optional()
+            .describe('Venue ID from knowledge-base/venues/ (overrides premiere venue if different)'),
+          status: z
+            .enum(['scheduled', 'sold-out', 'cancelled'], {
+              errorMap: () => ({ message: 'Status must be "scheduled", "sold-out", or "cancelled"' }),
+            })
+            .optional()
+            .default('scheduled'),
+          notes: z.string().optional().describe('Additional notes (e.g., "Gala performance", "Külalisetendus")'),
+        })
+      )
+      .optional()
+      .describe('Additional performance dates (tour dates, repeat showings)'),
+
+    // NEW: Ticket sales information
+    tickets: z
+      .object({
+        on_sale: z.boolean().optional().default(false),
+        sale_start: z
+          .string()
+          .regex(/^\d{4}-\d{2}-\d{2}$/, 'Sale start date must be YYYY-MM-DD format')
+          .optional(),
+        sale_end: z
+          .string()
+          .regex(/^\d{4}-\d{2}-\d{2}$/, 'Sale end date must be YYYY-MM-DD format')
+          .optional(),
+        platforms: z
+          .array(
+            z.object({
+              name: z.string().min(1, 'Platform name is required'),
+              url: z.string().url('Platform URL must be a valid URL'),
+            })
+          )
+          .optional()
+          .describe('Ticket platforms (Fienta, Piletilevi, venue website, etc.)'),
+        pricing: z
+          .array(
+            z.object({
+              type: z.string().min(1, 'Price type is required').describe('e.g., "adult", "student", "child", "family"'),
+              price: z.number().positive('Price must be positive'),
+              currency: z.string().default('EUR'),
+            })
+          )
+          .optional()
+          .describe('Ticket pricing tiers'),
+      })
+      .optional()
+      .describe('Ticket sales and pricing information'),
+
+    // NEW: Special events tied to performance/workshop
+    special_events: z
+      .array(
+        z.object({
+          type: z.enum(['artist-talk', 'workshop', 'discussion', 'screening', 'masterclass'], {
+            errorMap: () => ({
+              message: 'Type must be "artist-talk", "workshop", "discussion", "screening", or "masterclass"',
+            }),
+          }),
+          date: z
+            .string()
+            .regex(/^\d{4}-\d{2}-\d{2}$/, 'Date must be YYYY-MM-DD format'),
+          time: z
+            .string()
+            .regex(/^\d{2}:\d{2}$/, 'Time must be HH:MM format')
+            .optional(),
+          duration: z.number().positive().optional().describe('Duration in minutes'),
+          free: z.boolean().optional().default(false),
+          registration_required: z.boolean().optional().default(false),
+          description: z
+            .object({
+              et: z.string().optional(),
+              en: z.string().optional(),
+            })
+            .optional()
+            .describe('Bilingual description of the special event'),
+        })
+      )
+      .optional()
+      .describe('Special events (artist talks, workshops, discussions) related to this performance/workshop'),
+
+    // NEW: Workshop booking information (workshops only)
+    // Supports both legacy string format and new structured object format
+    booking: z
+      .union([
+        z.string().describe('Legacy format: Simple booking description (e.g., "Ettetellimisel")'),
+        z.object({
+          required: z.boolean().describe('Whether pre-booking is required (vs walk-in)'),
+          contact: z.object({
+            name: z.string().min(1, 'Contact name is required'),
+            email: z.string().email('Contact email must be valid'),
+            phone: z.string().optional(),
+          }),
+          requirements: z
+            .object({
+              min_participants: z.number().positive().optional(),
+              max_participants: z.number().positive().optional(),
+              space: z.string().optional().describe('Space requirements (e.g., "Klassiruum või saal")'),
+              equipment: z.string().optional().describe('Equipment needed (e.g., "Kõlarid")'),
+            })
+            .optional(),
+          pricing: z
+            .object({
+              model: z.enum(['per-group', 'per-person'], {
+                errorMap: () => ({ message: 'Pricing model must be "per-group" or "per-person"' }),
+              }),
+              amount: z.number().positive('Amount must be positive'),
+              currency: z.string().default('EUR'),
+              outside_tallinn_fee: z.boolean().optional().describe('Whether travel fee applies outside Tallinn'),
+            })
+            .optional(),
+          target_age: z.string().optional().describe('Target age range (e.g., "6-13")'),
+          duration: z.number().positive().optional().describe('Workshop duration in minutes'),
+        }),
+      ])
+      .optional()
+      .describe('Workshop booking requirements and contact information (legacy string or structured object)'),
   }),
 });
 
