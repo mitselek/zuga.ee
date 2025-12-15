@@ -10,6 +10,19 @@ status: published
 original_url: https://www.zuga.ee/en/english-zugazuugzuh-zuh-zuh
 page_type: performance
 hero_image: /images/performances/zugazuugzuh-zuh-zuh/poster.jpg
+gallery:
+  - url: /images/performances/zugazuugzuh-zuh-zuh/photo-01.jpg
+    description: Performance photo
+  - url: /images/performances/zugazuugzuh-zuh-zuh/photo-02.jpg
+    description: Performance photo
+  - url: /images/performances/zugazuugzuh-zuh-zuh/photo-03.jpg
+    description: Performance photo
+  - url: /images/performances/zugazuugzuh-zuh-zuh/photo-04.jpg
+    description: Performance photo
+  - url: /images/performances/zugazuugzuh-zuh-zuh/photo-05.jpg
+    description: Performance photo
+  - url: /images/performances/zugazuugzuh-zuh-zuh/photo-06.jpg
+    description: Performance photo
 videos:
   - platform: youtube
     title: ZUGA video greeting

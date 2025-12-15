@@ -21,6 +21,18 @@ export async function getStaticPaths() {
     },
   };
 
+  // Subcategory translation mapping for URLs
+  const subcategoryUrlMap = {
+    'noorele-publikule': {
+      en: 'for-young-audiences',
+      et: 'noorele-publikule',
+    },
+    'suurtele': {
+      en: 'for-adults',
+      et: 'suurtele',
+    },
+  };
+
   const pages = await getCollection('pages', ({ data }) => {
     // Only generate routes for section pages with subcategories
     return data.status === 'published' && data.type === 'section' && data.subcategory;
@@ -30,10 +42,14 @@ export async function getStaticPaths() {
     // Translate category for URL based on language
     const categoryUrl = categoryUrlMap[page.data.category]?.[page.data.language] || page.data.category;
 
+    // Translate subcategory for URL based on language
+    const subcategoryUrl = subcategoryUrlMap[page.data.subcategory]?.[page.data.language] || page.data.subcategory;
+
     return {
       params: {
         lang: page.data.language,
         category: categoryUrl,
+        subcategory: subcategoryUrl,
       },
       props: { page },
     };

@@ -11,6 +11,19 @@ status: published
 original_url: https://www.zuga.ee/et/etendused-noorele-publikule-zugazuugzuh-zuh-zuh
 page_type: performance
 hero_image: /images/performances/zugazuugzuh-zuh-zuh/poster.jpg
+gallery:
+  - url: /images/performances/zugazuugzuh-zuh-zuh/photo-01.jpg
+    description: Etenduse foto
+  - url: /images/performances/zugazuugzuh-zuh-zuh/photo-02.jpg
+    description: Etenduse foto
+  - url: /images/performances/zugazuugzuh-zuh-zuh/photo-03.jpg
+    description: Etenduse foto
+  - url: /images/performances/zugazuugzuh-zuh-zuh/photo-04.jpg
+    description: Etenduse foto
+  - url: /images/performances/zugazuugzuh-zuh-zuh/photo-05.jpg
+    description: Etenduse foto
+  - url: /images/performances/zugazuugzuh-zuh-zuh/photo-06.jpg
+    description: Etenduse foto
 videos:
   - platform: youtube
     title: ZUGA videotervitus
