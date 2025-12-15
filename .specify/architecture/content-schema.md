@@ -1,8 +1,8 @@
 # Content Schema Definition
 
-**Version**: 1.0  
-**Date**: December 8, 2025  
-**Author**: Morgan (Business Analyst)  
+**Version**: 1.0
+**Date**: December 8, 2025
+**Author**: Morgan (Business Analyst)
 **Status**: Ready for Implementation
 
 ---
@@ -72,10 +72,12 @@ const pagesCollection = defineCollection({
     videos: z
       .array(
         z.object({
-          platform: z.enum(["youtube", "vimeo"]),
-          video_id: z.string().min(1),
+          platform: z.enum(["youtube", "vimeo", "err"]),
+          video_id: z.string().optional(), // Deprecated: ID is now extracted from url automatically
           title: z.string().optional(),
-          url: z.string().url(),
+          url: z.string().url(), // Required: Video URL (ID extracted automatically for youtube/vimeo)
+          source: z.string().optional(), // For ERR videos
+          date: z.string().optional(), // For ERR videos
         })
       )
       .optional(),
@@ -184,19 +186,30 @@ gallery:
 
 ```typescript
 {
-  platform: 'youtube' | 'vimeo';  // Video hosting platform
-  video_id: string;               // Platform-specific video ID
-  title?: string;                 // Video title (optional)
-  url: string;                    // Full video URL
+  platform: 'youtube' | 'vimeo' | 'err';  // Video hosting platform
+  video_id?: string;                      // Deprecated: ID extracted automatically from url
+  title?: string;                         // Video title (optional)
+  url: string;                           // Required: Video URL (ID extracted automatically)
+  source?: string;                       // For ERR videos
+  date?: string;                         // For ERR videos
 }
 ```
 
-**Example**:
+**Example** (URL-only pattern, recommended):
 
 ```yaml
 videos:
   - platform: youtube
-    video_id: qp22v58UQnw
+    title: Shame - Performance Trailer
+    url: https://www.youtube.com/watch?v=qp22v58UQnw
+```
+
+**Legacy Example** (backward compatible, deprecated):
+
+```yaml
+videos:
+  - platform: youtube
+    video_id: qp22v58UQnw  # Deprecated: will be ignored, ID extracted from URL
     title: Shame - Performance Trailer
     url: https://www.youtube.com/watch?v=qp22v58UQnw
 ```
