@@ -3,9 +3,10 @@ interface Props {
   currentLang: string;
   currentSlug: string;
   translations?: Array<{ language: string; slug: string }>;
+  calendarPrefix?: string; // Optional: for calendar pages (kalender/calendar)
 }
 
-const { currentLang, currentSlug, translations = [] } = Astro.props;
+const { currentLang, currentSlug, translations = [], calendarPrefix } = Astro.props;
 
 const languages = [
   { code: 'et', label: 'ET' },
@@ -16,10 +17,37 @@ const languages = [
 <div class="flex gap-2">
   {languages.filter(lang => lang.code !== currentLang).map((lang) => {
     const translation = translations.find(t => t.language === lang.code);
-    // For homepage (index), just use language code without slug
-    const href = translation
-      ? `/${lang.code}/${translation.slug}`
-      : (currentSlug === 'index' ? `/${lang.code}/` : `/${lang.code}/${currentSlug}`);
+
+    // Build href based on context
+    let href: string;
+
+    if (translation) {
+      // Use explicit translation if available
+      href = `/${lang.code}/${translation.slug}`;
+    } else if (calendarPrefix) {
+      // For calendar pages, translate the calendar segment
+      const targetCalendarSlug = lang.code === 'et' ? 'kalender' : 'calendar';
+
+      // Translate sub-pages
+      let targetSlug = currentSlug;
+      if (currentSlug === 'tulemas' || currentSlug === 'upcoming') {
+        targetSlug = lang.code === 'et' ? 'tulemas' : 'upcoming';
+      } else if (currentSlug === 'olnud' || currentSlug === 'past') {
+        targetSlug = lang.code === 'et' ? 'olnud' : 'past';
+      } else if (currentSlug === 'index') {
+        targetSlug = '';
+      }
+
+      href = targetSlug
+        ? `/${lang.code}/${targetCalendarSlug}/${targetSlug}`
+        : `/${lang.code}/${targetCalendarSlug}/`;
+    } else if (currentSlug === 'index') {
+      // For homepage, just use language code
+      href = `/${lang.code}/`;
+    } else {
+      // Default: use current slug
+      href = `/${lang.code}/${currentSlug}`;
+    }
 
     return (
       <a

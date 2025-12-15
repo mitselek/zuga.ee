@@ -120,6 +120,7 @@ const todayEstonia = new Date(today.getTime() + estoniaOffset * 60000);
 const todayStr = todayEstonia.toISOString().split('T')[0]; // YYYY-MM-DD
 
 const currentLang = pageData.data.language;
+const calendarSlug = currentLang === 'et' ? 'kalender' : 'calendar';
 
 // Get all events (performances and workshops) with premiere or showings
 const allEvents = await getCollection('pages', ({ data }) => {
@@ -215,8 +216,9 @@ if (slug === 'tulemas' || slug === 'upcoming') {
   <LanguageSwitcher
     slot="language-switcher"
     currentLang={pageData.data.language}
-    currentSlug={slug || (pageData.data.slug === 'kalender' ? 'kalender' : 'calendar')}
+    currentSlug={slug || 'index'}
     translations={pageData.data.translated}
+    calendarPrefix={calendarSlug}
   />
 
   <PageHero
