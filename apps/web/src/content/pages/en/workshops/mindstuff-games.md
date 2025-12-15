@@ -1,6 +1,6 @@
 ---
 title: mindStuff games
-slug: meelekolu-mangud-mindstuff-games
+slug: mindstuff-games
 language: en
 description: Movement workshop for children - playing and dancing through different feelings
 type: detail
@@ -15,7 +15,7 @@ videos:
     url: https://www.youtube.com/embed/Nzc7wsW8Qj4
 translated:
   - language: et
-    slug: meelekolu-mangud-mindstuff-games
+    slug: meelekolu-mangud
 ---
 
 In mindStuff workshop, different feelings are played and danced through. Self expressing is carried out through movement and sensing each other both in pairs and in a group. The lesson consists of movement games and physical expression of one's state of mind and feelings. The lesson ends with a feelings-based movement routine created collectively that is succeeded by a discussion.

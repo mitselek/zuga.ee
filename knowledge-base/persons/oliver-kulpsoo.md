@@ -46,6 +46,6 @@ Oliveri valguskujundus on ZUGA lavastuste lahutamatu osa:
 ## Allikad
 
 - Multiple performance pages 2016-2024
-- apps/web/src/content/pages/et/workshopid-meelekolu-mangud-mindstuff-games.md
+- apps/web/src/content/pages/et/tootoad/meelekolu-mangud.md
 - apps/web/src/content/pages/et/etendused-noorele-publikule-2-2-22.md
 - apps/web/src/content/pages/et/etendused-suurtele-mura.md

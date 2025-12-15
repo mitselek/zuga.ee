@@ -50,6 +50,6 @@ Lavastuse "Naine ja Hunt" (2006) puhul lõi Kalle originaalmuusika, mis baseerus
 ## Allikad
 
 - knowledge-base/articles/2006-02-epl-tiiu-laks-naine-ja-hunt.md
-- apps/web/src/content/pages/et/workshopid-meelekolu-mangud-mindstuff-games.md
+- apps/web/src/content/pages/et/tootoad/meelekolu-mangud.md
 - apps/web/src/content/pages/et/etendused-noorele-publikule-ilma.md
 - apps/web/src/content/pages/et/etendused-noorele-publikule-kaeik.md

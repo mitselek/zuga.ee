@@ -129,8 +129,8 @@ Each registry file contains:
     et: meelekolu-mangud
     en: mindstuff-games
   full_slug:
-    et: workshopid-meelekolu-mangud-mindstuff-games
-    en: workshopid-meelekolu-mangud-mindstuff-games-en
+    et: meelekolu-mangud
+    en: mindstuff-games
   target_audience: children
   age_recommendation: "6-13"
   duration: 45

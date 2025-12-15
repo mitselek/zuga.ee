@@ -33,5 +33,5 @@ Triin oli eriti aktiivne 2010ndate keskpaigas, töötades ZUGA lastelavastuste k
 ## Allikad
 
 - apps/web/src/content/pages/et/etendused-noorele-publikule-voluvaerk.md
-- apps/web/src/content/pages/et/workshopid-meelekolu-mangud-mindstuff-games.md
+- apps/web/src/content/pages/et/tootoad/meelekolu-mangud.md
 - Performance pages for productions 2006-2016

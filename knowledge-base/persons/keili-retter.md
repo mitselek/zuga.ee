@@ -43,7 +43,7 @@ Keili kujundused on aidanud määratleda ZUGA visuaalset keelt:
 
 ## Allikad
 
-- apps/web/src/content/pages/et/workshopid-meelekolu-mangud-mindstuff-games.md
+- apps/web/src/content/pages/et/tootoad/meelekolu-mangud.md
 - apps/web/src/content/pages/et/etendused-noorele-publikule-2-2-22.md
 - apps/web/src/content/pages/et/etendused-suurtele-mura.md
 - apps/web/src/content/pages/et/etendused-suurtele-suur-teadmatus.md
