@@ -712,7 +712,8 @@ For each source provided:
    - Description/synopsis
    - Images
 2. Cross-reference with existing performance pages
-3. Suggest updates to performance frontmatter (venue, premiere_date, etc.)
+3. Extract event scheduling data (see "Event Scheduling Data Extraction" section below)
+4. Suggest updates to performance frontmatter using NEW structured format (`premiere`, `showings`, `tickets`)
 
 **Media streams** (YouTube, ERR, Vimeo):
 
@@ -834,6 +835,154 @@ Found [N] sources to process:
 ```
 
 Wait for user confirmation before Phase 2.
+
+### Phase 1.5: Extract Event Scheduling Data (NEW - Issue #54)
+
+**CRITICAL**: When harvesting content about performances or workshops, extract structured event scheduling information for calendar integration.
+
+#### Premiere Information Extraction
+
+**From articles, press releases, or ticket portals**:
+
+1. **Extract premiere date**:
+   - Look for: "premiere", "esietendus", "premiere", "opening", "avab"
+   - Parse dates: "15. oktoober 2024" → "2024-10-15"
+   - Format: YYYY-MM-DD (required)
+
+2. **Extract premiere time**:
+   - Look for: "kell 19", "19:00", "at 7 PM", "evening performance"
+   - Format: HH:MM (optional)
+
+3. **Extract venue name and map to venue ID**:
+   - Look for venue mentions: "Kanuti Gildi SAAL", "Sõltumatu Tantsu Lava", etc.
+   - Check `knowledge-base/venues/` for venue files
+   - Map venue names to IDs:
+     - "Sõltumatu Tantsu Lava" or "Independent Dance Stage" → `stl`
+     - "Kanuti Gildi SAAL" → `kanuti-gildi-saal`
+     - "Kumu Kunstimuuseum" or "Kumu Art Museum" → `kumu`
+     - "Rakvere Teater" or "Rakvere Theatre" → `rakvere-teater`
+   - If venue not found: Log warning and use venue name as fallback
+
+4. **Create premiere object**:
+   ```yaml
+   premiere:
+     date: "2024-10-15"
+     time: "19:00"  # If available
+     venue_id: kanuti-gildi-saal  # After venue lookup
+   ```
+
+#### Multiple Showings Extraction
+
+**From articles mentioning tour dates or repeat performances**:
+
+1. **Extract all performance dates**:
+   - Look for: "etendused", "showings", "performances", "tour dates"
+   - Parse date lists: "15., 22., 29. oktoober" → ["2024-10-15", "2024-10-22", "2024-10-29"]
+   - Extract venue for each date if different from premiere
+
+2. **Extract special notes**:
+   - "Külalisetendus" → notes: "Külalisetendus"
+   - "Sold out" → status: "sold-out"
+   - "Cancelled" → status: "cancelled"
+
+3. **Create showings array** (use venue fallback if same as premiere):
+   ```yaml
+   showings:
+     - date: "2024-11-02"
+       time: "19:00"
+       venue_id: stl  # If different from premiere
+     - date: "2024-11-09"
+       time: "19:00"
+       # venue_id omitted → falls back to premiere.venue_id
+     - date: "2024-11-16"
+       venue_id: rakvere-teater
+       notes: "Külalisetendus"
+   ```
+
+#### Ticket Information Extraction
+
+**From ticket portals or articles**:
+
+1. **Extract ticket platforms**:
+   - Fienta URLs → platform: { name: "Fienta", url: "..." }
+   - Piletilevi URLs → platform: { name: "Piletilevi", url: "..." }
+   - Venue website → platform: { name: "Venue Website", url: "..." }
+
+2. **Extract pricing**:
+   - "15€ täispilet" → { type: "adult", price: 15, currency: "EUR" }
+   - "10€ õpilaspilet" → { type: "student", price: 10, currency: "EUR" }
+
+3. **Extract sale dates**:
+   - "Piletid müügil alates 1. septembrist" → sale_start: "2024-09-01"
+   - "Müük lõppeb 15. oktoobril" → sale_end: "2024-10-15"
+
+4. **Create tickets object**:
+   ```yaml
+   tickets:
+     on_sale: true
+     sale_start: "2024-09-01"
+     sale_end: "2024-10-15"
+     platforms:
+       - name: "Fienta"
+         url: "https://fienta.com/zuga-ilma"
+     pricing:
+       - type: "adult"
+         price: 15
+         currency: "EUR"
+   ```
+
+#### Special Events Extraction
+
+**From articles mentioning related events**:
+
+1. **Extract event types**:
+   - "Lavastajaga kohtumine" → type: "artist-talk"
+   - "Töötuba" → type: "workshop"
+   - "Arutelu" → type: "discussion"
+   - "Eelvaade" → type: "screening"
+
+2. **Extract event details**:
+   - Date, time, duration
+   - Free vs paid
+   - Registration requirements
+
+3. **Create special_events array**:
+   ```yaml
+   special_events:
+     - type: artist-talk
+       date: "2024-10-16"
+       time: "18:00"
+       duration: 60
+       free: true
+   ```
+
+#### Present Event Scheduling Summary
+
+After extraction, include in extraction summary:
+
+```markdown
+## 📅 Event Scheduling Data Extracted
+
+**Premiere**:
+- Date: 2024-10-15
+- Time: 19:00
+- Venue: Kanuti Gildi SAAL → venue_id: kanuti-gildi-saal ✓
+
+**Showings** (3 found):
+- 2024-11-02, 19:00 at STL
+- 2024-11-09, 19:00 (same venue as premiere)
+- 2024-11-16 at Rakvere Teater (Külalisetendus)
+
+**Tickets**:
+- Platforms: Fienta, Piletilevi
+- Pricing: Adult 15€, Student 10€
+- Sale period: 2024-09-01 to 2024-10-15
+
+**Special Events** (1 found):
+- Artist talk: 2024-10-16, 18:00 (free)
+```
+
+**Note**: This extracted data will be used to suggest updates to performance page frontmatter in Phase 5 (Propose Homepage Updates).
 
 ### Phase 2: Classify and Validate
 
@@ -1004,8 +1153,9 @@ Build bidirectional references between new and existing content:
    - Performance names (check against all `apps/web/src/content/pages/*/etendused-*.md`)
    - Person names (check against `knowledge-base/persons/*.md`)
    - Award names (check against `knowledge-base/research/awards-*.md`)
-   - Venue names (common venues: Kanuti Gildi SAAL, Sõltumatu Tantsu Lava, etc.)
+   - Venue names → Map to venue IDs from `knowledge-base/venues/`
    - Date references (match to performance premiere dates)
+   - Event scheduling data (premiere, showings, tickets, special_events)
 
 2. **Create forward references**:
 
