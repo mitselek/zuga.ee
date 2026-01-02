@@ -10,7 +10,14 @@ original_url: https://www.zuga.ee/et/workshopid-zuga-liikumise-tootuba-peredele-
 page_type: workshop
 duration: 60
 age_recommendation: 4+
-hero_image: /images/zuga-liikumise-tootuba-peredele-hero.jpg
+hero_image: /images/workshopid-liikumise-tootuba-peredele-hero.jpg
+gallery:
+  - url: /images/workshops/zuga-liikumise-tootuba-peredele/zuga-perede-tootuba.jpg
+    width: 1000
+    description: "Liikumise töötuba peredele"
+  - url: /images/workshops/zuga-liikumise-tootuba-peredele/uus.jpg
+    width: 612
+    description: "Töötoa foto"
 booking:
   required: true
   contact:
@@ -33,6 +40,12 @@ videos:
   - platform: youtube
     title: Liikumise töötuba peredele
     url: https://www.youtube.com/embed/rPxJ8u2dqpo
+knowledge_base_sources:
+  articles:
+    - articles/2022-10-stl-liikumise-tootuba-peredele.md
+translated:
+  - language: en
+    slug: movement-workshop-for-families
 ---
 
 # Liikumise töötuba peredele
