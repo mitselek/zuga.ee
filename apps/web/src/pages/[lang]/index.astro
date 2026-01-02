@@ -62,8 +62,14 @@ const allPages = await getCollection('pages', ({ data }) => {
 
 // Get all section pages and sort by order field
 // Exclude subsections (they render within their parent section)
+const excludeCategories = ['gallery','contact','about','news'];
 const sections = allPages
-  .filter(p => p.data.type === 'section' && p.data.page_type === 'landing' && !p.data.subcategory)
+  .filter(p => {
+    return p.data.type === 'section' &&
+           p.data.page_type === 'landing' &&
+           !p.data.subcategory &&
+           !excludeCategories.includes(p.data.category);
+  })
   .sort((a, b) => {
     const orderA = a.data.order ?? 999;
     const orderB = b.data.order ?? 999;
