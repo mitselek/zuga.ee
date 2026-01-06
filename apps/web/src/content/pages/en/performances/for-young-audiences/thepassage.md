@@ -42,7 +42,7 @@ videos:
     url: https://vod.err.ee/hls/vod/44f6a0bd41ebf3b9aa3fb68874b5a63c/v/master.m3u8
     is_primary: true
   - platform: youtube
-    title: ZUGA video greeting
+    title: Zuga video greeting
     url: https://www.youtube.com/embed/qp22v58UQnw
 knowledge_base_sources:
   persons:
@@ -85,7 +85,7 @@ Zuga is one of the few troupes creating contemporary dance theatre for young chi
 
 **Directors and performers:** Helen Reitsnik, Tiina Mölder, Kalle Tikas, Päär Pärenson, Ajjar Ausma
 
-ZUGA United Dancers is a collective founded in 1999 by dance artists Tiina Mölder, Kaja Kann, and Jarmo Karing. "The Passage" is ZUGA's fourth performance aimed directly at children. "Zuga Daycare" (2004) received a special award from "Draamake", "Zuga zuug zuh-zuh-zuh" (2009) was honored in 2010 with both the Estonian Independent Dance Award and the Salme Reek Award for children's performances, and "Magic Work" premiered in 2011.
+Zuga United Dancers is a collective founded in 1999 by dance artists Tiina Mölder, Kaja Kann, and Jarmo Karing. "The Passage" is Zuga's fourth performance aimed directly at children. "Zuga Daycare" (2004) received a special award from "Draamake", "Zuga zuug zuh-zuh-zuh" (2009) was honored in 2010 with both the Estonian Independent Dance Award and the Salme Reek Award for children's performances, and "Magic Work" premiered in 2011.
 
 ### Awards
 

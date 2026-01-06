@@ -1,7 +1,7 @@
 ---
 title: Home
 language: en
-description: United Dancers of ZUGA - Contemporary theatre for children and adults
+description: United Dancers of Zuga - Contemporary theatre for children and adults
 type: home
 category: about
 status: published
@@ -32,7 +32,7 @@ gallery:
     description: Landing gallery photo
 videos:
   - platform: youtube
-    title: ZUGA video greeting
+    title: Zuga video greeting
     url: https://www.youtube.com/embed/qp22v58UQnw
 ---
 

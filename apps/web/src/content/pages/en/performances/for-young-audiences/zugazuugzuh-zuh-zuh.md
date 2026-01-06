@@ -25,7 +25,7 @@ gallery:
     description: Performance photo
 videos:
   - platform: youtube
-    title: ZUGA video greeting
+    title: Zuga video greeting
     url: https://www.youtube.com/embed/qp22v58UQnw
 translated:
   - language: et
@@ -61,8 +61,8 @@ In 2010, this performance was honored with both the Estonian Independent Dance A
 ## Press Coverage
 
 - Postimees: "Tantsuline lasteetendus 'Zuga zuug zuh-zuh-zuh'" (link: `knowledge-base/articles/2014-03-postimees-zugazuugzuh-zuh-zuh.md`) - 2014-03-13
-- Tantsukuukiri: "ZUGA LASTETEATER: VAATAMINE HÕBE, KAASATEGEMINE KULD" (link: `knowledge-base/articles/2015-01-tantsukuukiri-zuga-lasteteater.md`) - 2015-01
+- Tantsukuukiri: "Zuga LASTETEATER: VAATAMINE HÕBE, KAASATEGEMINE KULD" (link: `knowledge-base/articles/2015-01-tantsukuukiri-zuga-lasteteater.md`) - 2015-01
 
 ---
 
-*Information gathered from ZUGA Knowledge Base*
+*Information gathered from Zuga Knowledge Base*

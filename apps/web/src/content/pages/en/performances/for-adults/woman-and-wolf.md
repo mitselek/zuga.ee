@@ -82,11 +82,11 @@ Bush Hartshorn graduated from Darlington College of Arts, worked as a project-ba
 
 **2007 Tantsuauhind (Estonian Theatre Union)**
 
-ZUGA united dancers – concept, choreography and video direction for "Naine ja Hunt".
+Zuga united dancers – concept, choreography and video direction for "Naine ja Hunt".
 
 **Philip Morris Estonian Dance Awards 2006** (awarded May 31, 2007)
 
-Creator of the Year 2006 – ZUGA united dancers, production combining movement, word and video art "Naine ja hunt"
+Creator of the Year 2006 – Zuga united dancers, production combining movement, word and video art "Naine ja hunt"
 
 **Estonian Theatre Annual Award** (Spring 2007)
 
@@ -94,9 +94,9 @@ Contemporary Dance category – "Naine ja hunt"
 
 ## Reviews and Coverage
 
-- [ZUGA "Naine ja Hunt" received another award](https://epl.delfi.ee/artikkel/51089440/zuga-naine-ja-hunt-sai-taas-preemia), Eesti Päevaleht, Tiiu Laks, June 4, 2007
-- [ZUGA "Naine ja Hunt" explores cultural differences](https://epl.delfi.ee/artikkel/51033163/zuga-naine-ja-hunt-uurib-kultuuride-erinevusi), Eesti Päevaleht, Tiiu Laks, February 26, 2006
-- [ZUGA united dancers' "Naine ja Hunt" premieres](https://teater.ee/uudised/esietendub-zuga-uhendatud-tantsijate-naine-ja-hunt/), Estonian Theatre Union, February 26, 2006
+- [Zuga "Naine ja Hunt" received another award](https://epl.delfi.ee/artikkel/51089440/zuga-naine-ja-hunt-sai-taas-preemia), Eesti Päevaleht, Tiiu Laks, June 4, 2007
+- [Zuga "Naine ja Hunt" explores cultural differences](https://epl.delfi.ee/artikkel/51033163/zuga-naine-ja-hunt-uurib-kultuuride-erinevusi), Eesti Päevaleht, Tiiu Laks, February 26, 2006
+- [Zuga united dancers' "Naine ja Hunt" premieres](https://teater.ee/uudised/esietendub-zuga-uhendatud-tantsijate-naine-ja-hunt/), Estonian Theatre Union, February 26, 2006
 - [Tour de danse (Episode 75)](https://arhiiv.err.ee/video/vaata/tour-de-danse-soduri-lugu-undiin-naine-ja-hunt-dr-todva-ja-prof-sule-susteem-fame-kaie-korbi-raamatu-esitlus), ERR, March 9, 2006
 - [Päevakaja](https://arhiiv.err.ee/audio/vaata/paevakaja-paevakaja-nr-16373-kl-18?t=691), ERR, February 26, 2006
 
@@ -104,4 +104,4 @@ Contemporary Dance category – "Naine ja hunt"
 
 _"Clear choreographic line, pure, thoughtful. Creates enough connections, but not too many, so nothing becomes completely rigid. Contrasts work as if always cast – one moves quickly, the other slowly, etc., character differences are clear, but similarities also exist."_ - Tiiu Laks, Eesti Päevaleht
 
-_"ZUGA always leaves the viewer's imagination and understanding plenty of room, the opportunity to interpret things as they themselves like best or as their own experience determines – to draw their own parallels."_ - Tiiu Laks, Eesti Päevaleht
+_"Zuga always leaves the viewer's imagination and understanding plenty of room, the opportunity to interpret things as they themselves like best or as their own experience determines – to draw their own parallels."_ - Tiiu Laks, Eesti Päevaleht

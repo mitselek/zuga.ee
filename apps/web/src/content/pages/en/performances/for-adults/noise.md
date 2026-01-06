@@ -27,7 +27,7 @@ videos:
     title: Dance performance NOISE (MÜRA)
     url: https://vimeo.com/359221287
   - platform: youtube
-    title: NOISE (MÜRA) - Helena Krinal/ZUGA
+    title: NOISE (MÜRA) - Helena Krinal/Zuga
     url: https://www.youtube.com/embed/Nj_JGAGBt28
 knowledge_base_sources:
   articles:
@@ -45,7 +45,7 @@ knowledge_base_sources:
 
 ## Dance performance NOISE (MÜRA)
 
-**Helena Krinal/ZUGA**
+**Helena Krinal/Zuga**
 
 In a world where noise has become the norm, it is the silence that terrifies us. 'Noise' is a physical meeting of sounds, bodies, space and vibrations; soaked and served with all kinds of noise we have grown accustomed to, regardless of their disruptive effect on our lives. A dance performance born in the quiet of Estonia and raised on the loud streets of Palestine.
 
@@ -69,7 +69,7 @@ In a world where noise has become the norm, it is the silence that terrifies us.
 
 ### Reviews and Coverage
 
-- [ERR – "Helena Krinal and ZUGA's dance performance 'Noise' premiered in Palestine"](https://kultuur.err.ee/929451/helena-krinali-ja-zuga-tantsulavastus-mura-esietendus-palestiinas)
-- [EPL – "Helena Krinal and ZUGA's dance performance 'Noise' premiered in Palestine"](https://epl.delfi.ee/artikkel/85886801/helena-krinali-ja-zuga-tantsulavastus-mura-esietendus-palestiinas)
-- [Postimees – "Helena Krinal and ZUGA's dance performance 'Noise' at Independent Dance Stage"](https://kultuur.postimees.ee/6701530/soltumatu-tantsu-laval-helena-krinali-ja-zuga-tantsulavastus-mura)
-- [Berlin Estonian Cultural Society – "MÜRA ZUGA"](https://berliinieestikultuuriselts.com/mura-zuga/)
+- [ERR – "Helena Krinal and Zuga's dance performance 'Noise' premiered in Palestine"](https://kultuur.err.ee/929451/helena-krinali-ja-zuga-tantsulavastus-mura-esietendus-palestiinas)
+- [EPL – "Helena Krinal and Zuga's dance performance 'Noise' premiered in Palestine"](https://epl.delfi.ee/artikkel/85886801/helena-krinali-ja-zuga-tantsulavastus-mura-esietendus-palestiinas)
+- [Postimees – "Helena Krinal and Zuga's dance performance 'Noise' at Independent Dance Stage"](https://kultuur.postimees.ee/6701530/soltumatu-tantsu-laval-helena-krinali-ja-zuga-tantsulavastus-mura)
+- [Berlin Estonian Cultural Society – "MÜRA Zuga"](https://berliinieestikultuuriselts.com/mura-zuga/)

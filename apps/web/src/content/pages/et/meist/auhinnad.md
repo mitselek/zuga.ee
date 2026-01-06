@@ -33,7 +33,7 @@ gallery:
     description: Auhinna foto
 videos:
   - platform: youtube
-    title: ZUGA video tervitus
+    title: Zuga video tervitus
     url: https://www.youtube.com/embed/qp22v58UQnw
 ---
 
@@ -46,4 +46,4 @@ Zuga pälvitud auhinnad ja tunnustused
 
 ## Video
 
-ZUGA video tervitus
+Zuga video tervitus

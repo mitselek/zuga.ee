@@ -82,11 +82,11 @@ Bush Hartshorn on lõpetanud Darlington'i Kunstide Kolledži, töötanud projekt
 
 **2007 Tantsuauhind (Eesti Teatriliit)**
 
-ZUGA ühendatud tantsijad – lavastuse "Naine ja Hunt" idee, koreograafia ja videorežii.
+Zuga ühendatud tantsijad – lavastuse "Naine ja Hunt" idee, koreograafia ja videorežii.
 
 **Philip Morris Eesti tantsuauhinnad 2006** (välja antud 31. mail 2007)
 
-Aasta tegija 2006 – ZUGA ühendatud tantsijad, liikumist, sõna ja videokunsti ühendav lavastus "Naine ja hunt"
+Aasta tegija 2006 – Zuga ühendatud tantsijad, liikumist, sõna ja videokunsti ühendav lavastus "Naine ja hunt"
 
 **Eesti teatri aastaauhind** (kevad 2007)
 
@@ -94,9 +94,9 @@ Nüüdisaegse tantsu kategooria – "Naine ja hunt"
 
 ## Arvustused ja kajastused
 
-- [ZUGA "Naine ja Hunt" sai taas preemia](https://epl.delfi.ee/artikkel/51089440/zuga-naine-ja-hunt-sai-taas-preemia), Eesti Päevaleht, Tiiu Laks, 4. juuni 2007
-- [ZUGA "Naine ja Hunt" uurib kultuuride erinevusi](https://epl.delfi.ee/artikkel/51033163/zuga-naine-ja-hunt-uurib-kultuuride-erinevusi), Eesti Päevaleht, Tiiu Laks, 26. veebruar 2006
-- [Esietendub ZUGA ühendatud tantsijate "Naine ja Hunt"](https://teater.ee/uudised/esietendub-zuga-uhendatud-tantsijate-naine-ja-hunt/), Eesti Teatriliit, 26. veebruar 2006
+- [Zuga "Naine ja Hunt" sai taas preemia](https://epl.delfi.ee/artikkel/51089440/zuga-naine-ja-hunt-sai-taas-preemia), Eesti Päevaleht, Tiiu Laks, 4. juuni 2007
+- [Zuga "Naine ja Hunt" uurib kultuuride erinevusi](https://epl.delfi.ee/artikkel/51033163/zuga-naine-ja-hunt-uurib-kultuuride-erinevusi), Eesti Päevaleht, Tiiu Laks, 26. veebruar 2006
+- [Esietendub Zuga ühendatud tantsijate "Naine ja Hunt"](https://teater.ee/uudised/esietendub-zuga-uhendatud-tantsijate-naine-ja-hunt/), Eesti Teatriliit, 26. veebruar 2006
 - [Tour de danse (Episode 75)](https://arhiiv.err.ee/video/vaata/tour-de-danse-soduri-lugu-undiin-naine-ja-hunt-dr-todva-ja-prof-sule-susteem-fame-kaie-korbi-raamatu-esitlus), ERR, 9. märts 2006
 - [Päevakaja](https://arhiiv.err.ee/audio/vaata/paevakaja-paevakaja-nr-16373-kl-18?t=691), ERR, 26. veebruar 2006
 
@@ -104,4 +104,4 @@ Nüüdisaegse tantsu kategooria – "Naine ja hunt"
 
 _"Koreograafiliselt selge joonisega, puhas, läbimõeldud. Tekitab piisavalt seoseid, kuid mitte liiga palju, et miski oleks päris paindumatu. Kontrastid töötavad nagu alati valatult – üks liigub kiirelt, teine aeglaselt jms, tegelaste erinevused on selged, kuid leidub ka sarnasusi."_ - Tiiu Laks, Eesti Päevaleht
 
-_"ZUGA jätab vaataja ettekujutusele ja arusaamadele alati palju ruumi, võimaluse tõlgendada asju nii, nagu neile endile kõige rohkem meeldiks või nagu nende endi kogemus määrab – tõmmata oma paralleele."_ - Tiiu Laks, Eesti Päevaleht
+_"Zuga jätab vaataja ettekujutusele ja arusaamadele alati palju ruumi, võimaluse tõlgendada asju nii, nagu neile endile kõige rohkem meeldiks või nagu nende endi kogemus määrab – tõmmata oma paralleele."_ - Tiiu Laks, Eesti Päevaleht

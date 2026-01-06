@@ -101,4 +101,4 @@ _Performance in development. More information coming soon._
 
 ---
 
-*Information gathered from ZUGA Knowledge Base*
+*Information gathered from Zuga Knowledge Base*

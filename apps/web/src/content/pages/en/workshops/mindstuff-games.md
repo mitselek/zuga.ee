@@ -36,4 +36,4 @@ This workshop is a suitable extra for regular school lessons where feelings and 
 
 ## Facilitators
 
-United Dancers of ZUGA is a collective comprising dancers and choreographers who have collaborated since 1999. They are the only artist collective that have continuously and regularly created dance performances for children. Their children performances have been honoured with different dance and theatre prizes in Estonia and in foreign countries.
+United Dancers of Zuga is a collective comprising dancers and choreographers who have collaborated since 1999. They are the only artist collective that have continuously and regularly created dance performances for children. Their children performances have been honoured with different dance and theatre prizes in Estonia and in foreign countries.

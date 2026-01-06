@@ -14,7 +14,7 @@ translated:
 hero_image: /images/etendused-suurtele-habi-hero.jpg
 videos:
   - platform: youtube
-    title: ZUGA video greeting
+    title: Zuga video greeting
     url: https://www.youtube.com/embed/qp22v58UQnw
 ---
 
@@ -27,4 +27,4 @@ Photo gallery from Shame performance
 
 ## Video
 
-ZUGA video greeting
+Zuga video greeting

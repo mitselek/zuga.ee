@@ -20,7 +20,7 @@ translated:
 hero_image: /images/tuleviku-liigutajad-hero.jpg
 videos:
   - platform: youtube
-    title: ZUGA video greeting
+    title: Zuga video greeting
     url: https://www.youtube.com/embed/qp22v58UQnw
 ---
 
@@ -34,7 +34,7 @@ Kumu and Independent Dance Stage invited senior kindergarten children and grades
 
 Participants traveled with Kumu's education curator into the distant future in the exhibition to meet 22nd century people. There they became researchers who observed and reflected on the body language communication of future humans. They noticed their similarities and differences – in appearance, movement, and emotions. Playfully discovering the space in which the artwork is located and the spaces within the artwork. After visiting the exhibition, discussion followed about what the worldview of these people might be and what story or feeling they might convey to us through dance.
 
-Since dance movement and physical experience were recurring elements in the exhibition, movements were captured from the work and taken to continue working with them in the workshop, led by members of ZUGA United Dancers. There, the body was also used as a tool, exploring movement with sounds, expressing emotions with the body, and conveying messages.
+Since dance movement and physical experience were recurring elements in the exhibition, movements were captured from the work and taken to continue working with them in the workshop, led by members of Zuga United Dancers. There, the body was also used as a tool, exploring movement with sounds, expressing emotions with the body, and conveying messages.
 
 Through imagination, many creative movement exercises were tried out – both individually and in group work, thereby developing physical awareness, inner concentration, and consideration for others.
 
@@ -81,6 +81,6 @@ Contemporary art, space, narrative, dance, body, emotions, technology's impact o
 
 **Partners:**
 
-- [ZUGA United Dancers](https://www.zuga.ee/)
+- [Zuga United Dancers](https://www.zuga.ee/)
 - [Independent Dance Stage](https://stl.ee/)
 - [Kumu Art Museum](https://kumu.ekm.ee/)

@@ -35,7 +35,7 @@ gallery:
     description: Etenduse foto
 videos:
   - platform: youtube
-    title: ZUGA video tervitus
+    title: Zuga video tervitus
     url: https://www.youtube.com/embed/qp22v58UQnw
 ---
 
@@ -48,4 +48,4 @@ Fotogalerii Zuga etendustest suurtele
 
 ## Video
 
-ZUGA video tervitus
+Zuga video tervitus

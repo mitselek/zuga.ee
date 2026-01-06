@@ -50,7 +50,7 @@ translated:
 
 # Liikumise töötuba peredele
 
-**ZUGA Ühendatud Tantsijad**
+**Zuga Ühendatud Tantsijad**
 
 Töötuba toimub väga sõbralikkus õhkkonnas ja liikumismängud, ülesanded valitakse vastavalt osalejatele (kelleltki tantsuoskust ei oodata).
 
@@ -73,11 +73,11 @@ Töötoas tekitatakse mängulisi olukordi, mispuhul on kõik võrdsed ning kes k
 
 Üheskoos nii pingutatakse, lõdvestutakse, naerdakse enda üle, aidatakse üksteist kui ka luuakse koreograafiat. Üksteisele järgnemisest tekib töötoa käigus koreograafia, mida koos tantsida.
 
-Töötuba on osa ZUGA uue lavastuse ettevalmistusprotsessist, kus tegelasteks vanemad, lapsed ja nende kooselu. Töötoa käigus sündinud materjal on lähteks uue lavastuse loomisel.
+Töötuba on osa Zuga uue lavastuse ettevalmistusprotsessist, kus tegelasteks vanemad, lapsed ja nende kooselu. Töötoa käigus sündinud materjal on lähteks uue lavastuse loomisel.
 
-## ZUGA Ühendatud Tantsijad
+## Zuga Ühendatud Tantsijad
 
-Töötuba viivad läbi **ZUGA Ühendatud Tantsijate** liikmed: sõpruskond tantsijaid ja koreograafe, keda seob kooskõla otsimine läbi mängu. Nende lavastused ja looming on saanud rohkelt tunnustust ja tähelepanu ning reisinud üle maailma.
+Töötuba viivad läbi **Zuga Ühendatud Tantsijate** liikmed: sõpruskond tantsijaid ja koreograafe, keda seob kooskõla otsimine läbi mängu. Nende lavastused ja looming on saanud rohkelt tunnustust ja tähelepanu ning reisinud üle maailma.
 
 ## Tagasiside
 
