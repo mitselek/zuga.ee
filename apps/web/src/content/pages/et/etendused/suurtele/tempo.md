@@ -32,5 +32,5 @@ Millised on need hetked, mis võiks jääda kauemaks? Millised on need hetked, m
 
 ### Lavastusmeeskond
 
-**Idee ja lavastus:** ZUGA Ühendatud Tantsijad
+**Idee ja lavastus:** Zuga Ühendatud Tantsijad
 **Esietendus:** 16. märts 2018, Sõltumatu Tantsu Lava

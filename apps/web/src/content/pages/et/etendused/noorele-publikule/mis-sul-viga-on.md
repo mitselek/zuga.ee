@@ -85,4 +85,4 @@ _Lavastus on arenduses. Täpsem info ilmub peagi._
 
 ---
 
-_Informatsioon kogutud ZUGA teadmusbaasist_
+_Informatsioon kogutud Zuga teadmusbaasist_

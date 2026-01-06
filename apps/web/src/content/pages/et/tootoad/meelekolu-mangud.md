@@ -36,7 +36,7 @@ Töötuba sobib ilmestama ainetunde, kus käsitletakse tundeid ja emotsioone.
 
 ## Läbiviijad
 
-ZUGA Ühendatud Tantsijad on tantsijaid ja koreograafe koondav kollektiiv, mis on koos tegutsenud 1999. aastast. Nad on ainus järjepidevalt ja regulaarselt lastele tantsulavastusi loov tantsukooslus Eestis. Nende lastelavastused on pälvinud tähelepanu ja mitmeid teatri- ja tantsuauhindu (Salme Reegi auhind, Draamakese auhind, Teatriaasta auhind, Sõltumatu etenduskunsti auhind jne) ning nad on esinenud nii Eestis kui väljaspool (Soomes, USA-s, Saksamaal, Leedus, Lätis, Hollandis, Rootsis, Venemaal, Rumeenias, Horvaatias, Poolas, Inglismaal, Palestiinas, Iisraelis).
+Zuga Ühendatud Tantsijad on tantsijaid ja koreograafe koondav kollektiiv, mis on koos tegutsenud 1999. aastast. Nad on ainus järjepidevalt ja regulaarselt lastele tantsulavastusi loov tantsukooslus Eestis. Nende lastelavastused on pälvinud tähelepanu ja mitmeid teatri- ja tantsuauhindu (Salme Reegi auhind, Draamakese auhind, Teatriaasta auhind, Sõltumatu etenduskunsti auhind jne) ning nad on esinenud nii Eestis kui väljaspool (Soomes, USA-s, Saksamaal, Leedus, Lätis, Hollandis, Rootsis, Venemaal, Rumeenias, Horvaatias, Poolas, Inglismaal, Palestiinas, Iisraelis).
 
 ## Laste tagasiside
 

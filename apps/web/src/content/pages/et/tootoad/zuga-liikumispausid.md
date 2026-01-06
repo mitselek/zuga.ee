@@ -1,5 +1,5 @@
 ---
-title: ZUGA Liikumispausid
+title: Zuga Liikumispausid
 slug: zuga-liikumispausid
 language: et
 description: 5-10 minuti pikkused helijuhendid istuva töö- või koolipäeva vahepaladeks
@@ -76,6 +76,6 @@ Kui jäädvustad liikumispausidel sirutamist, võid julgelt tag'ida meid sotsiaa
 
 ## Kajastused meedias
 
-- [HOMMIKUINTERVJUU: Tiina Mölder, ZUGA liikumispausid](https://ringfm.treraadio.ee/kordus/4758/hommikuintervjuu-tiina-molder-zuga-liikumispausid), Ring FM, 21. aprill 2021
-- [Ärataja: Kärt Tõnisson – Koos ZUGA Ühendatud Tantsijatega loodi Liikumispausid, mis on kõigile tasuta kasutamiseks](https://podcast.kuku.postimees.ee/podcast/arataja-kart-tonisson-koos-zuga-uhendatud-tantsijatega-loodi-liikumispausid-mis-on-koigile-tasuta-kasutamiseks/), KUKU raadio, 16. aprill 2021
-- [R2 Pulss. Triinu Aron: Sõltumatu Tantsu Lava ja ZUGA ühendatud Tantsijad lõid liikumispausid](https://r2.err.ee/1608164389/r2-pulss-robin-juhkental/1251106), Raadio 2, 15. aprill 2021
+- [HOMMIKUINTERVJUU: Tiina Mölder, Zuga liikumispausid](https://ringfm.treraadio.ee/kordus/4758/hommikuintervjuu-tiina-molder-zuga-liikumispausid), Ring FM, 21. aprill 2021
+- [Ärataja: Kärt Tõnisson – Koos Zuga Ühendatud Tantsijatega loodi Liikumispausid, mis on kõigile tasuta kasutamiseks](https://podcast.kuku.postimees.ee/podcast/arataja-kart-tonisson-koos-zuga-uhendatud-tantsijatega-loodi-liikumispausid-mis-on-koigile-tasuta-kasutamiseks/), KUKU raadio, 16. aprill 2021
+- [R2 Pulss. Triinu Aron: Sõltumatu Tantsu Lava ja Zuga Ühendatud Tantsijad lõid liikumispausid](https://r2.err.ee/1608164389/r2-pulss-robin-juhkental/1251106), Raadio 2, 15. aprill 2021

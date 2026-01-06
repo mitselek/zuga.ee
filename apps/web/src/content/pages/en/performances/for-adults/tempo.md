@@ -32,5 +32,5 @@ Which are the moments that could last longer? Which are the moments that stay in
 
 ### Creative Team
 
-**Concept and direction:** ZUGA United Dancers
+**Concept and direction:** Zuga United Dancers
 **Premiere:** March 16, 2018, Independent Dance Stage

@@ -45,9 +45,9 @@ premiere:
 
 **Soovitatav vanus:** 4–7 aastat
 
-Teemad, millega lavastuses tegeldakse, on võluilm, nõidus ja mäng, sest ZUGA sõnul sünnib laste mängudes enamus asju just võluväel.
+Teemad, millega lavastuses tegeldakse, on võluilm, nõidus ja mäng, sest Zuga sõnul sünnib laste mängudes enamus asju just võluväel.
 
-Ettevalmistusprotsessis on ZUGA pööranud pilgu muinasjuttudele ja sealt pärit tuntud tegelaste poole. Koos lastega võetakse ette fantaasiaküllane retk ning avatakse mitmeid salauksi, et avastada uut ja põnevat ja seda kõike ilma päris uksest välja astumata.
+Ettevalmistusprotsessis on Zuga pööranud pilgu muinasjuttudele ja sealt pärit tuntud tegelaste poole. Koos lastega võetakse ette fantaasiaküllane retk ning avatakse mitmeid salauksi, et avastada uut ja põnevat ja seda kõike ilma päris uksest välja astumata.
 
 Lavastuse eesmärk on jätta ruumi vaatajate fantaasiale. Mäng käib läbi liikumise ja tantsu, lastel endil on võimalus sõna sekka öelda ning mängu kulgu suunata.
 

@@ -43,7 +43,7 @@ gallery:
     description: Töötoa foto
 videos:
   - platform: youtube
-    title: ZUGA videotervitus
+    title: Zuga videotervitus
     url: https://www.youtube.com/embed/qp22v58UQnw
 ---
 
@@ -57,7 +57,7 @@ Kumu ja Sõltumatu Tantsu Lava kutsusid lasteaia vanema rühma lapsi ja põhikoo
 
 Osalejad suundusid koos Kumu haridustöö kuraatoriga näitusel kaugesse tulevikku, et kohtuda 22. sajandi inimestega. Seal muututi uurijateks, kes vaatlesid ja peegeldavad tulevikuinimeste kehakeelset suhtlust. Märgati nende sarnasusi ja erinevusi – seda nii välimuses, liikumises kui ka emotsioonides. Mänguliselt avastati ruumi, milles asub kunstiteos ja ruume kunstiteose sees. Pärast näituse külastamist arutleti selle üle, milline võiks olla nende inimeste maailmavaade ning millist lugu või tunnet võiksid nad meile läbi tantsu edasi anda.
 
-Kuna näitusel oli läbivaks elemendiks tantsuline liikumine ja kehaline kogemus, siis haarati teosest kaasa liigutused ning suunuti nendega edasi tegutsema töötuppa, mida juhendasid ZUGA Ühendatud Tantsijate liikmed. Seal kasutati ka ise töövahendina keha ning uuriti helidega oma keha liikumist, kehaga emotsioonide väljendamist ja sõnumite edastamist.
+Kuna näitusel oli läbivaks elemendiks tantsuline liikumine ja kehaline kogemus, siis haarati teosest kaasa liigutused ning suunuti nendega edasi tegutsema töötuppa, mida juhendasid Zuga Ühendatud Tantsijate liikmed. Seal kasutati ka ise töövahendina keha ning uuriti helidega oma keha liikumist, kehaga emotsioonide väljendamist ja sõnumite edastamist.
 
 Läbi fantaasia prooviti läbi mitmeid loovaid liikumisharjutusi – seda nii individuaalselt kui ka rühmatööna ning arendati seeläbi kehalist tunnetust, sisemist keskendumisvõimet ning teistega arvestamise oskust.
 
@@ -104,6 +104,6 @@ Kaasaegne kunst, ruum, jutustus, tants, keha, emotsioonid, tehnoloogia mõju ini
 
 **Koostööpartnerid:**
 
-- [ZUGA Ühendatud Tantsijad](https://www.zuga.ee/)
+- [Zuga Ühendatud Tantsijad](https://www.zuga.ee/)
 - [Sõltumatu Tantsu Lava](https://stl.ee/)
 - [Kumu kunstimuuseum](https://kumu.ekm.ee/)

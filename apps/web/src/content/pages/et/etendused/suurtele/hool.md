@@ -54,11 +54,11 @@ knowledge_base_sources:
 
 ## Tantsuetendus "Hool"
 
-**Helena Krinal/ZUGA**
+**Helena Krinal/Zuga**
 
 Kogu oma elu kanname me hoolt kellegi pärast või kantakse hoolt meie pärast. Mõnikord on nii raske, kellegi eest hoolitseda. Ja siis on taas nii raske, kui meie hoolt keegi enam ei vaja…
 
-"Hool" on kolmas Helena Krinali ja ZUGA liikumise- ja tantsuansambli koostöö. Esimene ühine lavastus "Müra" (2019) kandideeris aasta lavastuse tiitlile Eesti Teatriauhindade galal 2020.
+"Hool" on kolmas Helena Krinali ja Zuga liikumise- ja tantsuansambli koostöö. Esimene ühine lavastus "Müra" (2019) kandideeris aasta lavastuse tiitlile Eesti Teatriauhindade galal 2020.
 
 Lavastuses keskendutakse emotsionaalsetele teekondadele, tolle päriselt inimlikule ja raskele lähedusele, hoolele ja armastusele, mida ollakse valmis pakkuma teisele. Aga kui vastu ei võeta?
 

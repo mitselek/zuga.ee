@@ -1,5 +1,5 @@
 ---
-title: ZUGA Heliliikumistöötoad
+title: Zuga Heliliikumistöötoad
 slug: zuga-heliliikumistootoad
 language: et
 description: Mängulist liikumisvõimalust pakkuvad audiojuhendiga töötoad
@@ -40,14 +40,14 @@ translated:
     slug: zuga-sound-movement-workshops
 ---
 
-## ZUGA Heliliikumistöötoad
+## Zuga Heliliikumistöötoad
 
 **Kestus:** 15–20 minutit
 **Valikus:** Neli erinevat töötuba neljalt koreograafilt
 
 Heliliikumistöötuba saab nautida terve pere / kodus, õues, metsas, maal. Töötoas osalemine toimub audiofaili juhendamisel. Müramis-link (ehk koht, kus saab kuulata töötuba) tuleb kaasa piletiga!
 
-Zuga heliliikumistöötoad on lastele, noortele ja peredele mõeldud mängulist liikumisvõimalust pakkuvad töötoad, mida saab rakendada nii koolis, kodus, toas kui õues, et end ZUGA tantsijate loodud fantaasiarikaste audiofailide saatel veidi liigutada ning oma kujutlusvõime tööle panna.
+Zuga heliliikumistöötoad on lastele, noortele ja peredele mõeldud mängulist liikumisvõimalust pakkuvad töötoad, mida saab rakendada nii koolis, kodus, toas kui õues, et end Zuga tantsijate loodud fantaasiarikaste audiofailide saatel veidi liigutada ning oma kujutlusvõime tööle panna.
 
 Nii, nagu raamatut lugedes tekivad igal inimesel oma kujutluspildid, saab ka siin töötoas ilma kellelegi ettenäitamiseta ise otsustada, kuidas hüpata üle ajalehekraavi, kuidas keerata ennast vaiba sisse rulli või langeda udusulena seitsme sekundi jooksul maapinnale. Saab koos sirutada ja painutada, saab patsutada ja loksutada, üksteisest üle hüpata ja üksteise alt läbi ronida. Müramine on kõige toredam just kambakesi koos ning väike müra… kuulub asja juurde.
 
@@ -67,7 +67,7 @@ Heliliikumistöötuba "Rändur ja kaitseingel" toimub paaris ja sobib alates 6. 
 
 Keskkonnaks sobiks kõige paremini suurem ruum, kus ei ole palju mööblit, aga sobilikud on ka välitingimused, kus ei ole liiklust.
 
-**Päär Pärenson**, mõnele tuntud ka kui MC J.O.C, on vabakutseline tantsija, koreograaf, näitleja ja räppar. Kogemustepagasi on ta täiendanud lavadel nii Eestis, Soomes, Hollandis, Saksamaal kui Inglismaal, aga ka nii põnevates riikides nagu Hiina ja Palestiina. Oma suulist sõnumit on Päär peamiselt edastanud ansamblite "Def Räädu" ja "Uus Energia" koosseisus. Viimastel aastatel on olnud osaline ZUGA lavastustes "Käik", "meeleKolu" ja "2+2=22".
+**Päär Pärenson**, mõnele tuntud ka kui MC J.O.C, on vabakutseline tantsija, koreograaf, näitleja ja räppar. Kogemustepagasi on ta täiendanud lavadel nii Eestis, Soomes, Hollandis, Saksamaal kui Inglismaal, aga ka nii põnevates riikides nagu Hiina ja Palestiina. Oma suulist sõnumit on Päär peamiselt edastanud ansamblite "Def Räädu" ja "Uus Energia" koosseisus. Viimastel aastatel on olnud osaline Zuga lavastustes "Käik", "meeleKolu" ja "2+2=22".
 
 ---
 
@@ -79,7 +79,7 @@ Heliliikumistöötuba "Rännak ühele õues" on liikumisrännak õues ühele osa
 
 Töötuba võib toimuda nii oma kodu ümbruses või seal, kus sa just parasjagu oled. Ilm on ilus, paned kõrvaklapid pähe ja lähed, kuhu jalad viivad. Võid kulgeda rahulikult, võid võtta vastu kiiruse väljakutseid. Kui soovid teha midagi pikemalt, siis pane hääl vahepeal pausile ja pärast jälle uuesti mängima, et saaksid juhtnööre jälgida.
 
-**Tiina Mölder** on vabakutseline tantsukunstnik, ZUGA Ühendatud Tantsijate asutajaliige, kes tegeleb liikumisega selle mitmetes vormides, mis on ju kõik sama puu eri harud: tantsib, on koreograaf, teeb liikumisseadeid draamalavastustele, õpetab, teeb koostööd teiste lavastajate ja (tantsu)kunstnikega. Tiina on üks ZUGA ühendatud tantsijatest ja ZUGA lavastuste autoritest. Alates 2014. aastast on ta loonud ja esitanud tantsulavastusi lastele ja täiskasvanutele koos teiste ZUGA Ühendatud Tantsijatega: "Zuga zuug zuh-zuh-zuh", "Võluvärk", "Käik", "Meelekolu", "Tempo", "Müra", "2+2=22".
+**Tiina Mölder** on vabakutseline tantsukunstnik, Zuga Ühendatud Tantsijate asutajaliige, kes tegeleb liikumisega selle mitmetes vormides, mis on ju kõik sama puu eri harud: tantsib, on koreograaf, teeb liikumisseadeid draamalavastustele, õpetab, teeb koostööd teiste lavastajate ja (tantsu)kunstnikega. Tiina on üks Zuga ühendatud tantsijatest ja Zuga lavastuste autoritest. Alates 2014. aastast on ta loonud ja esitanud tantsulavastusi lastele ja täiskasvanutele koos teiste Zuga Ühendatud Tantsijatega: "Zuga zuug zuh-zuh-zuh", "Võluvärk", "Käik", "Meelekolu", "Tempo", "Müra", "2+2=22".
 
 ---
 
@@ -91,7 +91,7 @@ Heliliikumistöötuba "Ruum liigutab" on igasuguses vanuses inimestele, kes arma
 
 "Ruum liigutab" viib meid avastusretkele joonte ja nurkade maailma nii iseendas kui ruumis. Saab mõõta iseennast ja oma kappi, leida enda kehas teravnurgad ja sirged, painutada ennast tugitooliks ja kasvada potililleks. Luua ühine skulptuur sirgetest ja kõveratest joontest ning sulada põrandasse nagu suvine jäätis. Töötoas kõlava muusika autoriteks on J. S. Bach ja eesti helilooja Tatjana Kozlova-Johannes.
 
-**Kärt Tõnisson** on vabakutseline tantsija, koreograaf, tantsuõpetaja ja loovliikumise koolitaja. Suurema osa oma tööajast veedab Kärt Rocca al Mare Veskimöldre lasteaias ja Püha Johannese Koolis lastega koos liikudes, ent on tantsinud ka ühes Kuusalu vanas küünis mulla peal ning Raekoja platsi munakividel, New Yorgi, Moskva, Berliini ja teiste Euroopa linnade tantsuteatri lavadel. Viimastel aastatel on olnud kaaslooja ja liikuja ZUGA Ühendatud Tantsijate lavastustes „Võluvärk", „meeleKolu", „Tempo" ja „2+2=22".
+**Kärt Tõnisson** on vabakutseline tantsija, koreograaf, tantsuõpetaja ja loovliikumise koolitaja. Suurema osa oma tööajast veedab Kärt Rocca al Mare Veskimöldre lasteaias ja Püha Johannese Koolis lastega koos liikudes, ent on tantsinud ka ühes Kuusalu vanas küünis mulla peal ning Raekoja platsi munakividel, New Yorgi, Moskva, Berliini ja teiste Euroopa linnade tantsuteatri lavadel. Viimastel aastatel on olnud kaaslooja ja liikuja Zuga Ühendatud Tantsijate lavastustes „Võluvärk", „meeleKolu", „Tempo" ja „2+2=22".
 
 ---
 
@@ -103,7 +103,7 @@ Heliliikumistöötuba "Kujutluses ja ruumis" sobib lastele alates 10. eluaastast
 
 Töötuba algab üksinda paigalolekust ja keskendumisest, edasi avastame kujutluse abil oma keha ja selle liikumisvõimalusi, rändame ruumis, kohtume ning liigume koos teistega.
 
-**Ajjar Ausma** on 2003. aastal lõpetanud Viljandi Kultuuriakadeemia koreograaf-tantsuõpetajana. 2009. aastal asutas ta sõpradega teatri Cabaret Rhizome. Tegutses seal näitleja ja kaasautorina kuni 2018. aastani. Ajjar on osalenud lavastaja, etendaja ja kaasautorina erinevates lavastustes noortele ja täiskasvanutele. Viinud läbi füüsilise teatri, kontaktimprovisatsiooni, improvisatsiooni ja tantsu töötubasid Eestis kui ka mujal. 2012. aastast alates on Ajjar Vanalinna Hariduskolleegiumi liikumisõpetaja erivajadusega lastele. Alates 2014. aastast on ta loonud ja esitanud tantsulavastusi lastele ja täiskasvanutele koos teiste ZUGA Ühendatud Tantsijatega: "Käik", "Meelekolu", "Tempo", "Müra", "2+2=22".
+**Ajjar Ausma** on 2003. aastal lõpetanud Viljandi Kultuuriakadeemia koreograaf-tantsuõpetajana. 2009. aastal asutas ta sõpradega teatri Cabaret Rhizome. Tegutses seal näitleja ja kaasautorina kuni 2018. aastani. Ajjar on osalenud lavastaja, etendaja ja kaasautorina erinevates lavastustes noortele ja täiskasvanutele. Viinud läbi füüsilise teatri, kontaktimprovisatsiooni, improvisatsiooni ja tantsu töötubasid Eestis kui ka mujal. 2012. aastast alates on Ajjar Vanalinna Hariduskolleegiumi liikumisõpetaja erivajadusega lastele. Alates 2014. aastast on ta loonud ja esitanud tantsulavastusi lastele ja täiskasvanutele koos teiste Zuga Ühendatud Tantsijatega: "Käik", "Meelekolu", "Tempo", "Müra", "2+2=22".
 
 ---
 

@@ -33,7 +33,7 @@ gallery:
     description: About photo
 videos:
   - platform: youtube
-    title: ZUGA video greeting
+    title: Zuga video greeting
     url: https://www.youtube.com/embed/qp22v58UQnw
 translated:
   - language: et
@@ -49,4 +49,4 @@ Photo gallery about Zuga
 
 ## Video
 
-ZUGA video greeting
+Zuga video greeting

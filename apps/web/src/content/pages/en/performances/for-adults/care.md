@@ -54,11 +54,11 @@ knowledge_base_sources:
 
 ## Dance Performance "Care"
 
-**Helena Krinal/ZUGA**
+**Helena Krinal/Zuga**
 
 Throughout our lives, we all care for someone or are cared for. Sometimes it's so hard, taking care of someone. And then it's so hard when no one needs our care anymore…
 
-"Care" is the third collaboration between Helena Krinal and ZUGA movement and dance ensemble. Their first joint production "Noise" (2019) was nominated for Production of the Year at the 2020 Estonian Theatre Awards.
+"Care" is the third collaboration between Helena Krinal and Zuga movement and dance ensemble. Their first joint production "Noise" (2019) was nominated for Production of the Year at the 2020 Estonian Theatre Awards.
 
 The performance focuses on emotional journeys, that genuinely human and difficult closeness, care and love that one is willing to offer to another. But what if it's not accepted?
 

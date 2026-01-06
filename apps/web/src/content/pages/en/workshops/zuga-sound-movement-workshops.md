@@ -1,5 +1,5 @@
 ---
-title: ZUGA Sound Movement Workshops
+title: Zuga Sound Movement Workshops
 slug: zuga-sound-movement-workshops
 language: en
 description: Playful movement workshops with audio guidance
@@ -40,14 +40,14 @@ translated:
     slug: zuga-heliliikumistootoad
 ---
 
-## ZUGA Sound Movement Workshops
+## Zuga Sound Movement Workshops
 
 **Duration:** 15–20 minutes
 **Selection:** Four different workshops by four choreographers
 
 The sound movement workshop can be enjoyed by the whole family / at home, outdoors, in the forest, in the countryside. Participation in the workshop takes place under the guidance of an audio file. The audio link (the place where you can listen to the workshop) comes with the ticket!
 
-ZUGA sound movement workshops are playful movement workshops designed for children, young people, and families that can be applied both at school, at home, in a room, or outdoors, to move a little with the help of fantasy-rich audio files created by ZUGA dancers and put your imagination to work.
+Zuga sound movement workshops are playful movement workshops designed for children, young people, and families that can be applied both at school, at home, in a room, or outdoors, to move a little with the help of fantasy-rich audio files created by Zuga dancers and put your imagination to work.
 
 Just as reading a book creates its own images for each person, here in the workshop you can decide for yourself without anyone showing you how to jump over a stream, how to roll yourself into a blanket, or fall like a snowflake to the ground in seven seconds. You can stretch and bend together, you can pat and shake, jump over each other and crawl under each other. Making noise is most fun together, and a little noise... belongs to the thing.
 
@@ -67,7 +67,7 @@ One of the pair is the Wanderer, whose imaginary journey goes with closed eyes t
 
 The best environment would be a larger room without much furniture, but outdoor conditions without traffic are also suitable.
 
-**Päär Pärenson**, also known to some as MC J.O.C, is a freelance dancer, choreographer, actor, and rapper. He has expanded his experience on stages in Estonia, Finland, the Netherlands, Germany, and England, as well as in such exciting countries as China and Palestine. Päär has mainly conveyed his oral message as part of the ensembles "Def Räädu" and "Uus Energia". In recent years, he has been a participant in ZUGA performances "Käik", "meeleKolu", and "2+2=22".
+**Päär Pärenson**, also known to some as MC J.O.C, is a freelance dancer, choreographer, actor, and rapper. He has expanded his experience on stages in Estonia, Finland, the Netherlands, Germany, and England, as well as in such exciting countries as China and Palestine. Päär has mainly conveyed his oral message as part of the ensembles "Def Räädu" and "Uus Energia". In recent years, he has been a participant in Zuga performances "Käik", "meeleKolu", and "2+2=22".
 
 ---
 
@@ -79,7 +79,7 @@ The sound movement workshop "Solo Journey Outdoors" is a movement journey outdoo
 
 The workshop can take place around your own home or wherever you happen to be. The weather is nice, you put on headphones and go where your feet take you. You can walk calmly, you can take on speed challenges. If you want to do something longer, pause the audio in between and play it again later so you can follow the guidelines.
 
-**Tiina Mölder** is a freelance dance artist, founding member of ZUGA United Dancers, who works with movement in its various forms, which are all different branches of the same tree: dances, is a choreographer, creates movement settings for drama performances, teaches, collaborates with other directors and (dance) artists. Tiina is one of ZUGA united dancers and authors of ZUGA performances. Since 2014, she has created and performed dance performances for children and adults together with other ZUGA United Dancers: "Zuga zuug zuh-zuh-zuh", "Võluvärk", "Käik", "Meelekolu", "Tempo", "Müra", "2+2=22".
+**Tiina Mölder** is a freelance dance artist, founding member of Zuga United Dancers, who works with movement in its various forms, which are all different branches of the same tree: dances, is a choreographer, creates movement settings for drama performances, teaches, collaborates with other directors and (dance) artists. Tiina is one of Zuga united dancers and authors of Zuga performances. Since 2014, she has created and performed dance performances for children and adults together with other Zuga United Dancers: "Zuga zuug zuh-zuh-zuh", "Võluvärk", "Käik", "Meelekolu", "Tempo", "Müra", "2+2=22".
 
 ---
 
@@ -91,7 +91,7 @@ The sound movement workshop "Space Moves" is for people of all ages who love to 
 
 "Space Moves" takes us on a discovery journey into the world of lines and angles both within ourselves and in space. You can measure yourself and your closet, find sharp corners and straight lines in your body, bend yourself into an armchair and grow into a potted flower. Create a shared sculpture of straight and curved lines and melt into the floor like summer ice cream. The authors of the music playing in the workshop are J. S. Bach and Estonian composer Tatjana Kozlova-Johannes.
 
-**Kärt Tõnisson** is a freelance dancer, choreographer, dance teacher, and creative movement trainer. Kärt spends most of her working time moving together with children at Rocca al Mare Veskimöldre Kindergarten and Püha Johannese School, but has also danced in an old barn in Kuusalu on dirt and on the cobblestones of Town Hall Square, on dance theater stages in New York, Moscow, Berlin, and other European cities. In recent years, she has been a co-creator and mover in ZUGA United Dancers' performances "Võluvärk", "meeleKolu", "Tempo", and "2+2=22".
+**Kärt Tõnisson** is a freelance dancer, choreographer, dance teacher, and creative movement trainer. Kärt spends most of her working time moving together with children at Rocca al Mare Veskimöldre Kindergarten and Püha Johannese School, but has also danced in an old barn in Kuusalu on dirt and on the cobblestones of Town Hall Square, on dance theater stages in New York, Moscow, Berlin, and other European cities. In recent years, she has been a co-creator and mover in Zuga United Dancers' performances "Võluvärk", "meeleKolu", "Tempo", and "2+2=22".
 
 ---
 
@@ -103,7 +103,7 @@ The sound movement workshop "In Imagination and Space" is suitable for children 
 
 The workshop begins with standing alone and concentrating, then we discover our body and its movement possibilities with the help of imagination, journey through space, meet, and move together with others.
 
-**Ajjar Ausma** graduated from Viljandi Culture Academy as a choreographer-dance teacher in 2003. In 2009, he founded the theater Cabaret Rhizome with friends. He worked there as an actor and co-author until 2018. Ajjar has participated as a director, performer, and co-author in various performances for young people and adults. He has conducted physical theater, contact improvisation, improvisation, and dance workshops in Estonia and elsewhere. Since 2012, Ajjar has been a movement teacher at Vanalinna Hariduskolleegium for children with special needs. Since 2014, he has created and performed dance performances for children and adults together with other ZUGA United Dancers: "Käik", "Meelekolu", "Tempo", "Müra", "2+2=22".
+**Ajjar Ausma** graduated from Viljandi Culture Academy as a choreographer-dance teacher in 2003. In 2009, he founded the theater Cabaret Rhizome with friends. He worked there as an actor and co-author until 2018. Ajjar has participated as a director, performer, and co-author in various performances for young people and adults. He has conducted physical theater, contact improvisation, improvisation, and dance workshops in Estonia and elsewhere. Since 2012, Ajjar has been a movement teacher at Vanalinna Hariduskolleegium for children with special needs. Since 2014, he has created and performed dance performances for children and adults together with other Zuga United Dancers: "Käik", "Meelekolu", "Tempo", "Müra", "2+2=22".
 
 ---
 

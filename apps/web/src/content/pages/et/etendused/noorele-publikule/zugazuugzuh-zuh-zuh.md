@@ -26,7 +26,7 @@ gallery:
     description: Etenduse foto
 videos:
   - platform: youtube
-    title: ZUGA videotervitus
+    title: Zuga videotervitus
     url: https://www.youtube.com/embed/qp22v58UQnw
 translated:
   - language: en
@@ -62,8 +62,8 @@ Tants saab kokku mänguga. Rongisõit läbi liikumise, helide, muusika. Järjest
 ## Meediakajastus
 
 - Postimees: "Tantsuline lasteetendus 'Zuga zuug zuh-zuh-zuh'" (link: `knowledge-base/articles/2014-03-postimees-zugazuugzuh-zuh-zuh.md`) - 2014-03-13
-- Tantsukuukiri: "ZUGA LASTETEATER: VAATAMINE HÕBE, KAASATEGEMINE KULD" (link: `knowledge-base/articles/2015-01-tantsukuukiri-zuga-lasteteater.md`) - 2015-01
+- Tantsukuukiri: "Zuga LASTETEATER: VAATAMINE HÕBE, KAASATEGEMINE KULD" (link: `knowledge-base/articles/2015-01-tantsukuukiri-zuga-lasteteater.md`) - 2015-01
 
 ---
 
-*Informatsioon kogutud ZUGA teadmusbaasist*
+*Informatsioon kogutud Zuga teadmusbaasist*

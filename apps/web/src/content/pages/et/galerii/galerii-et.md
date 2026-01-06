@@ -2,7 +2,7 @@
 title: Galerii
 slug: galerii-et
 language: et
-description: ZUGA fotogalerii
+description: Zuga fotogalerii
 type: detail
 category: gallery
 status: published
@@ -33,7 +33,7 @@ gallery:
     description: Galerii foto
 videos:
   - platform: youtube
-    title: ZUGA videotervitus
+    title: Zuga videotervitus
     url: https://www.youtube.com/embed/qp22v58UQnw
 ---
 
@@ -42,8 +42,8 @@ videos:
 ## Gallery
 
 This performance features 7 gallery images.
-ZUGA fotogalerii
+Zuga fotogalerii
 
 ## Video
 
-ZUGA videotervitus
+Zuga videotervitus

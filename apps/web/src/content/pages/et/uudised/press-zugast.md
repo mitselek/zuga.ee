@@ -33,7 +33,7 @@ gallery:
     description: Press foto
 videos:
   - platform: youtube
-    title: ZUGA videotervitus
+    title: Zuga videotervitus
     url: https://www.youtube.com/embed/qp22v58UQnw
 ---
 
@@ -46,4 +46,4 @@ Press ja meediamaterjalid
 
 ## Video
 
-ZUGA videotervitus
+Zuga videotervitus
