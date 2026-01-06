@@ -208,15 +208,19 @@ const isEstonian = page.data.language === 'et';
 
   <!-- Upcoming Events Section -->
   {upcomingEventDates.length > 0 && (
-    <section class="py-16 bg-slate-50">
-      <div class="max-w-7xl mx-auto px-4">
+    <section 
+      class="py-16 relative"
+      style="background-image: url('https://fienta.com/cf/img/?width=1070&dpr=1&format=webp&v=1764153816&gcs=true&file=/uploads/2025/11/157610/157610-et-251126124336.png'); background-size: cover; background-position: center;"
+    >
+      <div class="absolute inset-0 bg-slate-900/70"></div>
+      <div class="max-w-7xl mx-auto px-4 relative z-10">
         <div class="flex justify-between items-center mb-12">
-          <h2 class="text-4xl font-bold text-slate-900">
+          <h2 class="text-4xl font-bold text-white">
             {isEstonian ? 'Tulemas' : 'Upcoming'}
           </h2>
           <a
             href={`/${page.data.language}/${isEstonian ? 'kalender' : 'calendar'}/${isEstonian ? 'tulemas' : 'upcoming'}`}
-            class="text-blue-600 hover:text-blue-800 font-medium flex items-center gap-2"
+            class="text-blue-300 hover:text-blue-100 font-medium flex items-center gap-2"
           >
             {isEstonian ? 'Vaata kõiki' : 'View all'}
             <span aria-hidden="true">→</span>
