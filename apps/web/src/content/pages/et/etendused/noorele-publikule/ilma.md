@@ -48,33 +48,23 @@ premiere:
   venue_id: stl
 ---
 
-# Ilma
-
 Mis ilm meiega teeb või meie ilmaga, mis ilmast kuulda, näha? Mida toob homne ilm? Kas jääme oma ilmast ilma?
-
-**Esietendus:** 26. oktoober 2024, Sõltumatu Tantsu Lava
-**Kestus:** 1 tund
-**Soovitatav vanus:** alates 10. eluaastast
 
 Zuga Ühendatud Tantsijate mänguline tantsulavastus tegeleb ilma ja keskkonna teemaga: maaILM, ILMAteade, ILMA olemine. Koos publikuga uuritakse viise, kuidas ilm ja kliimamuutus meid mõjutab meie omas kehas ja omal nahal. Kas jõuame koos lahenduseni?
 
 Etendustele järgneb väike arutelu koos lavastajate ja publikuga, et avada veelgi lavastuses käsitletud teemasid.
 
-## Lavastusmeeskond
-
-**Lavastajad, koreograafid ja etendajad:** Tiina Mölder, Kärt Tõnisson, Helen Reitsnik, Ajjar Ausma, Päär Pärenson
-**Valguskunstnik:** Oliver Kulpsoo
-**Kostüümikunstnik:** Marta Konovalov
-**Lavakunstnik:** Marta Konovalov
+**Lavastajad, koreograafid ja etendajad:** Tiina Mölder, Kärt Tõnisson, Helen Reitsnik, Ajjar Ausma, Päär Pärenson  
+**Valguskunstnik:** Oliver Kulpsoo  
+**Kostüümikunstnik:** Marta Konovalov  
+**Lavakunstnik:** Marta Konovalov  
 **Helikunstnik:** Kalle Tikas
 
 **Täname:** Aet Annist, Kristjan Piirimäe, Maia-Liisa Anton, Kalamaja Kool, Tõnismäe Riidigümnaasium
 
-## Zuga Ühendatud Tantsijad
-
-Zuga Ühendatud Tantsijad on tantsijaid ja koreograafe koondav ühendus, mis on koos tegutsenud 1999. aastast. Nad on ainus järjepidevalt ja regulaarselt lastele tantsulavastusi loov kooslus Eestis. Zuga jaoks on lapsed ja suured võrdväärsed partnerid, kes jagavad sama maailma ja sama elamise ruumi.
-
-Nende lastelavastused on pälvinud tähelepanu ja mitmeid teatri- ja tantsuauhindu (Salme Reegi auhind, Draamakese auhind, Eesti teatri aastaauhind, Sõltumatu etenduskunsti auhind) ning nad on esinenud oma lavastustega nii Eestis kui väljaspool (Soomes, USA-s, Saksamaal, Leedus, Lätis, Hollandis, Palestiinas, Rootsis, Venemaal, Rumeenias, Horvaatias, Poolas, Inglismaal, Hiinas).
+**Esietendus:** 26. oktoober 2024, Sõltumatu Tantsu Lava  
+**Kestus:** 1 tund  
+**Soovitatav vanus:** alates 10. eluaastast
 
 ## Muljed publikult
 
