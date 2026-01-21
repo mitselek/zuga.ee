@@ -17,7 +17,7 @@ videos:
     url: https://www.youtube.com/embed/qp22v58UQnw
 ---
 
-# Etendused Noorele Publikule
+# Etendused noorele publikule
 
 ## Gallery
 

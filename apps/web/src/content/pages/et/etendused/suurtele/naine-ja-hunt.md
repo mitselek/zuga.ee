@@ -1,5 +1,5 @@
 ---
-title: Naine ja Hunt
+title: Naine ja hunt
 slug: naine-ja-hunt
 language: et
 description: Tantsulavastus kultuuride erinevustest ja kohtumisest. Kaja Kann ja Bush Hartshorn.
@@ -37,7 +37,7 @@ knowledge_base_sources:
     - persons/tiina-molder.md
 
 ---
-# Naine ja Hunt
+# Naine ja hunt
 
 Tantsulavastus kultuuride erinevustest, generatsioonide kohtumisest ja üksteise mõistmisest.
 

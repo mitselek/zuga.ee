@@ -1,5 +1,5 @@
 ---
-title: Tuleviku Liigutajad
+title: Tuleviku liigutajad
 slug: tuleviku-liigutajad
 language: et
 description: Kumu ja Zuga Ühendatud Tantsijate koostöö õppekäik

@@ -1,5 +1,5 @@
 ---
-title: Zuga Heliliikumistöötoad
+title: Zuga heliliikumistöötoad
 slug: zuga-heliliikumistootoad
 language: et
 description: Mängulist liikumisvõimalust pakkuvad audiojuhendiga töötoad

@@ -1,5 +1,5 @@
 ---
-title: Suur Teadmatus
+title: Suur teadmatus
 slug: suur-teadmatus
 language: et
 type: detail

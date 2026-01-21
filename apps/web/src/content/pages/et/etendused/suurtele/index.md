@@ -39,7 +39,7 @@ videos:
     url: https://www.youtube.com/embed/qp22v58UQnw
 ---
 
-# Etendused Suurtele
+# Etendused suurtele
 
 ## Gallery
 
