@@ -62,9 +62,7 @@ knowledge_base_sources:
 
 # Mis sul viga on?
 
-**Tööpealkiri**
-**Esietendus:** 20. märts 2026, kell 19:00, Sõltumatu Tantsu Lava
-**Koostöös:** Peaasi.ee
+**Esietendused:** 18. - 21. märts 2026, Sõltumatu Tantsu Lava
 
 ## Lavastusest
 
@@ -76,13 +74,6 @@ Lavastus “Mis sul viga on?” sünnib koostöös vaimse tervise eestkõneleja 
 Enne lavastuse loomisprotsessi käis Zuga koolides noortega teemat avamas ning läbis vaimse tervise esmaabikoolituse.
 
 Noorte inimeste pead tunduvad täiskasvanutele täiesti isevärki ja unikaalsed. Kõik, mis noori ümbritseb, mõjub kas hästi suurelt või liiga väikeselt; kas jube hästi või kohutavalt kehvasti või lihtsalt mõttetult. Täiskasvanud sügavad nõutult kukalt, mõned tublimad neist on lukustanud end laborisse, et lõpuks välja selgitada, kuidas noore inimese aju töötab. Nad kirjeldavad oma avastusi umbes nii: kujuta ette, et sa avad täiesti töötava arvuti korpuse; sa näed juhtmeid, mille otstes olevad pistikud on kõik kuhugi ühendatud; sa paned silmad kinni ja tõmbad mõned juhtmed välja nii, et need polegi enam ühendatud ja mõne juhtme välja nii, et üks ots on veel ühenduses arvutiga. Kujuta ette, et neid ühendusi on miljoneid ja kujuta ette, et enamus on kas täielikult või osaliselt ühendamata. Nüüd pane silmad kinni ja hakka neid miljoneid ühendusi uuesti kokku panema lootusega, et ehk õnnestub.
-
-## Koostöö
-
-**Peaasi.ee** - vaimse tervise platvorm
-**Asukoht:** Sõltumatu Tantsu Lava (STL), Telliskivi tänav 60a/9, 10412 Tallinn
-
----
 
 ## Piletid
 
