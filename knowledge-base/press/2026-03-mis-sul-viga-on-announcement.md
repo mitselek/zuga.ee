@@ -2,7 +2,7 @@
 date: 2025-12
 issued_date: 2025-12-01
 source_url: https://fienta.com/et/zuga-uhendatud-tantsijate-uuslavastus-157610
-performance: Mis Sul viga on?! (2026)
+performance: Mis sul viga on? (2026)
 type: announcement
 source_type: announcement
 language: et
@@ -19,14 +19,14 @@ archived_date: 2025-12-14
 
 # Zuga Ühendatud Tantsijate uuslavastus (2026)
 
-**Tööpealkiri:** "Mis Sul viga on?!"
+**Tööpealkiri:** "Mis sul viga on?"
 
 **Esietendus:** 21. märts 2026, kell 19:00-20:00
 **Koht:** Sõltumatu Tantsu Lava (STL), Telliskivi tänav 60a/9, 10412 Tallinn
 
 ## Lavastusest
 
-Zuga Ühendatud Tantsijate lavastus tööpealkirjaga "Mis Sul viga on?!" esietendub märtsis 2026. Lavastus sünnib koostöös Peaasi.ee-ga ning võtab vaatluse alla vaimse tervise ning üksteise märkamise temaatika.
+Zuga Ühendatud Tantsijate lavastus tööpealkirjaga "Mis sul viga on?" esietendub märtsis 2026. Lavastus sünnib koostöös Peaasi.ee-ga ning võtab vaatluse alla vaimse tervise ning üksteise märkamise temaatika.
 
 ## Koostöö
 

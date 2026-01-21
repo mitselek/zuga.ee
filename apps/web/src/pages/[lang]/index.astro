@@ -167,6 +167,17 @@ const pastEventDates = allEvents
   .slice(0, 5);
 
 const isEstonian = page.data.language === 'et';
+
+// Homepage promo banner: "Mis sul viga on?"
+// Look up by file id to be robust even if slug field changes.
+const misSulVigaOnPage =
+  isEstonian
+    ? allPages.find((p) =>
+        p.data.type === 'detail' &&
+        p.data.category === 'etendused' &&
+        p.id.endsWith('/etendused/noorele-publikule/mis-sul-viga-on.md'),
+      )
+    : undefined;
 ---
 
 <BaseLayout
@@ -203,6 +214,35 @@ const isEstonian = page.data.language === 'et';
       <div class={`prose prose-lg mx-auto ${page.data.hero_image ? 'prose-invert' : 'prose-slate'}`}>
         <Content />
       </div>
+
+      {misSulVigaOnPage && (
+        <a
+          href={`/${page.data.language}/${categoryTranslations.etendused?.[page.data.language] ?? 'etendused'}/${misSulVigaOnPage.data.slug ?? 'mis-sul-viga-on'}`}
+          class="mt-10 block max-w-2xl mx-auto rounded-2xl overflow-hidden border border-white/20 bg-white/10 backdrop-blur hover:bg-white/15 transition"
+          aria-label='Ava "Mis sul viga on?" leht'
+        >
+          <div
+            class="relative min-h-[180px] flex items-end"
+            style={`background-image: url('${misSulVigaOnPage.data.hero_image}'); background-size: cover; background-position: center;`}
+          >
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/35 to-slate-900/10"></div>
+            <div class="relative z-10 w-full p-6 text-left">
+              <div class="inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-xs font-semibold text-white/90 border border-white/20">
+                Tulemas
+              </div>
+              <h2 class="mt-3 text-2xl md:text-3xl font-bold text-white">
+                Mis sul viga on?
+              </h2>
+              <p class="mt-2 text-white/90">
+                {misSulVigaOnPage.data.description}
+              </p>
+              <div class="mt-4 text-sm font-semibold text-blue-200">
+                Vaata lähemalt <span aria-hidden="true">→</span>
+              </div>
+            </div>
+          </div>
+        </a>
+      )}
     </div>
   </section>
 

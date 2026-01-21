@@ -26,8 +26,8 @@ Profiles of ZUGA Ühendatud Tantsijad members and collaborators.
 
 #### March
 
-- **[Zuga Ühendatud Tantsijate uuslavastus "Mis Sul viga on?!"](press/2026-03-mis-sul-viga-on-announcement.md)**
-  - Performance: Mis Sul viga on?! (2026)
+- **[Zuga Ühendatud Tantsijate uuslavastus "Mis sul viga on?"](press/2026-03-mis-sul-viga-on-announcement.md)**
+  - Performance: Mis sul viga on? (2026)
   - Topics: Mental health, noticing each other, collaboration with Peaasi.ee
   - Type: Premiere announcement
   - Premiere: 21. märts 2026, Sõltumatu Tantsu Lava

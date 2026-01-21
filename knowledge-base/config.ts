@@ -243,7 +243,7 @@ export const pressSchema = z.object({
   publication: z.string().optional(), // Publication name (alternative to source)
 
   // Related content
-  performance: z.string().optional(), // Performance name with year, e.g., "Mis Sul viga on?! (2026)"
+  performance: z.string().optional(), // Performance name with year, e.g., "Mis sul viga on? (2026)"
   related_performances: z.array(z.string()).optional(), // Performance slugs/names
   tags: z.array(z.string()).optional(),
 
