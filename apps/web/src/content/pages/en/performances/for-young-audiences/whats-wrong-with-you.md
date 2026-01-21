@@ -84,4 +84,4 @@ _Information gathered from Zuga knowledge base_
 
 ---
 
-*Information gathered from Zuga Knowledge Base*
+_Information gathered from Zuga Knowledge Base_
