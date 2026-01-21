@@ -211,9 +211,6 @@ const misSulVigaOnPage =
       <p class={`text-xl md:text-2xl mb-8 ${page.data.hero_image ? 'text-white/90' : 'text-slate-600'}`}>
         {page.data.description}
       </p>
-      <div class={`prose prose-lg mx-auto ${page.data.hero_image ? 'prose-invert' : 'prose-slate'}`}>
-        <Content />
-      </div>
 
       {misSulVigaOnPage && (
         <a
@@ -243,6 +240,15 @@ const misSulVigaOnPage =
           </div>
         </a>
       )}
+    </div>
+  </section>
+
+  <!-- Meist Section -->
+  <section id="category-about" class="py-20 bg-slate-50">
+    <div class="max-w-4xl mx-auto px-4">
+      <div class="prose prose-lg mx-auto prose-slate">
+        <Content />
+      </div>
     </div>
   </section>
 

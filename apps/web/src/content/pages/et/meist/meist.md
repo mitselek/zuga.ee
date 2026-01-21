@@ -2,7 +2,7 @@
 title: Meist
 slug: meist
 language: et
-description: Zuga on teatri- ja etenduskunstide valdkonnas tegutsev organisatsioon, mis keskendub innovatiivsete ja kaasahaaravate etenduste loomisele ning publikuga suhtlemisele. Meie meeskond koosneb pühendunud professionaalidest, kes toovad lavale unustamatuid elamusi nii noorele publikule kui ka täiskasvanutele. Lisaks etendustele korraldame töötubasid ja haridusprogramme, et toetada loomingulist arengut ja kultuurilist mitmekesisust. Zuga eesmärk on rikastada kogukonda läbi kunsti ja luua platvorm, kus igaüks saab avastada teatri võlu. Liitu meiega ja saa osa Zuga maailmast!
+description: Zuga Ühendatud Tantsijad on tantsijaid ja koreograafe koondav ühendus, kes on üle 20 aasta tegelenud liikumise kaudu koos loomise ja publiku kaasamisega.
 type: section
 category: about
 order: 101
@@ -15,3 +15,7 @@ videos:
     title: Zuga video tervitus
     url: https://www.youtube.com/embed/qp22v58UQnw
 ---
+
+## Meist
+
+Zuga Ühendatud Tantsijad on tantsijaid ja koreograafe koondav ühendus. Nad on juba üle 20 aasta tegelenud liikumise kaudu koos loomise, publiku kaasamise ja ühiskondlike teemade käsitlemisega. Zuga lavastused ei sünni ainult kinnises stuudios, vaid elus – koostöös kogukondade, laste, noorte ja vaatajatega, nende töid iseloomustab soojus, vahetus ning publiku usaldamine. Nende lastelavastused on pälvinud tähelepanu ja mitmeid teatri- ja tantsuauhindu (Salme Reegi auhind, Draamakese auhind, Eesti teatri aastaauhind, Sõltumatu etenduskunsti auhind, jne) ning nad on esinenud oma lavastustega nii Eestis kui väljaspool.
