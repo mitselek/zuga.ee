@@ -17,7 +17,7 @@ credits:
 translated:
   - language: en
     slug: whats-wrong-with-you
-hero_image: https://fienta.com/cf/img/?width=1070&dpr=1&format=webp&v=1764153816&gcs=true&file=/uploads/2025/11/157610/157610-et-251126124336.png
+hero_image: /images/performances/mis-sul-viga-on/mis-sul-viga-on-visull.jpeg
 premiere:
   date: "2026-03-20"
   time: "19:00"
@@ -62,7 +62,7 @@ knowledge_base_sources:
 
 # Mis sul viga on?
 
-**Esietendused:** 18. - 21. märts 2026, Sõltumatu Tantsu Lava
+**Esietendused:** 18. - 21. märtsil 2026 Sõltumatu Tantsu Laval
 
 ## Lavastusest
 
