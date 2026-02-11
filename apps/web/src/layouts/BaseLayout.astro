@@ -26,17 +26,17 @@ const defaultOgImage = `${siteUrl}/og-image.jpg`;
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{title} | {language === 'et' ? 'ZUGA ühendatud tantsijad' : 'United Dancers of ZUGA'}</title>
+    <title>{title} | {language === 'et' ? 'Zuga Ühendatud Tantsijad' : 'United Dancers of ZUGA'}</title>
 
     <!-- SEO Meta Tags -->
     <meta name="description" content={pageDescription} />
-    <meta name="author" content={language === 'et' ? 'ZUGA ühendatud tantsijad' : 'United Dancers of ZUGA'} />
+    <meta name="author" content={language === 'et' ? 'Zuga Ühendatud Tantsijad' : 'United Dancers of ZUGA'} />
     <link rel="canonical" href={currentUrl} />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content={currentUrl} />
-    <meta property="og:title" content={`${title} | ${language === 'et' ? 'ZUGA ühendatud tantsijad' : 'United Dancers of ZUGA'}`} />
+    <meta property="og:title" content={`${title} | ${language === 'et' ? 'Zuga Ühendatud Tantsijad' : 'United Dancers of ZUGA'}`} />
     <meta property="og:description" content={pageDescription} />
     <meta property="og:image" content={ogImage || defaultOgImage} />
     <meta property="og:locale" content={language === 'et' ? 'et_EE' : 'en_US'} />
@@ -44,7 +44,7 @@ const defaultOgImage = `${siteUrl}/og-image.jpg`;
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:url" content={currentUrl} />
-    <meta name="twitter:title" content={`${title} | ${language === 'et' ? 'ZUGA ühendatud tantsijad' : 'United Dancers of ZUGA'}`} />
+    <meta name="twitter:title" content={`${title} | ${language === 'et' ? 'Zuga Ühendatud Tantsijad' : 'United Dancers of ZUGA'}`} />
     <meta name="twitter:description" content={pageDescription} />
     <meta name="twitter:image" content={ogImage || defaultOgImage} />
 
@@ -62,10 +62,10 @@ const defaultOgImage = `${siteUrl}/og-image.jpg`;
       <header class="md:relative sticky top-0 z-40 bg-white md:bg-white/90 md:backdrop-blur-md shadow-md">
         <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4" role="navigation" aria-label="Main navigation">
           <div class="flex items-center justify-between gap-4">
-            <a href={`/${language}/`} class="flex items-center gap-3 group shrink-0" aria-label={language === 'et' ? 'ZUGA ühendatud tantsijad - Avaleht' : 'United Dancers of ZUGA - Home'}>
+            <a href={`/${language}/`} class="flex items-center gap-3 group shrink-0" aria-label={language === 'et' ? 'Zuga Ühendatud Tantsijad - Avaleht' : 'United Dancers of ZUGA - Home'}>
               <img src="/logo.svg" alt="ZUGA logo" class="h-12 sm:h-14 lg:h-16 w-auto" />
               <span class="text-lg sm:text-xl lg:text-2xl font-bold group-hover:text-accent transition-colors hidden sm:block" style="font-family: var(--font-heading); color: var(--color-primary);">
-                {language === 'et' ? 'ZUGA ühendatud tantsijad' : 'United Dancers of ZUGA'}
+                {language === 'et' ? 'Zuga Ühendatud Tantsijad' : 'United Dancers of ZUGA'}
               </span>
             </a>
 
