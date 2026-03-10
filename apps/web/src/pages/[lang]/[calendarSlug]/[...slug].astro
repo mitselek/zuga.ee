@@ -4,6 +4,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import LanguageSwitcher from '../../../components/LanguageSwitcher.astro';
 import PageHero from '../../../components/PageHero.astro';
 import EventList from '../../../components/EventList.astro';
+import { getCategoryUrl } from '../../../utils/routes';
 
 export async function getStaticPaths() {
   const pages = await getCollection('pages', ({ data }) => {
@@ -14,7 +15,7 @@ export async function getStaticPaths() {
 
   // Create routes for main calendar pages and sub-pages
   for (const page of pages) {
-    const calendarSlug = page.data.language === 'et' ? 'kalender' : 'calendar';
+    const calendarSlug = getCategoryUrl('kalender', page.data.language);
 
     // Main calendar page (kalender/calendar) - route should be /{lang}/kalender or /{lang}/calendar
     if (page.data.slug === 'kalender' || page.data.slug === 'calendar') {
@@ -43,7 +44,7 @@ export async function getStaticPaths() {
   // These are dynamic routes that query events
   const languages = ['et', 'en'];
   for (const lang of languages) {
-    const calendarSlug = lang === 'et' ? 'kalender' : 'calendar';
+    const calendarSlug = getCategoryUrl('kalender', lang);
 
     // Upcoming page
     paths.push({
@@ -120,7 +121,7 @@ const todayEstonia = new Date(today.getTime() + estoniaOffset * 60000);
 const todayStr = todayEstonia.toISOString().split('T')[0]; // YYYY-MM-DD
 
 const currentLang = pageData.data.language;
-const calendarSlug = currentLang === 'et' ? 'kalender' : 'calendar';
+const calendarSlug = getCategoryUrl('kalender', currentLang);
 
 // Get all events (performances and workshops) with premiere or showings
 const allEvents = await getCollection('pages', ({ data }) => {
@@ -208,7 +209,7 @@ if (slug === 'tulemas' || slug === 'upcoming') {
 
 // Compute alternate language URL for hreflang
 const altLang = currentLang === 'et' ? 'en' : 'et';
-const altCalendarSlug = altLang === 'et' ? 'kalender' : 'calendar';
+const altCalendarSlug = getCategoryUrl('kalender', altLang);
 let altSubSlug = slug;
 if (slug === 'tulemas' || slug === 'upcoming') altSubSlug = altLang === 'et' ? 'tulemas' : 'upcoming';
 else if (slug === 'olnud' || slug === 'past') altSubSlug = altLang === 'et' ? 'olnud' : 'past';
