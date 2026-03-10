@@ -45,3 +45,15 @@
 [DEFERRED] 2026-03-10 — og-image.jpg uses meist-bg.jpg cropped to 1200x630 but top edge is slightly awkward (head/text slightly cropped). Functional for now (#66 closed), but a purpose-composed horizontal OG image would be better long-term.
 
 [DEFERRED] 2026-03-10 — Many performances have no premiere at all (habi, hool, mura, naine-ja-hunt, meelekolu, zugazuugzuh-zuh-zuh, uperpall on ET side; shame, woman-and-wolf, care, noise, inthemood, zugazuugzuh on EN side). These are older performances - probably intentional but adds calendar incompleteness.
+
+## Session: 2026-03-11
+
+[CHECKPOINT] 2026-03-11 — Two research tasks completed this session: PNG optimization audit (#73) and etenduste reorganiseerimise mõjuanalüüs (#63).
+
+[LEARNED] 2026-03-11 — PNG audit (#73): All 6 PNGs in public/images/ are safe to convert to WebP. Despite RGBA color_type, all have 100% opaque pixels (confirmed via Pillow+numpy). Total 19.6MB → ~566KB WebP Q85 (97% reduction). Files are used as CSS background-images, NOT Astro <Image> — must convert manually with `convert {name}.png -quality 85 {name}.webp` and update src references in .astro files.
+
+[LEARNED] 2026-03-11 — #63 impact analysis: Reorganising etendused (removing suurtele/noorele-publikule subcategories) affects ~9 source files. Detail page URLs (/et/etendused/{slug}) do NOT change — they already skip subcategory in the URL. Only the 4 subcategory landing pages need redirects. 6/14 performances lack premiere date — chronological sort policy needed for those.
+
+[DEFERRED] 2026-03-11 — #63 decision needed: What to do with performances lacking premiere date when sorting chronologically (lõppu? eraldi grupp "kuupäev teadmata"?). Team-lead must decide before implementation.
+
+[PATTERN] 2026-03-11 — Subcategory logic is centralized in: routes.ts (SUBCATEGORY_URLS), [subcategory].astro (template), index.astro (getSubsections/hasSubsections), SectionNavigator.astro (2 hardcoded entries). No subcategory logic in [slug].astro or Navigation.astro.

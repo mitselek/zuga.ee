@@ -1,47 +1,58 @@
 # Riidik — Product Owner Scratchpad
 
-## Session started: 2026-03-10
+## [CHECKPOINT] 2026-03-11 — Session complete
 
-[LEARNED 2026-03-10] Content inventory — two performance categories:
+### Site Status (post-session)
 
-- **Noorele publikule** (8 shows): 2+2=22, Ilma, Käik, meeleKolu, Mis sul viga on?, Uperpall, Võluvärk, Zuga zuug zuh-zuh-zuh
-- **Suurtele** (6 shows): Häbi, Hool, Müra, Naine ja hunt, Suur teadmatus, Tempo
+**Build:** 54 pages, 0 errors, 0 warnings
+**Tests:** 360/360 (4 files: bilingual-pairing, asset-existence, schema-validation, event-scheduling)
+**Active production:** "Mis sul viga on?" — premiere 19 March 2026 (8 days away)
 
-[LEARNED 2026-03-10] "Mis sul viga on?" is the active new production:
+### What was fixed this session (all merged)
 
-- Premiere 20 March 2026 at STL (3 days: 19-21 March)
-- Tour: Haapsalu 25.03, Türi 01.04, Rapla 02.04, + May dates TBD venue
-- Tickets live on Fienta + school groups Google Form
-- Made in collaboration with Peaasi.ee (mental health)
-- hero_video field used (recently added schema feature)
-- EN page slug: whats-wrong-with-you
+**P0 — before premiere:**
+- #65 — 7 broken language-switcher links (legacy translated slugs) ✓
+- #67 — school_groups + age_recommendation + credits + collaboration added to Zod schema ✓
+- #64 — PerformanceGallery prop mismatch (items → images) ✓
 
-[PATTERN 2026-03-10] Bilingual structure: ET content under `et/`, EN under `en/`, linked via `translated` frontmatter. Not all shows have EN translations yet (e.g. meeleKolu has EN but odd slug).
+**Infrastructure:**
+- #70 — Vitest setup + 3 test files (238 → now 360 tests) ✓
+- #66 — og-image.jpg added (1200x630, 130KB) ✓
+- #68 — video preload=metadata + iframe lazy loading ✓
+- #69 — ogImage passed to BaseLayout from all templates ✓
+- #71 — EventCard URL translated for EN ✓
+- #72 — hreflang tags in BaseLayout ✓
+- routes.ts — centralized category/subcategory URL maps ✓
+- Calendar templates merged (duplicate removed, build warnings gone) ✓
+- #73 — PNG → WebP (19.7MB → 566KB, 97% savings) ✓
+- #74 — JSON-LD Organization + DanceEvent structured data ✓
+- #63 — Performances flattened chronologically (subcategories removed, 4 Netlify redirects) ✓
+- #54 — Event scheduling tests (134 new tests) ✓
+- Dead placeholder files removed (4 files) ✓
 
-[DEFERRED 2026-03-10] May showings (20-22 May) have no venue_id — need to confirm if STL or elsewhere.
+### [DEFERRED] 2026-03-11 — Backlog items
 
-[DEFERRED 2026-03-10] Several older shows missing hero_image or have Google Drive URLs (index pages for suurtele/noorele) — cleanup candidate but low urgency.
+- May showings (20-22 May) in "Mis sul viga on?" have no venue_id — needs confirmation
+- Häbi ET + Shame EN pages have placeholder content only — need real description
+- inthemood EN uses legacy Google CDN image URLs (broken) — P1
+- Ilma + Hool (2024 productions) have no upcoming dates shown — need "enquire for bookings" signal
+- premiere date 2026-03-20 duplicated in both `premiere` and `showings` array in mis-sul-viga-on
+- `etendused.md` body text still says "nii suurtele kui noorele publikule" — outdated after #63
+- legacy `original_url` fields still have subcategory-based paths (cosmetic)
+- etendused-suurtele-habi-hero.jpg filename is legacy (works, cosmetic)
 
-[LEARNED 2026-03-10] Performance status audit:
+### [LEARNED] 2026-03-11
 
-- **ACTIVE (upcoming 2026):** Mis sul viga on? (Mar-May 2026)
-- **RECENTLY ACTIVE (2024, may tour again):** Ilma (premiere Oct 2024, no future showings in content)
-- **ARCHIVED (no future dates):** 2+2=22 (2019), Käik (2014), meeleKolu (2016), Uperpall (2022), Võluvärk (2011), Zuga zuug zuh-zuh-zuh (2009), Häbi, Hool (Sep 2024), Müra (2019), Naine ja hunt (2006), Suur teadmatus (2022), Tempo (2018)
-- **WORKSHOPS (bookable, evergreen):** meeleKolu mängud, Tuleviku liigutajad (2021-22 Kumu), Heliliikumistöötoad (Fienta on sale), Liikumispausid (free), Liikumise töötuba peredele
+- Performances are now flat: `/et/etendused/{slug}` and `/en/performances/{slug}` — no subcategories
+- routes.ts is single source of truth for category/subcategory URL translation
+- Test suite runs in 400ms — fast enough for pre-commit hook
+- venue_id values use short IDs (e.g. `stl`) not filenames (`soltumatu-tantsu-lava`) — both accepted in tests
+- Zod schema now in `src/content/schema.ts` (importable without Astro runtime)
+- JSON-LD DanceEvent generated per showing date, timezone +02:00, venue from knowledge-base
+- 4 Netlify 301 redirects cover old subcategory URLs
 
-[GOTCHA 2026-03-10] meeleKolu ET page has broken translated slug:
+### [PATTERN] 2026-03-11
 
-- ET `translated.slug` = "performances-for-young-audiences-inthemood" (old full-path style)
-- Actual EN file slug = "inthemood"
-- LanguageSwitcher builds URL as /en/performances/performances-for-young-audiences-inthemood → 404
-- Fix: change ET meeleKolu `translated[0].slug` to "inthemood"
-
-[GOTCHA 2026-03-10] school_groups field in tickets frontmatter (mis-sul-viga-on ET+EN) is NOT in Zod schema — silently ignored. Build passes (Zod strips unknown keys). The school groups booking URL is lost at the data layer. Either add to schema or keep only in markdown body.
-
-[GOTCHA 2026-03-10] Häbi ET + Shame EN pages have placeholder content ("This performance features 7 gallery images. Fotogalerii etendusest Häbi") — no real description. Same for inthemood EN, and several other EN pages.
-
-[GOTCHA 2026-03-10] Build produces 3 routing warnings about /et/kalender conflicts. Pages still build correctly (dist/et/kalender/ exists). Low priority noise but worth cleaning up.
-
-[GOTCHA 2026-03-10] No automated tests exist (no vitest, playwright, or any .test.\* files). The only quality gate is `npm run build`. Zero test coverage.
-
-[LEARNED 2026-03-10] Credits and collaboration frontmatter fields are NOT in schema — silently stripped. This means structured credit data is inaccessible in templates. Body text has the credits manually as markdown.
+- Review flow: read commit diff → verify dist output → run tests → approve/flag
+- All inline category URL maps replaced by `getCategoryUrl()` from routes.ts
+- Schema changes always need build + test verification (Zod strips unknown keys silently)
