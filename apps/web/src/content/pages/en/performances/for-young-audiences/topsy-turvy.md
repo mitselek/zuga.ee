@@ -9,7 +9,7 @@ status: published
 hero_image: /images/etendused-uperpall-hero.jpg
 translated:
   - language: et
-    slug: etendused-noorele-publikule-uperpall
+    slug: uperpall
 gallery:
   - url: /images/etendused-uperpall-1.jpg
     width: 1500

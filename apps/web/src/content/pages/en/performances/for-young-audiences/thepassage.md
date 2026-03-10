@@ -17,7 +17,7 @@ awards:
   - Performing Arts Award 2015
 translated:
   - language: et
-    slug: etendused-noorele-publikule-kaeik
+    slug: kaeik
 hero_image: /images/kaik-web-14.jpg
 gallery:
   - url: /images/kaik-web-2.jpg

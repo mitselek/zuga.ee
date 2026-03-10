@@ -15,7 +15,7 @@ age_recommendation: 4-7
 duration: 40
 translated:
   - language: et
-    slug: etendused-noorele-publikule-voluvaerk
+    slug: voluvaerk
 gallery:
   - url: https://lh3.googleusercontent.com/xABuU3GZGGZYOGc0ST3szbCwPHBwgWSOElzU44j6GSM7ItgAbXLgMjUZbIDAT44Lb4mvE3F0QUq88wlgfcc7MCi6t3gWF-pBOjv8g9D6Q3dLIYQNuyKlAo-MvhAttOZ3rA=w1280
     width: 1280

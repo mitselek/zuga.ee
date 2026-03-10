@@ -16,7 +16,7 @@ collaboration: Kumu Art Museum, Independent Dance Stage
 related_exhibition: Jeremy Shaw. Phase Shifting Index
 translated:
   - language: et
-    slug: workshopid-tuleviku-liigutajad
+    slug: tuleviku-liigutajad
 hero_image: /images/tuleviku-liigutajad-hero.jpg
 videos:
   - platform: youtube
