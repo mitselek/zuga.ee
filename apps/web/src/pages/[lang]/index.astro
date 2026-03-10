@@ -38,7 +38,6 @@ const sections = allPages
   .filter(p => {
     return p.data.type === 'section' &&
            p.data.page_type === 'landing' &&
-           !p.data.subcategory &&
            !excludeCategories.includes(p.data.category);
   })
   .sort((a, b) => {
@@ -48,19 +47,19 @@ const sections = allPages
     return a.data.category.localeCompare(b.data.category);
   });
 
-// Helper function to get detail items for a category
+// Helper function to get detail items for a category, sorted by premiere date
 const getDetailItems = (category: string) =>
-  allPages.filter(p => p.data.category === category && p.data.type === 'detail');
-
-// Helper function to get subsections for a category
-const getSubsections = (category: string) =>
   allPages
-    .filter(p => p.data.category === category && p.data.page_type === 'landing' && p.data.subcategory)
+    .filter(p => p.data.category === category && p.data.type === 'detail')
     .sort((a, b) => {
-      const orderA = a.data.order ?? 999;
-      const orderB = b.data.order ?? 999;
-      if (orderA !== orderB) return orderA - orderB;
-      return (a.data.subcategory || '').localeCompare(b.data.subcategory || '');
+      const dateA = a.data.premiere?.date ?? '';
+      const dateB = b.data.premiere?.date ?? '';
+      // Both have dates: newest first
+      if (dateA && dateB) return dateB.localeCompare(dateA);
+      // Items without premiere go to the end
+      if (dateA && !dateB) return -1;
+      if (!dateA && dateB) return 1;
+      return a.data.title.localeCompare(b.data.title);
     });
 
 // Get 5 upcoming events for homepage
@@ -146,7 +145,7 @@ const misSulVigaOnPage =
     ? allPages.find((p) =>
         p.data.type === 'detail' &&
         p.data.category === 'etendused' &&
-        p.id.endsWith('/etendused/noorele-publikule/mis-sul-viga-on.md'),
+        p.id.endsWith('/etendused/mis-sul-viga-on.md'),
       )
     : undefined;
 ---
@@ -282,8 +281,6 @@ const misSulVigaOnPage =
   <!-- Dynamic Sections -->
   {sections.map(async (section, index) => {
     const detailItems = getDetailItems(section.data.category);
-    const subsections = getSubsections(section.data.category);
-    const hasSubsections = subsections.length > 0;
 
     // Render section markdown content
     const { Content: SectionContent } = await section.render();
@@ -315,71 +312,23 @@ const misSulVigaOnPage =
           </div>
         )}
 
-        {hasSubsections ? (
-          // Render subsections (e.g., Suurtele, Noorele Publikule)
-          <>
-            {subsections.map(subsection => {
-              const subsectionItems = detailItems.filter(p => p.data.subcategory === subsection.data.subcategory);
-              return (
-                <div
-                  id={`category-${subsection.data.subcategory}`}
-                  class="mb-16 rounded-lg p-8 relative"
-                  style={subsection.data.hero_image ? `background-image: url('${subsection.data.hero_image}'); background-size: cover; background-position: center;` : ''}
-                >
-                  {subsection.data.hero_image && (
-                    <div class="absolute inset-0 bg-gradient-to-b from-slate-900/70 to-slate-900/50 rounded-lg"></div>
-                  )}
-                  <div class="relative z-10">
-                    <h3 class={`text-2xl font-semibold mb-6 ${subsection.data.hero_image ? 'text-white' : 'text-slate-800'}`}>
-                      {subsection.data.title}
-                    </h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                      {subsectionItems.map(item => {
-                        let slug = item.id.replace(/^(en|et)\//, '').replace(/\.md$/, '');
-                        // Extract just filename if nested in folders
-                        if (slug.includes('/')) {
-                          slug = slug.split('/').pop() || slug;
-                        }
-                        // Translate category for URL
-                        const translatedCategory = categoryTranslations[item.data.category]?.[page.data.language] || item.data.category;
-                        return (
-                          <ContentCard
-                            title={item.data.title}
-                            description={item.data.description}
-                            href={`/${page.data.language}/${translatedCategory}/${slug}`}
-                            subcategory={subsection.data.title}
-                            image={item.data.hero_image}
-                          />
-                        );
-                      })}
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
-          </>
-        ) : (
-          // Render regular detail items in grid
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {detailItems.map(item => {
-              let slug = item.id.replace(/^(en|et)\//, '').replace(/\.md$/, '');
-              // Extract just filename if nested in folders
-              if (slug.includes('/')) {
-                slug = slug.split('/').pop() || slug;
-              }
-              // Translate category for URL
-              const translatedCategory = categoryTranslations[item.data.category]?.[page.data.language] || item.data.category;
-              return (
-                <ContentCard
-                  title={item.data.title}
-                  description={item.data.description}
-                  href={`/${page.data.language}/${translatedCategory}/${slug}`}
-                  image={item.data.hero_image}
-                />
-              );
-            })}
-          </div>
-        )}
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {detailItems.map(item => {
+            let slug = item.id.replace(/^(en|et)\//, '').replace(/\.md$/, '');
+            if (slug.includes('/')) {
+              slug = slug.split('/').pop() || slug;
+            }
+            const translatedCategory = categoryTranslations[item.data.category]?.[page.data.language] || item.data.category;
+            return (
+              <ContentCard
+                title={item.data.title}
+                description={item.data.description}
+                href={`/${page.data.language}/${translatedCategory}/${slug}`}
+                image={item.data.hero_image}
+              />
+            );
+          })}
+        </div>
       </HomeSection>
     );
   })}

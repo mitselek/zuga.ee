@@ -9,6 +9,27 @@
   status = 301
   force = true
 
+# Subcategory redirects (flattened to single performances list)
+[[redirects]]
+  from = "/et/etendused/suurtele/*"
+  to = "/et/etendused/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/et/etendused/noorele-publikule/*"
+  to = "/et/etendused/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/en/performances/for-adults/*"
+  to = "/en/performances/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/en/performances/for-young-audiences/*"
+  to = "/en/performances/:splat"
+  status = 301
+
 [[headers]]
   for = "/*"
   [headers.values]

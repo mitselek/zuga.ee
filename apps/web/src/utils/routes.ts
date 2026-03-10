@@ -1,6 +1,6 @@
 /**
  * Centralized URL translation maps for bilingual routing.
- * Maps internal category/subcategory names to language-specific URL slugs.
+ * Maps internal category names to language-specific URL slugs.
  */
 
 export const CATEGORY_URLS: Record<string, Record<string, string>> = {
@@ -13,15 +13,6 @@ export const CATEGORY_URLS: Record<string, Record<string, string>> = {
   kalender: { en: 'calendar', et: 'kalender' },
 };
 
-export const SUBCATEGORY_URLS: Record<string, Record<string, string>> = {
-  'noorele-publikule': { en: 'for-young-audiences', et: 'noorele-publikule' },
-  'suurtele': { en: 'for-adults', et: 'suurtele' },
-};
-
 export function getCategoryUrl(category: string, lang: string): string {
   return CATEGORY_URLS[category]?.[lang] || category;
-}
-
-export function getSubcategoryUrl(subcategory: string, lang: string): string {
-  return SUBCATEGORY_URLS[subcategory]?.[lang] || subcategory;
 }
