@@ -918,18 +918,27 @@
       function gauge(pct, label) {
         const clamped = Math.max(0, Math.min(100, pct));
         const color = clamped < 50 ? '#3fb950' : clamped < 80 ? '#d29922' : '#f85149';
-        const r = 24, cx = 32, cy = 28, sw = 5;
-        const angle = Math.PI - (clamped / 100) * Math.PI;
-        const x = cx + r * Math.cos(angle);
-        const y = cy - r * Math.sin(angle);
-        const largeArc = clamped > 50 ? 1 : 0;
-        const arcPath = `M ${cx - r} ${cy} A ${r} ${r} 0 ${largeArc} 1 ${x.toFixed(1)} ${y.toFixed(1)}`;
-        const bgPath = `M ${cx - r} ${cy} A ${r} ${r} 0 1 1 ${cx + r} ${cy}`;
+        // 120° arc gauge — compact, number at right end
+        const r = 16, cx = 18, cy = 20, sw = 4;
+        const startAngle = 5 * Math.PI / 6; // 150°
+        const totalSweep = 2 * Math.PI / 3; // 120°
+        const sx = (cx + r * Math.cos(startAngle)).toFixed(1);
+        const sy = (cy - r * Math.sin(startAngle)).toFixed(1);
+        const endAngle = startAngle - totalSweep; // 30°
+        const ex = (cx + r * Math.cos(endAngle)).toFixed(1);
+        const ey = (cy - r * Math.sin(endAngle)).toFixed(1);
+        const bgPath = `M ${sx} ${sy} A ${r} ${r} 0 0 1 ${ex} ${ey}`;
+        const angle = startAngle - (clamped / 100) * totalSweep;
+        const fx = (cx + r * Math.cos(angle)).toFixed(1);
+        const fy = (cy - r * Math.sin(angle)).toFixed(1);
+        const arcPath = clamped >= 100
+          ? bgPath
+          : `M ${sx} ${sy} A ${r} ${r} 0 0 1 ${fx} ${fy}`;
         return `<div class="gauge">
-          <svg width="64" height="36" viewBox="0 0 64 36">
+          <svg width="58" height="24" viewBox="0 0 58 24">
             <path d="${bgPath}" fill="none" stroke="#30363d" stroke-width="${sw}" stroke-linecap="round"/>
             ${clamped > 0 ? `<path d="${arcPath}" fill="none" stroke="${color}" stroke-width="${sw}" stroke-linecap="round"/>` : ''}
-            <text x="${cx}" y="${cy}" text-anchor="middle" fill="${color}" font-size="11" font-family="inherit" font-weight="bold">${clamped}%</text>
+            <text x="35" y="16" text-anchor="start" fill="${color}" font-size="10" font-family="inherit" font-weight="bold">${clamped}%</text>
           </svg>
           <span class="gauge-label">${label}</span>
         </div>`;
