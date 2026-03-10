@@ -5,9 +5,9 @@
 
 [[redirects]]
   from = "/"
-  to = "/et/index"
-  status = 302
-  force = false
+  to = "/et/"
+  status = 301
+  force = true
 
 [[headers]]
   for = "/*"
