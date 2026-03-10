@@ -100,7 +100,7 @@ const currentSlug = page.data.slug || page.id.replace(/^(en|et)\//, '').replace(
       <h2 class="text-3xl font-bold mb-8 text-center" style="font-family: var(--font-heading); color: var(--color-primary);">
         {page.data.language === 'et' ? 'Galerii' : 'Gallery'}
       </h2>
-      <PerformanceGallery items={page.data.gallery} />
+      <PerformanceGallery images={page.data.gallery} />
     </section>
   )}
 
