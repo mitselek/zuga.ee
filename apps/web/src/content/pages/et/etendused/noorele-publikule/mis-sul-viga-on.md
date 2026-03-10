@@ -86,7 +86,7 @@ knowledge_base_sources:
 
 **Esietendused:** 18. - 21. märtsil 2026 Sõltumatu Tantsu Laval
 
-Zuga uus lavastus võtab kampa vaimse tervise raskused – selle nähtamatu osa inimesest, mille kohta on olemas sõnad, raamid ja raviteed, kuid mis kogemuses on sageli suurem kui ükski seletus. Nagu suur ja tundlik loom, elab ta meie kodus, meie toas, meie teki all, meie peas. Mis ta tahab meist? Mida ta vajab? Mis tal viga on?
+Zuga uus lavastus võtab kampa vaimse tervise. Nagu suur ja tundlik loom, elab ta meie kodus, meie toas, meie teki all, meie peas. Mis ta tahab meist? Mida ta vajab? Mis tal viga on?
 
 Noortel on iga päev kuklas sõda, kliima, päevapoliitika, koolivahetus, vanemate lahutus ja nõme vanem vend. Sellest on juba küll. See on isegi rohkem kui küll. Aga ei, lisame veel tähelepanumajanduse, ekstreemseid seisukohti nõudvad algorütmid ja valeinfot levitavad botiarmeed. Miks siis, olles ise ka selle kõigega kursis, küsivad täiskasvanud noortelt ikka, et "Mis sul viga on?”.
 

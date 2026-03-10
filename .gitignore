@@ -119,3 +119,6 @@ apps/web/src/content/pages.backup.*/
 apps/web/src/content/pages/**/*.backup.*/
 knowledge-base.backup.*/
 knowledge-base/**/*.backup.*/
+
+# Local Netlify folder
+.netlify
