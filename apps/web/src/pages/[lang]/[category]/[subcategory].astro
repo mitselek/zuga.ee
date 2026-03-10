@@ -83,7 +83,9 @@ const subcategoryUrls: Record<string, Record<string, string>> = {
 };
 const altCategoryUrl = categoryUrls[page.data.category]?.[altLang] || page.data.category;
 const altSubcategoryUrl = subcategoryUrls[page.data.subcategory]?.[altLang] || page.data.subcategory;
-const alternateUrl = translation ? `/${altLang}/${altCategoryUrl}/${altSubcategoryUrl}` : undefined;
+const alternateUrl = translation
+  ? `/${altLang}/${altCategoryUrl}/${translation.slug}`
+  : `/${altLang}/${altCategoryUrl}/${altSubcategoryUrl}`;
 ---
 
 <BaseLayout
