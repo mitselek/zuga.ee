@@ -199,7 +199,7 @@ interface Task {
 interface HealthData {
   git: { branch: string; clean: boolean; ahead: number; behind: number } | null;
   ci: { repo: string; status: string; conclusion: string | null; name: string; updatedAt: string }[];
-  cd: never[];
+  cd: { script: string; deployedAt: string; id: string }[];
   agentStats: { total: number; active: number; idle: number; avgContextPct: number | null };
   system: { memUsedMb: number; memTotalMb: number; swapUsedMb: number; swapTotalMb: number; cpuPct: number; uptimeMin: number; gpu: { name: string; vramUsedMb: number; vramTotalMb: number; tempC: number; gpuPct: number } | null };
 }
@@ -653,8 +653,35 @@ async function getCIHealth(): Promise<HealthData["ci"]> {
 }
 
 async function getCDHealth(): Promise<HealthData["cd"]> {
-  // No CD integration for zuga.ee (Netlify auto-deploys from main)
-  return [];
+  // Netlify auto-deploys from main. Use latest commit + build check as deploy proxy.
+  const results: HealthData["cd"] = [];
+  try {
+    const repo = GITHUB_REPOS[0];
+    // Get latest commit on main as deploy timestamp
+    const { stdout: commitJson } = await execFileAsync("gh", [
+      "api", `repos/${repo}/commits/main`,
+      "--jq", '{ sha: .sha, date: .commit.committer.date }',
+    ]);
+    const commit = JSON.parse(commitJson.trim());
+
+    // Check if the Astro Build check passed (confirms successful deploy)
+    const { stdout: checksJson } = await execFileAsync("gh", [
+      "api", `repos/${repo}/commits/main/check-runs`,
+      "--jq", '[.check_runs[] | select(.name == "Astro Build Check") | { status: .status, conclusion: .conclusion }]',
+    ]);
+    const checks = JSON.parse(checksJson.trim());
+    const buildCheck = checks[0];
+    const deployOk = buildCheck?.conclusion === "success";
+
+    if (commit.date) {
+      results.push({
+        script: "netlify-production",
+        deployedAt: commit.date,
+        id: deployOk ? `${commit.sha.slice(0, 7)} ✓` : `${commit.sha.slice(0, 7)} pending`,
+      });
+    }
+  } catch { /* best effort */ }
+  return results;
 }
 
 function getAgentStats(agents: Agent[]): HealthData["agentStats"] {
