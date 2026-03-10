@@ -1,5 +1,6 @@
 ---
 import VenueInfo from './VenueInfo.astro';
+import { getCategoryUrl } from '../utils/routes';
 
 interface EventDate {
   date: string;
@@ -44,14 +45,8 @@ const showingNotes = event.type === 'showing' && event.page.data.showings?.find(
   (s: any) => s.date === event.date
 )?.notes;
 
-// Category translation mapping for URLs
-const categoryUrlMap: Record<string, Record<string, string>> = {
-  etendused: { en: 'performances', et: 'etendused' },
-  workshopid: { en: 'workshops', et: 'workshopid' },
-};
-const categoryUrl = categoryUrlMap[event.page.data.category]?.[language] || event.page.data.category;
-
 // Event link URL
+const categoryUrl = getCategoryUrl(event.page.data.category, language);
 const eventUrl = `/${language}/${categoryUrl}/${pageSlug}`;
 ---
 

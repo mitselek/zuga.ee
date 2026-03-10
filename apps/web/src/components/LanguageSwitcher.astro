@@ -1,4 +1,6 @@
 ---
+import { CATEGORY_URLS } from '../utils/routes';
+
 interface Props {
   currentLang: string;
   currentSlug: string;
@@ -9,33 +11,7 @@ interface Props {
 
 const { currentLang, currentSlug, translations = [], calendarPrefix, category } = Astro.props;
 
-// Category translation mapping
-const categoryTranslations: Record<string, Record<string, string>> = {
-  etendused: {
-    en: 'performances',
-    et: 'etendused',
-  },
-  workshopid: {
-    en: 'workshops',
-    et: 'workshopid',
-  },
-  about: {
-    en: 'about',
-    et: 'about',
-  },
-  gallery: {
-    en: 'gallery',
-    et: 'gallery',
-  },
-  contact: {
-    en: 'contact',
-    et: 'contact',
-  },
-  news: {
-    en: 'news',
-    et: 'news',
-  },
-};
+const categoryTranslations = CATEGORY_URLS;
 
 const languages = [
   { code: 'et', label: 'ET' },

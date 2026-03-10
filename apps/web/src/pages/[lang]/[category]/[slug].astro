@@ -7,35 +7,9 @@ import PerformanceGallery from '../../../components/PerformanceGallery.astro';
 import VideoEmbed from '../../../components/VideoEmbed.astro';
 import AudioEmbed from '../../../components/AudioEmbed.astro';
 import ShowingsList from '../../../components/ShowingsList.astro';
+import { getCategoryUrl } from '../../../utils/routes';
 
 export async function getStaticPaths() {
-  // Category translation mapping for URLs
-  const categoryUrlMap = {
-    etendused: {
-      en: 'performances',
-      et: 'etendused',
-    },
-    workshopid: {
-      en: 'workshops',
-      et: 'workshopid',
-    },
-    about: {
-      en: 'about',
-      et: 'about',
-    },
-    gallery: {
-      en: 'gallery',
-      et: 'gallery',
-    },
-    contact: {
-      en: 'contact',
-      et: 'contact',
-    },
-    news: {
-      en: 'news',
-      et: 'news',
-    },
-  };
   const pages = await getCollection('pages', ({ data }) => {
     // Only generate routes for detail pages with published status
     return data.status === 'published' && data.type === 'detail';
@@ -62,7 +36,7 @@ export async function getStaticPaths() {
     }
 
     // Translate category for URL based on language
-    const categoryUrl = categoryUrlMap[page.data.category]?.[page.data.language] || page.data.category;
+    const categoryUrl = getCategoryUrl(page.data.category, page.data.language);
 
     return {
       params: {
@@ -89,11 +63,7 @@ if (page.data.slug) {
 // Compute alternate language URL for hreflang
 const altLang = page.data.language === 'et' ? 'en' : 'et';
 const translation = page.data.translated?.find((t: { language: string }) => t.language === altLang);
-const categoryUrls: Record<string, Record<string, string>> = {
-  etendused: { en: 'performances', et: 'etendused' },
-  workshopid: { en: 'workshops', et: 'workshopid' },
-};
-const altCategoryUrl = categoryUrls[page.data.category]?.[altLang] || page.data.category;
+const altCategoryUrl = getCategoryUrl(page.data.category, altLang);
 const alternateUrl = translation ? `/${altLang}/${altCategoryUrl}/${translation.slug}` : undefined;
 
 // Section titles based on language

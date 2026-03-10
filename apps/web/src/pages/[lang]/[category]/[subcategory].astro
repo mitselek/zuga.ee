@@ -5,32 +5,9 @@ import LanguageSwitcher from '../../../components/LanguageSwitcher.astro';
 import PageHero from '../../../components/PageHero.astro';
 import PerformanceGallery from '../../../components/PerformanceGallery.astro';
 import VideoEmbed from '../../../components/VideoEmbed.astro';
+import { getCategoryUrl, getSubcategoryUrl } from '../../../utils/routes';
 
 export async function getStaticPaths() {
-  // Category translation mapping for URLs
-  const categoryUrlMap = {
-    etendused: {
-      en: 'performances',
-      et: 'etendused',
-    },
-    workshopid: {
-      en: 'workshops',
-      et: 'workshopid',
-    },
-  };
-
-  // Subcategory translation mapping for URLs
-  const subcategoryUrlMap = {
-    'noorele-publikule': {
-      en: 'for-young-audiences',
-      et: 'noorele-publikule',
-    },
-    'suurtele': {
-      en: 'for-adults',
-      et: 'suurtele',
-    },
-  };
-
   const pages = await getCollection('pages', ({ data }) => {
     // Only generate routes for section pages with subcategories
     return data.status === 'published' && data.type === 'section' && data.subcategory;
@@ -38,10 +15,10 @@ export async function getStaticPaths() {
 
   return pages.map(page => {
     // Translate category for URL based on language
-    const categoryUrl = categoryUrlMap[page.data.category]?.[page.data.language] || page.data.category;
+    const categoryUrl = getCategoryUrl(page.data.category, page.data.language);
 
     // Translate subcategory for URL based on language
-    const subcategoryUrl = subcategoryUrlMap[page.data.subcategory]?.[page.data.language] || page.data.subcategory;
+    const subcategoryUrl = getSubcategoryUrl(page.data.subcategory, page.data.language);
 
     return {
       params: {
@@ -73,16 +50,8 @@ const currentSlug = page.data.slug || page.id.replace(/^(en|et)\//, '').replace(
 // Compute alternate language URL for hreflang
 const altLang = page.data.language === 'et' ? 'en' : 'et';
 const translation = page.data.translated?.find((t: { language: string }) => t.language === altLang);
-const categoryUrls: Record<string, Record<string, string>> = {
-  etendused: { en: 'performances', et: 'etendused' },
-  workshopid: { en: 'workshops', et: 'workshopid' },
-};
-const subcategoryUrls: Record<string, Record<string, string>> = {
-  'noorele-publikule': { en: 'for-young-audiences', et: 'noorele-publikule' },
-  'suurtele': { en: 'for-adults', et: 'suurtele' },
-};
-const altCategoryUrl = categoryUrls[page.data.category]?.[altLang] || page.data.category;
-const altSubcategoryUrl = subcategoryUrls[page.data.subcategory]?.[altLang] || page.data.subcategory;
+const altCategoryUrl = getCategoryUrl(page.data.category, altLang);
+const altSubcategoryUrl = getSubcategoryUrl(page.data.subcategory, altLang);
 const alternateUrl = translation
   ? `/${altLang}/${altCategoryUrl}/${translation.slug}`
   : `/${altLang}/${altCategoryUrl}/${altSubcategoryUrl}`;
@@ -146,17 +115,7 @@ const alternateUrl = translation
           const slug = slugParts[slugParts.length - 1];
 
           // Build category URL
-          const categoryUrlMap = {
-            etendused: {
-              en: 'performances',
-              et: 'etendused',
-            },
-            workshopid: {
-              en: 'workshops',
-              et: 'workshopid',
-            },
-          };
-          const categoryUrl = categoryUrlMap[performance.data.category]?.[performance.data.language] || performance.data.category;
+          const categoryUrl = getCategoryUrl(performance.data.category, performance.data.language);
           const href = `/${performance.data.language}/${categoryUrl}/${slug}`;
 
           return (

@@ -5,6 +5,7 @@ import LanguageSwitcher from '../../components/LanguageSwitcher.astro';
 import HomeSection from '../../components/HomeSection.astro';
 import ContentCard from '../../components/ContentCard.astro';
 import EventCard from '../../components/EventCard.astro';
+import { CATEGORY_URLS, getCategoryUrl } from '../../utils/routes';
 
 export async function getStaticPaths() {
   const pages = await getCollection('pages', ({ data }) => {
@@ -23,37 +24,7 @@ export async function getStaticPaths() {
 const { page } = Astro.props;
 const { Content } = await page.render();
 
-// Category translation mapping for URLs
-const categoryTranslations: Record<string, Record<string, string>> = {
-  etendused: {
-    en: 'performances',
-    et: 'etendused',
-  },
-  workshopid: {
-    en: 'workshops',
-    et: 'workshopid',
-  },
-  about: {
-    en: 'about',
-    et: 'about',
-  },
-  gallery: {
-    en: 'gallery',
-    et: 'gallery',
-  },
-  contact: {
-    en: 'contact',
-    et: 'contact',
-  },
-  news: {
-    en: 'news',
-    et: 'news',
-  },
-  kalender: {
-    en: 'calendar',
-    et: 'kalender',
-  },
-};
+const categoryTranslations = CATEGORY_URLS;
 
 // Get all published pages in current language
 const allPages = await getCollection('pages', ({ data }) => {
