@@ -1,0 +1,48 @@
+{
+  "name": "zuga-builders",
+  "description": "Zuga.ee website team — Astro static site with Tailwind CSS, deployed on Netlify. Content in Estonian and English, bilingual markdown pages with Zod schema validation.",
+  "commonPromptFile": "common-prompt.md",
+  "members": [
+    {
+      "name": "team-lead",
+      "agentType": "team-lead",
+      "model": "claude-sonnet-4-6",
+      "prompt": "prompts/team-lead.md"
+    },
+    {
+      "name": "riidik",
+      "agentType": "general-purpose",
+      "model": "claude-sonnet-4-6",
+      "color": "magenta",
+      "prompt": "prompts/riidik.md"
+    },
+    {
+      "name": "kai",
+      "agentType": "general-purpose",
+      "model": "claude-opus-4-6",
+      "color": "green",
+      "prompt": "prompts/kai.md"
+    },
+    {
+      "name": "tess",
+      "agentType": "general-purpose",
+      "model": "claude-sonnet-4-6",
+      "color": "purple",
+      "prompt": "prompts/tess.md"
+    },
+    {
+      "name": "finn",
+      "agentType": "general-purpose",
+      "model": "claude-sonnet-4-6",
+      "color": "cyan",
+      "prompt": "prompts/finn.md"
+    },
+    {
+      "name": "medici",
+      "agentType": "general-purpose",
+      "model": "claude-sonnet-4-6",
+      "color": "yellow",
+      "prompt": "../prompts/medici.md"
+    }
+  ]
+}
