@@ -7,7 +7,9 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "kill_port": "lsof -ti:4321 | xargs -r kill -9"
+    "kill_port": "lsof -ti:4321 | xargs -r kill -9",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.5.0",
@@ -17,5 +19,9 @@
     "astro": "^5.16.4",
     "js-yaml": "^4.1.1",
     "tailwindcss": "^4.1.17"
+  },
+  "devDependencies": {
+    "gray-matter": "^4.0.3",
+    "vitest": "^4.0.18"
   }
 }
