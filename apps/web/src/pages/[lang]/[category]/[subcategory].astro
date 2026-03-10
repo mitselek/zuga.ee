@@ -75,6 +75,7 @@ const currentSlug = page.data.slug || page.id.replace(/^(en|et)\//, '').replace(
   title={page.data.title}
   description={page.data.description}
   language={page.data.language}
+  ogImage={page.data.hero_image}
 >
   <LanguageSwitcher
     slot="language-switcher"

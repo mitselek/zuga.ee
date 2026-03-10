@@ -184,6 +184,7 @@ const misSulVigaOnPage =
   title={page.data.title}
   description={page.data.description}
   language={page.data.language}
+  ogImage={page.data.hero_image}
   isHomepage={true}
 >
   <!-- Floating language switcher -->
@@ -254,7 +255,7 @@ const misSulVigaOnPage =
 
   <!-- Upcoming Events Section -->
   {upcomingEventDates.length > 0 && (
-    <section 
+    <section
       class="py-16 relative"
       style="background-image: url('https://fienta.com/cf/img/?width=1070&dpr=1&format=webp&v=1764153816&gcs=true&file=/uploads/2025/11/157610/157610-et-251126124336.png'); background-size: cover; background-position: center;"
     >
