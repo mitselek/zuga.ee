@@ -918,13 +918,13 @@
       function gauge(pct, label) {
         const clamped = Math.max(0, Math.min(100, pct));
         const color = clamped < 50 ? '#3fb950' : clamped < 80 ? '#d29922' : '#f85149';
-        // 120° arc gauge — compact, number at right end
-        const r = 16, cx = 18, cy = 20, sw = 4;
-        const startAngle = 5 * Math.PI / 6; // 150°
+        // 120° arc: starts at 180° (left, same as old gauge), ends at 60° (upper-right)
+        const r = 20, cx = 26, cy = 28, sw = 4;
+        const startAngle = Math.PI; // 180° — left horizontal
         const totalSweep = 2 * Math.PI / 3; // 120°
         const sx = (cx + r * Math.cos(startAngle)).toFixed(1);
         const sy = (cy - r * Math.sin(startAngle)).toFixed(1);
-        const endAngle = startAngle - totalSweep; // 30°
+        const endAngle = startAngle - totalSweep; // 60°
         const ex = (cx + r * Math.cos(endAngle)).toFixed(1);
         const ey = (cy - r * Math.sin(endAngle)).toFixed(1);
         const bgPath = `M ${sx} ${sy} A ${r} ${r} 0 0 1 ${ex} ${ey}`;
@@ -935,10 +935,10 @@
           ? bgPath
           : `M ${sx} ${sy} A ${r} ${r} 0 0 1 ${fx} ${fy}`;
         return `<div class="gauge">
-          <svg width="58" height="24" viewBox="0 0 58 24">
+          <svg width="60" height="32" viewBox="0 0 60 32">
             <path d="${bgPath}" fill="none" stroke="#30363d" stroke-width="${sw}" stroke-linecap="round"/>
             ${clamped > 0 ? `<path d="${arcPath}" fill="none" stroke="${color}" stroke-width="${sw}" stroke-linecap="round"/>` : ''}
-            <text x="35" y="16" text-anchor="start" fill="${color}" font-size="10" font-family="inherit" font-weight="bold">${clamped}%</text>
+            <text x="${cx}" y="${cy - 4}" text-anchor="middle" fill="${color}" font-size="11" font-family="inherit" font-weight="bold">${clamped}%</text>
           </svg>
           <span class="gauge-label">${label}</span>
         </div>`;

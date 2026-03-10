@@ -22,4 +22,8 @@
 
 [PATTERN 2026-03-10] Broken translated slugs used old path-based format (etendused-noorele-publikule-X) instead of simple filename slug (X). 7 links fixed in issue #65 (commit 69dddc9).
 
-[DECISION 2026-03-10] Test strategy proposal sent to team-lead. Proposed 4-phase incremental approach. Phase 1 is this week: vitest setup + schema smoke tests + bilingual pairing check.
+[DECISION 2026-03-10] Phase 1 tests done (commit 6d1221c): vitest + gray-matter installed, 238 tests passing. Schema extracted to `src/content/schema.ts` (pure Zod, no `astro:content`). Tests in `apps/web/tests/`.
+
+[GOTCHA 2026-03-10] Zod safeParse uses strip mode by default — unknown fields pass silently. Use `pagesSchema.strict()` in schema-validation test to catch undeclared fields. Deferred to Phase 2.
+
+[LEARNED 2026-03-10] No test framework installed → now installed. `package.json` has `test` and `test:watch` scripts. Vitest 4.x.
