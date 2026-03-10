@@ -96,7 +96,7 @@ Etenduse lõpus võetakse publik Zugale omaselt enda seltsi ning lastakse viimak
 
 Zuga Ühendatud Tantsijad on tantsijaid ja koreograafe koondav kollektiiv, mis on koos tegutsenud 1999. aastast. Nad on ainus järjepidevalt ja regulaarselt lastele tantsulavastusi loov tantsukooslus Eestis. Nende lastelavastused on pälvinud tähelepanu ja mitmeid teatri- ja tantsuauhindu (Salme Reegi auhind, Draamakese auhind, Teatriaasta auhind, Sõltumatu etenduskunsti auhind jne) ning nad on esinenud nii Eestis kui väljaspool (Soomes, USA-s, Saksamaal, Leedus, Lätis, Hollandis, Palestiinas, Rootsis, Venemaal, Rumeenias, Horvaatias, Poolas, Inglismaal).
 
-Zuga ühendatud tantsijate panus Eesti tantsuteatri arengusse oma kvaliteetsete lastelavastustega on kuldaväärt. Zuga lavastuste võlu seisneb selles, et nad on suutnud tajuda sihtrühma maailma ning luua sellest lähtuvalt, jättes ruumi laste enda mõtetele, tunnetele ja tajule.
+Zuga Ühendatud Tantsijate panus Eesti tantsuteatri arengusse oma kvaliteetsete lastelavastustega on kuldaväärt. Zuga lavastuste võlu seisneb selles, et nad on suutnud tajuda sihtrühma maailma ning luua sellest lähtuvalt, jättes ruumi laste enda mõtetele, tunnetele ja tajule.
 
 ## Muljeid etenduselt
 

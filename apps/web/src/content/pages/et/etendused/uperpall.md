@@ -58,7 +58,7 @@ Eesti Noorsooteatri kunstilise juhi Mirko Rajase sõnul on "see tõesti väga om
 
 ## Lavastusmeeskond
 
-- **Autorid ja lavastajad:** Zuga ühendatud tantsijad – Ajjar Ausma, Helen Reitsnik, Kärt Tõnisson, Päär Pärenson, Tiina Mölder
+- **Autorid ja lavastajad:** Zuga Ühendatud Tantsijad – Ajjar Ausma, Helen Reitsnik, Kärt Tõnisson, Päär Pärenson, Tiina Mölder
 - **Dramaturg:** Piret Jaaks
 - **Kunstnik:** Illimar Vihmar
 - **Helilooja:** Lauri-Dag Tüür
@@ -66,7 +66,7 @@ Eesti Noorsooteatri kunstilise juhi Mirko Rajase sõnul on "see tõesti väga om
 
 ## Esinejad
 
-Mängivad ja tantsivad Zuga ühendatud tantsijad ning Eesti Noorsooteatri näitlejad Jevgeni Moissejenko, Kaisa Selde, Laura Kukk, Mait Joorits ja Maria Ehrenberg.
+Mängivad ja tantsivad Zuga Ühendatud Tantsijad ning Eesti Noorsooteatri näitlejad Jevgeni Moissejenko, Kaisa Selde, Laura Kukk, Mait Joorits ja Maria Ehrenberg.
 
 ### Arvustused ja kajastused
 

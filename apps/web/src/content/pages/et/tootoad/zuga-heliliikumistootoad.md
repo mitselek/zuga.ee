@@ -79,7 +79,7 @@ Heliliikumistöötuba "Rännak ühele õues" on liikumisrännak õues ühele osa
 
 Töötuba võib toimuda nii oma kodu ümbruses või seal, kus sa just parasjagu oled. Ilm on ilus, paned kõrvaklapid pähe ja lähed, kuhu jalad viivad. Võid kulgeda rahulikult, võid võtta vastu kiiruse väljakutseid. Kui soovid teha midagi pikemalt, siis pane hääl vahepeal pausile ja pärast jälle uuesti mängima, et saaksid juhtnööre jälgida.
 
-**Tiina Mölder** on vabakutseline tantsukunstnik, Zuga Ühendatud Tantsijate asutajaliige, kes tegeleb liikumisega selle mitmetes vormides, mis on ju kõik sama puu eri harud: tantsib, on koreograaf, teeb liikumisseadeid draamalavastustele, õpetab, teeb koostööd teiste lavastajate ja (tantsu)kunstnikega. Tiina on üks Zuga ühendatud tantsijatest ja Zuga lavastuste autoritest. Alates 2014. aastast on ta loonud ja esitanud tantsulavastusi lastele ja täiskasvanutele koos teiste Zuga Ühendatud Tantsijatega: "Zuga zuug zuh-zuh-zuh", "Võluvärk", "Käik", "Meelekolu", "Tempo", "Müra", "2+2=22".
+**Tiina Mölder** on vabakutseline tantsukunstnik, Zuga Ühendatud Tantsijate asutajaliige, kes tegeleb liikumisega selle mitmetes vormides, mis on ju kõik sama puu eri harud: tantsib, on koreograaf, teeb liikumisseadeid draamalavastustele, õpetab, teeb koostööd teiste lavastajate ja (tantsu)kunstnikega. Tiina on üks Zuga Ühendatud Tantsijatest ja Zuga lavastuste autoritest. Alates 2014. aastast on ta loonud ja esitanud tantsulavastusi lastele ja täiskasvanutele koos teiste Zuga Ühendatud Tantsijatega: "Zuga zuug zuh-zuh-zuh", "Võluvärk", "Käik", "Meelekolu", "Tempo", "Müra", "2+2=22".
 
 ---
 

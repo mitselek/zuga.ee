@@ -81,11 +81,11 @@ Bush Hartshorn on lõpetanud Darlington'i Kunstide Kolledži, töötanud projekt
 
 **2007 Tantsuauhind (Eesti Teatriliit)**
 
-Zuga ühendatud tantsijad – lavastuse "Naine ja Hunt" idee, koreograafia ja videorežii.
+Zuga Ühendatud Tantsijad – lavastuse "Naine ja Hunt" idee, koreograafia ja videorežii.
 
 **Philip Morris Eesti tantsuauhinnad 2006** (välja antud 31. mail 2007)
 
-Aasta tegija 2006 – Zuga ühendatud tantsijad, liikumist, sõna ja videokunsti ühendav lavastus "Naine ja hunt"
+Aasta tegija 2006 – Zuga Ühendatud Tantsijad, liikumist, sõna ja videokunsti ühendav lavastus "Naine ja hunt"
 
 **Eesti teatri aastaauhind** (kevad 2007)
 

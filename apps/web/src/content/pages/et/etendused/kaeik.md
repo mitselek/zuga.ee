@@ -85,7 +85,7 @@ Zuga on üks väheseid truppe, kes teeb väikelastele mõeldud kaasaegse tantsu 
 
 **Lavastajad ja etendajad:** Helen Reitsnik, Tiina Mölder, Kalle Tikas, Päär Pärenson, Ajjar Ausma
 
-Zuga ühendatud tantsijad on kollektiiv, mis loodi 1999. aastal tantsutegijate Tiina Mölderi, Kaja Kannu ja Jarmo Karingu poolt. "Käik" on Zuga neljas otseselt lastele suunatud etendus. "Zuga lastekas" (2004) pälvis "Draamakese" eriauhinna, "Zuga zuug zuh-zuh-zuh" (2009) pärjati 2010. aastal nii Eesti sõltumatu tantsu auhinnaga kui ka Salme Reegi nimelise lastelavastuste auhinnaga ning 2011 esietendus "Võluvärk".
+Zuga Ühendatud Tantsijad on kollektiiv, mis loodi 1999. aastal tantsutegijate Tiina Mölderi, Kaja Kannu ja Jarmo Karingu poolt. "Käik" on Zuga neljas otseselt lastele suunatud etendus. "Zuga lastekas" (2004) pälvis "Draamakese" eriauhinna, "Zuga zuug zuh-zuh-zuh" (2009) pärjati 2010. aastal nii Eesti sõltumatu tantsu auhinnaga kui ka Salme Reegi nimelise lastelavastuste auhinnaga ning 2011 esietendus "Võluvärk".
 
 ### Auhinnad
 
