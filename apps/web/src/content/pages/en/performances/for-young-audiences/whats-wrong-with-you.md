@@ -85,7 +85,7 @@ knowledge_base_sources:
 
 **Premieres:** March 18-21, 2026, Sõltumatu Tantsu Lava
 
-Zuga's new performance takes on the difficulties of mental health – that invisible part of a person for which words, frameworks, and treatments exist, but which in experience is often larger than any explanation. Like a large and sensitive animal, it lives in our home, in our room, under our blanket, in our head. What does it want from us? What does it need? What's wrong with it?
+Zuga's new performance takes on mental health. Like a large and sensitive animal, it lives in our home, in our room, under our blanket, in our head. What does it want from us? What does it need? What's wrong with it?
 
 Young people have on their shoulders every day: war, climate, daily politics, changing schools, parents' divorce, and annoying older brothers. That's already enough. It's even more than enough. But no, let's add the attention economy, algorithms demanding extreme viewpoints, and bot armies spreading misinformation. So why, being aware of all this themselves, do adults still ask young people: "What's wrong with you?"
 
