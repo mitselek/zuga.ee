@@ -239,6 +239,23 @@ describe('Event scheduling — calendar date parsing', () => {
     return Array.isArray(data.showings) && data.showings.length > 0;
   });
 
+  const filesWithPremiere = allFiles.filter((f) => {
+    const { data } = matter(readFileSync(f, 'utf-8'));
+    return data.premiere?.date != null;
+  });
+
+  for (const filePath of filesWithPremiere) {
+    const label = filePath.replace(CONTENT_ROOT + '/', '');
+    const { data } = matter(readFileSync(filePath, 'utf-8'));
+
+    it(`"${label}" premiere.date is a valid calendar date`, () => {
+      const d = new Date(data.premiere.date);
+      expect(isNaN(d.getTime()), `Invalid date "${data.premiere.date}" in ${label}`).toBe(false);
+      expect(d.getFullYear()).toBeGreaterThanOrEqual(2000);
+      expect(d.getFullYear()).toBeLessThanOrEqual(2100);
+    });
+  }
+
   for (const filePath of filesWithShowings) {
     const label = filePath.replace(CONTENT_ROOT + '/', '');
     const { data } = matter(readFileSync(filePath, 'utf-8'));
@@ -254,18 +271,19 @@ describe('Event scheduling — calendar date parsing', () => {
     });
   }
 
-  if (filesWithShowings.length > 0) {
-    it('showings dates can be sorted chronologically', () => {
-      const allDates: Date[] = [];
-      for (const filePath of filesWithShowings) {
-        const { data } = matter(readFileSync(filePath, 'utf-8'));
-        for (const showing of data.showings) {
-          allDates.push(new Date(showing.date));
-        }
+  it('all premiere and showings dates can be sorted chronologically', () => {
+    const allDates: Date[] = [];
+    for (const filePath of filesWithPremiere) {
+      const { data } = matter(readFileSync(filePath, 'utf-8'));
+      allDates.push(new Date(data.premiere.date));
+    }
+    for (const filePath of filesWithShowings) {
+      const { data } = matter(readFileSync(filePath, 'utf-8'));
+      for (const showing of data.showings) {
+        allDates.push(new Date(showing.date));
       }
-      // All dates parseable → sort should work without NaN
-      const sorted = [...allDates].sort((a, b) => a.getTime() - b.getTime());
-      expect(sorted.every((d) => !isNaN(d.getTime()))).toBe(true);
-    });
-  }
+    }
+    const sorted = [...allDates].sort((a, b) => a.getTime() - b.getTime());
+    expect(sorted.every((d) => !isNaN(d.getTime()))).toBe(true);
+  });
 });
