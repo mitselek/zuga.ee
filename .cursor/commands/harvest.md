@@ -1042,10 +1042,13 @@ Wait for user confirmation before Phase 2.
    - Look for venue mentions: "Kanuti Gildi SAAL", "Sõltumatu Tantsu Lava", etc.
    - Check `knowledge-base/venues/` for venue files
    - Map venue names to IDs:
-     - "Sõltumatu Tantsu Lava" or "Independent Dance Stage" → `stl`
-     - "Kanuti Gildi SAAL" → `kanuti-gildi-saal`
-     - "Kumu Kunstimuuseum" or "Kumu Art Museum" → `kumu`
-     - "Rakvere Teater" or "Rakvere Theatre" → `rakvere-teater`
+     - "Sõltumatu Tantsu Lava" / "STL" / "Independent Dance Stage" → `stl`
+     - "Kanuti Gildi SAAL" / "Kanuti" → `kanuti-gildi-saal`
+     - "Kumu Kunstimuuseum" / "Kumu Art Museum" → `kumu`
+     - "Rakvere Teater" / "Rakvere Theatre" → `rakvere-teater`
+     - "Haapsalu Kultuurikeskus" / "Haapsalu Cultural Centre" → `haapsalu-kultuurikeskus`
+     - "Türi Kultuurikeskus" / "Türi Cultural Centre" → `tyri-kultuurikeskus`
+     - "Rapla Vesiroosi Kool" / "Rapla Vesiroosi School" → `rapla-vesiroosi-kool`
    - If venue not found: Log warning and use venue name as fallback
 
 4. **Create premiere object**:
@@ -1183,6 +1186,21 @@ After extraction, include in extraction summary:
 ```
 
 **Note**: This extracted data will be used to suggest updates to performance page frontmatter in Phase 5 (Propose Homepage Updates).
+
+#### Event Scheduling Validation Checklist
+
+Before including extracted event data in homepage update proposals, verify:
+
+- ✅ `premiere.date` uses YYYY-MM-DD format
+- ✅ `premiere.time` uses HH:MM format (if extracted)
+- ✅ `premiere.venue_id` matches a venue in `knowledge-base/venues/` (if extracted)
+- ✅ `showings[].date` uses YYYY-MM-DD format
+- ✅ `showings[].venue_id` matches venue ID or is omitted (fallback to premiere)
+- ✅ `tickets.platforms[].url` is valid URL
+- ✅ `tickets.pricing[].price` is positive number
+- ✅ `special_events[].type` is one of: artist-talk, workshop, discussion, screening, masterclass
+- ✅ Dates are plausible (not in far future unless announced, not before company founding in 1999)
+- ✅ Venue IDs checked against `knowledge-base/venues/` directory
 
 ### Phase 2: Classify and Validate
 
@@ -2582,3 +2600,21 @@ Before finalizing harvest, verify:
 - [ ] Markdown formatting is lint-compliant (blank lines, no trailing spaces)
 - [ ] Git working directory is clean after commits
 - [ ] Deployment succeeded without errors
+- [ ] Event scheduling data uses new structured format (`premiere`, `showings`, `tickets`)
+- [ ] Venue IDs match entries in `knowledge-base/venues/`
+
+## Venue Collection Reference
+
+Venues are centralized in `knowledge-base/venues/` with structured profiles. Use venue `id` field as `venue_id` in event scheduling.
+
+| Venue ID | Name (ET) | Name (EN) | City |
+|----------|-----------|-----------|------|
+| `stl` | Sõltumatu Tantsu Lava | Independent Dance Stage | Tallinn |
+| `kanuti-gildi-saal` | Kanuti Gildi SAAL | Kanuti Gildi SAAL | Tallinn |
+| `kumu` | Kumu Kunstimuuseum | Kumu Art Museum | Tallinn |
+| `rakvere-teater` | Rakvere Teater | Rakvere Theatre | Rakvere |
+| `haapsalu-kultuurikeskus` | Haapsalu Kultuurikeskus | Haapsalu Cultural Centre | Haapsalu |
+| `tyri-kultuurikeskus` | Türi Kultuurikeskus | Türi Cultural Centre | Türi |
+| `rapla-vesiroosi-kool` | Rapla Vesiroosi Kool | Rapla Vesiroosi School | Rapla |
+
+**If venue not listed**: Check `knowledge-base/venues/` for new additions, or use legacy `venue: "Venue Name"` string format.

@@ -38,6 +38,13 @@
       "prompt": "prompts/finn.md"
     },
     {
+      "name": "semmu",
+      "agentType": "general-purpose",
+      "model": "claude-opus-4-6",
+      "color": "white",
+      "prompt": "prompts/semmu.md"
+    },
+    {
       "name": "medici",
       "agentType": "general-purpose",
       "model": "claude-sonnet-4-6",

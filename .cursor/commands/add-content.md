@@ -515,6 +515,15 @@ Use this workflow when creating NEW content files based on Knowledge Base inform
    - Extract premiere date from KnB articles or press releases
    - Extract premiere time if mentioned (e.g., "19:00", "kell 19")
    - Look up venue name → venue ID in `knowledge-base/venues/`
+   - Common venue mappings:
+     - "Sõltumatu Tantsu Lava" / "STL" → `stl`
+     - "Kanuti Gildi SAAL" / "Kanuti" → `kanuti-gildi-saal`
+     - "Kumu Kunstimuuseum" / "Kumu Art Museum" → `kumu`
+     - "Rakvere Teater" / "Rakvere Theatre" → `rakvere-teater`
+     - "Haapsalu Kultuurikeskus" → `haapsalu-kultuurikeskus`
+     - "Türi Kultuurikeskus" → `tyri-kultuurikeskus`
+     - "Rapla Vesiroosi Kool" → `rapla-vesiroosi-kool`
+   - If venue not in `knowledge-base/venues/` → use legacy `venue: "Venue Name"` string
    - Create `premiere` object:
 
      ```yaml
@@ -1099,6 +1108,18 @@ Before marking content as `status: published`:
 - Check that team members are documented in KnB
 - Ensure at least one press reference if claiming media coverage
 - Confirm dates align with KnB article mentions
+
+**Event Scheduling Validation** (for performances and workshops):
+
+- ✅ `premiere.date` uses YYYY-MM-DD format
+- ✅ `premiere.time` uses HH:MM format (if provided)
+- ✅ `premiere.venue_id` matches a venue in `knowledge-base/venues/` (if provided)
+- ✅ `showings[].date` uses YYYY-MM-DD format
+- ✅ `showings[].venue_id` matches venue ID or is omitted (fallback to premiere)
+- ✅ `tickets.platforms[].url` is valid URL
+- ✅ `tickets.pricing[].price` is positive number
+- ✅ `special_events[].type` is one of: artist-talk, workshop, discussion, screening, masterclass
+- ✅ Legacy `premiere_date` and `venue` fields are NOT mixed with new `premiere` object (use one or the other)
 
 ## UPDATE Workflow
 
@@ -1952,3 +1973,21 @@ translated:
 ---
 
 **Key Takeaway**: This example shows the COMPLETE workflow that Composer should have followed - updating both language versions and ensuring schema consistency across translations.
+
+---
+
+## Venue Collection Reference
+
+Venues are centralized in `knowledge-base/venues/` with structured profiles. Use venue `id` field as `venue_id` in event scheduling.
+
+| Venue ID | Name (ET) | Name (EN) | City |
+|----------|-----------|-----------|------|
+| `stl` | Sõltumatu Tantsu Lava | Independent Dance Stage | Tallinn |
+| `kanuti-gildi-saal` | Kanuti Gildi SAAL | Kanuti Gildi SAAL | Tallinn |
+| `kumu` | Kumu Kunstimuuseum | Kumu Art Museum | Tallinn |
+| `rakvere-teater` | Rakvere Teater | Rakvere Theatre | Rakvere |
+| `haapsalu-kultuurikeskus` | Haapsalu Kultuurikeskus | Haapsalu Cultural Centre | Haapsalu |
+| `tyri-kultuurikeskus` | Türi Kultuurikeskus | Türi Cultural Centre | Türi |
+| `rapla-vesiroosi-kool` | Rapla Vesiroosi Kool | Rapla Vesiroosi School | Rapla |
+
+**If venue not listed**: Check `knowledge-base/venues/` for new additions, or use legacy `venue: "Venue Name"` string format.
