@@ -21,6 +21,22 @@ const pageDescription = description || defaultDescription;
 const siteUrl = 'https://zuga.ee';
 const currentUrl = `${siteUrl}${Astro.url.pathname}`;
 const defaultOgImage = `${siteUrl}/og-image.jpg`;
+
+// JSON-LD Organization structured data
+const organizationJsonLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "PerformingGroup",
+  "name": language === 'et' ? 'Zuga Ühendatud Tantsijad' : 'United Dancers of ZUGA',
+  "url": siteUrl,
+  "logo": `${siteUrl}/logo.svg`,
+  "description": language === 'et'
+    ? 'Kaasaegne teater lastele ja täiskasvanutele'
+    : 'Contemporary theatre for children and adults',
+  "sameAs": [
+    "https://www.facebook.com/ZugaDance",
+    "https://www.instagram.com/zugadance",
+  ],
+});
 ---
 
 <!DOCTYPE html>
@@ -58,6 +74,10 @@ const defaultOgImage = `${siteUrl}/og-image.jpg`;
 
     <!-- Theme Color -->
     <meta name="theme-color" content="#1a202c" />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json" set:html={organizationJsonLd} />
+    <slot name="json-ld" />
   </head>
   <body class="min-h-screen" style="background-color: var(--color-bg-alt);">
     <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 px-4 py-2 text-accent bg-white rounded shadow-lg">
