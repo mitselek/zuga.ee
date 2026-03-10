@@ -1,0 +1,1615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agent Dashboard</title>
+<style>
+  /* (*RC-DEV:Sven*) */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --border: #30363d;
+    --text: #c9d1d9;
+    --text-dim: #6e7681;
+    --accent: #58a6ff;
+    --green: #3fb950;
+    --yellow: #d29922;
+    --red: #f85149;
+    --purple: #bc8cff;
+    --orange: #ffa657;
+    --pink: #ff7b72;
+    --cyan: #39d353;
+  }
+
+  html, body { height: 100%; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Cascadia Code', 'Fira Code', 'Consolas', 'Monaco', monospace;
+    font-size: 13px;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  /* ── Header ── */
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 16px;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
+  }
+
+  header h1 { font-size: 14px; font-weight: 600; color: var(--accent); letter-spacing: 0.5px; }
+
+  #status-badge {
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    background: var(--green);
+    color: #000;
+    font-weight: 600;
+  }
+
+  #status-badge.disconnected { background: var(--red); color: #fff; }
+  #status-badge.reconnecting { background: var(--yellow); color: #000; }
+
+  /* ── Main grid: left(25%) | center(45%) | right(30%) ── */
+  .main {
+    display: grid;
+    grid-template-columns: 25% 45% 30%;
+    flex: 1;
+    overflow: hidden;
+  }
+
+  /* ── Column base ── */
+  .col {
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid var(--border);
+    overflow: hidden;
+  }
+
+  .col:last-child { border-right: none; }
+
+  .col-header {
+    padding: 8px 12px;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 33px;
+  }
+
+  .col-body {
+    overflow-y: auto;
+    flex: 1;
+    padding: 8px;
+  }
+
+  /* ── Section dividers within columns ── */
+  .section-divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 8px 0;
+  }
+
+  .section-label {
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    padding: 4px 0 4px;
+  }
+
+  /* ── Agent cards ── */
+  .agent-card {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 8px;
+    border-radius: 6px;
+    margin-bottom: 3px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    cursor: pointer;
+    transition: border-color 0.15s;
+  }
+
+  .agent-card:hover { border-color: var(--accent); }
+  .agent-card.selected { border-width: 2px; padding: 5px 7px; background: #1c2433; }
+
+  .ctx-link {
+    font-size: 10px;
+    color: var(--text-dim);
+    cursor: pointer;
+    padding: 2px 6px;
+    border-radius: 3px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    text-decoration: none;
+  }
+  .ctx-link:hover { color: var(--accent); border-color: var(--accent); }
+  .ctx-link.selected { color: var(--accent); border-color: var(--accent); background: #1c2433; }
+
+  .spawn-btn, .shutdown-btn {
+    font-size: 9px;
+    padding: 2px 6px;
+    border-radius: 3px;
+    border: 1px solid var(--border);
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+  .spawn-btn { background: var(--green); color: #000; border-color: var(--green); }
+  .spawn-btn:hover { opacity: 0.8; }
+  .shutdown-btn { background: transparent; color: var(--red); border-color: var(--red); }
+  .shutdown-btn:hover { background: var(--red); color: #000; }
+
+  @keyframes pulse-right {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+  }
+  .agent-card { position: relative; overflow: hidden; --pulse-color: transparent; }
+  .agent-card::after {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 25%;
+    height: 100%;
+    background: linear-gradient(to left, var(--pulse-color), transparent);
+    pointer-events: none;
+    border-radius: 0 4px 4px 0;
+    opacity: 0;
+    transition: background 0.6s ease;
+  }
+  .agent-card.active-pulse::after {
+    animation: pulse-right 1.5s ease-in-out infinite;
+  }
+
+  .color-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .agent-info { flex: 1; min-width: 0; }
+
+  .agent-name {
+    font-weight: 600;
+    font-size: 11px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .agent-type {
+    font-size: 10px;
+    color: var(--text-dim);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .agent-task {
+    font-size: 10px;
+    color: var(--accent);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-top: 1px;
+  }
+  .health-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 6px 10px;
+    margin-bottom: 4px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    flex-wrap: wrap;
+  }
+  .health-bar .info-grid {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1px 8px;
+    font-size: 10px;
+    white-space: nowrap;
+    min-width: 0;
+    align-items: center;
+  }
+  .info-label {
+    color: var(--text-dim);
+    font-size: 9px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+  }
+  .gauge-group {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    margin-left: auto;
+  }
+  .gauge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 68px;
+  }
+  .gauge svg { overflow: visible; }
+  .gauge-label {
+    font-size: 9px;
+    color: var(--text-dim);
+    margin-top: -2px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .agent-badge {
+    font-size: 9px;
+    padding: 1px 5px;
+    border-radius: 8px;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  .agent-badge.active { background: var(--green); color: #000; }
+  .agent-badge.idle { background: var(--border); color: var(--text-dim); }
+
+  /* ── Compact message feed ── */
+  .msg-compact {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    padding: 5px 8px;
+    border-radius: 5px;
+    margin-bottom: 2px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left-width: 3px;
+    cursor: pointer;
+    transition: border-color 0.15s;
+    min-width: 0;
+  }
+
+  .msg-compact:hover { border-right-color: var(--accent); border-top-color: var(--accent); border-bottom-color: var(--accent); }
+  .msg-compact.selected { background: #1c2433; }
+
+  .msg-compact-from {
+    font-size: 10px;
+    font-weight: 700;
+    flex-shrink: 0;
+    text-transform: uppercase;
+  }
+
+  .msg-compact-text {
+    font-size: 11px;
+    color: var(--text-dim);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .msg-compact-time {
+    font-size: 10px;
+    color: var(--text-dim);
+    flex-shrink: 0;
+  }
+
+  /* ── Doc tab bar ── */
+  #doc-tabs {
+    display: none;
+    flex: 1;
+    overflow-x: auto;
+    white-space: nowrap;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 2px;
+    padding: 0 8px;
+    scrollbar-width: none;
+  }
+  #doc-tabs::-webkit-scrollbar { display: none; }
+
+  .doc-tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 8px;
+    font-size: 11px;
+    cursor: pointer;
+    color: var(--text-dim);
+    border: 1px solid transparent;
+    border-radius: 4px;
+    user-select: none;
+    transition: color 0.15s, border-color 0.15s;
+  }
+  .doc-tab:hover { color: var(--text); border-color: var(--border); }
+  .doc-tab.active { color: var(--text); border-color: var(--accent); background: #1c2433; }
+
+  .doc-tab-close {
+    font-size: 14px;
+    line-height: 1;
+    color: var(--text-dim);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0 1px;
+    font-family: inherit;
+  }
+  .doc-tab-close:hover { color: var(--red); }
+
+  /* ── Detail panel ── */
+  .detail-close-btn {
+    background: none;
+    border: none;
+    color: var(--text-dim);
+    font-size: 18px;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0 2px;
+    transition: color 0.15s;
+  }
+
+  .detail-close-btn:hover { color: var(--text); }
+
+  .detail-type-label {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 6px;
+  }
+
+  .detail-title {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1.4;
+    margin-bottom: 8px;
+  }
+
+  .detail-row {
+    font-size: 11px;
+    color: var(--text-dim);
+    margin-bottom: 4px;
+    display: flex;
+    gap: 6px;
+  }
+
+  .detail-row span { color: var(--text); }
+
+  .detail-text {
+    font-size: 12px;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    word-break: break-word;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid var(--border);
+  }
+
+  .detail-recent-msg {
+    padding: 6px 8px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+  }
+
+  .detail-recent-msg-meta {
+    font-size: 10px;
+    color: var(--text-dim);
+    margin-bottom: 3px;
+  }
+
+  .detail-recent-msg-text {
+    font-size: 11px;
+    line-height: 1.5;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+  }
+
+  /* ── Task board ── */
+  .task-card {
+    padding: 6px 8px;
+    border-radius: 6px;
+    margin-bottom: 3px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left-width: 3px;
+    cursor: pointer;
+    transition: border-color 0.15s;
+  }
+  .task-card:hover { border-right-color: var(--accent); border-top-color: var(--accent); border-bottom-color: var(--accent); }
+  .task-card.selected { background: #1c2433; }
+
+  .task-card.in_progress { border-left-color: var(--accent); }
+  .task-card.pending { border-left-color: var(--yellow); }
+  .task-card.completed { border-left-color: var(--green); opacity: 0.6; }
+
+  .task-id { font-size: 10px; color: var(--text-dim); margin-bottom: 1px; }
+  .task-subject { font-size: 11px; line-height: 1.4; margin-bottom: 3px; }
+
+  .task-meta { display: flex; align-items: center; gap: 5px; }
+  .task-owner { font-size: 10px; color: var(--text-dim); }
+
+  .task-status-badge { font-size: 9px; padding: 1px 4px; border-radius: 4px; font-weight: 600; }
+  .task-status-badge.in_progress { background: var(--accent); color: #000; }
+  .task-status-badge.pending { background: var(--yellow); color: #000; }
+  .task-status-badge.completed { background: var(--green); color: #000; }
+
+  .task-active-form { font-size: 10px; color: var(--accent); font-style: italic; margin-top: 1px; }
+
+  /* ── GitHub panel ── */
+  .gh-repo-label {
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 0.5px;
+    padding: 3px 0;
+  }
+
+  .gh-subsection-label {
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    padding: 2px 0;
+    margin-top: 3px;
+  }
+
+  .gh-card {
+    padding: 5px 8px;
+    border-radius: 5px;
+    margin-bottom: 3px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-left-width: 3px;
+    cursor: pointer;
+    transition: border-color 0.15s;
+  }
+
+  .gh-card:hover { border-right-color: var(--accent); border-top-color: var(--accent); border-bottom-color: var(--accent); }
+  .gh-card.selected { background: #1c2433; }
+  .gh-card.pr { border-left-color: var(--purple); }
+  .gh-card.pr.draft { border-left-color: var(--text-dim); opacity: 0.7; }
+  .gh-card.issue { border-left-color: var(--green); }
+
+  .gh-number { font-size: 10px; color: var(--accent); font-weight: 700; margin-right: 3px; }
+  .gh-title { font-size: 11px; line-height: 1.3; margin-bottom: 2px; }
+
+  .gh-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; margin-top: 2px; }
+  .gh-author { font-size: 10px; color: var(--text-dim); }
+
+  .gh-branch {
+    font-size: 10px;
+    color: var(--text-dim);
+    font-style: italic;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 100px;
+  }
+
+  .draft-badge { font-size: 9px; padding: 1px 4px; border-radius: 4px; background: var(--border); color: var(--text-dim); font-weight: 600; }
+  .gh-label { font-size: 9px; padding: 1px 4px; border-radius: 4px; font-weight: 600; }
+  .gh-updated { font-size: 10px; color: var(--text-dim); margin-left: auto; }
+
+  .gh-body {
+    font-size: 12px;
+    color: var(--text);
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 8px 10px;
+    margin-top: 8px;
+    line-height: 1.5;
+  }
+  .gh-body h1,.gh-body h2,.gh-body h3 { font-size: 13px; font-weight: 600; margin: 8px 0 4px; }
+  .gh-body p { margin: 4px 0; }
+  .gh-body ul,.gh-body ol { margin: 4px 0; padding-left: 20px; }
+  .gh-body code { background: var(--hover); border-radius: 3px; padding: 1px 4px; font-family: monospace; font-size: 11px; }
+  .gh-body pre { background: var(--hover); border-radius: 4px; padding: 8px; overflow-x: auto; }
+  .gh-body pre code { background: none; padding: 0; }
+  .gh-body a { color: var(--accent); }
+  .gh-body hr { border: none; border-top: 1px solid var(--border); margin: 8px 0; }
+  .gh-body img { max-height: 60px; width: auto; max-width: 100%; border-radius: 4px; margin: 4px 0; cursor: zoom-in; transition: max-height 0.2s ease; display: block; }
+  .gh-body img:hover { max-height: 600px; cursor: zoom-out; }
+
+  .gh-detail-loading {
+    font-size: 12px;
+    color: var(--text-dim);
+    font-style: italic;
+    padding: 8px 0;
+  }
+
+
+  /* ── Scrollbar ── */
+  .col-body::-webkit-scrollbar { width: 4px; }
+  .col-body::-webkit-scrollbar-track { background: transparent; }
+  .col-body::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+  /* ── Empty state ── */
+  .empty { color: var(--text-dim); font-size: 11px; text-align: center; padding: 20px 8px; }
+</style>
+<script src="https://cdn.jsdelivr.net/npm/marked@9/marked.min.js"></script>
+</head>
+<body>
+
+<header>
+  <h1>⬡ Agent Dashboard</h1>
+  <div id="doc-tabs"></div>
+  <span id="status-badge" class="disconnected">Connecting…</span>
+</header>
+
+<div class="main">
+  <!-- Left: Agents + Messages feed -->
+  <div class="col">
+    <div class="col-header">Team</div>
+    <div class="col-body" id="left-col">
+      <div class="empty">Loading…</div>
+    </div>
+  </div>
+
+  <!-- Center: Detail panel (sticky across SSE updates) -->
+  <div class="col">
+    <div class="col-header">
+      <span id="detail-header-label">Detail</span>
+      <button class="detail-close-btn" id="detail-close-btn" onclick="closeDetail()" style="display:none" title="Close">×</button>
+    </div>
+    <div class="col-body" id="detail-panel">
+      <div class="empty">Click a message, agent, PR, or issue to view details</div>
+    </div>
+  </div>
+
+  <!-- Right: Tasks + GitHub -->
+  <div class="col">
+    <div class="col-header">Work</div>
+    <div class="col-body" id="right-col">
+      <div class="empty">Loading…</div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+  // ── Color mapping ────────────────────────────────────────────────────────
+  const COLOR_MAP = {
+    blue:   '#58a6ff',
+    green:  '#3fb950',
+    yellow: '#d29922',
+    red:    '#f85149',
+    purple: '#bc8cff',
+    orange: '#ffa657',
+    pink:   '#ff7b72',
+    cyan:   '#39d353',
+    gray:   '#6e7681',
+  };
+
+  function resolveColor(name) {
+    return COLOR_MAP[name] || COLOR_MAP['gray'];
+  }
+
+  // ── Time helpers ─────────────────────────────────────────────────────────
+  function timeAgo(isoStr) {
+    if (!isoStr) return '';
+    const diff = Date.now() - new Date(isoStr).getTime();
+    const s = Math.floor(diff / 1000);
+    if (s < 60) return `${s}s ago`;
+    const m = Math.floor(s / 60);
+    if (m < 60) return `${m}m ago`;
+    const h = Math.floor(m / 60);
+    if (h < 24) return `${h}h ago`;
+    return new Date(isoStr).toLocaleDateString();
+  }
+
+  function shortTime(isoStr) {
+    if (!isoStr) return '';
+    return new Date(isoStr).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  }
+
+  // ── Detail panel state (sticky — not cleared by SSE re-renders) ───────────
+  let currentDetail = null; // { type, key, data }
+  let lastMessages  = [];   // refreshed each SSE tick; used by agent detail
+  let lastAgents    = [];   // refreshed each SSE tick; used by issue/PR assign dropdown
+  let lastCommonPrompt = null;    // common-prompt.md content from SSE
+  let lastClaudeMd = null;        // CLAUDE.md content from SSE
+  let lastMemoryMd = null;        // MEMORY.md content from SSE
+  let lastAgentScratchpads = {};  // scratchpad per agent name from SSE
+  let lastDocs = [];              // dashboard docs from SSE
+  let closedDocIds = new Set();   // ids pending server-side deletion (prevents SSE flicker)
+  let activeDocId = null;         // currently displayed doc tab
+  let unspawnedCollapsed = true;  // unspawned agents section collapsed by default
+  let lastRenderAgents = [], lastRenderMessages = [], lastRenderTasks = [], lastRenderHealth = null;
+
+  // ── Dashboard docs tab bar ───────────────────────────────────────────────
+  function renderDocTabs() {
+    const bar = document.getElementById('doc-tabs');
+    if (!bar) return;
+    if (lastDocs.length === 0) {
+      bar.style.display = 'none';
+      bar.innerHTML = '';
+      return;
+    }
+    bar.style.display = 'flex';
+    bar.innerHTML = lastDocs.map(d => `
+      <span class="doc-tab${d.id === activeDocId ? ' active' : ''}" onclick='showDocTab(${escJson(d.id)})'>
+        ${escHtml(d.title)}
+        <button class="doc-tab-close" onclick='event.stopPropagation();closeDocTab(${escJson(d.id)})' title="Close">×</button>
+      </span>
+    `).join('');
+  }
+
+  function showDocTab(id) {
+    const doc = lastDocs.find(d => d.id === id);
+    if (!doc) return;
+    activeDocId = id;
+    renderDocTabs();
+
+    document.getElementById('detail-close-btn').style.display = 'none';
+    document.getElementById('detail-header-label').textContent = doc.title;
+    document.querySelectorAll('.selected').forEach(el => el.classList.remove('selected'));
+    currentDetail = null;
+
+    document.getElementById('detail-panel').innerHTML = `
+      <div style="font-size:10px;color:var(--text-dim);margin-bottom:8px">
+        from <strong>${escHtml(doc.from)}</strong> · ${timeAgo(doc.addedAt)}
+      </div>
+      <div class="gh-body" style="font-size:11px">${renderMd(doc.content)}</div>
+    `;
+  }
+
+  async function closeDocTab(id) {
+    closedDocIds.add(id);
+    try {
+      await fetch(`/docs?id=${encodeURIComponent(id)}`, { method: 'DELETE' });
+    } catch { /* best effort */ }
+    lastDocs = lastDocs.filter(d => d.id !== id);
+    if (activeDocId === id) {
+      activeDocId = lastDocs.length > 0 ? lastDocs[lastDocs.length - 1].id : null;
+      if (activeDocId) {
+        showDocTab(activeDocId);
+      } else {
+        document.getElementById('detail-header-label').textContent = 'Detail';
+        document.getElementById('detail-panel').innerHTML = '<div class="empty">Click a message, agent, PR, or issue to view details</div>';
+      }
+    }
+    renderDocTabs();
+  }
+
+  function showDocDetail(docId, title) {
+    const contentMap = {
+      'common-prompt': lastCommonPrompt,
+      'claude-md': lastClaudeMd,
+      'memory-md': lastMemoryMd,
+    };
+    const content = contentMap[docId];
+    if (!content) return;
+
+    const key = `doc:${docId}`;
+    currentDetail = { type: 'doc', key, data: { docId, title, content } };
+
+    document.getElementById('detail-close-btn').style.display = 'inline';
+    document.getElementById('detail-header-label').textContent = title;
+
+    document.querySelectorAll('.selected').forEach(el => el.classList.remove('selected'));
+    const el = document.querySelector(`[data-key="${CSS.escape(key)}"]`);
+    if (el) el.classList.add('selected');
+
+    document.getElementById('detail-panel').innerHTML = `
+      <div class="gh-body" style="font-size:11px">${renderMd(content)}</div>
+    `;
+  }
+
+  // RED-1: extract type/data/key from data-* attributes so JSON.stringify's
+  // double-quotes never appear inside a double-quoted HTML attribute value.
+  // data-detail is single-quoted; escJson escapes ' → \u0027 inside the JSON.
+  function showDetail(el) {
+    const type = el.dataset.type;
+    const data = JSON.parse(el.dataset.detail);
+    const key  = el.dataset.key || null;
+    currentDetail = { type, key, data };
+
+    document.getElementById('detail-close-btn').style.display = 'inline';
+    document.getElementById('detail-header-label').textContent =
+      { message: 'Message', agent: 'Agent', pr: 'Pull Request', issue: 'Issue', task: 'Task' }[type] ?? 'Detail';
+
+    // Highlight selected item in side columns
+    document.querySelectorAll('.selected').forEach(el => el.classList.remove('selected'));
+    if (key) {
+      const el = document.querySelector(`[data-key="${CSS.escape(key)}"]`);
+      if (el) el.classList.add('selected');
+    }
+
+    renderDetailContent(type, data);
+    // Auto-focus DM textarea when an agent is selected
+    if (type === 'agent') {
+      const ta = document.querySelector('#detail-panel textarea');
+      if (ta) ta.focus();
+    }
+  }
+
+  function renderDetailContent(type, data) {
+    const panel = document.getElementById('detail-panel');
+
+    if (type === 'message') {
+      const color = resolveColor(data.color);
+      panel.innerHTML = `
+        <div style="margin-bottom:10px">
+          <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:6px">
+            <span style="color:${color};font-weight:700;font-size:13px;text-transform:uppercase">${escHtml(data.from)}${data.to ? ' → ' + escHtml(data.to) : ''}</span>
+            <span style="font-size:10px;color:var(--text-dim)">${shortTime(data.timestamp)} · ${timeAgo(data.timestamp)}</span>
+          </div>
+          ${data.summary ? `<div style="font-size:11px;color:var(--text-dim);font-style:italic;margin-bottom:8px">${escHtml(data.summary)}</div>` : ''}
+          <div class="detail-text gh-body">${renderMd(data.text)}</div>
+        </div>
+      `;
+    } else if (type === 'agent') {
+      const color = resolveColor(data.color);
+      const recentMsgs = lastMessages.filter(m => m.from === data.name).slice(0, 5);
+      panel.innerHTML = `
+        <div style="margin-bottom:12px">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+            <div class="color-dot" style="background:${color};width:10px;height:10px"></div>
+            <span style="font-size:14px;font-weight:600">${escHtml(data.name)}</span>
+            <span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:${data.agentStatus === 'working' ? 'var(--green)' : data.agentStatus === 'thinking' ? 'var(--yellow)' : 'var(--border)'}" title="${escHtml(data.agentStatus)}"></span>
+          </div>
+          <div class="detail-row">Type: <span>${escHtml(data.agentType)}</span></div>
+          <div class="detail-row">Pane: <span>${escHtml(data.paneId || 'lead')}</span></div>
+          ${data.model ? `<div class="detail-row">Model: <span>${escHtml(data.model)}</span></div>` : ''}
+          ${data.contextPct !== null && data.contextPct !== undefined ? `
+          <div style="margin:6px 0">
+            <div style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:2px">
+              <span style="color:var(--text-dim)">Context</span>
+              <span>${data.contextPct}%</span>
+            </div>
+            <div style="height:4px;background:var(--border);border-radius:2px">
+              <div style="width:${data.contextPct}%;height:100%;border-radius:2px;background:${data.contextPct < 50 ? '#4caf50' : data.contextPct < 80 ? '#ff9800' : '#f44336'};transition:width 0.3s"></div>
+            </div>
+          </div>
+          ` : ''}
+        </div>
+        ${data.lastActivity ? `
+        <hr class="section-divider">
+        <div class="section-label" style="margin-bottom:4px">Activity</div>
+        <div class="detail-row"><span>${escHtml(data.lastActivity)}</span></div>
+        ` : ''}
+        <hr class="section-divider">
+        <div class="section-label" style="margin-bottom:6px">Send Message</div>
+        <div style="display:flex;gap:6px;margin-bottom:10px">
+          <textarea id="agent-dm-text" rows="2"
+            placeholder="Message to ${escHtml(data.name)}…"
+            style="flex:1;background:var(--surface);color:var(--text);border:1px solid var(--border);border-radius:4px;padding:6px 8px;font-family:inherit;font-size:12px;resize:vertical"></textarea>
+          <button data-recipient="${escHtml(data.name)}" onclick="sendAgentDm(this.dataset.recipient)"
+            style="align-self:flex-end;padding:6px 12px;background:var(--accent);color:#000;border:none;border-radius:4px;cursor:pointer;font-weight:600;font-size:12px">Saada</button>
+        </div>
+        <hr class="section-divider">
+        <div class="section-label" style="margin-bottom:6px">Recent Messages</div>
+        ${recentMsgs.length === 0
+          ? '<div class="empty" style="padding:8px 0">No messages from this agent</div>'
+          : recentMsgs.map(m => `
+              <div class="detail-recent-msg">
+                <div class="detail-recent-msg-meta">${shortTime(m.timestamp)} · ${timeAgo(m.timestamp)}${m.summary ? ' — ' + escHtml(m.summary) : ''}</div>
+                <div class="detail-recent-msg-text">${escHtml(m.text)}</div>
+              </div>
+            `).join('')
+        }
+        ${data.prompt ? `
+        <hr class="section-divider">
+        <details id="details-agent-prompt">
+          <summary class="section-label" style="cursor:pointer;margin-bottom:6px">Agent Prompt</summary>
+          <div class="gh-body" style="font-size:11px">${renderMd(data.prompt)}</div>
+        </details>
+        ` : ''}
+        ${lastAgentScratchpads[data.name] ? `
+        <hr class="section-divider">
+        <details id="details-agent-scratchpad">
+          <summary class="section-label" style="cursor:pointer;margin-bottom:6px">Scratchpad</summary>
+          <div class="gh-body" style="font-size:11px">${renderMd(lastAgentScratchpads[data.name])}</div>
+        </details>
+        ` : ''}
+        ${data.paneId && data.agentType !== 'team-lead' ? `
+        <hr class="section-divider">
+        <button class="shutdown-btn" onclick="shutdownAgent('${escHtml(data.name)}')" style="margin-top:4px">Shutdown ${escHtml(data.name)}</button>
+        ` : ''}
+        ${!data.paneId && data.agentType !== 'team-lead' ? `
+        <hr class="section-divider">
+        <button class="spawn-btn" onclick="spawnAgent('${escHtml(data.name)}')" style="margin-top:4px;padding:4px 12px;font-size:11px">Spawn ${escHtml(data.name)}</button>
+        ` : ''}
+      `;
+    } else if (type === 'task') {
+      const statusColor = { in_progress: 'var(--accent)', pending: 'var(--yellow)', completed: 'var(--green)' }[data.status] ?? 'var(--text-dim)';
+      panel.innerHTML = `
+        <div>
+          <div class="detail-type-label" style="color:var(--accent)">Task</div>
+          <div class="detail-title">#${escHtml(data.id)} ${escHtml(data.subject)}</div>
+          <div class="detail-row">Status: <span style="color:${statusColor}">${escHtml(data.status.replace('_', ' '))}</span></div>
+          ${data.owner ? `<div class="detail-row">Owner: <span>${escHtml(data.owner)}</span></div>` : ''}
+          ${data.activeForm && data.status === 'in_progress' ? `<div class="detail-row">Active: <span style="color:var(--accent);font-style:italic">${escHtml(data.activeForm)}</span></div>` : ''}
+          ${data.blockedBy && data.blockedBy.length > 0 ? `<div class="detail-row">Blocked by: <span>${data.blockedBy.map(id => '#' + escHtml(id)).join(', ')}</span></div>` : ''}
+          ${data.blocks && data.blocks.length > 0 ? `<div class="detail-row">Blocks: <span>${data.blocks.map(id => '#' + escHtml(id)).join(', ')}</span></div>` : ''}
+          ${data.description ? `<hr class="section-divider"><div class="gh-body">${renderMd(data.description)}</div>` : ''}
+        </div>
+      `;
+    } else if (type === 'pr') {
+      panel.innerHTML = `
+        <div>
+          <div class="detail-type-label" style="color:var(--purple)">Pull Request</div>
+          <div class="detail-title">#${data.number} ${escHtml(data.title)}</div>
+          <div class="detail-row">Author: <span>@${escHtml(data.author)}</span></div>
+          <div class="gh-detail-loading">Laadin…</div>
+        </div>
+      `;
+      fetchGithubDetail('pr', data);
+    } else if (type === 'issue') {
+      const labelBadges = makeLabelBadges(data.labels);
+      panel.innerHTML = `
+        <div>
+          <div class="detail-type-label" style="color:var(--green)">Issue</div>
+          <div class="detail-title">#${data.number} ${escHtml(data.title)}</div>
+          ${labelBadges ? `<div style="margin-top:4px;display:flex;flex-wrap:wrap;gap:4px">${labelBadges}</div>` : ''}
+          <div class="gh-detail-loading">Laadin…</div>
+        </div>
+      `;
+      fetchGithubDetail('issue', data);
+    }
+  }
+
+  function closeDetail() {
+    currentDetail = null;
+    document.getElementById('detail-close-btn').style.display = 'none';
+    document.getElementById('detail-header-label').textContent = 'Detail';
+    document.getElementById('detail-panel').innerHTML =
+      '<div class="empty">Click a message, agent, PR, or issue to view details</div>';
+    document.querySelectorAll('.selected').forEach(el => el.classList.remove('selected'));
+  }
+
+  // ── Render left column (Agents + compact Messages) ───────────────────────
+  function renderLeft(agents, messages, tasks, health) {
+    lastRenderAgents = agents; lastRenderMessages = messages; lastRenderTasks = tasks; lastRenderHealth = health;
+    lastMessages = messages;
+    lastAgents = agents || [];
+    const col = document.getElementById('left-col');
+
+    // Build owner→task lookup for in_progress tasks
+    const activeTaskByOwner = {};
+    if (tasks) {
+      for (const t of tasks) {
+        if (t.status === 'in_progress' && t.owner) {
+          activeTaskByOwner[t.owner] = t;
+        }
+      }
+    }
+
+    // ── Health panel ──
+    let html = '';
+    if (health) {
+      const g = health.git;
+      const s = health.system;
+      const a = health.agentStats;
+      const gitLine = g ? `<span style="color:${g.clean ? 'var(--green)' : 'var(--yellow)'}">${escHtml(g.branch)}</span>${!g.clean ? ' dirty' : ''}${g.ahead ? ' +'+g.ahead : ''}${g.behind ? ' -'+g.behind : ''}` : '<span style="color:var(--text-dim)">n/a</span>';
+      const ciLine = (health.ci || []).map(c => {
+        const icon = c.conclusion === 'success' ? '✓' : c.conclusion === 'failure' ? '✗' : '…';
+        const color = c.conclusion === 'success' ? 'var(--green)' : c.conclusion === 'failure' ? 'var(--red)' : 'var(--yellow)';
+        return `<span style="color:${color}" title="${escHtml(c.name)} · ${escHtml(c.repo)}">${icon} ${escHtml(c.repo)}</span>`;
+      }).join(' ');
+
+      function gauge(pct, label) {
+        const clamped = Math.max(0, Math.min(100, pct));
+        const color = clamped < 50 ? '#3fb950' : clamped < 80 ? '#d29922' : '#f85149';
+        const r = 24, cx = 32, cy = 28, sw = 5;
+        const angle = Math.PI - (clamped / 100) * Math.PI;
+        const x = cx + r * Math.cos(angle);
+        const y = cy - r * Math.sin(angle);
+        const largeArc = clamped > 50 ? 1 : 0;
+        const arcPath = `M ${cx - r} ${cy} A ${r} ${r} 0 ${largeArc} 1 ${x.toFixed(1)} ${y.toFixed(1)}`;
+        const bgPath = `M ${cx - r} ${cy} A ${r} ${r} 0 1 1 ${cx + r} ${cy}`;
+        return `<div class="gauge">
+          <svg width="64" height="36" viewBox="0 0 64 36">
+            <path d="${bgPath}" fill="none" stroke="#30363d" stroke-width="${sw}" stroke-linecap="round"/>
+            ${clamped > 0 ? `<path d="${arcPath}" fill="none" stroke="${color}" stroke-width="${sw}" stroke-linecap="round"/>` : ''}
+            <text x="${cx}" y="${cy}" text-anchor="middle" fill="${color}" font-size="11" font-family="inherit" font-weight="bold">${clamped}%</text>
+          </svg>
+          <span class="gauge-label">${label}</span>
+        </div>`;
+      }
+
+      const memPct = Math.round(s.memUsedMb / s.memTotalMb * 100);
+      const swapPct = s.swapTotalMb > 0 ? Math.round(s.swapUsedMb / s.swapTotalMb * 100) : 0;
+
+      const cdDev = (health.cd || []).find(d => d.script.includes('dev'));
+      const cdProd = (health.cd || []).find(d => !d.script.includes('dev'));
+      function cdAgo(d) {
+        if (!d) return '<span style="color:var(--text-dim)">n/a</span>';
+        const dt = new Date(d.deployedAt);
+        const mins = Math.round((Date.now() - dt.getTime()) / 60000);
+        const timeStr = mins < 60 ? mins + 'm ago'
+          : mins < 1440 ? Math.round(mins / 60) + 'h ago'
+          : dt.toISOString().slice(0, 10);
+        return `<span style="color:var(--green)" title="${d.id} · ${d.deployedAt}">${timeStr}</span>`;
+      }
+
+      html += `<div class="health-bar">
+        <div class="info-grid">
+          <span class="info-label">GIT</span><div>${gitLine}</div>
+          <span class="info-label">CI</span><div>${ciLine || '<span style="color:var(--text-dim)">n/a</span>'}</div>
+          <span class="info-label">DEV</span><div>${cdAgo(cdDev)}</div>
+          <span class="info-label">LIVE</span><div>${cdAgo(cdProd)}</div>
+          ${s.gpu ? `<span class="info-label">GPU</span><div>${escHtml(s.gpu.name)} · ${s.gpu.tempC}°C · ${s.gpu.vramUsedMb}/${s.gpu.vramTotalMb} MB</div>` : ''}
+        </div>
+        <div class="gauge-group">${gauge(s.cpuPct, 'CPU')}${gauge(memPct, 'MEM')}${gauge(swapPct, 'SWAP')}${s.gpu ? gauge(Math.round(s.gpu.vramUsedMb / s.gpu.vramTotalMb * 100), 'VRAM') : ''}</div>
+      </div>`;
+    }
+
+    html += '<div class="section-label">Agents</div>';
+
+    if (!agents || agents.length === 0) {
+      html += '<div class="empty" style="padding:6px 0">No agents</div>';
+    } else {
+      const leadAgents = agents.filter(a => a.agentType === 'team-lead');
+      const spawnedAgents = agents.filter(a => a.agentType !== 'team-lead' && a.paneId);
+      const unspawnedAgents = agents.filter(a => a.agentType !== 'team-lead' && !a.paneId);
+
+      function renderAgentCard(agent) {
+        const color = resolveColor(agent.color);
+        const key = `agent:${agent.name}`;
+        const selClass = currentDetail?.key === key ? ' selected' : '';
+        const activeTask = activeTaskByOwner[agent.name];
+        const taskLine = activeTask
+          ? `<div class="agent-task" title="${escHtml(activeTask.subject)}">#${escHtml(activeTask.id)}: ${escHtml(activeTask.activeForm || activeTask.subject)}</div>`
+          : '';
+        const pct = agent.contextPct;
+        const borderColor = pct == null ? 'var(--border)'
+          : pct < 50 ? 'var(--green)'
+          : pct < 80 ? 'var(--yellow)'
+          : 'var(--red, #e74c3c)';
+        const pulseColor = agent.agentStatus === 'working' ? 'var(--green)' : agent.agentStatus === 'thinking' ? 'var(--yellow)' : 'transparent';
+        const dotColor = agent.agentStatus === 'working' ? 'var(--green)' : agent.agentStatus === 'thinking' ? 'var(--yellow)' : 'var(--border)';
+        const pulseClass = agent.agentStatus !== 'idle' ? ' active-pulse' : '';
+        return `
+          <div class="agent-card${pulseClass}${selClass}"
+               style="border-color:${borderColor};--pulse-color:${pulseColor}"
+               data-type="agent" data-key="${escHtml(key)}" data-detail='${escJson(agent)}'
+               onclick="showDetail(this)">
+            <div class="color-dot" style="background:${color}"></div>
+            <div class="agent-info">
+              <div class="agent-name">${escHtml(agent.name)}</div>
+              <div class="agent-type">${escHtml(agent.agentType)} · ${escHtml(agent.paneId || 'lead')}${agent.model ? ' · ' + escHtml(agent.model) : ''}${agent.contextPct !== null && agent.contextPct !== undefined ? ' · ' + agent.contextPct + '%' : ''}</div>
+              ${taskLine}
+            </div>
+            <span style="display:inline-block;width:8px;height:8px;border-radius:50%;flex-shrink:0;background:${dotColor}" title="${escHtml(agent.agentStatus)}"></span>
+          </div>
+        `;
+      }
+
+      html += leadAgents.map(renderAgentCard).join('');
+
+      // Context file links between lead and teammates
+      const docSelClass = (k) => currentDetail?.key === k ? ' selected' : '';
+      html += `
+        <div style="display:flex;gap:6px;margin:6px 0;padding:0 2px">
+          <a class="ctx-link${docSelClass('doc:common-prompt')}" data-key="doc:common-prompt" onclick="showDocDetail('common-prompt', 'Common Prompt')" title="common-prompt.md">Common Prompt</a>
+          <a class="ctx-link${docSelClass('doc:claude-md')}" data-key="doc:claude-md" onclick="showDocDetail('claude-md', 'CLAUDE.md')" title="CLAUDE.md">CLAUDE.md</a>
+          <a class="ctx-link${docSelClass('doc:memory-md')}" data-key="doc:memory-md" onclick="showDocDetail('memory-md', 'MEMORY.md')" title="MEMORY.md">MEMORY.md</a>
+        </div>
+      `;
+
+      html += spawnedAgents.map(renderAgentCard).join('');
+
+      if (unspawnedAgents.length > 0) {
+        const arrow = unspawnedCollapsed ? '▸' : '▾';
+        html += `<div class="section-label" style="font-size:9px;color:var(--text-dim);margin-top:6px;cursor:pointer;user-select:none" onclick="unspawnedCollapsed=!unspawnedCollapsed;renderLeft(lastRenderAgents,lastRenderMessages,lastRenderTasks,lastRenderHealth)">${arrow} Unspawned (${unspawnedAgents.length})</div>`;
+        if (!unspawnedCollapsed) {
+          html += unspawnedAgents.map(agent => {
+            const color = resolveColor(agent.color);
+            const key = `agent:${agent.name}`;
+            const selClass = currentDetail?.key === key ? ' selected' : '';
+            return `
+              <div class="agent-card${selClass}"
+                   style="border-color:var(--border);opacity:0.45;border-style:dashed"
+                   data-type="agent" data-key="${escHtml(key)}" data-detail='${escJson(agent)}'
+                   onclick="showDetail(this)">
+                <div class="color-dot" style="background:${color}"></div>
+                <div class="agent-info">
+                  <div class="agent-name">${escHtml(agent.name)}</div>
+                  <div class="agent-type">${escHtml(agent.agentType)}${agent.model ? ' · ' + escHtml(agent.model) : ''}</div>
+                </div>
+                <button class="spawn-btn" onclick="event.stopPropagation();spawnAgent('${escHtml(agent.name)}')" title="Spawn ${escHtml(agent.name)}">Spawn</button>
+              </div>
+            `;
+          }).join('');
+        }
+      }
+    }
+
+    html += '<hr class="section-divider"><div class="section-label">Messages</div>';
+
+    if (!messages || messages.length === 0) {
+      html += '<div class="empty" style="padding:6px 0">No messages yet</div>';
+    } else {
+      html += messages.map(msg => {
+        // Y-4: msg.timestamp is the only stable unique identifier in SnapshotMessage —
+        // used as the selection key so the detail panel can highlight the correct row.
+        // Y-5: two messages arriving at the exact same millisecond would share a key
+        // and both show as selected; this edge case is acceptable for a localhost tool.
+        const key = `msg:${msg.timestamp}`;
+        const color = resolveColor(msg.color);
+        const selClass = currentDetail?.key === key ? ' selected' : '';
+        // Show summary if present, else truncate text to 80 chars
+        const preview = msg.summary || (msg.text || '').slice(0, 80) + ((msg.text || '').length > 80 ? '…' : '');
+        return `
+          <div class="msg-compact${selClass}" style="border-left-color:${color}"
+               data-type="message" data-key="${escHtml(key)}" data-detail='${escJson(msg)}'
+               onclick="showDetail(this)">
+            <span class="msg-compact-from" style="color:${color}">${escHtml(msg.from)}${msg.to ? ' → ' + escHtml(msg.to) : ''}</span>
+            <span class="msg-compact-text">${escHtml(preview)}</span>
+            <span class="msg-compact-time">${shortTime(msg.timestamp)}</span>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // Diff-update: only full rewrite if content changed (preserves CSS pulse animations)
+    if (col._lastHtml !== html) {
+      col._lastHtml = html;
+      col.innerHTML = html;
+
+      // Restore selected highlight after re-render
+      if (currentDetail?.key) {
+        const el = col.querySelector(`[data-key="${CSS.escape(currentDetail.key)}"]`);
+        if (el) el.classList.add('selected');
+      }
+    } else {
+      // Content identical — smoothly transition pulse color & dot in-place
+      for (const agent of (agents || [])) {
+        const key = `agent:${agent.name}`;
+        const card = col.querySelector(`[data-key="${CSS.escape(key)}"]`);
+        if (!card) continue;
+        const wantColor = agent.agentStatus === 'working' ? 'var(--green)' : agent.agentStatus === 'thinking' ? 'var(--yellow)' : 'transparent';
+        const isActive = agent.agentStatus !== 'idle';
+        // Smoothly update pulse color via CSS variable (transition handles the rest)
+        card.style.setProperty('--pulse-color', wantColor);
+        if (isActive) card.classList.add('active-pulse');
+        else card.classList.remove('active-pulse');
+        const dot = card.querySelector('span[title]');
+        if (dot) {
+          dot.style.background = agent.agentStatus === 'working' ? 'var(--green)' : agent.agentStatus === 'thinking' ? 'var(--yellow)' : 'var(--border)';
+          dot.title = agent.agentStatus;
+        }
+        card.setAttribute('data-detail', JSON.stringify(agent));
+      }
+    }
+  }
+
+  // ── Render right column (Tasks + GitHub) ─────────────────────────────────
+  function renderRight(tasks, github) {
+    const col = document.getElementById('right-col');
+
+    let html = '<div class="section-label">Tasks</div>';
+
+    if (!tasks || tasks.length === 0) {
+      html += '<div class="empty" style="padding:6px 0">No tasks</div>';
+    } else {
+      const order = ['in_progress', 'pending', 'completed'];
+      const labels = { in_progress: 'In Progress', pending: 'Pending', completed: 'Done' };
+      for (const status of order) {
+        const group = tasks.filter(t => t.status === status);
+        if (group.length === 0) continue;
+        html += `<div class="section-label" style="padding:3px 0 2px">${labels[status]}</div>`;
+        html += group.map(task => {
+          const key = `task:${task.id}`;
+          const selClass = currentDetail?.key === key ? ' selected' : '';
+          return `
+          <div class="task-card ${status}${selClass}"
+               data-type="task" data-key="${escHtml(key)}" data-detail='${escJson(task)}'
+               onclick="showDetail(this)">
+            <div class="task-id">#${escHtml(task.id)}</div>
+            <div class="task-subject">${escHtml(task.subject)}</div>
+            ${task.activeForm && status === 'in_progress' ? `<div class="task-active-form">⟳ ${escHtml(task.activeForm)}</div>` : ''}
+            <div class="task-meta">
+              <span class="task-status-badge ${status}">${status.replace('_', ' ')}</span>
+              ${task.owner ? `<span class="task-owner">→ ${escHtml(task.owner)}</span>` : ''}
+            </div>
+          </div>`;
+        }).join('');
+      }
+    }
+
+    if (github && Object.keys(github).length > 0) {
+      html += '<hr class="section-divider"><div class="section-label">GitHub</div>';
+      html += renderGitHubHtml(github);
+    }
+
+    col.innerHTML = html;
+
+    // Restore selected highlight after re-render
+    if (currentDetail?.key) {
+      const el = col.querySelector(`[data-key="${CSS.escape(currentDetail.key)}"]`);
+      if (el) el.classList.add('selected');
+    }
+  }
+
+  // ── GitHub rendering helpers ──────────────────────────────────────────────
+  function makeLabelBadges(labels) {
+    return (labels || []).map(l => {
+      // Y-6: validate color is exactly 6 hex digits before injecting into style attribute
+      if (!/^[0-9a-fA-F]{6}$/.test(l.color)) return '';
+      const bg = `#${l.color}`;
+      const r = parseInt(l.color.slice(0,2), 16);
+      const g = parseInt(l.color.slice(2,4), 16);
+      const b = parseInt(l.color.slice(4,6), 16);
+      const lum = (0.299*r + 0.587*g + 0.114*b) / 255;
+      const fg = lum > 0.5 ? '#000' : '#fff';
+      return `<span class="gh-label" style="background:${bg};color:${fg}">${escHtml(l.name)}</span>`;
+    }).join('');
+  }
+
+  function renderGitHubHtml(github) {
+    let html = '';
+    let first = true;
+
+    for (const [repoName, repo] of Object.entries(github)) {
+      const repoHtml = renderRepoHtml(repoName, repo);
+      if (!repoHtml) continue;
+      if (!first) html += '<hr class="section-divider" style="margin:5px 0">';
+      html += `<div class="gh-repo-label">${escHtml(repoName)}</div>`;
+      html += repoHtml;
+      first = false;
+    }
+
+    return html || '<div class="empty" style="padding:6px 0">No open PRs or issues</div>';
+  }
+
+  function renderRepoHtml(repoName, repo) {
+    let html = '';
+
+    if (repo.prs && repo.prs.length > 0) {
+      html += `<div class="gh-subsection-label">PRs (${repo.prs.length})</div>`;
+      html += repo.prs.map(pr => {
+        const key = `pr:${repoName}:${pr.number}`;
+        const selClass = currentDetail?.key === key ? ' selected' : '';
+        return `
+          <div class="gh-card pr${pr.isDraft ? ' draft' : ''}${selClass}"
+               data-type="pr" data-key="${escHtml(key)}" data-detail='${escJson({ ...pr, _repoFull: repo.repoFull })}'
+               onclick="showDetail(this)">
+            <div class="gh-title"><span class="gh-number">#${pr.number}</span>${escHtml(pr.title)}</div>
+            <div class="gh-meta">
+              ${pr.isDraft ? '<span class="draft-badge">DRAFT</span>' : ''}
+              <span class="gh-author">@${escHtml(pr.author)}</span>
+              <span class="gh-branch">${escHtml(pr.branch)}</span>
+              <span class="gh-updated">${timeAgo(pr.createdAt)}</span>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    if (repo.issues && repo.issues.length > 0) {
+      const isEpic = i => i.labels && i.labels.some(l => l.name.toLowerCase() === 'epic');
+      const epics = repo.issues.filter(isEpic);
+      const regularIssues = repo.issues.filter(i => !isEpic(i));
+      const issueCardHtml = (issue) => {
+        const key = `issue:${repoName}:${issue.number}`;
+        const selClass = currentDetail?.key === key ? ' selected' : '';
+        return `
+          <div class="gh-card issue${selClass}"
+               data-type="issue" data-key="${escHtml(key)}" data-detail='${escJson({ ...issue, _repoFull: repo.repoFull })}'
+               onclick="showDetail(this)">
+            <div class="gh-title"><span class="gh-number">#${issue.number}</span>${escHtml(issue.title)}</div>
+            <div class="gh-meta">
+              <span class="gh-author">@${escHtml(issue.author)}</span>
+              ${makeLabelBadges(issue.labels)}
+              <span class="gh-updated">${timeAgo(issue.createdAt)}</span>
+            </div>
+          </div>
+        `;
+      };
+      if (epics.length > 0) {
+        html += `<div class="gh-subsection-label" style="margin-top:4px">Epics (${epics.length})</div>`;
+        html += epics.map(issueCardHtml).join('');
+      }
+      if (regularIssues.length > 0) {
+        html += `<div class="gh-subsection-label" style="margin-top:4px">Issues (${regularIssues.length})</div>`;
+        html += regularIssues.map(issueCardHtml).join('');
+      }
+    }
+
+    return html;
+  }
+
+  // ── HTML escape + markdown helpers ───────────────────────────────────────
+  function renderMd(text) {
+    if (!text) return '';
+    // Detect raw JSON messages and format them
+    const trimmed = text.trim();
+    if ((trimmed.startsWith('{') && trimmed.endsWith('}')) || (trimmed.startsWith('[') && trimmed.endsWith(']'))) {
+      try {
+        const formatted = JSON.stringify(JSON.parse(trimmed), null, 2);
+        return `<pre><code>${escHtml(formatted)}</code></pre>`;
+      } catch { /* not valid JSON, continue as markdown */ }
+    }
+    const html = marked.parse(text);
+    // proxy-replace jääb (user-images.githubusercontent.com on avalik)
+    const proxied = html.replace(
+      /src="(https:\/\/(?:github\.com\/user-attachments\/|user-images\.githubusercontent\.com\/|camo\.githubusercontent\.com\/)[^"]+)"/g,
+      (_, u) => `src="/proxy/image?url=${encodeURIComponent(u)}"`
+    );
+    // wrapi kõik img tagid klikitavateks linkideks
+    return proxied.replace(
+      /<img([^>]+)src="([^"]+)"([^>]*)>/g,
+      (_, pre, src, post) => {
+        const orig = src.startsWith('/proxy/image?url=') ? decodeURIComponent(src.replace('/proxy/image?url=', '')) : src;
+        return `<a href="${orig}" target="_blank" title="Ava pilt uues tabis"><img${pre}src="${src}"${post}></a>`;
+      }
+    );
+  }
+
+  function escHtml(str) {
+    if (!str) return '';
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#039;');
+  }
+
+  // Serialize to JSON safe for inline onclick (single-quoted attr context)
+  function escJson(obj) {
+    return JSON.stringify(obj)
+      .replace(/&/g, '\\u0026')
+      .replace(/</g, '\\u003c')
+      .replace(/>/g, '\\u003e')
+      .replace(/'/g, '\\u0027');
+  }
+
+  // ── GitHub on-demand detail (issue / PR) ────────────────────────────────
+  const githubDetailCache = new Map(); // { data, fetchedAt } entries with 5-min TTL
+
+  async function fetchGithubDetail(type, data) {
+    const repoFull = data._repoFull;
+    if (!repoFull) return;
+    const originKey = currentDetail?.key; // stale-check: did user click elsewhere?
+    const cacheKey = `${type}:${repoFull}#${data.number}`;
+
+    const CACHE_TTL = 5 * 60 * 1000; // 5 minutes
+    let detail;
+    const cached = githubDetailCache.get(cacheKey);
+    if (cached && Date.now() - cached.fetchedAt < CACHE_TTL) {
+      detail = cached.data;
+    } else {
+      try {
+        const res = await fetch(
+          `/github/${type}?repo=${encodeURIComponent(repoFull)}&number=${data.number}`
+        );
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        detail = await res.json();
+        githubDetailCache.set(cacheKey, { data: detail, fetchedAt: Date.now() });
+      } catch (err) {
+        if (currentDetail?.key === originKey) {
+          const loading = document.querySelector('.gh-detail-loading');
+          if (loading) loading.textContent = 'Viga: ' + err.message;
+        }
+        return;
+      }
+    }
+
+    // Bail if user navigated away during fetch
+    if (currentDetail?.key !== originKey) return;
+
+    const panel = document.getElementById('detail-panel');
+    if (type === 'issue') renderFullIssue(panel, detail, repoFull);
+    else renderFullPr(panel, detail, repoFull);
+  }
+
+  function commentListHtml(comments) {
+    if (!comments || comments.length === 0) return '';
+    return `
+      <hr class="section-divider">
+      <div class="section-label" style="margin-bottom:6px">Comments (${comments.length})</div>
+      ${comments.map(c => `
+        <div class="detail-recent-msg">
+          <div class="detail-recent-msg-meta">@${escHtml(c.author?.login ?? '?')} · ${timeAgo(c.createdAt)}</div>
+          <div class="gh-body">${renderMd(c.body ?? '')}</div>
+        </div>
+      `).join('')}
+    `;
+  }
+
+  function assignSectionHtml(itemType, number, title, repoFull) {
+    if (lastAgents.length === 0) return '';
+    const url = `https://github.com/${repoFull}/${itemType === 'pr' ? 'pull' : 'issues'}/${number}`;
+    const agentsWithLead = [{ name: 'team-lead' }, ...lastAgents.filter(a => a.name !== 'team-lead')];
+    const btns = agentsWithLead.map(a =>
+      `<button onclick="assignConfirm(this)"
+        data-item-type="${escHtml(itemType)}"
+        data-number="${number}"
+        data-title="${escHtml(title)}"
+        data-url="${escHtml(url)}"
+        data-agent="${escHtml(a.name)}"
+        style="padding:3px 8px;background:transparent;color:var(--text);border:1px solid var(--border);border-radius:4px;cursor:pointer;font-size:11px;white-space:nowrap"
+        >${escHtml(a.name)}</button>`
+    ).join('');
+    return `
+      <hr class="section-divider">
+      <div class="section-label" style="margin-bottom:6px">Assign to</div>
+      <div id="assign-bar" style="display:flex;flex-wrap:wrap;gap:4px">${btns}</div>
+    `;
+  }
+
+  function assignConfirm(btn) {
+    const { itemType, number, title, url, agent } = btn.dataset;
+    const bar = document.getElementById('assign-bar');
+    if (!bar) return;
+    const prefix = itemType === 'pr' ? 'PR' : 'Issue';
+    bar.innerHTML = `
+      <div style="width:100%;border:1px solid var(--border);border-radius:6px;padding:10px 12px;display:flex;flex-direction:column;gap:8px">
+        <div style="font-size:12px;font-weight:600;color:var(--text)">Assign to @${escHtml(agent)}</div>
+        <hr style="border:none;border-top:1px solid var(--border);margin:0">
+        <div style="font-size:12px;color:var(--text)">${prefix} #${number}: ${escHtml(title)}</div>
+        <div style="font-size:11px;color:var(--text-dim);word-break:break-all">${escHtml(url)}</div>
+        <textarea id="assign-note"
+          rows="2"
+          style="width:100%;box-sizing:border-box;background:var(--surface);color:var(--text);border:1px solid var(--border);border-radius:4px;padding:5px 7px;font-family:inherit;font-size:12px;resize:vertical">Palun võta see ülesanne töösse.</textarea>
+        <hr style="border:none;border-top:1px solid var(--border);margin:0">
+        <div style="display:flex;gap:6px;justify-content:flex-end">
+          <button onclick="sendIssueAssign(this)"
+            data-item-type="${escHtml(itemType)}"
+            data-number="${number}"
+            data-title="${escHtml(title)}"
+            data-url="${escHtml(url)}"
+            data-agent="${escHtml(agent)}"
+            style="padding:4px 10px;background:var(--accent);color:#000;border:none;border-radius:4px;cursor:pointer;font-weight:600;font-size:12px">✓ Assign to @${escHtml(agent)}</button>
+          <button onclick="assignCancelRestore()"
+            style="padding:4px 10px;background:transparent;color:var(--text);border:1px solid var(--border);border-radius:4px;cursor:pointer;font-size:12px">Cancel</button>
+        </div>
+      </div>
+    `;
+  }
+
+  function assignCancelRestore() {
+    if (currentDetail) renderDetailContent(currentDetail.type, currentDetail.data);
+  }
+
+  function renderFullIssue(panel, d, repoFull) {
+    const labelBadges = makeLabelBadges(d.labels);
+    panel.innerHTML = `
+      <div>
+        <div class="detail-type-label" style="color:var(--green)">Issue</div>
+        <div class="detail-title">#${d.number} ${escHtml(d.title)}</div>
+        <div class="detail-row">Author: <span>@${escHtml(d.author?.login ?? '?')}</span></div>
+        <div class="detail-row">Created: <span>${timeAgo(d.createdAt)}</span></div>
+        ${labelBadges ? `<div style="margin-top:6px;display:flex;flex-wrap:wrap;gap:4px">${labelBadges}</div>` : ''}
+        <div class="detail-row">Assigned: <span>${(d.assignees && d.assignees.length > 0) ? d.assignees.map(a => '@' + escHtml(a.login)).join(', ') : 'Unassigned'}</span></div>
+        ${assignSectionHtml('issue', d.number, d.title, repoFull)}
+        ${d.body ? `<hr class="section-divider"><div class="gh-body">${renderMd(d.body)}</div>` : ''}
+        ${commentListHtml(d.comments)}
+      </div>
+    `;
+  }
+
+  function renderFullPr(panel, d, repoFull) {
+    const reviewStates = { APPROVED: '✓', CHANGES_REQUESTED: '✗', COMMENTED: '·', DISMISSED: '—' };
+    const reviewsHtml = (d.reviews && d.reviews.length > 0) ? `
+      <hr class="section-divider">
+      <div class="section-label" style="margin-bottom:6px">Reviews (${d.reviews.length})</div>
+      ${d.reviews.map(r => `
+        <div class="detail-recent-msg">
+          <div class="detail-recent-msg-meta">${reviewStates[r.state] ?? '?'} @${escHtml(r.author?.login ?? '?')} — ${escHtml(r.state)}</div>
+          ${r.body ? `<div class="gh-body">${renderMd(r.body)}</div>` : ''}
+        </div>
+      `).join('')}
+    ` : '';
+    panel.innerHTML = `
+      <div>
+        <div class="detail-type-label" style="color:var(--purple)">Pull Request</div>
+        <div class="detail-title">#${d.number} ${escHtml(d.title)}</div>
+        <div class="detail-row">Author: <span>@${escHtml(d.author?.login ?? '?')}</span></div>
+        <div class="detail-row">Branch: <span style="font-style:italic">${escHtml(d.headRefName)} → ${escHtml(d.baseRefName)}</span></div>
+        <div class="detail-row">State: <span>${escHtml(d.state)}${d.isDraft ? ' · DRAFT' : ''}</span></div>
+        <div class="detail-row">Assigned: <span>${(d.assignees && d.assignees.length > 0) ? d.assignees.map(a => '@' + escHtml(a.login)).join(', ') : 'Unassigned'}</span></div>
+        ${assignSectionHtml('pr', d.number, d.title, repoFull)}
+        ${d.body ? `<hr class="section-divider"><div class="gh-body">${renderMd(d.body)}</div>` : ''}
+        ${reviewsHtml}
+        ${commentListHtml(d.comments)}
+      </div>
+    `;
+  }
+
+  async function sendIssueAssign(btn) {
+    const { itemType, number, title, url, agent } = btn.dataset;
+    if (!agent) return;
+    const prefix = itemType === 'pr' ? 'PR' : 'Issue';
+    const note = (document.getElementById('assign-note')?.value ?? '').trim();
+    const text = `${prefix} #${number}: ${title}\n${url}${note ? '\n\n' + note : ''}`;
+    btn.disabled = true;
+    const bar = document.getElementById('assign-bar');
+    try {
+      const res = await fetch('/send', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ text, recipient: agent }),
+      });
+      if (res.ok) {
+        if (bar) bar.innerHTML = `<span style="font-size:12px;color:var(--green)">✓ Assigned to @${escHtml(agent)}</span>`;
+        setTimeout(() => assignCancelRestore(), 2000);
+      } else {
+        const err = await res.json().catch(() => ({ error: 'Unknown error' }));
+        alert('Send failed: ' + (err.error || res.status));
+        btn.disabled = false;
+      }
+    } catch (err) {
+      alert('Network error: ' + err.message);
+      btn.disabled = false;
+    }
+  }
+
+  // ── Agent DM ─────────────────────────────────────────────────────────────
+  async function sendAgentDm(recipient) {
+    const el = document.getElementById('agent-dm-text');
+    const text = el ? el.value.trim() : '';
+    if (!text) return;
+    const btn = el ? el.nextElementSibling : null;
+    if (btn) btn.disabled = true;
+    try {
+      const res = await fetch('/send', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ text, recipient }),
+      });
+      if (res.ok) {
+        if (el) el.value = '';
+      } else {
+        const err = await res.json().catch(() => ({ error: 'Unknown error' }));
+        alert('Send failed: ' + (err.error || res.status));
+      }
+    } catch (err) {
+      alert('Network error: ' + err.message);
+    } finally {
+      if (btn) btn.disabled = false;
+    }
+  }
+
+  async function spawnAgent(name) {
+    if (!confirm(`Spawn agent "${name}"?`)) return;
+    try {
+      const res = await fetch('/spawn', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name }),
+      });
+      const data = await res.json();
+      if (!res.ok) alert('Spawn failed: ' + (data.error || res.status));
+    } catch (err) {
+      alert('Network error: ' + err.message);
+    }
+  }
+
+  async function shutdownAgent(name) {
+    if (!confirm(`Shutdown agent "${name}"? This kills the tmux pane.`)) return;
+    try {
+      const res = await fetch('/shutdown', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name }),
+      });
+      const data = await res.json();
+      if (!res.ok) alert('Shutdown failed: ' + (data.error || res.status));
+    } catch (err) {
+      alert('Network error: ' + err.message);
+    }
+  }
+
+  // ── SSE connection ───────────────────────────────────────────────────────
+  const statusBadge = document.getElementById('status-badge');
+  let reconnectTimer = null;
+
+  function setStatus(state) {
+    statusBadge.className = state;
+    statusBadge.textContent = { connected: '● Live', disconnected: '○ Disconnected', reconnecting: '◌ Reconnecting…' }[state] || state;
+  }
+
+  function connect() {
+    const es = new EventSource('/sse');
+
+    es.addEventListener('update', (e) => {
+      setStatus('connected');
+      try {
+        const data = JSON.parse(e.data);
+        if (data.type === 'reload') { window.location.reload(); return; }
+        if (data.commonPrompt) lastCommonPrompt = data.commonPrompt;
+        if (data.claudeMd) lastClaudeMd = data.claudeMd;
+        if (data.memoryMd) lastMemoryMd = data.memoryMd;
+        if (data.agentScratchpads) lastAgentScratchpads = data.agentScratchpads;
+        if (Array.isArray(data.docs)) {
+          const prevIds = new Set(lastDocs.map(d => d.id));
+          const newDocs = data.docs.filter(d => !prevIds.has(d.id) && !closedDocIds.has(d.id));
+          lastDocs = data.docs.filter(d => !closedDocIds.has(d.id));
+          // Prune closedDocIds: remove ids server no longer sends (DELETE confirmed)
+          closedDocIds = new Set([...closedDocIds].filter(id => data.docs.some(d => d.id === id)));
+          // Auto-select the newest newly-added doc
+          if (newDocs.length > 0) {
+            renderDocTabs();
+            showDocTab(newDocs[newDocs.length - 1].id);
+          } else {
+            renderDocTabs();
+          }
+        }
+        renderLeft(data.agents, data.messages, data.tasks, data.health);
+        renderRight(data.tasks, data.github || null);
+        // Refresh agent detail live (isActive may flip between ticks)
+        if (currentDetail?.type === 'agent') {
+          const updated = (data.agents || []).find(a => a.name === currentDetail.data.name);
+          if (updated) {
+            currentDetail.data = updated;
+            // Save textarea focus + cursor so user can type without interruption
+            const ta = document.getElementById('agent-dm-text');
+            const hadFocus = ta && document.activeElement === ta;
+            const selStart = ta?.selectionStart ?? 0;
+            const selEnd   = ta?.selectionEnd   ?? 0;
+            const taValue  = ta?.value          ?? '';
+            // Save <details> open/closed state before re-render
+            const detailsState = {};
+            for (const d of document.querySelectorAll('#detail-panel details[id]')) {
+              detailsState[d.id] = d.open;
+            }
+            renderDetailContent('agent', updated);
+            // Restore <details> open/closed state
+            for (const [id, wasOpen] of Object.entries(detailsState)) {
+              const el = document.getElementById(id);
+              if (el) el.open = wasOpen;
+            }
+            // Restore content + focus + cursor position
+            if (hadFocus) {
+              const newTa = document.getElementById('agent-dm-text');
+              if (newTa) {
+                newTa.value = taValue;
+                newTa.focus();
+                newTa.setSelectionRange(selStart, selEnd);
+              }
+            }
+          }
+        }
+      } catch (err) {
+        console.error('Parse error:', err);
+      }
+    });
+
+    es.onopen = () => {
+      setStatus('connected');
+      if (reconnectTimer) { clearTimeout(reconnectTimer); reconnectTimer = null; }
+    };
+
+    es.onerror = () => {
+      es.close();
+      setStatus('reconnecting');
+      reconnectTimer = setTimeout(connect, 3000);
+    };
+  }
+
+  connect();
+
+</script>
+</body>
+</html>
