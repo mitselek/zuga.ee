@@ -87,6 +87,16 @@ if (page.data.slug) {
   currentSlug = page.data.slug.split('/').pop() || page.data.slug;
 }
 
+// Compute alternate language URL for hreflang
+const altLang = page.data.language === 'et' ? 'en' : 'et';
+const translation = page.data.translated?.find((t: { language: string }) => t.language === altLang);
+const categoryUrls: Record<string, Record<string, string>> = {
+  etendused: { en: 'performances', et: 'etendused' },
+  workshopid: { en: 'workshops', et: 'workshopid' },
+};
+const altCategoryUrl = categoryUrls[page.data.category]?.[altLang] || page.data.category;
+const alternateUrl = translation ? `/${altLang}/${altCategoryUrl}/${translation.slug}` : undefined;
+
 // Section titles based on language
 const sectionTitles = {
   audio: page.data.language === 'et' ? 'Helid' : 'Audio',
@@ -100,6 +110,7 @@ const sectionTitles = {
   description={page.data.description}
   language={page.data.language}
   ogImage={page.data.hero_image}
+  alternateUrl={alternateUrl}
 >
   <LanguageSwitcher
     slot="language-switcher"

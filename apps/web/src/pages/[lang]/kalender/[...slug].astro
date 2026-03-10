@@ -200,6 +200,14 @@ if (slug === 'tulemas' || slug === 'upcoming') {
 
 // Events are now grouped by EventList component
 
+// Compute alternate language URL for hreflang
+const altLang = currentLang === 'et' ? 'en' : 'et';
+const altCalendarSlug = altLang === 'et' ? 'kalender' : 'calendar';
+let altSubSlug = slug;
+if (slug === 'tulemas' || slug === 'upcoming') altSubSlug = altLang === 'et' ? 'tulemas' : 'upcoming';
+else if (slug === 'olnud' || slug === 'past') altSubSlug = altLang === 'et' ? 'olnud' : 'past';
+const alternateUrl = altSubSlug ? `/${altLang}/${altCalendarSlug}/${altSubSlug}` : `/${altLang}/${altCalendarSlug}/`;
+
 ---
 
 <BaseLayout
@@ -207,6 +215,7 @@ if (slug === 'tulemas' || slug === 'upcoming') {
   description={pageData.data.description}
   language={pageData.data.language}
   ogImage={pageData.data.hero_image}
+  alternateUrl={alternateUrl}
 >
   <LanguageSwitcher
     slot="language-switcher"

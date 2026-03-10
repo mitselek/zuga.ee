@@ -69,6 +69,21 @@ const detailPages = allPages.filter(p =>
 
 // Extract slug for LanguageSwitcher
 const currentSlug = page.data.slug || page.id.replace(/^(en|et)\//, '').replace(/\.md$/, '');
+
+// Compute alternate language URL for hreflang
+const altLang = page.data.language === 'et' ? 'en' : 'et';
+const translation = page.data.translated?.find((t: { language: string }) => t.language === altLang);
+const categoryUrls: Record<string, Record<string, string>> = {
+  etendused: { en: 'performances', et: 'etendused' },
+  workshopid: { en: 'workshops', et: 'workshopid' },
+};
+const subcategoryUrls: Record<string, Record<string, string>> = {
+  'noorele-publikule': { en: 'for-young-audiences', et: 'noorele-publikule' },
+  'suurtele': { en: 'for-adults', et: 'suurtele' },
+};
+const altCategoryUrl = categoryUrls[page.data.category]?.[altLang] || page.data.category;
+const altSubcategoryUrl = subcategoryUrls[page.data.subcategory]?.[altLang] || page.data.subcategory;
+const alternateUrl = translation ? `/${altLang}/${altCategoryUrl}/${altSubcategoryUrl}` : undefined;
 ---
 
 <BaseLayout
@@ -76,6 +91,7 @@ const currentSlug = page.data.slug || page.id.replace(/^(en|et)\//, '').replace(
   description={page.data.description}
   language={page.data.language}
   ogImage={page.data.hero_image}
+  alternateUrl={alternateUrl}
 >
   <LanguageSwitcher
     slot="language-switcher"

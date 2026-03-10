@@ -67,6 +67,11 @@ if (redirect) {
 
 const { Content } = await page.render();
 const currentSlug = page.id.replace(/^(en|et)\//, '').replace(/\.md$/, '');
+
+// Compute alternate language URL for hreflang
+const altLang = page.data.language === 'et' ? 'en' : 'et';
+const translation = page.data.translated?.find((t: { language: string }) => t.language === altLang);
+const alternateUrl = translation ? `/${altLang}/${translation.slug}` : undefined;
 ---
 
 <BaseLayout
@@ -74,6 +79,7 @@ const currentSlug = page.id.replace(/^(en|et)\//, '').replace(/\.md$/, '');
   description={page.data.description}
   language={page.data.language}
   ogImage={page.data.hero_image}
+  alternateUrl={alternateUrl}
 >
   <LanguageSwitcher
     slot="language-switcher"

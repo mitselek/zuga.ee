@@ -9,9 +9,11 @@ interface Props {
   language: string;
   ogImage?: string;
   isHomepage?: boolean;
+  alternateUrl?: string;
 }
 
-const { title, description, language, ogImage, isHomepage = false } = Astro.props;
+const { title, description, language, ogImage, isHomepage = false, alternateUrl } = Astro.props;
+const alternateLang = language === 'et' ? 'en' : 'et';
 const defaultDescription = language === 'et'
   ? 'Kaasaegne teater lastele ja täiskasvanutele'
   : 'Contemporary theatre for children and adults';
@@ -32,6 +34,12 @@ const defaultOgImage = `${siteUrl}/og-image.jpg`;
     <meta name="description" content={pageDescription} />
     <meta name="author" content={language === 'et' ? 'Zuga Ühendatud Tantsijad' : 'United Dancers of ZUGA'} />
     <link rel="canonical" href={currentUrl} />
+
+    <!-- Hreflang alternates for bilingual SEO -->
+    <link rel="alternate" hreflang={language} href={currentUrl} />
+    {alternateUrl && (
+      <link rel="alternate" hreflang={alternateLang} href={`${siteUrl}${alternateUrl}`} />
+    )}
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
