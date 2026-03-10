@@ -10,7 +10,7 @@ order: 2
 status: published
 original_url: https://www.zuga.ee/en/performances-for-young-audiences
 page_type: landing
-hero_image: /images/noorele-publikule-bg.png
+hero_image: /images/noorele-publikule-bg.webp
 gallery:
 - url: https://lh6.googleusercontent.com/mJFViQ47bnoEp8oV3TFrBl7V7DYZee-5KS09iH8jptT1JiHODyd2h5Dy8m6Py4fKqlAnt2ZQ7m-r-mhIajFDH0-z1IeM6id4GCij8ruAOB3BdKQzSI8l96FjTDXjGpeBWw=w1280
   width: 1280

@@ -10,7 +10,7 @@ order: 1
 status: published
 original_url: https://www.zuga.ee/en/performances-for-adults
 page_type: landing
-hero_image: /images/suurtele-bg.png
+hero_image: /images/suurtele-bg.webp
 gallery:
 - url: https://lh4.googleusercontent.com/hytlhv6sEQB5sw7qXqn_nPWdUXl6OQPV3dW_rxq2j10OmDzANiUuYPQ1ZWf2qyN8zNGl_tUoBLfxpDCHYusghPPKPx9LEDq3jjkVeaiF2tLy-62_Sg1dV7udRw5kO5t56w=w1280
   width: 1280

@@ -8,7 +8,7 @@ category: etendused
 subcategory: suurtele
 status: published
 page_type: performance
-hero_image: /images/naine-ja-hunt-hero.png
+hero_image: /images/naine-ja-hunt-hero.webp
 videos:
   - platform: err
     title: Tour de danse - Naine ja Hunt

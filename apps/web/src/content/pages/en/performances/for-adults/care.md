@@ -6,7 +6,7 @@ type: detail
 category: etendused
 subcategory: suurtele
 status: published
-hero_image: /images/etendused-hool-hero.png
+hero_image: /images/etendused-hool-hero.webp
 translated:
 - language: et
   slug: hool

@@ -10,7 +10,7 @@ order: 2
 status: published
 original_url: https://www.zuga.ee/et/etendused-noorele-publikule
 page_type: landing
-hero_image: /images/noorele-publikule-bg.png
+hero_image: /images/noorele-publikule-bg.webp
 videos:
   - platform: youtube
     title: Zuga video tervitus

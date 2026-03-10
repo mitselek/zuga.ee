@@ -9,7 +9,7 @@ order: 100
 status: published
 original_url: https://www.zuga.ee/et/workshopid
 page_type: landing
-hero_image: /images/workshopid-bg.png
+hero_image: /images/workshopid-bg.webp
 videos:
   - platform: youtube
     title: Zuga video tervitus

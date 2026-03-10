@@ -7,7 +7,7 @@ category: about
 status: published
 original_url: https://www.zuga.ee/et/index
 page_type: landing
-hero_image: /images/hero-bg.png
+hero_image: /images/hero-bg.webp
 videos:
   - platform: youtube
     title: Zuga video tervitus
