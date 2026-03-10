@@ -8,6 +8,7 @@ import VideoEmbed from '../../../components/VideoEmbed.astro';
 import AudioEmbed from '../../../components/AudioEmbed.astro';
 import ShowingsList from '../../../components/ShowingsList.astro';
 import { getCategoryUrl } from '../../../utils/routes';
+import { getVenue, getVenueName } from '../../../utils/venues';
 
 export async function getStaticPaths() {
   const pages = await getCollection('pages', ({ data }) => {
@@ -72,6 +73,63 @@ const sectionTitles = {
   gallery: page.data.language === 'et' ? 'Pildid' : 'Gallery',
   video: page.data.language === 'et' ? 'Videod' : 'Videos',
 };
+
+// Build DanceEvent JSON-LD for pages with showings or premiere
+const eventDates: Array<{ date: string; time?: string; venue_id?: string }> = [];
+if (page.data.premiere?.date) {
+  eventDates.push({
+    date: page.data.premiere.date,
+    time: page.data.premiere.time,
+    venue_id: page.data.premiere.venue_id,
+  });
+}
+if (page.data.showings) {
+  for (const showing of page.data.showings) {
+    eventDates.push({
+      date: showing.date,
+      time: showing.time,
+      venue_id: showing.venue_id || page.data.premiere?.venue_id,
+    });
+  }
+}
+
+const siteUrl = 'https://zuga.ee';
+const eventJsonLdItems = eventDates.map(ed => {
+  const startDate = ed.time ? `${ed.date}T${ed.time}:00+02:00` : ed.date;
+  const venue = ed.venue_id ? getVenue(ed.venue_id) : undefined;
+  const location = venue ? {
+    "@type": "Place" as const,
+    "name": getVenueName(ed.venue_id!, page.data.language as 'et' | 'en'),
+    "address": {
+      "@type": "PostalAddress" as const,
+      "streetAddress": venue.address.street,
+      "addressLocality": venue.address.city,
+      "addressCountry": venue.address.country,
+    },
+  } : undefined;
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "DanceEvent",
+    "name": page.data.title,
+    "description": page.data.description,
+    "startDate": startDate,
+    "image": page.data.hero_image ? `${siteUrl}${page.data.hero_image}` : undefined,
+    "url": `${siteUrl}${Astro.url.pathname}`,
+    ...(location && { location }),
+    "performer": {
+      "@type": "PerformingGroup",
+      "name": page.data.language === 'et' ? 'Zuga Ühendatud Tantsijad' : 'United Dancers of ZUGA',
+    },
+    ...(page.data.tickets?.platforms?.[0]?.url && {
+      "offers": {
+        "@type": "Offer",
+        "url": page.data.tickets.platforms[0].url,
+        "availability": page.data.tickets.on_sale ? "https://schema.org/InStock" : "https://schema.org/SoldOut",
+      },
+    }),
+  };
+});
 ---
 
 <BaseLayout
@@ -81,6 +139,10 @@ const sectionTitles = {
   ogImage={page.data.hero_image}
   alternateUrl={alternateUrl}
 >
+  {eventJsonLdItems.map(item => (
+    <script slot="json-ld" type="application/ld+json" set:html={JSON.stringify(item)} />
+  ))}
+
   <LanguageSwitcher
     slot="language-switcher"
     currentLang={page.data.language}
