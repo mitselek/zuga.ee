@@ -4,16 +4,30 @@ interface Props {
   subtitle?: string;
   type?: string;
   imageUrl?: string;
+  videoUrl?: string;
 }
 
-const { title, subtitle, type, imageUrl } = Astro.props;
+const { title, subtitle, type, imageUrl, videoUrl } = Astro.props;
 ---
 
 <div
-  class="relative -mx-4 sm:-mx-6 lg:-mx-8 mb-12"
-  style={imageUrl ? `background-image: url('${imageUrl}'); background-size: cover; background-position: center;` : 'background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);'}
+  class="relative -mx-4 sm:-mx-6 lg:-mx-8 mb-12 overflow-hidden"
+  style={!videoUrl && imageUrl ? `background-image: url('${imageUrl}'); background-size: cover; background-position: center;` : !videoUrl ? 'background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);' : 'background-color: black;'}
 >
-  {imageUrl && (
+  {videoUrl && (
+    <video
+      class="absolute inset-0 w-full h-full object-cover"
+      autoplay
+      muted
+      loop
+      playsinline
+      poster={imageUrl}
+    >
+      <source src={videoUrl} type="video/mp4" />
+    </video>
+  )}
+
+  {(imageUrl || videoUrl) && (
     <div class="absolute inset-0 bg-gradient-to-b from-slate-900/70 to-slate-900/50"></div>
   )}
   <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24">

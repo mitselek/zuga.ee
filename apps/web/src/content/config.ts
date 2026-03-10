@@ -67,6 +67,7 @@ const pagesCollection = defineCollection({
 
     // Media fields
     hero_image: z.string().optional(),
+    hero_video: z.string().optional(),
     background_color: z.string().optional(), // Custom background color (CSS color value)
     gallery: z.array(z.object({
       url: z.string(),

@@ -29,10 +29,6 @@ premiere:
   time: "19:00"
   venue_id: stl
 showings:
-  - date: "2026-03-18"
-    time: "11:00"
-  - date: "2026-03-18"
-    time: "13:00"
   - date: "2026-03-19"
     time: "11:00"
   - date: "2026-03-19"
@@ -83,7 +79,7 @@ knowledge_base_sources:
 
 # What's wrong with you?!
 
-**Premieres:** March 18-21, 2026, Sõltumatu Tantsu Lava
+**Premieres:** March 19-21, 2026, Sõltumatu Tantsu Lava
 
 Zuga's new performance takes on mental health. Like a large and sensitive animal, it lives in our home, in our room, under our blanket, in our head. What does it want from us? What does it need? What's wrong with it?
 

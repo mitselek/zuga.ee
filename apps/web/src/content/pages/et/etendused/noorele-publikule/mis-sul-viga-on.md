@@ -30,10 +30,6 @@ premiere:
   time: "19:00"
   venue_id: stl
 showings:
-  - date: "2026-03-18"
-    time: "11:00"
-  - date: "2026-03-18"
-    time: "13:00"
   - date: "2026-03-19"
     time: "11:00"
   - date: "2026-03-19"
@@ -84,7 +80,7 @@ knowledge_base_sources:
 
 # Mis sul viga on?
 
-**Esietendused:** 18. - 21. märtsil 2026 Sõltumatu Tantsu Laval
+**Esietendused:** 19. - 21. märtsil 2026 Sõltumatu Tantsu Laval
 
 Zuga uus lavastus võtab kampa vaimse tervise. Nagu suur ja tundlik loom, elab ta meie kodus, meie toas, meie teki all, meie peas. Mis ta tahab meist? Mida ta vajab? Mis tal viga on?
 
