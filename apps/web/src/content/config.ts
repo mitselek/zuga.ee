@@ -65,6 +65,14 @@ const pagesCollection = defineCollection({
     original_url: z.string().url().optional(),
     order: z.number().optional(), // Manual ordering for subsections
 
+    // Performance/workshop info fields
+    duration: z.union([z.number().positive(), z.string()]).optional(), // Minutes (number) or range (e.g. "15-20")
+    age_recommendation: z.string().optional(), // e.g. "6-13", "10+", "4+"
+    collaboration: z.union([z.string(), z.array(z.string())]).optional(), // Collaborating organizations
+    related_exhibition: z.string().optional(), // Related exhibition title
+    credits: z.record(z.union([z.string(), z.array(z.string())])).optional(), // Production credits (freeform roles)
+    awards: z.array(z.string()).optional(), // Awards and nominations
+
     // Media fields
     hero_image: z.string().optional(),
     hero_video: z.string().optional(),
@@ -222,6 +230,12 @@ const pagesCollection = defineCollection({
           )
           .optional()
           .describe('Ticket pricing tiers'),
+        school_groups: z
+          .object({
+            url: z.string().url('School groups booking URL must be a valid URL'),
+          })
+          .optional()
+          .describe('School group booking link'),
       })
       .optional()
       .describe('Ticket sales and pricing information'),
