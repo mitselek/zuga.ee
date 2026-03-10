@@ -12,6 +12,14 @@
 
 [LEARNED 2026-03-10] Knowledge-base venues: 7 venue files (stl, kanuti-gildi-saal, kumu, rakvere-teater, rapla-vesiroosi-kool, soltumatu-tantsu-lava, tyri-kultuurikeskus). `venue_id` in showings can be validated against these.
 
-[GOTCHA 2026-03-10] `duration` and `age_recommendation` fields appear in workshop markdown files but are NOT in the Zod schema in `config.ts`. These will currently be silently ignored (or cause Zod to fail if schema is strict). Worth flagging.
+[GOTCHA 2026-03-10] `duration` and `age_recommendation` etc. were missing from Zod schema — fixed in issue #67 (commit a3c4076). Schema now includes: duration, age_recommendation, collaboration, credits, awards, related_exhibition, tickets.school_groups.
+
+[GOTCHA 2026-03-10] `credits` field is entirely freeform — different files use different subkeys. Schema uses `z.record()` to allow any string key with string|array value.
+
+[GOTCHA 2026-03-10] `collaboration` is inconsistent: sometimes string, sometimes array. `duration` sometimes number, sometimes string range ("15-20"). Both handled with z.union().
+
+[GOTCHA 2026-03-10] `price` and `dates` fields exist in some workshop files but NOT added to schema (not in issue spec). May cause silent stripping.
+
+[PATTERN 2026-03-10] Broken translated slugs used old path-based format (etendused-noorele-publikule-X) instead of simple filename slug (X). 7 links fixed in issue #65 (commit 69dddc9).
 
 [DECISION 2026-03-10] Test strategy proposal sent to team-lead. Proposed 4-phase incremental approach. Phase 1 is this week: vitest setup + schema smoke tests + bilingual pairing check.

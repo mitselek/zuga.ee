@@ -42,4 +42,6 @@
 
 [LEARNED] 2026-03-10 — Showings without venue_id: mis-sul-viga-on has 10 showings without venue_id (all implied STL: 2026-03-19 x2, 2026-03-20, 2026-03-21, and 2026-05-20 x2, 2026-05-21 x2, 2026-05-22 x2). Premiere has stl set so ShowingsList would use defaultVenueId for those at STL.
 
+[DEFERRED] 2026-03-10 — og-image.jpg uses meist-bg.jpg cropped to 1200x630 but top edge is slightly awkward (head/text slightly cropped). Functional for now (#66 closed), but a purpose-composed horizontal OG image would be better long-term.
+
 [DEFERRED] 2026-03-10 — Many performances have no premiere at all (habi, hool, mura, naine-ja-hunt, meelekolu, zugazuugzuh-zuh-zuh, uperpall on ET side; shame, woman-and-wolf, care, noise, inthemood, zugazuugzuh on EN side). These are older performances - probably intentional but adds calendar incompleteness.
